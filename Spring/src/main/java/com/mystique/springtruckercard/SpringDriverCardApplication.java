@@ -7,10 +7,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
-public class SpringTruckercardApplication {
+public class SpringDriverCardApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringTruckercardApplication.class, args);
+        SpringApplication.run(SpringDriverCardApplication.class, args);
     }
 
 

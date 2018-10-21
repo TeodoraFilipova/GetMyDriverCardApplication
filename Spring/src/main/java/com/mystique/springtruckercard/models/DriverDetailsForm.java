@@ -1,6 +1,6 @@
 package com.mystique.springtruckercard.models;
 
-public class TrackerForm {
+public class DriverDetailsForm {
 
     private String firstName;
     private String lastName;

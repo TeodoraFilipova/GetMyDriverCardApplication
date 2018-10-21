@@ -6,15 +6,15 @@ public class CardApplicationForm {
     //table "applications"
     private int applicationId;
     //table "trucker"
-    private int truckerId;
+    private int driverId;
     private String personalNumber;
     private String firstName;
     private String lastName;
     private Date dateOfBirth;
-    private String truckerAddress;
+    private String driverAddress;
     private String phoneNumber;
-    private String truckerEmail;
-    private int truckerSelfieId;
+    private String driverEmail;
+    private int driverSelfieId;
     private int drivingPicId;
     //table "applications"
     private Date dateOfSubmission;
@@ -23,7 +23,7 @@ public class CardApplicationForm {
     private String paymentInformation;
     private int signaturePicId;
     //table "pictures"
-    private byte[] truckerSelfie;
+    private byte[] driverSelfie;
     private byte[] drivingPic;
     private byte[] signaturePic;
 

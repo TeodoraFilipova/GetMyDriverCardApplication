@@ -1,8 +1,8 @@
 package com.mystique.springtruckercard.repositories;
 
 import com.mystique.springtruckercard.models.CardApplicationForm;
+import com.mystique.springtruckercard.models.DriverDetailsForm;
 import com.mystique.springtruckercard.models.Picture;
-import com.mystique.springtruckercard.models.TrackerForm;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
@@ -47,7 +47,7 @@ public class SqlCardApplicationRepository implements CardApplicationRepository {
     }
 
     @Override
-    public void updateCardApplicaton(int id, CardApplicationForm cardApplicationForm) {
+    public void updateCardApplication(int id, CardApplicationForm cardApplicationForm) {
         try (
                 Session session = sessionFactory.openSession();
         ) {
@@ -63,13 +63,13 @@ public class SqlCardApplicationRepository implements CardApplicationRepository {
     }
 
     @Override
-    public TrackerForm getTrackerByID(int id) {
-        TrackerForm result = null;
+    public DriverDetailsForm getDriverByID(int id) {
+        DriverDetailsForm result = null;
         try (
                 Session session = sessionFactory.openSession();
         ) {
             session.beginTransaction();
-            result = session.get(TrackerForm.class, id);
+            result = session.get(DriverDetailsForm.class, id);
             session.getTransaction().commit();
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -79,17 +79,17 @@ public class SqlCardApplicationRepository implements CardApplicationRepository {
     }
 
     @Override
-    public void updateTrackerForm(int id, TrackerForm tracker) {
+    public void updateDriverDetailsForm(int id, DriverDetailsForm truckDriver) {
         try (
                 Session session = sessionFactory.openSession();
         ) {
             session.beginTransaction();
-            TrackerForm trakerFormToChange = session.get(TrackerForm.class, id);
+            DriverDetailsForm trakerFormToChange = session.get(DriverDetailsForm.class, id);
 
-            // field names should be changed in TrackerForm, according to DB
-            trakerFormToChange.setFirstName(tracker.getFirstName());
-            trakerFormToChange.setLastName(tracker.getLastName());
-            trakerFormToChange.setAddress(tracker.getAddress());
+            // field names should be changed in DriverDetailsForm, according to DB
+            trakerFormToChange.setFirstName(truckDriver.getFirstName());
+            trakerFormToChange.setLastName(truckDriver.getLastName());
+            trakerFormToChange.setAddress(truckDriver.getAddress());
 
             session.getTransaction().commit();
         } catch (Exception e) {
@@ -101,12 +101,12 @@ public class SqlCardApplicationRepository implements CardApplicationRepository {
     }
 
     @Override
-    public void addNewTrackerDetails(TrackerForm tracker) {
+    public void addNewDriverDetails(DriverDetailsForm truckDriver) {
         try (
                 Session session = sessionFactory.openSession();
         ) {
             session.beginTransaction();
-            session.save(tracker);
+            session.save(truckDriver);
             session.getTransaction().commit();
         } catch (Exception e) {
             System.out.println(e.getMessage());

@@ -1,8 +1,8 @@
 package com.mystique.springtruckercard.repositories;
 
 import com.mystique.springtruckercard.models.CardApplicationForm;
+import com.mystique.springtruckercard.models.DriverDetailsForm;
 import com.mystique.springtruckercard.models.Picture;
-import com.mystique.springtruckercard.models.TrackerForm;
 
 import java.util.List;
 
@@ -12,19 +12,18 @@ public interface CardApplicationRepository {
 
     CardApplicationForm getCardApplicationsByID(int id);
 
-    void updateCardApplicaton(int id, CardApplicationForm cardApplicationForm);
+    void updateCardApplication(int id, CardApplicationForm cardApplicationForm);
 
-    // it we need tracker from CardAppForm
-    TrackerForm getTrackerByID(int id);
+    // if we need driver from CardAppForm
+    DriverDetailsForm getDriverByID(int id);
 
-    void updateTrackerForm(int id, TrackerForm tracker);
+    void updateDriverDetailsForm(int id, DriverDetailsForm driver);
 
-    void addNewTrackerDetails(TrackerForm tracker);
+    void addNewDriverDetails(DriverDetailsForm driver);
 
-    // it we need picture from CardAppForm
+    // if we need picture from CardAppForm
     Picture getPictureByID(int id);
 
     void addNewPicture(Picture picture);
-
 
 }
