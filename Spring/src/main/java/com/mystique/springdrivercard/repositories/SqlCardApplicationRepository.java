@@ -1,8 +1,8 @@
-package com.mystique.springtruckercard.repositories;
+package com.mystique.springdrivercard.repositories;
 
-import com.mystique.springtruckercard.models.CardApplicationForm;
-import com.mystique.springtruckercard.models.DriverDetailsForm;
-import com.mystique.springtruckercard.models.Picture;
+import com.mystique.springdrivercard.models.CardApplicationForm;
+import com.mystique.springdrivercard.models.DriverDetailsForm;
+import com.mystique.springdrivercard.models.Picture;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 

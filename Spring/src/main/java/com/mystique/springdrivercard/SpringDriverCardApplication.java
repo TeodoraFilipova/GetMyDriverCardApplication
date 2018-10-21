@@ -1,6 +1,6 @@
-package com.mystique.springtruckercard;
+package com.mystique.springdrivercard;
 
-import com.mystique.springtruckercard.models.CardApplicationForm;
+import com.mystique.springdrivercard.models.CardApplicationForm;
 import org.hibernate.SessionFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

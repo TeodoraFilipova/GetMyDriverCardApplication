@@ -1,4 +1,4 @@
-package com.mystique.springtruckercard;
+package com.mystique.springdrivercard;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

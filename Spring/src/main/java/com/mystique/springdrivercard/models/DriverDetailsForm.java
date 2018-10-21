@@ -1,4 +1,4 @@
-package com.mystique.springtruckercard.models;
+package com.mystique.springdrivercard.models;
 
 public class DriverDetailsForm {
 
