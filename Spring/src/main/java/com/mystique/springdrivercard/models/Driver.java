@@ -1,6 +1,6 @@
 package com.mystique.springdrivercard.models;
 
-public class DriverDetailsForm {
+public class Driver {
 
     private String firstName;
     private String lastName;

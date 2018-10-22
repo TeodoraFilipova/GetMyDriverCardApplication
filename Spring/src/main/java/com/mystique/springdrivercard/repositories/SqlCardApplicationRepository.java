@@ -1,7 +1,7 @@
 package com.mystique.springdrivercard.repositories;
 
 import com.mystique.springdrivercard.models.CardApplicationForm;
-import com.mystique.springdrivercard.models.DriverDetailsForm;
+import com.mystique.springdrivercard.models.Driver;
 import com.mystique.springdrivercard.models.Picture;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -63,13 +63,13 @@ public class SqlCardApplicationRepository implements CardApplicationRepository {
     }
 
     @Override
-    public DriverDetailsForm getDriverByID(int id) {
-        DriverDetailsForm result = null;
+    public Driver getDriverByID(int id) {
+        Driver result = null;
         try (
                 Session session = sessionFactory.openSession();
         ) {
             session.beginTransaction();
-            result = session.get(DriverDetailsForm.class, id);
+            result = session.get(Driver.class, id);
             session.getTransaction().commit();
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -79,14 +79,14 @@ public class SqlCardApplicationRepository implements CardApplicationRepository {
     }
 
     @Override
-    public void updateDriverDetailsForm(int id, DriverDetailsForm truckDriver) {
+    public void updateDriverDetailsForm(int id, Driver truckDriver) {
         try (
                 Session session = sessionFactory.openSession();
         ) {
             session.beginTransaction();
-            DriverDetailsForm trakerFormToChange = session.get(DriverDetailsForm.class, id);
+            Driver trakerFormToChange = session.get(Driver.class, id);
 
-            // field names should be changed in DriverDetailsForm, according to DB
+            // field names should be changed in Driver, according to DB
             trakerFormToChange.setFirstName(truckDriver.getFirstName());
             trakerFormToChange.setLastName(truckDriver.getLastName());
             trakerFormToChange.setAddress(truckDriver.getAddress());
@@ -101,7 +101,7 @@ public class SqlCardApplicationRepository implements CardApplicationRepository {
     }
 
     @Override
-    public void addNewDriverDetails(DriverDetailsForm truckDriver) {
+    public void addNewDriverDetails(Driver truckDriver) {
         try (
                 Session session = sessionFactory.openSession();
         ) {
