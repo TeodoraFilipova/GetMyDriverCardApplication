@@ -8,11 +8,11 @@ import java.util.Date;
 public class CardApplicationForm {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ApplicationID")
-    private int applicationId;
+    @Column(name = "cardapplicationformID")
+    private int cardApplicationFormId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "DriverID")
+    @JoinColumn(name = "driverID")
     private Driver driver;
 
     @Column(name = "DateOfSubmission")
@@ -27,10 +27,125 @@ public class CardApplicationForm {
     @Column(name = "PaymentInformation")
     private String paymentInformation;
 
+    @Column(name = "DrivingLicenseNumber")
+    private String drivingLicenseNumber;
+
+    @Column(name = "DrivingLicenseCountry")
+    private String drivingLicenseCountry;
+
+    @Column(name = "DateOfEvent")
+    private Date dateOfEvent;
+
+    @Column(name = "PlaceOfEvent")
+    private String placeOfEvent;
+
+    @OneToOne
+    @JoinColumn(name = "OldCardPicID")
+    private Picture oldCardPicture;
+
+    @Column(name = "OldCardCountry")
+    private String oldCardCountry;
+
+    @Column(name = "OldCardAuthority")
+    private String oldCardAuthority;
+
+    @Column(name = "OldCardNumber")
+    private String oldCardNumber;
+
+    @Column(name = "OldCardDateOfExpiry")
+    private Date oldCardDateOfExpiry;
+
+    @Column(name = "NewAddress")
+    private String newAddress;
+
+    @Column(name = "NewFirstName")
+    private String newFirstName;
+
+    @Column(name = "NewLastName")
+    private String newLastName;
+
+    @OneToOne
+    @JoinColumn(name = "NewSelfieID")
+    private Picture newSelfie;
+
+    @Column(name = "RenewalReason")
+    private String renewalReason;
+
     @OneToOne
     @JoinColumn(name = "SignaturePicID")
     private Picture signaturePicture;
 
+    // Constructors
+    public CardApplicationForm() {
+        //default empty for DB
+    }
+
+    // First application for a new card
+    public CardApplicationForm(Driver driver, Date dateOfSubmission, String status, String type,
+                               String paymentInformation, Picture signaturePicture) {
+        this.driver = driver;
+        this.dateOfSubmission = dateOfSubmission;
+        this.status = status;
+        this.type = type;
+        this.paymentInformation = paymentInformation;
+        this.signaturePicture = signaturePicture;
+    }
+
+    // Exchanging EU for BG card
+    public CardApplicationForm(Driver driver, Date dateOfSubmission, String status, String type,
+                               String paymentInformation, String oldCardCountry, String oldCardNumber,
+                               String drivingLicenseCountry, String drivingLicenseNumber,
+                               Picture oldCardPicture, Picture signaturePicture) {
+        this.driver = driver;
+        this.dateOfSubmission = dateOfSubmission;
+        this.status = status;
+        this.type = type;
+        this.paymentInformation = paymentInformation;
+        this.oldCardCountry = oldCardCountry;
+        this.oldCardNumber = oldCardNumber;
+        this.drivingLicenseCountry = drivingLicenseCountry;
+        this.drivingLicenseNumber = drivingLicenseNumber;
+        this.oldCardPicture = oldCardPicture;
+        this.signaturePicture = signaturePicture;
+    }
+
+    // Replacement loss/theft
+    public CardApplicationForm(Driver driver, Date dateOfSubmission, String status, String type,
+                               String paymentInformation, Date dateOfEvent, String placeOfEvent,
+                               String oldCardCountry, String oldCardNumber,
+                               String drivingLicenseCountry, String drivingLicenseNumber,
+                               String renewalReason, Picture signaturePicture) {
+        this.driver = driver;
+        this.dateOfSubmission = dateOfSubmission;
+        this.status = status;
+        this.type = type;
+        this.paymentInformation = paymentInformation;
+        this.dateOfEvent = dateOfEvent;
+        this.placeOfEvent = placeOfEvent;
+        this.oldCardCountry = oldCardCountry;
+        this.oldCardNumber = oldCardNumber;
+        this.drivingLicenseCountry = drivingLicenseCountry;
+        this.drivingLicenseNumber = drivingLicenseNumber;
+        this.renewalReason = renewalReason;
+        this.signaturePicture = signaturePicture;
+    }
+
+    // Replacement damaged
+
+
+    // Replacement new name
+
+
+    // Replacement new address
+
+
+    // Replacement new selfie
+
+
+    // Renewal
+
+
+    // Getter & Setters
     // methods for changing status in Repository
     public String getStatus() {
         return status;
@@ -38,14 +153,6 @@ public class CardApplicationForm {
 
     public void setStatus(String status) {
         this.status = status;
-    }
-
-    public int getApplicationId() {
-        return applicationId;
-    }
-
-    public void setApplicationId(int applicationId) {
-        this.applicationId = applicationId;
     }
 
     public Driver getDriver() {
@@ -86,5 +193,109 @@ public class CardApplicationForm {
 
     public void setSignaturePicture(Picture signaturePicture) {
         this.signaturePicture = signaturePicture;
+    }
+
+    public int getCardApplicationFormId() {
+        return cardApplicationFormId;
+    }
+
+    public void setCardApplicationFormId(int cardApplicationFormId) {
+        this.cardApplicationFormId = cardApplicationFormId;
+    }
+
+    public Date getDateOfEvent() {
+        return dateOfEvent;
+    }
+
+    public void setDateOfEvent(Date dateOfEvent) {
+        this.dateOfEvent = dateOfEvent;
+    }
+
+    public String getPlaceOfEvent() {
+        return placeOfEvent;
+    }
+
+    public void setPlaceOfEvent(String placeOfEvent) {
+        this.placeOfEvent = placeOfEvent;
+    }
+
+    public Picture getOldCardPicture() {
+        return oldCardPicture;
+    }
+
+    public void setOldCardPicture(Picture oldCardPicture) {
+        this.oldCardPicture = oldCardPicture;
+    }
+
+    public String getOldCardCountry() {
+        return oldCardCountry;
+    }
+
+    public void setOldCardCountry(String oldCardCountry) {
+        this.oldCardCountry = oldCardCountry;
+    }
+
+    public String getOldCardAuthority() {
+        return oldCardAuthority;
+    }
+
+    public void setOldCardAuthority(String oldCardAuthority) {
+        this.oldCardAuthority = oldCardAuthority;
+    }
+
+    public String getOldCardNumber() {
+        return oldCardNumber;
+    }
+
+    public void setOldCardNumber(String oldCardNumber) {
+        this.oldCardNumber = oldCardNumber;
+    }
+
+    public Date getOldCardDateOfExpiry() {
+        return oldCardDateOfExpiry;
+    }
+
+    public void setOldCardDateOfExpiry(Date oldCardDateOfExpiry) {
+        this.oldCardDateOfExpiry = oldCardDateOfExpiry;
+    }
+
+    public String getNewAddress() {
+        return newAddress;
+    }
+
+    public void setNewAddress(String newAddress) {
+        this.newAddress = newAddress;
+    }
+
+    public String getNewFirstName() {
+        return newFirstName;
+    }
+
+    public void setNewFirstName(String newFirstName) {
+        this.newFirstName = newFirstName;
+    }
+
+    public String getNewLastName() {
+        return newLastName;
+    }
+
+    public void setNewLastName(String newLastName) {
+        this.newLastName = newLastName;
+    }
+
+    public Picture getNewSelfie() {
+        return newSelfie;
+    }
+
+    public void setNewSelfie(Picture newSelfie) {
+        this.newSelfie = newSelfie;
+    }
+
+    public String getRenewalReason() {
+        return renewalReason;
+    }
+
+    public void setRenewalReason(String renewalReason) {
+        this.renewalReason = renewalReason;
     }
 }
