@@ -82,19 +82,23 @@ public class CardApplicationForm {
 
     // First application for a new card
     public CardApplicationForm(Driver driver, Date dateOfSubmission, String status, String type,
-                               String paymentInformation, Picture signaturePicture) {
+                               String paymentInformation, String drivingLicenseCountry,
+                               String drivingLicenseNumber, Picture signaturePicture) {
         this.driver = driver;
         this.dateOfSubmission = dateOfSubmission;
         this.status = status;
         this.type = type;
         this.paymentInformation = paymentInformation;
+        this.drivingLicenseCountry = drivingLicenseCountry;
+        this.drivingLicenseNumber = drivingLicenseNumber;
         this.signaturePicture = signaturePicture;
     }
 
     // Exchanging EU for BG card
     public CardApplicationForm(Driver driver, Date dateOfSubmission, String status, String type,
                                String paymentInformation, String oldCardCountry, String oldCardNumber,
-                               String drivingLicenseCountry, String drivingLicenseNumber,
+                               String oldCardAuthority, String drivingLicenseCountry,
+                               String drivingLicenseNumber, Date oldCardDateOfExpiry,
                                Picture oldCardPicture, Picture signaturePicture) {
         this.driver = driver;
         this.dateOfSubmission = dateOfSubmission;
@@ -103,17 +107,20 @@ public class CardApplicationForm {
         this.paymentInformation = paymentInformation;
         this.oldCardCountry = oldCardCountry;
         this.oldCardNumber = oldCardNumber;
+        this.oldCardAuthority = oldCardAuthority;
         this.drivingLicenseCountry = drivingLicenseCountry;
         this.drivingLicenseNumber = drivingLicenseNumber;
+        this.oldCardDateOfExpiry = oldCardDateOfExpiry;
         this.oldCardPicture = oldCardPicture;
         this.signaturePicture = signaturePicture;
     }
 
-    // Replacement loss/theft
+    // Replacement due to loss/theft
     public CardApplicationForm(Driver driver, Date dateOfSubmission, String status, String type,
                                String paymentInformation, Date dateOfEvent, String placeOfEvent,
-                               String oldCardCountry, String oldCardNumber,
+                               String oldCardCountry, String oldCardNumber, String oldCardAuthority,
                                String drivingLicenseCountry, String drivingLicenseNumber,
+                               Date oldCardDateOfExpiry,
                                String renewalReason, Picture signaturePicture) {
         this.driver = driver;
         this.dateOfSubmission = dateOfSubmission;
@@ -124,25 +131,112 @@ public class CardApplicationForm {
         this.placeOfEvent = placeOfEvent;
         this.oldCardCountry = oldCardCountry;
         this.oldCardNumber = oldCardNumber;
+        this.oldCardAuthority = oldCardAuthority;
         this.drivingLicenseCountry = drivingLicenseCountry;
         this.drivingLicenseNumber = drivingLicenseNumber;
+        this.oldCardDateOfExpiry = oldCardDateOfExpiry;
         this.renewalReason = renewalReason;
         this.signaturePicture = signaturePicture;
     }
 
-    // Replacement damaged
-
-
     // Replacement new name
-
+    public CardApplicationForm(Driver driver, Date dateOfSubmission, String status, String type,
+                               String paymentInformation, String oldCardCountry,
+                               String oldCardNumber, String oldCardAuthority,
+                               String drivingLicenseCountry, Date oldCardDateOfExpiry,
+                               String drivingLicenseNumber, String renewalReason,
+                               String newFirstName, String newLastName,
+                               Picture oldCardPicture, Picture signaturePicture) {
+        this.driver = driver;
+        this.dateOfSubmission = dateOfSubmission;
+        this.status = status;
+        this.type = type;
+        this.paymentInformation = paymentInformation;
+        this.oldCardCountry = oldCardCountry;
+        this.oldCardNumber = oldCardNumber;
+        this.oldCardAuthority = oldCardAuthority;
+        this.drivingLicenseCountry = drivingLicenseCountry;
+        this.oldCardDateOfExpiry = oldCardDateOfExpiry;
+        this.drivingLicenseNumber = drivingLicenseNumber;
+        this.renewalReason = renewalReason;
+        this.newFirstName = newFirstName;
+        this.newLastName = newLastName;
+        this.oldCardPicture = oldCardPicture;
+        this.signaturePicture = signaturePicture;
+    }
 
     // Replacement new address
-
+    public CardApplicationForm(Driver driver, Date dateOfSubmission, String status, String type,
+                               String paymentInformation, String oldCardCountry,
+                               String oldCardNumber, String oldCardAuthority,
+                               String drivingLicenseCountry, Date oldCardDateOfExpiry,
+                               String drivingLicenseNumber, String renewalReason,
+                               String newAddress, Picture oldCardPicture,
+                               Picture signaturePicture) {
+        this.driver = driver;
+        this.dateOfSubmission = dateOfSubmission;
+        this.status = status;
+        this.type = type;
+        this.paymentInformation = paymentInformation;
+        this.oldCardCountry = oldCardCountry;
+        this.oldCardNumber = oldCardNumber;
+        this.oldCardAuthority = oldCardAuthority;
+        this.drivingLicenseCountry = drivingLicenseCountry;
+        this.oldCardDateOfExpiry = oldCardDateOfExpiry;
+        this.drivingLicenseNumber = drivingLicenseNumber;
+        this.renewalReason = renewalReason;
+        this.newAddress = newAddress;
+        this.oldCardPicture = oldCardPicture;
+        this.signaturePicture = signaturePicture;
+    }
 
     // Replacement new selfie
+    public CardApplicationForm(Driver driver, Date dateOfSubmission, String status, String type,
+                               String paymentInformation, String oldCardCountry,
+                               String oldCardNumber, String oldCardAuthority,
+                               String drivingLicenseCountry, Date oldCardDateOfExpiry,
+                               String drivingLicenseNumber, String renewalReason,
+                               Picture newSelfie, Picture oldCardPicture,
+                               Picture signaturePicture) {
+        this.driver = driver;
+        this.dateOfSubmission = dateOfSubmission;
+        this.status = status;
+        this.type = type;
+        this.paymentInformation = paymentInformation;
+        this.oldCardCountry = oldCardCountry;
+        this.oldCardNumber = oldCardNumber;
+        this.oldCardAuthority = oldCardAuthority;
+        this.drivingLicenseCountry = drivingLicenseCountry;
+        this.oldCardDateOfExpiry = oldCardDateOfExpiry;
+        this.drivingLicenseNumber = drivingLicenseNumber;
+        this.renewalReason = renewalReason;
+        this.newSelfie = newSelfie;
+        this.oldCardPicture = oldCardPicture;
+        this.signaturePicture = signaturePicture;
+    }
 
-
-    // Renewal
+    // Renewal expired, suspended, damaged, malfunctioning
+    public CardApplicationForm(Driver driver, Date dateOfSubmission, String status, String type,
+                               String paymentInformation, String oldCardCountry,
+                               String oldCardNumber, String oldCardAuthority,
+                               String drivingLicenseCountry, Date oldCardDateOfExpiry,
+                               String drivingLicenseNumber, String renewalReason,
+                               Picture oldCardPicture, Picture signaturePicture) {
+        this.driver = driver;
+        this.dateOfSubmission = dateOfSubmission;
+        this.status = status;
+        this.type = type;
+        this.paymentInformation = paymentInformation;
+        this.oldCardCountry = oldCardCountry;
+        this.oldCardNumber = oldCardNumber;
+        this.oldCardAuthority = oldCardAuthority;
+        this.drivingLicenseCountry = drivingLicenseCountry;
+        this.oldCardDateOfExpiry = oldCardDateOfExpiry;
+        this.drivingLicenseNumber = drivingLicenseNumber;
+        this.renewalReason = renewalReason;
+        this.oldCardPicture = oldCardPicture;
+        this.signaturePicture = signaturePicture;
+    }
 
 
     // Getter & Setters
