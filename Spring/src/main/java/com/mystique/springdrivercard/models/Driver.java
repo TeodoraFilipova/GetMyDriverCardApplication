@@ -40,11 +40,13 @@ public class Driver {
     @Column(name = "Email")
     private String email;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
+    @MapsId
     @JoinColumn(name = "SelfieID")
     private Picture selfie;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
+    @MapsId
     @JoinColumn(name = "DrivingPicID")
     private Picture drivingPic;
 

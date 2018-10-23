@@ -12,7 +12,9 @@ public class Picture {
     @Column(name = "PictureID")
     private int pictureId;
 
-    @OneToOne(mappedBy = "Picture")
+
+    @Lob
+    @Column(name = "Picture", columnDefinition = "BLOB", nullable = false)
     private byte[] drivingPic;
 
     public Picture() {
@@ -23,4 +25,19 @@ public class Picture {
     }
 
 
+    public int getPictureId() {
+        return pictureId;
+    }
+
+    public void setPictureId(int pictureId) {
+        this.pictureId = pictureId;
+    }
+
+    public byte[] getDrivingPic() {
+        return drivingPic;
+    }
+
+    public void setDrivingPic(byte[] drivingPic) {
+        this.drivingPic = drivingPic;
+    }
 }
