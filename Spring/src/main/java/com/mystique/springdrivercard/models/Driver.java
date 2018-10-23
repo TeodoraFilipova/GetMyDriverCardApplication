@@ -41,12 +41,10 @@ public class Driver {
     private String email;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @MapsId
     @JoinColumn(name = "SelfieID")
     private Picture selfie;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @MapsId
     @JoinColumn(name = "DrivingPicID")
     private Picture drivingPic;
 

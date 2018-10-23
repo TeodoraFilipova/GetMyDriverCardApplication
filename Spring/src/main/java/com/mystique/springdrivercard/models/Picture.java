@@ -14,14 +14,14 @@ public class Picture {
 
 
     @Lob
-    @Column(name = "Picture", columnDefinition = "BLOB", nullable = false)
-    private byte[] drivingPic;
+    @Column(name = "Picture", columnDefinition = "BLOB")
+    private byte[] picture;
 
     public Picture() {
     }
 
-    public Picture(byte[] drivingPic){
-        this.drivingPic = drivingPic;
+    public Picture(byte[] picture){
+        this.picture = picture;
     }
 
 
@@ -33,11 +33,12 @@ public class Picture {
         this.pictureId = pictureId;
     }
 
-    public byte[] getDrivingPic() {
-        return drivingPic;
+
+    public byte[] getPicture() {
+        return picture;
     }
 
-    public void setDrivingPic(byte[] drivingPic) {
-        this.drivingPic = drivingPic;
+    public void setPicture(byte[] picture) {
+        this.picture = picture;
     }
 }
