@@ -5,12 +5,16 @@ import com.mystique.springdrivercard.models.Driver;
 import com.mystique.springdrivercard.models.Picture;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class SqlCardApplicationRepository implements CardApplicationRepository {
 
+    @Autowired
     private SessionFactory sessionFactory;
 
     @Override
@@ -31,7 +35,7 @@ public class SqlCardApplicationRepository implements CardApplicationRepository {
     }
 
     @Override
-    public CardApplicationForm getCardApplicationsByID(int id) {
+    public CardApplicationForm getCardApplicationByID(int id) {
         CardApplicationForm result = null;
         try (
                 Session session = sessionFactory.openSession();
@@ -101,7 +105,7 @@ public class SqlCardApplicationRepository implements CardApplicationRepository {
     }
 
     @Override
-    public void addNewDriverDetails(Driver truckDriver) {
+    public void addNewDriverDetailsForm(Driver truckDriver) {
         try (
                 Session session = sessionFactory.openSession();
         ) {

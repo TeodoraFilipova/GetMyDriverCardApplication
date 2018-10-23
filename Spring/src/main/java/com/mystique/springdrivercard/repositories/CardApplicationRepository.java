@@ -8,20 +8,21 @@ import java.util.List;
 
 public interface CardApplicationRepository {
 
+    // CardApplicationForm
     List<CardApplicationForm> getAllCardApplications();
 
-    CardApplicationForm getCardApplicationsByID(int id);
+    CardApplicationForm getCardApplicationByID(int id);
 
     void updateCardApplication(int id, CardApplicationForm cardApplicationForm);
 
-    // if we need driver from CardAppForm
+    // Driver: if we need driver from CardAppForm
     Driver getDriverByID(int id);
 
     void updateDriverDetailsForm(int id, Driver driver);
 
-    void addNewDriverDetails(Driver driver);
+    void addNewDriverDetailsForm(Driver driver);
 
-    // if we need picture from CardAppForm
+    // Picture: if we need picture from CardAppForm
     Picture getPictureByID(int id);
 
     void addNewPicture(Picture picture);
