@@ -122,4 +122,25 @@ ALTER TABLE `getmydrivercardapplcation`.`cardapplicationforms`
 ADD CONSTRAINT `SignaturePicID`
   FOREIGN KEY (`SignaturePicID`)
   REFERENCES `getmydrivercardapplcation`.`pictures` (`PictureID`);
+  
+ALTER TABLE `getmydrivercardapplcation`.`cardapplicationforms` 
+CHANGE COLUMN `OldCardPicID` `OldCardPicID` INT NULL DEFAULT NULL ,
+ADD INDEX `OldCardPicID_idx` (`OldCardPicID` ASC),
+ADD INDEX `NewSelfieID_idx` (`NewSelfieID` ASC) ;
+;
+ALTER TABLE `getmydrivercardapplcation`.`cardapplicationforms` 
+ADD CONSTRAINT `OldCardPicID`
+  FOREIGN KEY (`OldCardPicID`)
+  REFERENCES `getmydrivercardapplcation`.`pictures` (`Picture`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `NewSelfieID`
+  FOREIGN KEY (`NewSelfieID`)
+  REFERENCES `getmydrivercardapplcation`.`pictures` (`PictureID`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+ALTER TABLE `getmydrivercardapplcation`.`cardapplicationforms` 
+ADD COLUMN `DrivingLicenceNumber` VARCHAR(45) NULL AFTER `SignaturePicID`,
+ADD COLUMN `DrivingLicenceCountry` VARCHAR(45) NULL AFTER `DrivingLicenceNumber`;
 
