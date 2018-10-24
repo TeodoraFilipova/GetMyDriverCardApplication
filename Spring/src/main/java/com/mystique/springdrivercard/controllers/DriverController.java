@@ -26,7 +26,7 @@ public class DriverController {
         return driverService.getDriverByID(id);
     }
 
-    @GetMapping("/{id}")
+    @PutMapping("/{id}")
     public void updateDriver(@PathVariable int id, @RequestBody Driver driver) {
         driverService.updateDriver(id, driver);
     }
