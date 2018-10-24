@@ -28,7 +28,7 @@ public class PictureController {
         pictureService.addNewPicture(picture);
     }
 
-    @GetMapping("/{id}")
+    @PutMapping("/{id}")
     public void updatePicture(@PathVariable int id, @RequestBody Picture picture) {
         pictureService.updatePicture(id, picture);
     }
