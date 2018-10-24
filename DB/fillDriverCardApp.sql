@@ -42,18 +42,18 @@ UNLOCK TABLES;
 
 LOCK TABLES `cardapplicationforms` WRITE;
 /*!40000 ALTER TABLE `cardapplicationforms` DISABLE KEYS */;
-INSERT INTO `cardapplicationforms` (driverID, DateOfSubmission, Status, Type, PaymentInformation, SignaturePicID, DrivingLicenseNumber, DrivingLicenseCountry)
-VALUES (1,'2018-10-01','new','first','12345 ABank',1,'lkjaskflakslf111','UK'),
-(1,'2018-10-02','new','first','12345 BBank',2,'ksksksksksk111','FR'),
-(1,'2018-10-03','new','first','99292 cBank',3,'sllslslsss','IT');
+INSERT INTO `cardapplicationforms` (driverID, DateOfSubmission, Status, Type, PaymentInformation, SignaturePicID, DrivingLicenseNumber, DrivingLicenseCountry, StatusCheckCode)
+VALUES (1,'2018-10-01','new','first','12345 ABank',1,'lkjaskflakslf111','UK','123456789'),
+(1,'2018-10-02','new','first','12345 BBank',2,'ksksksksksk111','FR','123456789'),
+(1,'2018-10-03','new','first','99292 cBank',3,'sllslslsss','IT','123456789');
 /*!40000 ALTER TABLE `cardapplicationforms` ENABLE KEYS */;
 UNLOCK TABLES;
 
 LOCK TABLES `cardapplicationforms` WRITE;
 /*!40000 ALTER TABLE `cardapplicationforms` DISABLE KEYS */;
 INSERT INTO `cardapplicationforms` (driverID, DateOfSubmission, Status, Type, PaymentInformation, SignaturePicID, DrivingLicenseNumber, DrivingLicenseCountry,
-OldCardCountry, OldCardNumber, OldCardAuthority, OldCardDateOfExpiry, OldCardPicID)
-VALUES (1,'2018-09-01','new','first','12345 ABank',1,'lkjaskflakslf111','UK', 'UK', '12345', 'Police', '2020-01-10', 4),
-(1,'2018-09-05','new','name','818181 dBank',4,'llllslls','BG', 'GR', '54321', 'Police', '2010-01-10', 5);
+OldCardCountry, OldCardNumber, OldCardAuthority, OldCardDateOfExpiry, OldCardPicID, StatusCheckCode)
+VALUES (1,'2018-09-01','new','first','12345 ABank',1,'lkjaskflakslf111','UK', 'UK', '12345', 'Police', '2020-01-10', 4,'123456789'),
+(1,'2018-09-05','new','name','818181 dBank',4,'llllslls','BG', 'GR', '54321', 'Police', '2010-01-10', 5,'123456789');
 /*!40000 ALTER TABLE `cardapplicationforms` ENABLE KEYS */;
 UNLOCK TABLES;
