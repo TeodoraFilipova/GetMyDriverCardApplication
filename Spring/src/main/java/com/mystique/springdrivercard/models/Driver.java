@@ -1,5 +1,7 @@
 package com.mystique.springdrivercard.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -13,7 +15,8 @@ public class Driver {
     @Column(name = "driverID", nullable = false)
     private int driverId;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "driver")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "driver")
+    @JsonIgnore
     private List<CardApplicationForm> cardApplicationForms;
 
     @Column(name = "PersonalNumber", nullable = false)
@@ -37,11 +40,11 @@ public class Driver {
     @Column(name = "Email", nullable = false)
     private String email;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "SelfieID", nullable = false)
     private Picture selfie;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "DrivingPicID", nullable = false)
     private Picture drivingPic;
 

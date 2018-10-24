@@ -1,5 +1,7 @@
 package com.mystique.springdrivercard.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -11,8 +13,9 @@ public class CardApplicationForm {
     @Column(name = "cardapplicationformID", nullable = false)
     private int cardApplicationFormId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "driverID", nullable = false)
+    @JsonIgnore
     private Driver driver;
 
     @Column(name = "DateOfSubmission", nullable = false)
