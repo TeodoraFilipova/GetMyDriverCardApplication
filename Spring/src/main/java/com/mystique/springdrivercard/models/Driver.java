@@ -1,9 +1,6 @@
 package com.mystique.springdrivercard.models;
 
-import com.mystique.springdrivercard.models.Picture;
-import com.mystique.springdrivercard.models.CardApplicationForm;
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -62,7 +59,6 @@ public class Driver {
         this.email = email;
         this.selfie = selfie;
         this.drivingPic = drivingPic;
-
     }
 
 

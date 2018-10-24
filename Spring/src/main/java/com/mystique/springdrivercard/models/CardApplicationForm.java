@@ -75,6 +75,9 @@ public class CardApplicationForm {
     @JoinColumn(name = "SignaturePicID", nullable = false)
     private Picture signaturePicture;
 
+    @Column(name = "StatusCheckCode", nullable = false)
+    private String statusCheckCode;
+
     // Constructors
     public CardApplicationForm() {
         //default empty for DB
@@ -83,7 +86,7 @@ public class CardApplicationForm {
     // First application for a new card
     public CardApplicationForm(Driver driver, Date dateOfSubmission, String status, String type,
                                String paymentInformation, String drivingLicenseCountry,
-                               String drivingLicenseNumber, Picture signaturePicture) {
+                               String drivingLicenseNumber, Picture signaturePicture, String statusCheckCode) {
         this.driver = driver;
         this.dateOfSubmission = dateOfSubmission;
         this.status = status;
@@ -92,6 +95,7 @@ public class CardApplicationForm {
         this.drivingLicenseCountry = drivingLicenseCountry;
         this.drivingLicenseNumber = drivingLicenseNumber;
         this.signaturePicture = signaturePicture;
+        this.statusCheckCode = statusCheckCode;
     }
 
     // Exchanging EU for BG card
@@ -99,7 +103,7 @@ public class CardApplicationForm {
                                String paymentInformation, String oldCardCountry, String oldCardNumber,
                                String oldCardAuthority, String drivingLicenseCountry,
                                String drivingLicenseNumber, Date oldCardDateOfExpiry,
-                               Picture oldCardPicture, Picture signaturePicture) {
+                               Picture oldCardPicture, Picture signaturePicture, String statusCheckCode) {
         this.driver = driver;
         this.dateOfSubmission = dateOfSubmission;
         this.status = status;
@@ -113,6 +117,7 @@ public class CardApplicationForm {
         this.oldCardDateOfExpiry = oldCardDateOfExpiry;
         this.oldCardPicture = oldCardPicture;
         this.signaturePicture = signaturePicture;
+        this.statusCheckCode = statusCheckCode;
     }
 
     // Replacement due to loss/theft
@@ -120,7 +125,7 @@ public class CardApplicationForm {
                                String paymentInformation, Date dateOfEvent, String placeOfEvent,
                                String oldCardCountry, String oldCardNumber, String oldCardAuthority,
                                String drivingLicenseCountry, String drivingLicenseNumber,
-                               Date oldCardDateOfExpiry,
+                               Date oldCardDateOfExpiry, String statusCheckCode,
                                String renewalReason, Picture signaturePicture) {
         this.driver = driver;
         this.dateOfSubmission = dateOfSubmission;
@@ -135,6 +140,7 @@ public class CardApplicationForm {
         this.drivingLicenseCountry = drivingLicenseCountry;
         this.drivingLicenseNumber = drivingLicenseNumber;
         this.oldCardDateOfExpiry = oldCardDateOfExpiry;
+        this.statusCheckCode = statusCheckCode;
         this.renewalReason = renewalReason;
         this.signaturePicture = signaturePicture;
     }
@@ -145,7 +151,7 @@ public class CardApplicationForm {
                                String oldCardNumber, String oldCardAuthority,
                                String drivingLicenseCountry, Date oldCardDateOfExpiry,
                                String drivingLicenseNumber, String renewalReason,
-                               String newFirstName, String newLastName,
+                               String newFirstName, String newLastName, String statusCheckCode,
                                Picture oldCardPicture, Picture signaturePicture) {
         this.driver = driver;
         this.dateOfSubmission = dateOfSubmission;
@@ -161,6 +167,7 @@ public class CardApplicationForm {
         this.renewalReason = renewalReason;
         this.newFirstName = newFirstName;
         this.newLastName = newLastName;
+        this.statusCheckCode = statusCheckCode;
         this.oldCardPicture = oldCardPicture;
         this.signaturePicture = signaturePicture;
     }
@@ -172,7 +179,7 @@ public class CardApplicationForm {
                                String drivingLicenseCountry, Date oldCardDateOfExpiry,
                                String drivingLicenseNumber, String renewalReason,
                                String newAddress, Picture oldCardPicture,
-                               Picture signaturePicture) {
+                               Picture signaturePicture, String statusCheckCode) {
         this.driver = driver;
         this.dateOfSubmission = dateOfSubmission;
         this.status = status;
@@ -188,6 +195,7 @@ public class CardApplicationForm {
         this.newAddress = newAddress;
         this.oldCardPicture = oldCardPicture;
         this.signaturePicture = signaturePicture;
+        this.statusCheckCode = statusCheckCode;
     }
 
     // Replacement new selfie
@@ -197,7 +205,7 @@ public class CardApplicationForm {
                                String drivingLicenseCountry, Date oldCardDateOfExpiry,
                                String drivingLicenseNumber, String renewalReason,
                                Picture newSelfie, Picture oldCardPicture,
-                               Picture signaturePicture) {
+                               Picture signaturePicture, String statusCheckCode) {
         this.driver = driver;
         this.dateOfSubmission = dateOfSubmission;
         this.status = status;
@@ -213,6 +221,7 @@ public class CardApplicationForm {
         this.newSelfie = newSelfie;
         this.oldCardPicture = oldCardPicture;
         this.signaturePicture = signaturePicture;
+        this.statusCheckCode = statusCheckCode;
     }
 
     // Renewal expired, suspended, damaged, malfunctioning
@@ -221,7 +230,7 @@ public class CardApplicationForm {
                                String oldCardNumber, String oldCardAuthority,
                                String drivingLicenseCountry, Date oldCardDateOfExpiry,
                                String drivingLicenseNumber, String renewalReason,
-                               Picture oldCardPicture, Picture signaturePicture) {
+                               Picture oldCardPicture, Picture signaturePicture, String statusCheckCode) {
         this.driver = driver;
         this.dateOfSubmission = dateOfSubmission;
         this.status = status;
@@ -236,6 +245,7 @@ public class CardApplicationForm {
         this.renewalReason = renewalReason;
         this.oldCardPicture = oldCardPicture;
         this.signaturePicture = signaturePicture;
+        this.statusCheckCode = statusCheckCode;
     }
 
 
@@ -407,5 +417,13 @@ public class CardApplicationForm {
 
     public void setDrivingLicenseCountry(String drivingLicenseCountry) {
         this.drivingLicenseCountry = drivingLicenseCountry;
+    }
+
+    public String getStatusCheckCode() {
+        return statusCheckCode;
+    }
+
+    public void setStatusCheckCode(String statusCheckCode) {
+        this.statusCheckCode = statusCheckCode;
     }
 }
