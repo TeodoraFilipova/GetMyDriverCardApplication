@@ -9,12 +9,12 @@ public class Picture {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "PictureID")
+    @Column(name = "PictureID", nullable = false)
     private int pictureId;
 
 
     @Lob
-    @Column(name = "Picture", columnDefinition = "BLOB")
+    @Column(name = "Picture", columnDefinition = "BLOB", nullable = false)
     private byte[] picture;
 
     public Picture() {

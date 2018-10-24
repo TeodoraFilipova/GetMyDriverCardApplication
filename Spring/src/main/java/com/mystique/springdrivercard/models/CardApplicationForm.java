@@ -8,23 +8,23 @@ import java.util.Date;
 public class CardApplicationForm {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "cardapplicationformID")
+    @Column(name = "cardapplicationformID", nullable = false)
     private int cardApplicationFormId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "driverID")
+    @JoinColumn(name = "driverID", nullable = false)
     private Driver driver;
 
-    @Column(name = "DateOfSubmission")
+    @Column(name = "DateOfSubmission", nullable = false)
     private Date dateOfSubmission;
 
-    @Column(name = "Status")
+    @Column(name = "Status", nullable = false)
     private String status;
 
-    @Column(name = "Type")
+    @Column(name = "Type", nullable = false)
     private String type;
 
-    @Column(name = "PaymentInformation")
+    @Column(name = "PaymentInformation", nullable = false)
     private String paymentInformation;
 
     @Column(name = "DrivingLicenseNumber")
@@ -72,7 +72,7 @@ public class CardApplicationForm {
     private String renewalReason;
 
     @OneToOne
-    @JoinColumn(name = "SignaturePicID")
+    @JoinColumn(name = "SignaturePicID", nullable = false)
     private Picture signaturePicture;
 
     // Constructors
@@ -391,5 +391,21 @@ public class CardApplicationForm {
 
     public void setRenewalReason(String renewalReason) {
         this.renewalReason = renewalReason;
+    }
+
+    public String getDrivingLicenseNumber() {
+        return drivingLicenseNumber;
+    }
+
+    public void setDrivingLicenseNumber(String drivingLicenseNumber) {
+        this.drivingLicenseNumber = drivingLicenseNumber;
+    }
+
+    public String getDrivingLicenseCountry() {
+        return drivingLicenseCountry;
+    }
+
+    public void setDrivingLicenseCountry(String drivingLicenseCountry) {
+        this.drivingLicenseCountry = drivingLicenseCountry;
     }
 }

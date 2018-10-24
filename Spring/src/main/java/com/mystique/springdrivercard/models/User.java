@@ -8,13 +8,13 @@ import javax.persistence.*;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "UserID")
+    @Column(name = "UserID", nullable = false)
     private int userId;
 
-    @Column(name = "Username")
+    @Column(name = "Username", nullable = false)
     private String username;
 
-    @Column(name = "Password")
+    @Column(name = "Password", nullable = false)
     private String password;
 
     public User(){}

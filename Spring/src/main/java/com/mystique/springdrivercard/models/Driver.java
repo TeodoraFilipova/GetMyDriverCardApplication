@@ -13,39 +13,39 @@ public class Driver {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "driverID")
+    @Column(name = "driverID", nullable = false)
     private int driverId;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "driver")
     private List<CardApplicationForm> cardApplicationForms;
 
-    @Column(name = "PersonalNumber")
+    @Column(name = "PersonalNumber", nullable = false)
     private String personalNumber;
 
-    @Column(name = "FirstName")
+    @Column(name = "FirstName", nullable = false)
     private String firstName;
 
-    @Column(name = "LastName")
+    @Column(name = "LastName", nullable = false)
     private String lastName;
 
-    @Column(name = "DateOfBirth")
+    @Column(name = "DateOfBirth", nullable = false)
     private Date dateOfBirth;
 
-    @Column(name = "Address")
+    @Column(name = "Address", nullable = false)
     private String address;
 
-    @Column(name = "PhoneNumber")
+    @Column(name = "PhoneNumber", nullable = false)
     private String phoneNumber;
 
-    @Column(name = "Email")
+    @Column(name = "Email", nullable = false)
     private String email;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "SelfieID")
+    @JoinColumn(name = "SelfieID", nullable = false)
     private Picture selfie;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "DrivingPicID")
+    @JoinColumn(name = "DrivingPicID", nullable = false)
     private Picture drivingPic;
 
 
