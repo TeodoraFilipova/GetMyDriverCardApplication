@@ -73,6 +73,7 @@ public class SqlCardApplicationRepository implements CardApplicationRepository {
             session.beginTransaction();
             CardApplicationForm cardFormToChange = session.get(CardApplicationForm.class, id);
             cardFormToChange.setStatus(cardApplicationForm.getStatus());
+            cardFormToChange.setDetails(cardApplicationForm.getDetails());
             session.getTransaction().commit();
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -178,7 +179,6 @@ public class SqlCardApplicationRepository implements CardApplicationRepository {
             System.out.println(e.getMessage());
             throw new RuntimeException(e);
         }
-
     }
 
     @Override

@@ -81,6 +81,10 @@ public class CardApplicationForm {
     @Column(name = "StatusCheckCode", nullable = false)
     private String statusCheckCode;
 
+    @Column(name = "Details")
+    private String details;
+
+
     // Constructors
     public CardApplicationForm() {
         //default empty for DB
@@ -99,6 +103,7 @@ public class CardApplicationForm {
         this.drivingLicenseNumber = drivingLicenseNumber;
         this.signaturePicture = signaturePicture;
         this.statusCheckCode = statusCheckCode;
+        this.details = "";
     }
 
     // Exchanging EU for BG card
@@ -121,6 +126,7 @@ public class CardApplicationForm {
         this.oldCardPicture = oldCardPicture;
         this.signaturePicture = signaturePicture;
         this.statusCheckCode = statusCheckCode;
+        this.details = "";
     }
 
     // Replacement due to loss/theft
@@ -146,6 +152,7 @@ public class CardApplicationForm {
         this.statusCheckCode = statusCheckCode;
         this.renewalReason = renewalReason;
         this.signaturePicture = signaturePicture;
+        this.details = "";
     }
 
     // Replacement new name
@@ -173,6 +180,7 @@ public class CardApplicationForm {
         this.statusCheckCode = statusCheckCode;
         this.oldCardPicture = oldCardPicture;
         this.signaturePicture = signaturePicture;
+        this.details = "";
     }
 
     // Replacement new address
@@ -199,6 +207,7 @@ public class CardApplicationForm {
         this.oldCardPicture = oldCardPicture;
         this.signaturePicture = signaturePicture;
         this.statusCheckCode = statusCheckCode;
+        this.details = "";
     }
 
     // Replacement new selfie
@@ -225,6 +234,7 @@ public class CardApplicationForm {
         this.oldCardPicture = oldCardPicture;
         this.signaturePicture = signaturePicture;
         this.statusCheckCode = statusCheckCode;
+        this.details = "";
     }
 
     // Renewal expired, suspended, damaged, malfunctioning
@@ -249,6 +259,7 @@ public class CardApplicationForm {
         this.oldCardPicture = oldCardPicture;
         this.signaturePicture = signaturePicture;
         this.statusCheckCode = statusCheckCode;
+        this.details = "";
     }
 
 
@@ -428,5 +439,13 @@ public class CardApplicationForm {
 
     public void setStatusCheckCode(String statusCheckCode) {
         this.statusCheckCode = statusCheckCode;
+    }
+
+    public String getDetails() {
+        return details;
+    }
+
+    public void setDetails(String details) {
+        this.details = details;
     }
 }
