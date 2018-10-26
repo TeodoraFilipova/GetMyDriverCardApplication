@@ -47,6 +47,7 @@ CREATE TABLE `cardapplicationforms` (
   `DrivingLicenseNumber` varchar(50) DEFAULT NULL,
   `DrivingLicenseCountry` varchar(50) DEFAULT NULL,
   `StatusCheckCode` varchar(10) NOT NULL,
+  `Details` varchar(300) DEFAULT NULL,
   PRIMARY KEY (`cardapplicationformID`),
   KEY `driverID_idx` (`driverID`),
   KEY `SignaturePicID_idx` (`SignaturePicID`),
