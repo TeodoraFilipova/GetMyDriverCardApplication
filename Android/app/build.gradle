@@ -34,7 +34,6 @@ dependencies {
     //noinspection GradleCompatible
     implementation 'com.android.support:appcompat-v7:28.0.0'
 
-
     // ButterKnife
     implementation 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
@@ -57,5 +56,8 @@ dependencies {
 
     // Mockito
     testImplementation "org.mockito:mockito-core:2.22.0"
-}
 
+    // for Tab Slider
+    compile 'com.android.support:design:28.0.0'
+
+}

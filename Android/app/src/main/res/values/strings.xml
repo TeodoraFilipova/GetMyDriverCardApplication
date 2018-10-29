@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">GetMyDriverCardApplcation</string>
+    <string name="title_activity_welcome">WelcomeActivity</string>
+    <string name="title_activity_first_application">FirstApplicationActivity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_picture">PictureActivity</string>
+    <string name="title_activity_old_card_info">OldCardInfoActivity</string>
+    <string name="title_activity_name_replacement">NameReplacementActivity</string>
+    <string name="title_activity_bgto_eu">BGtoEUActivity</string>
+    <string name="title_activity_address_replacement">AddressReplacementActivity</string>
+    <string name="title_activity_picture_replacement">PictureReplacementActivity</string>
+    <string name="title_activity_renewal">RenewalActivity</string>
 </resources>
