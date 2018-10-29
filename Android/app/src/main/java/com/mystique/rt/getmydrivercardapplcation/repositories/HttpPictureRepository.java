@@ -3,6 +3,7 @@ package com.mystique.rt.getmydrivercardapplcation.repositories;
 import com.mystique.rt.getmydrivercardapplcation.http.HttpRequester;
 import com.mystique.rt.getmydrivercardapplcation.models.Picture;
 import com.mystique.rt.getmydrivercardapplcation.parsers.json.JsonParser;
+import com.mystique.rt.getmydrivercardapplcation.repositories.base.PictureRepository;
 
 import java.io.IOException;
 

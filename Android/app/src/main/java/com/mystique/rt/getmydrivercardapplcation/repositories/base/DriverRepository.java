@@ -1,4 +1,4 @@
-package com.mystique.rt.getmydrivercardapplcation.repositories;
+package com.mystique.rt.getmydrivercardapplcation.repositories.base;
 
 import com.mystique.rt.getmydrivercardapplcation.models.Driver;
 
