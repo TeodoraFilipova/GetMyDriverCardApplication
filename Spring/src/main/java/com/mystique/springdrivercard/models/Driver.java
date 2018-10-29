@@ -52,8 +52,9 @@ public class Driver {
     public Driver(){
     }
 
-    public Driver(String firstName, String lastName, Date dateOfBirth, String address,
+    public Driver(String personalNumber, String firstName, String lastName, Date dateOfBirth, String address,
                   String phoneNumber, String email, Picture selfie, Picture drivingPic){
+        this.personalNumber = personalNumber;
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
