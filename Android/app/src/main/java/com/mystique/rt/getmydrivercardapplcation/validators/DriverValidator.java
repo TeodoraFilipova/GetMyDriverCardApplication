@@ -1,33 +1,73 @@
 package com.mystique.rt.getmydrivercardapplcation.validators;
 
+import com.mystique.rt.getmydrivercardapplcation.apputils.Constants;
 import com.mystique.rt.getmydrivercardapplcation.models.Driver;
 import com.mystique.rt.getmydrivercardapplcation.validators.base.Validator;
 
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
+
 public class DriverValidator implements Validator<Driver> {
 
-//    private String personalNumber;
-//    private String firstName;
-//    private String lastName;
-//    private Date dateOfBirth;
-//    private String address;
-//    private String phoneNumber;
-//    private String email;
-//    private Picture selfie;
-//    private Picture drivingPic;
-
     @Override
-    public boolean isValid(Driver object) {
-        return object != null  /*  &&
-                isPersonalNumberValid(object)&&
-                isFirstNameValid(object) &&
-                isLastNameValid(object) &&
-                isDateOfBirthValid(object) &&
-                isAddressValid(object) &&
-                isPhoneNumberValid(object) &&
-                isEmailValid(object) &&
-                isPhoneNumberValid(object) &&
-                object.getSelfie() != null &&
-                object.getDrivingPic() != null */ ;
+    public boolean isValid(Driver driver) {
+        return driver != null &&
+                isPersonalNumberValid(driver)&&
+                isFirstNameValid(driver) &&
+                isLastNameValid(driver) &&
+                isDateOfBirthValid(driver) &&
+                isAddressValid(driver) &&
+                isPhoneNumberValid(driver) &&
+                isEmailValid(driver) &&
+                driver.getSelfie() != null &&
+                driver.getDrivingPic() != null;
+    }
+
+    private boolean isDateOfBirthValid(Driver driver) {
+        Date firstDate = driver.getDateOfBirth();
+        Date secondDate = new Date();
+
+        long diffInMillies = Math.abs(secondDate.getTime() - firstDate.getTime());
+        long diff = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
+
+        return diff >= Constants.EIGHTEEN_YEARS_IN_DAYS;
+    }
+
+    private boolean isEmailValid(Driver driver) {
+        return driver.getEmail().contains("@") &&
+                driver.getEmail().contains(".") &&
+                driver.getEmail().length() <= Constants.EMAIL_MAX_LENGTH &&
+                driver.getEmail().length() >= Constants.EMAIL_MIN_LENGTH;
+    }
+
+    private boolean isPhoneNumberValid(Driver driver) {
+        return driver.getPhoneNumber().length() >= Constants.PHONE_NUMBER_MIN_LENGTH &&
+                driver.getPhoneNumber().length() <= Constants.PHONE_NUMBER_MAX_LENGTH;
+    }
+
+    private boolean isAddressValid(Driver driver) {
+        return driver.getAddress().length() >= Constants.ADDRESS_MIN_LENGTH &&
+                driver.getAddress().length() <= Constants.ADDRESS_MAX_LENGTH;
+    }
+
+    private boolean isLastNameValid(Driver driver) {
+        return driver.getLastName().length() > 0 &&
+                driver.getLastName().length() <= Constants.LAST_NAME_MAX_LENGTH;
+    }
+
+    private boolean isFirstNameValid(Driver driver) {
+        return driver.getFirstName().length() > 0 &&
+                driver.getFirstName().length() <= Constants.FIRST_NAME_MAX_LENGTH;
+    }
+
+    private boolean isPersonalNumberValid(Driver driver) {
+        for (char ch : driver.getPersonalNumber().toCharArray()) {
+            if(!Character.isDigit(ch)){
+                return false;
+            }
+        }
+        return driver.getPersonalNumber().length() <= Constants.PERSONAL_NUMBER_MAX_LENGTH &&
+                driver.getPersonalNumber().length() > 0;
     }
 
 }
