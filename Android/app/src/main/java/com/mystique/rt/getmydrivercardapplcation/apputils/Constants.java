@@ -1,7 +1,7 @@
 package com.mystique.rt.getmydrivercardapplcation.apputils;
 
 public class Constants {
-   // public static final String BASE_SERVER_URL = "http://192.168.1.5:8080/api";
+   public static final String BASE_SERVER_URL = "http://192.168.1.5:8080/api";
 
     //todo put constants to all fields
     public static final int PERSONAL_NUMBER_MAX_LENGTH = 45;
