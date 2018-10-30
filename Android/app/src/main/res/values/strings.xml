@@ -12,4 +12,11 @@
     <string name="title_activity_address_replacement">AddressReplacementActivity</string>
     <string name="title_activity_picture_replacement">PictureReplacementActivity</string>
     <string name="title_activity_renewal">RenewalActivity</string>
+    <string name="title_activity_status_check">StatusCheckActivity</string>
+    <string name="title_activity_log_in">LogInActivity</string>
+    <string name="title_activity_contacts">ContactsActivity</string>
+    <string name="GetMyDriverCardAppication">GetMyDriverCardApplication</string>
+    <string name="title_activity_application_choose">ApplicationChooseActivity</string>
+    <string name="title_activity_applications_list">ApplicationsListActivity</string>
+    <string name="title_activity_details">DetailsActivity</string>
 </resources>

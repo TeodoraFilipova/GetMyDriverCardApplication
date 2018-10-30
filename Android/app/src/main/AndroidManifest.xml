@@ -3,13 +3,14 @@
     package="com.mystique.rt.getmydrivercardapplcation">
 
     <application
+        android:name=".views.AndroidApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="@string/GetMyDriverCardAppication"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".views.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,17 +18,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".views.WelcomeActivity"
-            android:label="@string/title_activity_welcome" />
-        <activity
             android:name=".views.applications.activities.FirstApplicationActivity"
             android:label="@string/title_activity_first_application" />
-        <activity
-            android:name=".views.applications.activities.PictureActivity"
-            android:label="@string/title_activity_picture" />
-        <activity
-            android:name=".views.applications.activities.OldCardInfoActivity"
-            android:label="@string/title_activity_old_card_info" />
         <activity
             android:name=".views.applications.activities.NameReplacementActivity"
             android:label="@string/title_activity_name_replacement" />
@@ -42,7 +34,29 @@
             android:label="@string/title_activity_picture_replacement" />
         <activity
             android:name=".views.applications.activities.RenewalActivity"
-            android:label="@string/title_activity_renewal"></activity>
+            android:label="@string/title_activity_renewal" />
+        <activity
+            android:name=".views.statuscheck.StatusCheckActivity"
+            android:label="@string/title_activity_status_check"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".views.admin.login.LogInActivity"
+            android:label="@string/title_activity_log_in" />
+        <activity
+            android:name=".views.contacts.ContactsActivity"
+            android:label="@string/title_activity_contacts" />
+        <activity
+            android:name=".views.applications.activities.ApplicationChooseActivity"
+            android:label="@string/title_activity_application_choose"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".views.admin.applicationslist.ApplicationsListActivity"
+            android:label="@string/title_activity_applications_list"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".views.admin.details.DetailsActivity"
+            android:label="@string/title_activity_details"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
     </application>
 
 </manifest>
