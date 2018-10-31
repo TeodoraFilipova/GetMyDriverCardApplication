@@ -23,6 +23,11 @@
         <activity
             android:name=".views.applications.activities.NameReplacementActivity"
             android:label="@string/title_activity_name_replacement" />
+
+        <activity
+            android:name=".views.applications.activities.LossOrTheftActivity"
+            android:label="LossOrTheftActivity" />
+
         <activity
             android:name=".views.applications.activities.EUtoBGActivity"
             android:label="@string/title_activity_bgto_eu" />

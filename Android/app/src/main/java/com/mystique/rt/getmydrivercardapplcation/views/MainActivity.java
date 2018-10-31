@@ -18,13 +18,13 @@ import butterknife.ButterKnife;
 public class MainActivity extends BaseDrawerActivity implements Navigator{
 
     @BindView(R.id.button_new_application_start)
-    private Button mNewApplicationButton;
+    Button mNewApplicationButton;
 
     @BindView(R.id.button_check_status)
-    private Button mCheckStatusButton;
+    Button mCheckStatusButton;
 
     @BindView(R.id.button_admin_panel)
-    private Button mAdminLogInButton;
+    Button mAdminLogInButton;
 
     public static final long IDENTIFIER = 544;
 
