@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.applications.fragments.ApplicationChooseFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="UselessParent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_application_choice_prompt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/select_application_type_prompt"/>
+
+        <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/radio_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/radio_first"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/application_type_first" />
+
+            <RadioButton
+                android:id="@+id/radio_EU_for_BG"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/application_type_EU_for_BG" />
+
+            <RadioButton
+                android:id="@+id/radio_loss"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/application_type_loss" />
+
+            <RadioButton
+                android:id="@+id/radio_theft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/application_type_theft" />
+
+            <RadioButton
+                android:id="@+id/radio_damaged"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/application_type_damaged" />
+
+            <RadioButton
+                android:id="@+id/radio_malfunction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/application_type_malfunction" />
+
+            <RadioButton
+                android:id="@+id/radio_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/application_type_name" />
+
+            <RadioButton
+                android:id="@+id/radio_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/application_type_address" />
+
+            <RadioButton
+                android:id="@+id/radio_selfie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/application_type_selfie" />
+
+            <RadioButton
+                android:id="@+id/radio_expired"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/application_type_expired" />
+
+            <RadioButton
+                android:id="@+id/radio_suspended"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/application_type_suspended" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/button_submit_application_choice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/submit_text"/>
+
+    </LinearLayout>
+
+</FrameLayout>

@@ -1,20 +1,20 @@
 package com.mystique.rt.getmydrivercardapplcation.views.applications.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
 
 import com.mystique.rt.getmydrivercardapplcation.R;
+import com.mystique.rt.getmydrivercardapplcation.apputils.Navigator;
 import com.mystique.rt.getmydrivercardapplcation.views.BaseDrawerActivity;
+import com.mystique.rt.getmydrivercardapplcation.views.applications.fragments.ApplicationChooseFragment;
 
 import butterknife.ButterKnife;
 
-public class ApplicationChooseActivity extends BaseDrawerActivity {
+public class ApplicationChooseActivity extends BaseDrawerActivity
+        implements Navigator {
 
     public static final long IDENTIFIER = 543;
+    private ApplicationChooseFragment mApplicationChooseFragment;
 
 
     @Override
@@ -25,6 +25,12 @@ public class ApplicationChooseActivity extends BaseDrawerActivity {
         ButterKnife.bind(this);
         setSupportActionBar(getToolbar());
 
+        mApplicationChooseFragment = ApplicationChooseFragment.getInstance();
+        mApplicationChooseFragment.setNavigator(this);
+
+        getFragmentManager().beginTransaction()
+                .replace(R.id.content, mApplicationChooseFragment)
+                .commit();
     }
 
     @Override
@@ -32,4 +38,9 @@ public class ApplicationChooseActivity extends BaseDrawerActivity {
         return IDENTIFIER;
     }
 
+    @Override
+    public void navigateToActivity(Class activityClass) {
+        Intent intent = new Intent(this, activityClass);
+        startActivity(intent);
+    }
 }

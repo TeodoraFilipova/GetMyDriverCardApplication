@@ -19,4 +19,19 @@
     <string name="title_activity_application_choose">ApplicationChooseActivity</string>
     <string name="title_activity_applications_list">ApplicationsListActivity</string>
     <string name="title_activity_details">DetailsActivity</string>
+    <string name="select_application_type_prompt">Please, select the reason for your application from the options below.</string>
+    <string name="application_type_first">First digital tachograph card with local driving license</string>
+    <string name="application_type_EU_for_BG">Exchanging EU card for BG card</string>
+    <string name="application_type_loss">Replacement of card which was lost</string>
+    <string name="application_type_theft">Replacement of card which was stolen</string>
+    <string name="application_type_damaged">Replacement of card which was damaged</string>
+    <string name="application_type_malfunction">Replacement of card which has malfunctioned</string>
+    <string name="application_type_name">Replacement of card due to a name change</string>
+    <string name="application_type_address">Replacement of card due to an address change</string>
+    <string name="application_type_selfie">Replacement of card due to a photograph change</string>
+    <string name="application_type_expired">Replacement of card due to expiration</string>
+    <string name="application_type_suspended">Replacement of card due to a suspension/withdrawal</string>
+    <string name="submit_text">Submit</string>
+
+
 </resources>
