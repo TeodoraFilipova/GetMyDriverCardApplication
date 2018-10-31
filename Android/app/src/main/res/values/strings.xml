@@ -32,6 +32,10 @@
     <string name="application_type_expired">Replacement of card due to expiration</string>
     <string name="application_type_suspended">Replacement of card due to a suspension/withdrawal</string>
     <string name="submit_text">Submit</string>
+    <string name="welcome">Welcome to the GetMyDriverCard application by Mystique! Please, select one of the options below.</string>
+    <string name="button_start_new_application">Start a new card application</string>
+    <string name="button_check_status">Check application status</string>
+    <string name="button_log_in_to_admin_panel">Log in to Admin Panel</string>
 
 
 </resources>
