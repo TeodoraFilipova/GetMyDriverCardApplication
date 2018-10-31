@@ -4,13 +4,13 @@ import android.content.Intent;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-import com.mystique.rt.getmydrivercardapplcation.R;
-
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
+import com.mystique.rt.getmydrivercardapplcation.R;
+
 import com.mystique.rt.getmydrivercardapplcation.views.admin.login.LogInActivity;
 import com.mystique.rt.getmydrivercardapplcation.views.applications.activities.ApplicationChooseActivity;
 import com.mystique.rt.getmydrivercardapplcation.views.contacts.ContactsActivity;

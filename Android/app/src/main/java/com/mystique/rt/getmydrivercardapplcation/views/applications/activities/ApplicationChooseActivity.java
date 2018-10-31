@@ -21,8 +21,8 @@ public class ApplicationChooseActivity extends BaseDrawerActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_application_choose);
-        ButterKnife.bind(this);
 
+        ButterKnife.bind(this);
         setSupportActionBar(getToolbar());
 
     }
