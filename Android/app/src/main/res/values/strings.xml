@@ -36,6 +36,9 @@
     <string name="button_start_new_application">Start a new card application</string>
     <string name="button_check_status">Check application status</string>
     <string name="button_log_in_to_admin_panel">Log in to Admin Panel</string>
+    <string name="text_status_check_instructions">Please, fill in your personal status number below and click the SUBMIT button to see your application status. You can find your personal status number in the email you received from us when you submitted your application.</string>
+    <string name="edit_text_status_code_hint">Your Status Code Here</string>
+    <string name="wrong_status_number">Wrong application number! Please, check that you write the correct personal status number</string>
 
 
 </resources>

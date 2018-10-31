@@ -26,6 +26,7 @@ import javax.inject.Singleton;
         ParsersModule.class,
         RepositoriesModule.class,
         ServicesModule.class,
+        StatusCheckModule.class,
         ValidatorsModule.class,
         AndroidSupportInjectionModule.class})
 public interface AppComponent extends AndroidInjector<AndroidApplication> {

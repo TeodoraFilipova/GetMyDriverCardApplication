@@ -14,4 +14,6 @@ public interface CardApplicationFormService {
     CardApplicationForm getById(int id) throws IOException;
 
     CardApplicationForm updateById(int id, CardApplicationForm applicationForm) throws IOException;
+
+    CardApplicationForm getByStatusCheckCode(String statusCheckCode) throws IOException;
 }

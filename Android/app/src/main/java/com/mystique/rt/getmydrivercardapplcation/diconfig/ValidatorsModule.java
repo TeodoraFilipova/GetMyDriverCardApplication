@@ -14,7 +14,7 @@ import dagger.Provides;
 @Module
 public class ValidatorsModule {
     @Provides
-    @Singleton
+    // @Singleton
     public Validator<Driver> driverValidator() {
         return new DriverValidator();
     }

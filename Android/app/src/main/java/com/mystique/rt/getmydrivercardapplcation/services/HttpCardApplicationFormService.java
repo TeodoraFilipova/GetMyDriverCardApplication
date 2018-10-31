@@ -45,4 +45,15 @@ public class HttpCardApplicationFormService implements CardApplicationFormServic
         }
         return mCardApplicationFormRepository.updateById(id, applicationForm);
     }
+
+    @Override
+    public CardApplicationForm getByStatusCheckCode(final String statusCheckCode) throws IOException {
+        List<CardApplicationForm> all = getAll();
+        for (CardApplicationForm app : all) {
+            if (app.getStatusCheckCode().equals(statusCheckCode)) {
+                return app;
+            }
+        }
+        return null;
+    }
 }
