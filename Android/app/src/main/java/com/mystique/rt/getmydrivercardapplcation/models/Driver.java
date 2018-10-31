@@ -1,9 +1,10 @@
 package com.mystique.rt.getmydrivercardapplcation.models;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-public class Driver {
+public class Driver implements Serializable {
     private int driverId;
     private List<CardApplicationForm> cardApplicationForms;
     private String personalNumber;

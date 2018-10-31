@@ -7,6 +7,8 @@ import com.mystique.rt.getmydrivercardapplcation.R;
 
 public class DetailsActivity extends AppCompatActivity {
 
+    public static final String EXTRA_KEY = "CARDAPPLICATIONFORM_EXTRA_KEY";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

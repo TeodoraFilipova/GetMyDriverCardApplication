@@ -36,6 +36,8 @@
     <string name="button_start_new_application">Start a new card application</string>
     <string name="button_check_status">Check application status</string>
     <string name="button_log_in_to_admin_panel">Log in to Admin Panel</string>
+    <string name="title_activity_card_application_list">CardApplicationListActivity</string>
+    <string name="application_list">Application id</string>
 
 
 </resources>
