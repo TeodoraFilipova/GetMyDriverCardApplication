@@ -21,7 +21,7 @@ public class EUtoBGAdapter extends FragmentStatePagerAdapter {
             case 0: return "Personal Info";
             case 1: return "Selfie"; // trying to combine in one camera 2 pictures
             case 2: return "Driving Licence Pic";
-            case 3: return "Old Card Pic"; // trying to add in old card pic fragment the info
+            case 3: return "Old Card Pic"; // trying to addForm in old card pic fragment the info
             case 4: return "Old Card info";
             case 5: return "Declaration and sign";
             default: return null;

@@ -4,7 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.admin.details.DetailsActivity">
+    tools:context=".views.admin.details.CardApplicationDetailsActivity">
+
+    <FrameLayout
+        android:id="@+id/context"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
 
 
 </android.support.design.widget.CoordinatorLayout>

@@ -64,7 +64,7 @@
             android:label="@string/title_activity_application_choose"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".views.admin.details.DetailsActivity"
+            android:name=".views.admin.details.CardApplicationDetailsActivity"
             android:label="@string/title_activity_details"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
