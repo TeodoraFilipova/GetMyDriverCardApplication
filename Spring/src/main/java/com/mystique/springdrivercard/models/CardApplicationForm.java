@@ -15,7 +15,7 @@ public class CardApplicationForm {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "driverID", nullable = false)
-    @JsonIgnore
+  //  @JsonIgnore
     private Driver driver;
 
     @Column(name = "DateOfSubmission", nullable = false)
