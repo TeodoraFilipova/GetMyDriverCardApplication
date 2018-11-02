@@ -1,8 +1,9 @@
 package com.mystique.rt.getmydrivercardapplcation.models;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class CardApplicationForm {
+public class CardApplicationForm implements Serializable {
     private int cardApplicationFormId;
     private Driver driver;
     private Date dateOfSubmission;

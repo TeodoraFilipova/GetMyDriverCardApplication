@@ -1,6 +1,8 @@
 package com.mystique.rt.getmydrivercardapplcation.models;
 
-public class Picture {
+import java.io.Serializable;
+
+public class Picture implements Serializable {
     private int pictureId;
     private byte[] picture;
 

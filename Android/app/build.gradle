@@ -64,11 +64,14 @@ dependencies {
     testImplementation "org.mockito:mockito-core:2.22.0"
 
     // for Tab Slider
-    compile 'com.android.support:design:28.0.0'
+    implementation 'com.android.support:design:28.0.0'
 
     //Drawer
     implementation('com.mikepenz:materialdrawer:6.0.9@aar') {
         transitive = true
     }
+
+    // for camera
+    implementation 'com.github.jkwiecien:EasyImage:1.3.1'
 
 }

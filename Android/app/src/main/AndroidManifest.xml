@@ -2,6 +2,17 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.mystique.rt.getmydrivercardapplcation">
 
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-feature
+        android:name="android.hardware.camera.front"
+        android:required="false" />
+
     <application
         android:name=".views.AndroidApplication"
         android:allowBackup="true"
@@ -23,11 +34,9 @@
         <activity
             android:name=".views.applications.activities.NameReplacementActivity"
             android:label="@string/title_activity_name_replacement" />
-
         <activity
             android:name=".views.applications.activities.LossOrTheftActivity"
             android:label="LossOrTheftActivity" />
-
         <activity
             android:name=".views.applications.activities.EUtoBGActivity"
             android:label="@string/title_activity_bgto_eu" />
@@ -55,12 +64,12 @@
             android:label="@string/title_activity_application_choose"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".views.admin.applicationslist.ApplicationsListActivity"
-            android:label="@string/title_activity_applications_list"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity
             android:name=".views.admin.details.DetailsActivity"
             android:label="@string/title_activity_details"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".views.admin.applicationslist.CardApplicationListActivity"
+            android:label="@string/title_activity_card_application_list"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
     </application>
 
