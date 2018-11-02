@@ -51,8 +51,8 @@ public class HttpCardApplicationFormService implements CardApplicationFormServic
     }
 
     @Override
-    public CardApplicationForm getByStatusCheckCode(final String statusCheckCode) throws IOException {
-        List<CardApplicationForm> all = getAll();
+    public CardApplicationForm getByStatusCheckCode(String statusCheckCode) throws IOException {
+        List<CardApplicationForm> all = getAllForms();
         for (CardApplicationForm app : all) {
             if (app.getStatusCheckCode().equals(statusCheckCode)) {
                 return app;
@@ -117,5 +117,13 @@ public class HttpCardApplicationFormService implements CardApplicationFormServic
             }
         }
         return filteredforms;
+    }
+
+    @Override
+    public CardApplicationForm updateById(int id, CardApplicationForm applicationForm) throws IOException {
+        if (!mCardApplicationFormValidator.isValid(applicationForm)) {
+            throw new IllegalArgumentException("Application form details are invalid");
+        }
+        return mCardApplicationFormRepository.updateById(id, applicationForm);
     }
 }

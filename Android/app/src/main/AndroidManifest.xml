@@ -13,6 +13,8 @@
         android:name="android.hardware.camera.front"
         android:required="false" />
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:name=".views.AndroidApplication"
         android:allowBackup="true"

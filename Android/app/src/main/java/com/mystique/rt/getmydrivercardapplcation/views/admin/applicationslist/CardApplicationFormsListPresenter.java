@@ -15,13 +15,13 @@ import io.reactivex.Observable;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.disposables.Disposable;
 
-public class CardApplicatioFormsListPresenter implements CardApplicationFormsListContracts.Presenter {
+public class CardApplicationFormsListPresenter implements CardApplicationFormsListContracts.Presenter {
     private final HttpCardApplicationFormService mCardAppFormService;
     private final SchedulerProvider mSchedulerProvider;
     private CardApplicationFormsListContracts.View mView;
 
     @Inject
-    public CardApplicatioFormsListPresenter(HttpCardApplicationFormService formsService, SchedulerProvider schedulerProvider) {
+    public CardApplicationFormsListPresenter(HttpCardApplicationFormService formsService, SchedulerProvider schedulerProvider) {
         mCardAppFormService = formsService;
         mSchedulerProvider = schedulerProvider;
     }
