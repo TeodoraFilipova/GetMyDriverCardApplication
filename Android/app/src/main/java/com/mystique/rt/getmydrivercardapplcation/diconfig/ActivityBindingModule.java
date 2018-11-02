@@ -70,11 +70,15 @@ public abstract class ActivityBindingModule {
     abstract LogInActivity logInActivity();
 
     @ActivityScoped
-    @ContributesAndroidInjector()
+    @ContributesAndroidInjector(modules = {
+            CardApplicationFormsListModule.class
+    })
     abstract CardApplicationFormsListActivity cardApplicationFormsListActivity();
 
     @ActivityScoped
-    @ContributesAndroidInjector()
+    @ContributesAndroidInjector(modules = {
+            CardApplicationDetailsModule.class
+    })
     abstract CardApplicationDetailsActivity detailsActivity();
 
 

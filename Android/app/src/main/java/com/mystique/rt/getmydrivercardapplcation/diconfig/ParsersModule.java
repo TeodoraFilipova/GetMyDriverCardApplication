@@ -4,6 +4,8 @@ import com.mystique.rt.getmydrivercardapplcation.models.CardApplicationForm;
 import com.mystique.rt.getmydrivercardapplcation.models.Driver;
 import com.mystique.rt.getmydrivercardapplcation.models.Picture;
 import com.mystique.rt.getmydrivercardapplcation.models.User;
+import com.mystique.rt.getmydrivercardapplcation.parsers.bitmap.BitmapParser;
+import com.mystique.rt.getmydrivercardapplcation.parsers.bitmap.ByteArrayBitmapParser;
 import com.mystique.rt.getmydrivercardapplcation.parsers.json.GsonJsonParser;
 import com.mystique.rt.getmydrivercardapplcation.parsers.json.JsonParser;
 
@@ -30,5 +32,10 @@ public class ParsersModule {
     @Provides
     public JsonParser<User> jsonParserUser(){
         return new GsonJsonParser<>(User.class, User[].class);
+    }
+
+    @Provides
+    public BitmapParser bitmapParser() {
+        return new ByteArrayBitmapParser();
     }
 }
