@@ -11,7 +11,10 @@ import android.widget.TextView;
 
 import com.mystique.rt.getmydrivercardapplcation.R;
 import com.mystique.rt.getmydrivercardapplcation.models.CardApplicationForm;
+import com.mystique.rt.getmydrivercardapplcation.parsers.bitmap.BitmapParser;
 import com.mystique.rt.getmydrivercardapplcation.parsers.bitmap.ByteArrayBitmapParser;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -21,6 +24,9 @@ import butterknife.ButterKnife;
  */
 public class CardApplicationDetailsFragment extends Fragment implements CardApplicationDetailsContracts.View{
     private CardApplicationDetailsContracts.Presenter mPresenter;
+
+    @Inject
+    BitmapParser mPictureParser;
 
     @BindView(R.id.tv_cardappformid)
     TextView mIDTextView;
@@ -115,6 +121,7 @@ public class CardApplicationDetailsFragment extends Fragment implements CardAppl
     @BindView(R.id.iv_signature)
     ImageView mSignatureImageView;
 
+    @Inject
     public CardApplicationDetailsFragment() {
         // Required empty public constructor
     }
@@ -153,14 +160,14 @@ public class CardApplicationDetailsFragment extends Fragment implements CardAppl
         mEmailTextView.setText(form.getDriver().getEmail());
 
         //???
-        mSelfieImageView.setImageBitmap(form.getDriver().getSelfie().getPicture());
-        mDrivingPicImageView.setImageBitmap(form.getDriver().getDrivingPic().getPicture());
+        mSelfieImageView.setImageBitmap(mPictureParser.toBitmap(form.getDriver().getSelfie().getPicture()));
+        mDrivingPicImageView.setImageBitmap(mPictureParser.toBitmap(form.getDriver().getDrivingPic().getPicture()));
 
         mDrivingNumberTextView.setText(form.getDrivingLicenseNumber());
         mDrivingCountryTextView.setText(form.getDrivingLicenseCountry());
         mPlaseOfEventTextView.setText(form.getPlaceOfEvent());
         mDareOfEventTextView.setText((CharSequence) form.getDateOfEvent());
-        mOldCardPicImageView.setImageBitmap(form.getOldCardPicture().getPicture());
+        mOldCardPicImageView.setImageBitmap(mPictureParser.toBitmap(form.getOldCardPicture().getPicture()));
         mOldCardCountryTextView.setText(form.getOldCardCountry());
         mOldCardAuthorityTextView.setText(form.getOldCardAuthority());
         mOldCardNumberTextView.setText(form.getOldCardNumber());
@@ -169,11 +176,11 @@ public class CardApplicationDetailsFragment extends Fragment implements CardAppl
         mNewAddressTextView.setText(form.getNewAddress());
         mNewFirstNameTextView.setText(form.getNewFirstName());
         mNewLastNameTextView.setText(form.getNewLastName());
-        mNewSelfieImageView.setImageBitmap(form.getNewSelfie().getPicture());
+        mNewSelfieImageView.setImageBitmap(mPictureParser.toBitmap(form.getNewSelfie().getPicture()));
         mDetailsTextView.setText(form.getDetails());
         mCheckCodeTextView.setText(form.getStatusCheckCode());
         mPaymentInfoTextView.setText(form.getPaymentInformation());
-        mSignatureImageView.setImageBitmap(form.getSignaturePicture().getPicture());
+        mSignatureImageView.setImageBitmap(mPictureParser.toBitmap(form.getSignaturePicture().getPicture()));
 
     }
 

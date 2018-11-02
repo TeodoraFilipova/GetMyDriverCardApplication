@@ -3,7 +3,7 @@ package com.mystique.rt.getmydrivercardapplcation.views.admin.applicationslist;
 
 import com.mystique.rt.getmydrivercardapplcation.async.SchedulerProvider;
 import com.mystique.rt.getmydrivercardapplcation.models.CardApplicationForm;
-import com.mystique.rt.getmydrivercardapplcation.services.HttpCardApplicationFormService;
+import com.mystique.rt.getmydrivercardapplcation.services.base.CardApplicationFormService;
 
 import java.util.List;
 
@@ -14,12 +14,12 @@ import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.disposables.Disposable;
 
 public class CardApplicationFormsListPresenter implements CardApplicationFormsListContracts.Presenter {
-    private final HttpCardApplicationFormService mCardAppFormService;
+    private final CardApplicationFormService mCardAppFormService;
     private final SchedulerProvider mSchedulerProvider;
     private CardApplicationFormsListContracts.View mView;
 
     @Inject
-    public CardApplicationFormsListPresenter(HttpCardApplicationFormService formsService, SchedulerProvider schedulerProvider) {
+    public CardApplicationFormsListPresenter(CardApplicationFormService formsService, SchedulerProvider schedulerProvider) {
         mCardAppFormService = formsService;
         mSchedulerProvider = schedulerProvider;
     }
@@ -81,7 +81,7 @@ public class CardApplicationFormsListPresenter implements CardApplicationFormsLi
         mView.showLoading();
         Disposable observable = Observable
                 .create((ObservableOnSubscribe<List<CardApplicationForm>>) emitter -> {
-                    List<CardApplicationForm> forms = mCardAppFormService.getFilteredProductsBySubmissionDate(pattern);
+                    List<CardApplicationForm> forms = mCardAppFormService.getFilteredFormsBySubmissionDate(pattern);
                     emitter.onNext(forms);
                     emitter.onComplete();
                 })

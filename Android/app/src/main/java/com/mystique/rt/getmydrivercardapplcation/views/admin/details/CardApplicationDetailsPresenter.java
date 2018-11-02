@@ -2,7 +2,7 @@ package com.mystique.rt.getmydrivercardapplcation.views.admin.details;
 
 import com.mystique.rt.getmydrivercardapplcation.async.SchedulerProvider;
 import com.mystique.rt.getmydrivercardapplcation.models.CardApplicationForm;
-import com.mystique.rt.getmydrivercardapplcation.services.HttpCardApplicationFormService;
+import com.mystique.rt.getmydrivercardapplcation.services.base.CardApplicationFormService;
 
 import javax.inject.Inject;
 
@@ -11,7 +11,7 @@ import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.disposables.Disposable;
 
 public class CardApplicationDetailsPresenter implements CardApplicationDetailsContracts.Presenter {
-    private final HttpCardApplicationFormService mFormService;
+    private final CardApplicationFormService mFormService;
     private final SchedulerProvider mSchedulerProvider;
 
     private CardApplicationDetailsContracts.View mView;
@@ -19,7 +19,7 @@ public class CardApplicationDetailsPresenter implements CardApplicationDetailsCo
 
     @Inject
     public CardApplicationDetailsPresenter(
-            HttpCardApplicationFormService formService,
+            CardApplicationFormService formService,
             SchedulerProvider schedulerProvider
     ) {
         mFormService = formService;
@@ -44,7 +44,7 @@ public class CardApplicationDetailsPresenter implements CardApplicationDetailsCo
                 .subscribeOn(mSchedulerProvider.background())
                 .observeOn(mSchedulerProvider.ui())
                 .doOnError(mView::showError)
-                .subscribeOn(mView::showCardApplicationFormDetails);
+                .subscribe(mView::showCardApplicationFormDetails);
     }
 
     @Override
