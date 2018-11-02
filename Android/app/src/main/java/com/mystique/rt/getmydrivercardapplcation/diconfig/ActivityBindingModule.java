@@ -1,8 +1,8 @@
 package com.mystique.rt.getmydrivercardapplcation.diconfig;
 
 import com.mystique.rt.getmydrivercardapplcation.views.MainActivity;
-import com.mystique.rt.getmydrivercardapplcation.views.admin.applicationslist.ApplicationsListActivity;
-import com.mystique.rt.getmydrivercardapplcation.views.admin.details.DetailsActivity;
+import com.mystique.rt.getmydrivercardapplcation.views.admin.applicationslist.CardApplicationFormsListActivity;
+import com.mystique.rt.getmydrivercardapplcation.views.admin.details.CardApplicationDetailsActivity;
 import com.mystique.rt.getmydrivercardapplcation.views.admin.login.LogInActivity;
 import com.mystique.rt.getmydrivercardapplcation.views.applications.activities.AddressReplacementActivity;
 import com.mystique.rt.getmydrivercardapplcation.views.applications.activities.ApplicationChooseActivity;
@@ -12,7 +12,6 @@ import com.mystique.rt.getmydrivercardapplcation.views.applications.activities.L
 import com.mystique.rt.getmydrivercardapplcation.views.applications.activities.NameReplacementActivity;
 import com.mystique.rt.getmydrivercardapplcation.views.applications.activities.PictureReplacementActivity;
 import com.mystique.rt.getmydrivercardapplcation.views.applications.activities.RenewalActivity;
-import com.mystique.rt.getmydrivercardapplcation.views.applications.adapters.AddressReplacementAdapter;
 import com.mystique.rt.getmydrivercardapplcation.views.contacts.ContactsActivity;
 import com.mystique.rt.getmydrivercardapplcation.views.statuscheck.StatusCheckActivity;
 
@@ -69,12 +68,12 @@ public abstract class ActivityBindingModule {
     abstract LogInActivity logInActivity();
 
     @ActivityScoped
-    @ContributesAndroidInjector()
-    abstract ApplicationsListActivity applicationsListActivity();
+    @ContributesAndroidInjector
+    abstract CardApplicationFormsListActivity cardApplicationFormsListActivity();
 
     @ActivityScoped
     @ContributesAndroidInjector()
-    abstract DetailsActivity detailsActivity();
+    abstract CardApplicationDetailsActivity detailsActivity();
 
 
     @ActivityScoped
