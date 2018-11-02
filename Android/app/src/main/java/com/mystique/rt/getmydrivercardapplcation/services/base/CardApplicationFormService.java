@@ -20,10 +20,9 @@ public interface CardApplicationFormService {
 
     List<CardApplicationForm> getFilteredFormsByName(String pattern) throws Exception;
 
-    CardApplicationForm updateById(int id, CardApplicationForm applicationForm) throws IOException;
+    CardApplicationForm getFormByStatusCheckCode(String statusCheckCode) throws IOException;
 
-    CardApplicationForm getByStatusCheckCode(String statusCheckCode) throws IOException;
-    List<CardApplicationForm> getFilteredProductsBySubbmisitonDate(String patterne) throws Exception;
+    List<CardApplicationForm> getFilteredFormsBySubmissionDate(String pattern) throws Exception;
 
-    List<CardApplicationForm> getFilteredProductsByStatus(String status) throws Exception;
+    List<CardApplicationForm> getFilteredFormsByStatus(String status) throws Exception;
 }

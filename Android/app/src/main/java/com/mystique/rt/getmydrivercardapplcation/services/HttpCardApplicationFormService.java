@@ -17,7 +17,7 @@ public class HttpCardApplicationFormService implements CardApplicationFormServic
     private final Validator<CardApplicationForm> mCardApplicationFormValidator;
 
     public HttpCardApplicationFormService(CardApplicationFormRepository cardApplicationFormRepository,
-            Validator<CardApplicationForm> cardApplicationFormValidator) {
+                                          Validator<CardApplicationForm> cardApplicationFormValidator) {
         mCardApplicationFormRepository = cardApplicationFormRepository;
         mCardApplicationFormValidator = cardApplicationFormValidator;
     }
@@ -51,7 +51,7 @@ public class HttpCardApplicationFormService implements CardApplicationFormServic
     }
 
     @Override
-    public CardApplicationForm getByStatusCheckCode(String statusCheckCode) throws IOException {
+    public CardApplicationForm getFormByStatusCheckCode(String statusCheckCode) throws IOException {
         List<CardApplicationForm> all = getAllForms();
         for (CardApplicationForm app : all) {
             if (app.getStatusCheckCode().equals(statusCheckCode)) {
@@ -66,64 +66,62 @@ public class HttpCardApplicationFormService implements CardApplicationFormServic
         String patternToLower = pattern.toLowerCase();
 
         List<CardApplicationForm> forms = getAllForms();
-        List<CardApplicationForm> filteredforms = new ArrayList<>();
-        for (int i = 0; i < forms.size() ; i++) {
+        List<CardApplicationForm> filteredForms = new ArrayList<>();
+
+        for (int i = 0; i < forms.size(); i++) {
             String form = String.valueOf(forms.get(i).getCardApplicationFormId());
-            form.contains(patternToLower); // not right declaration
-            filteredforms.add(forms.get(i));
+            if (form.contains(patternToLower)) { // not right declaration // fixed now maybe but should be personalNumber, not ID?
+                filteredForms.add(forms.get(i));
+            }
         }
-        return filteredforms;
+        return filteredForms;
     }
 
     @Override
     public List<CardApplicationForm> getFilteredFormsByName(String pattern) throws Exception {
         String patternToLower = pattern.toLowerCase();
+
         List<CardApplicationForm> forms = getAllForms();
-        List<CardApplicationForm> filteredforms = new ArrayList<>();
+        List<CardApplicationForm> filteredForms = new ArrayList<>();
 
         for (int i = 0; i < forms.size(); i++) {
-           if (forms.get(i).getDriver().getFirstName().toLowerCase().contains(patternToLower) ||
-                   forms.get(i).getDriver().getLastName().toLowerCase().contains(patternToLower)){
-               filteredforms.add(forms.get(i));
-           }
+            if (forms.get(i).getDriver().getFirstName().toLowerCase().contains(patternToLower) ||
+                    forms.get(i).getDriver().getLastName().toLowerCase().contains(patternToLower)) {
+                filteredForms.add(forms.get(i));
+            }
         }
-        return filteredforms;
+        return filteredForms;
     }
 
     @Override
-    public List<CardApplicationForm> getFilteredProductsBySubbmisitonDate(String pattern) throws Exception {
+    public List<CardApplicationForm> getFilteredFormsBySubmissionDate(String pattern) throws Exception {
         String patternToLower = pattern.toLowerCase();
         List<CardApplicationForm> forms = getAllForms();
-        List<CardApplicationForm> filteredforms = new ArrayList<>();
+        List<CardApplicationForm> filteredForms = new ArrayList<>();
 
         // is date to string right declaration
+        // probably not how we want to filter dates
+        // use compareTo() or equals() ?
         for (int i = 0; i < forms.size(); i++) {
-            if (forms.get(i).getDateOfSubmission().toString().contains(patternToLower)){
-                filteredforms.add(forms.get(i));
+            if (forms.get(i).getDateOfSubmission().toString().contains(patternToLower)) {
+                filteredForms.add(forms.get(i));
             }
         }
-        return filteredforms;
+        return filteredForms;
     }
 
     @Override
-    public List<CardApplicationForm> getFilteredProductsByStatus(String status) throws Exception {
+    public List<CardApplicationForm> getFilteredFormsByStatus(String status) throws Exception {
         String patternToLower = status.toLowerCase();
         List<CardApplicationForm> forms = getAllForms();
-        List<CardApplicationForm> filteredforms = new ArrayList<>();
+        List<CardApplicationForm> filteredForms = new ArrayList<>();
 
         for (int i = 0; i < forms.size(); i++) {
-            if (forms.get(i).getStatus().toLowerCase().contains(patternToLower) ){
-                filteredforms.add(forms.get(i));
+            if (forms.get(i).getStatus().toLowerCase().contains(patternToLower)) {
+                filteredForms.add(forms.get(i));
             }
         }
-        return filteredforms;
+        return filteredForms;
     }
 
-    @Override
-    public CardApplicationForm updateById(int id, CardApplicationForm applicationForm) throws IOException {
-        if (!mCardApplicationFormValidator.isValid(applicationForm)) {
-            throw new IllegalArgumentException("Application form details are invalid");
-        }
-        return mCardApplicationFormRepository.updateById(id, applicationForm);
-    }
 }

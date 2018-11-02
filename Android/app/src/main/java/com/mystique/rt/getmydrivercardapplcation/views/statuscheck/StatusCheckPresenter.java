@@ -31,7 +31,7 @@ public class StatusCheckPresenter implements StatusCheckContracts.Presenter {
         mView.showLoading();
         Disposable observable = Observable
                 .create((ObservableOnSubscribe<CardApplicationForm>) emitter -> {
-                    CardApplicationForm applicationForm = mCardApplicationFormService.getByStatusCheckCode(statusCheckCode);
+                    CardApplicationForm applicationForm = mCardApplicationFormService.getFormByStatusCheckCode(statusCheckCode);
                     emitter.onNext(applicationForm);
                     emitter.onComplete();
                 })

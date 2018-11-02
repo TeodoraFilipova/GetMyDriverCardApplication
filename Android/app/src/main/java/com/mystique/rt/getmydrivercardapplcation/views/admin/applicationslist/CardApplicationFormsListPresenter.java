@@ -4,9 +4,7 @@ package com.mystique.rt.getmydrivercardapplcation.views.admin.applicationslist;
 import com.mystique.rt.getmydrivercardapplcation.async.SchedulerProvider;
 import com.mystique.rt.getmydrivercardapplcation.models.CardApplicationForm;
 import com.mystique.rt.getmydrivercardapplcation.services.HttpCardApplicationFormService;
-import com.mystique.rt.getmydrivercardapplcation.views.admin.details.CardApplicationDetailsContracts;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -83,7 +81,7 @@ public class CardApplicationFormsListPresenter implements CardApplicationFormsLi
         mView.showLoading();
         Disposable observable = Observable
                 .create((ObservableOnSubscribe<List<CardApplicationForm>>) emitter -> {
-                    List<CardApplicationForm> forms = mCardAppFormService.getFilteredProductsBySubbmisitonDate(pattern);
+                    List<CardApplicationForm> forms = mCardAppFormService.getFilteredProductsBySubmissionDate(pattern);
                     emitter.onNext(forms);
                     emitter.onComplete();
                 })
@@ -99,7 +97,7 @@ public class CardApplicationFormsListPresenter implements CardApplicationFormsLi
         mView.showLoading();
         Disposable observable = Observable
                 .create((ObservableOnSubscribe<List<CardApplicationForm>>) emitter -> {
-                    List<CardApplicationForm> forms = mCardAppFormService.getFilteredProductsByStatus(status);
+                    List<CardApplicationForm> forms = mCardAppFormService.getFilteredFormsByStatus(status);
                     emitter.onNext(forms);
                     emitter.onComplete();
                 })
