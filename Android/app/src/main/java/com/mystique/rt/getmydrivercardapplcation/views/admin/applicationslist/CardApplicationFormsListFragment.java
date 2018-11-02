@@ -35,8 +35,17 @@ public class CardApplicationFormsListFragment extends Fragment
     @BindView(R.id.loading_bar)
     ProgressBar mLoadingBar;
 
-    @BindView(R.id.et_filter_search)
-    EditText mSearchFilterText;
+    @BindView(R.id.et_id_filter_search)
+    EditText mIDSearchFilterText;
+
+    @BindView(R.id.et_name_filter_search)
+    EditText mNameSearchFilterText;
+
+    @BindView(R.id.et_submission_filter_search)
+    EditText mSubmissionSearchFilterText;
+
+    @BindView(R.id.et_status_filter_search)
+    EditText mStatusSearchFilterText;
 
     @BindView(R.id.lv_cardappforms)
     RecyclerView mCardAppFormsListView;
@@ -57,7 +66,7 @@ public class CardApplicationFormsListFragment extends Fragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_card_application_forms, container, false);
+        View view = inflater.inflate(R.layout.fragment_card_application_forms_list, container, false);
 
         ButterKnife.bind(this, view);
 
@@ -129,10 +138,28 @@ public class CardApplicationFormsListFragment extends Fragment
         mNavigator.navigateWith(form);
     }
 
-    // make filter by ...
-    @OnTextChanged(R.id.et_filter_search)
-    public void onTextChanged() {
-        String pattern = mSearchFilterText.getText().toString();
-        mPresenter.filterCardApplicationForms(pattern);
+    @OnTextChanged(R.id.et_id_filter_search)
+    public void onIDTextChanged() {
+        String pattern = mIDSearchFilterText.getText().toString();
+        mPresenter.filterCardApplicationFormsByID(pattern);
     }
+
+    @OnTextChanged(R.id.et_name_filter_search)
+    public void onNameTextChanged() {
+        String pattern = mNameSearchFilterText.getText().toString();
+        mPresenter.filterCardApplicationFormsByName(pattern);
+    }
+
+    @OnTextChanged(R.id.et_submission_filter_search)
+    public void onSubmissionTextChanged() {
+        String pattern = mSubmissionSearchFilterText.getText().toString();
+        mPresenter.filterCardApplicationFormsBySubmissionDate(pattern);
+    }
+
+    @OnTextChanged(R.id.et_status_filter_search)
+    public void onStatusTextChanged() {
+        String pattern = mStatusSearchFilterText.getText().toString();
+        mPresenter.filterCardApplicationFormsByStatus(pattern);
+    }
+
 }

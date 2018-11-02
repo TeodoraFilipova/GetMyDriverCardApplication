@@ -6,9 +6,9 @@ import java.io.IOException;
 
 public interface PictureService {
 
-    Picture add(Picture picture) throws IOException;
+    Picture addPicture(Picture picture) throws IOException;
 
-    Picture getById(int id) throws IOException;
+    Picture getPictureById(int id) throws IOException;
 
-    Picture updateById(int id, Picture picture) throws IOException;
+    Picture updatePictureById(int id, Picture picture) throws IOException;
 }

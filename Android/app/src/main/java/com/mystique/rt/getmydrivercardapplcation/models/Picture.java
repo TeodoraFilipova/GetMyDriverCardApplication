@@ -22,6 +22,7 @@ public class Picture implements Serializable {
         this.pictureId = pictureId;
     }
 
+    // cast to bitmap
     public byte[] getPicture() {
         return picture;
     }

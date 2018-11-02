@@ -1,9 +1,12 @@
 package com.mystique.rt.getmydrivercardapplcation.views.admin.applicationslist;
 
-import com.example.mystiquecatalogue_android.async.base.SchedulerProvider;
-import com.example.mystiquecatalogue_android.models.Product;
-import com.example.mystiquecatalogue_android.services.base.ProductsService;
 
+import com.mystique.rt.getmydrivercardapplcation.async.SchedulerProvider;
+import com.mystique.rt.getmydrivercardapplcation.models.CardApplicationForm;
+import com.mystique.rt.getmydrivercardapplcation.services.HttpCardApplicationFormService;
+import com.mystique.rt.getmydrivercardapplcation.views.admin.details.CardApplicationDetailsContracts;
+
+import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -12,63 +15,113 @@ import io.reactivex.Observable;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.disposables.Disposable;
 
-public class CardApplicatioFormsListPresenter implements ProductsListContracts.Presenter {
-    private final ProductsService mProductsService;
+public class CardApplicatioFormsListPresenter implements CardApplicationFormsListContracts.Presenter {
+    private final HttpCardApplicationFormService mCardAppFormService;
     private final SchedulerProvider mSchedulerProvider;
-    private ProductsListContracts.View mView;
+    private CardApplicationFormsListContracts.View mView;
 
     @Inject
-    public CardApplicatioFormsListPresenter(ProductsService productsService, SchedulerProvider schedulerProvider) {
-        mProductsService = productsService;
+    public CardApplicatioFormsListPresenter(HttpCardApplicationFormService formsService, SchedulerProvider schedulerProvider) {
+        mCardAppFormService = formsService;
         mSchedulerProvider = schedulerProvider;
     }
 
+
     @Override
-    public void subscribe(ProductsListContracts.View view) {
+    public void subscribe(CardApplicationFormsListContracts.View view) {
         mView = view;
     }
 
     @Override
-    public void loadProducts() {
+    public void loadCardApplicationsForms() {
         mView.showLoading();
         Disposable observable = Observable
-                .create((ObservableOnSubscribe<List<Product>>) emitter -> {
-                    List<Product> products = mProductsService.getAllProducts();
-                    emitter.onNext(products);
+                .create((ObservableOnSubscribe<List<CardApplicationForm>>) emitter -> {
+                    List<CardApplicationForm> forms = mCardAppFormService.getAllForms();
+                    emitter.onNext(forms);
                     emitter.onComplete();
                 })
                 .subscribeOn(mSchedulerProvider.background())
                 .observeOn(mSchedulerProvider.ui())
                 .doFinally(mView::hideLoading)
-                .subscribe(this::presentProductsToView, error -> mView.showError(error));
+                .subscribe(this::presentFormsToView, error -> mView.showError(error));
+    }
+
+   @Override
+    public void filterCardApplicationFormsByID(String pattern) {
+       mView.showLoading();
+       Disposable observable = Observable
+               .create((ObservableOnSubscribe<List<CardApplicationForm>>) emitter -> {
+                   List<CardApplicationForm> forms = mCardAppFormService.getFilteredFormsByID(pattern);
+                   emitter.onNext(forms);
+                   emitter.onComplete();
+               })
+               .subscribeOn(mSchedulerProvider.background())
+               .observeOn(mSchedulerProvider.ui())
+               .doFinally(mView::hideLoading)
+               .subscribe(this::presentFormsToView, error -> mView.showError(error));
     }
 
     @Override
-    public void filterProducts(String pattern) {
+    public void filterCardApplicationFormsByName(String pattern) {
         mView.showLoading();
         Disposable observable = Observable
-                .create((ObservableOnSubscribe<List<Product>>) emitter -> {
-                    List<Product> products = mProductsService.getFilteredProducts(pattern);
-                    emitter.onNext(products);
+                .create((ObservableOnSubscribe<List<CardApplicationForm>>) emitter -> {
+                    List<CardApplicationForm> forms = mCardAppFormService.getFilteredFormsByName(pattern);
+                    emitter.onNext(forms);
                     emitter.onComplete();
                 })
                 .subscribeOn(mSchedulerProvider.background())
                 .observeOn(mSchedulerProvider.ui())
                 .doFinally(mView::hideLoading)
-                .subscribe(this::presentProductsToView, error -> mView.showError(error));
+                .subscribe(this::presentFormsToView, error -> mView.showError(error));
+
     }
 
     @Override
-    public void selectProduct(Product product) {
-        mView.showProductsDetails(product);
+    public void filterCardApplicationFormsBySubmissionDate(String pattern) {
+        mView.showLoading();
+        Disposable observable = Observable
+                .create((ObservableOnSubscribe<List<CardApplicationForm>>) emitter -> {
+                    List<CardApplicationForm> forms = mCardAppFormService.getFilteredProductsBySubbmisitonDate(pattern);
+                    emitter.onNext(forms);
+                    emitter.onComplete();
+                })
+                .subscribeOn(mSchedulerProvider.background())
+                .observeOn(mSchedulerProvider.ui())
+                .doFinally(mView::hideLoading)
+                .subscribe(this::presentFormsToView, error -> mView.showError(error));
     }
 
-    private void presentProductsToView(List<Product> products) {
-        if (products.isEmpty()) {
-            mView.showEmptyProductsList();
+
+    @Override
+    public void filterCardApplicationFormsByStatus(String status) {
+        mView.showLoading();
+        Disposable observable = Observable
+                .create((ObservableOnSubscribe<List<CardApplicationForm>>) emitter -> {
+                    List<CardApplicationForm> forms = mCardAppFormService.getFilteredProductsByStatus(status);
+                    emitter.onNext(forms);
+                    emitter.onComplete();
+                })
+                .subscribeOn(mSchedulerProvider.background())
+                .observeOn(mSchedulerProvider.ui())
+                .doFinally(mView::hideLoading)
+                .subscribe(this::presentFormsToView, error -> mView.showError(error));
+    }
+
+
+    @Override
+    public void selectCardApplicationForm(CardApplicationForm cardApplicationForm) {
+        mView.showCardApplicationsDetails(cardApplicationForm);
+    }
+
+
+
+    private void presentFormsToView(List<CardApplicationForm> forms) {
+        if (forms.isEmpty()) {
+            mView.showEmptyCardApplicationsList();
         } else {
-            mView.showProducts(products);
+            mView.showCardApplications(forms);
         }
     }
-
 }

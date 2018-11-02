@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.mystique.rt.getmydrivercardapplcation.models.CardApplicationForm;
 
+import java.util.Date;
 import java.util.List;
 
 public interface CardApplicationFormsListContracts {
@@ -28,7 +29,13 @@ public interface CardApplicationFormsListContracts {
 
         void loadCardApplicationsForms();
 
-        void filterCardApplicationForms(String pattern);
+        void filterCardApplicationFormsByID(String pattern);
+
+        void filterCardApplicationFormsByName(String pattern);
+
+        void filterCardApplicationFormsBySubmissionDate(String pattern);
+
+        void filterCardApplicationFormsByStatus(String pattern);
 
         void selectCardApplicationForm(CardApplicationForm cardApplicationForm);
     }

@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface UserService {
 
-    List<User> getAll() throws IOException;
+    List<User> getAllUsers() throws IOException;
 
 }

@@ -18,7 +18,7 @@ public class HttpDriverService implements DriverService {
 
 
     @Override
-    public Driver add(Driver driver) throws IOException {
+    public Driver addDriver(Driver driver) throws IOException {
         if (!mDriverValidator.isValid(driver)) {
             throw new IllegalArgumentException("Driver information is invalid!");
         }
@@ -26,12 +26,12 @@ public class HttpDriverService implements DriverService {
     }
 
     @Override
-    public Driver getById(int id) throws IOException {
+    public Driver getDriverById(int id) throws IOException {
         return mDriverRepository.getById(id);
     }
 
     @Override
-    public Driver updateById(int id, Driver driver) throws IOException {
+    public Driver updateDriverById(int id, Driver driver) throws IOException {
         if (!mDriverValidator.isValid(driver)) {
             throw new IllegalArgumentException("Driver information is invalid!");
         }

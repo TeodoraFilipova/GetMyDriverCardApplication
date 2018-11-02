@@ -15,7 +15,7 @@ public class HttpUserService implements UserService {
     }
 
     @Override
-    public List<User> getAll() throws IOException {
+    public List<User> getAllUsers() throws IOException {
         return mUserRepository.getAll();
     }
 }

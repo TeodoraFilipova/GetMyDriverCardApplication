@@ -2,16 +2,10 @@ package com.mystique.rt.getmydrivercardapplcation.views.admin.applicationslist;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
 
 import com.mystique.rt.getmydrivercardapplcation.R;
-import com.mystique.rt.getmydrivercardapplcation.apputils.Navigator;
 import com.mystique.rt.getmydrivercardapplcation.models.CardApplicationForm;
-import com.mystique.rt.getmydrivercardapplcation.views.admin.details.DetailsActivity;
+import com.mystique.rt.getmydrivercardapplcation.views.admin.details.CardApplicationDetailsActivity;
 
 import javax.inject.Inject;
 
@@ -55,8 +49,8 @@ implements CardApplicationFormsListContracts.Navigator {
 
     @Override
     public void navigateWith(CardApplicationForm cardApplicationForm) {
-        Intent intent = new Intent(this, DetailsActivity.class);
-        intent.putExtra(DetailsActivity.EXTRA_KEY, cardApplicationForm);
+        Intent intent = new Intent(this, CardApplicationDetailsActivity.class);
+        intent.putExtra(CardApplicationDetailsActivity.EXTRA_KEY, cardApplicationForm);
         startActivity(intent);
     }
 }

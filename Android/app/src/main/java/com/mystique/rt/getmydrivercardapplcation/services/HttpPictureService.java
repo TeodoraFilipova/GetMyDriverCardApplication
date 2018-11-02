@@ -14,17 +14,17 @@ public class HttpPictureService implements PictureService {
     }
 
     @Override
-    public Picture add(Picture picture) throws IOException {
+    public Picture addPicture(Picture picture) throws IOException {
         return mPictureRepository.add(picture);
     }
 
     @Override
-    public Picture getById(int id) throws IOException {
+    public Picture getPictureById(int id) throws IOException {
         return mPictureRepository.getById(id);
     }
 
     @Override
-    public Picture updateById(int id, Picture picture) throws IOException {
+    public Picture updatePictureById(int id, Picture picture) throws IOException {
         return mPictureRepository.updateById(id, picture);
     }
 }

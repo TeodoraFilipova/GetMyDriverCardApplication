@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.admin.applicationslist.CardApplicationFormsListFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:id="@+id/loading_bar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+
+        <EditText
+            android:id="@+id/et_id_filter_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter form id to search" />
+
+        <EditText
+            android:id="@+id/et_name_filter_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter name to search"
+            android:layout_below="@id/et_id_filter_search"/>
+
+        <EditText
+            android:id="@+id/et_submission_filter_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter submission date to search"
+            android:layout_below="@id/et_name_filter_search"/>
+
+        <EditText
+            android:id="@+id/et_status_filter_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter to status search"
+            android:layout_below="@id/et_submission_filter_search"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/lv_cardappforms"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/et_status_filter_search"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+</FrameLayout>

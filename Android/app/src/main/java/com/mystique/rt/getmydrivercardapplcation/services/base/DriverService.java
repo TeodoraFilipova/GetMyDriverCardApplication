@@ -5,9 +5,9 @@ import com.mystique.rt.getmydrivercardapplcation.models.Driver;
 import java.io.IOException;
 
 public interface DriverService {
-    Driver add(Driver driver) throws IOException;
+    Driver addDriver(Driver driver) throws IOException;
 
-    Driver getById(int id) throws IOException;
+    Driver getDriverById(int id) throws IOException;
 
-    Driver updateById(int id, Driver driver) throws IOException;
+    Driver updateDriverById(int id, Driver driver) throws IOException;
 }
