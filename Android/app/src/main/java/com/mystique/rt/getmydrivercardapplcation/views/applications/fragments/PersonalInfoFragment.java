@@ -6,14 +6,21 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import com.mystique.rt.getmydrivercardapplcation.R;
+import com.mystique.rt.getmydrivercardapplcation.apputils.SetDate;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class PersonalInfoFragment extends Fragment {
 
+    @BindView(R.id.et_date_of_birth)
+    EditText mDateOfEventEditText;
 
     public PersonalInfoFragment() {
         // Required empty public constructor
@@ -24,7 +31,12 @@ public class PersonalInfoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_personal_info, container, false);
+        View view = inflater.inflate(R.layout.fragment_personal_info, container, false);
+        ButterKnife.bind(this, view);
+
+        SetDate fromDate = new SetDate(mDateOfEventEditText, getContext());
+
+        return view;
     }
 
 }
