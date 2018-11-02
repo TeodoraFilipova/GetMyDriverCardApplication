@@ -27,7 +27,7 @@ public class StatusCheckPresenter implements StatusCheckContracts.Presenter {
     }
 
     @Override
-    public void checkStatus(final String statusCheckCode) {
+    public void checkStatus(String statusCheckCode) {
         mView.showLoading();
         Disposable observable = Observable
                 .create((ObservableOnSubscribe<CardApplicationForm>) emitter -> {
