@@ -70,7 +70,7 @@
             android:label="@string/title_activity_details"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".views.admin.applicationslist.CardApplicationListActivity"
+            android:name=".views.admin.applicationslist.CardApplicationFormsListActivity"
             android:label="@string/title_activity_card_application_list"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
     </application>

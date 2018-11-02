@@ -9,4 +9,5 @@ public interface UserService {
 
     List<User> getAllUsers() throws IOException;
 
+    User getUserByUsernameAndPassword(String userName, String password) throws IOException;
 }

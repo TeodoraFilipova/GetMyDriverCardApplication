@@ -3,42 +3,47 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.statuscheck.StatusCheckFragment">
+    tools:context=".views.admin.login.LogInFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/tv_status_check"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/text_status_check_instructions" />
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
 
         <EditText
-            android:id="@+id/et_write_status_code"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/edit_text_status_code_hint"
-            android:inputType="number" />
-
-        <Button
-            android:id="@+id/button_check_status"
+            android:id="@+id/et_username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/submit_text" />
+            android:inputType="text"
+            android:hint="@string/username"/>
+
+        <EditText
+            android:id="@+id/et_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:hint="@string/password"/>
+
+        <Button
+            android:id="@+id/button_log_in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/log_in"/>
 
         <TextView
-            android:id="@+id/tv_show_status"
+            android:id="@+id/tv_wrong_user_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone" />
+            android:text="@string/wrong_username_or_password"
+            android:visibility="gone"/>
 
         <ProgressBar
             android:id="@+id/pb_loading"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:visibility="gone" />
+
     </LinearLayout>
+
 </FrameLayout>

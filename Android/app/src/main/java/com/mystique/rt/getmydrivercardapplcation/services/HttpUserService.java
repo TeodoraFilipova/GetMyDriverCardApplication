@@ -18,4 +18,15 @@ public class HttpUserService implements UserService {
     public List<User> getAllUsers() throws IOException {
         return mUserRepository.getAll();
     }
+
+    @Override
+    public User getUserByUsernameAndPassword(String userName, String password) throws IOException {
+        List<User> allUsers = mUserRepository.getAll();
+        for (User user : allUsers) {
+            if (user.getUsername().equals(userName) && user.getPassword().equals(password)) {
+                return user;
+            }
+        }
+        return null;
+    }
 }

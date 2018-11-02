@@ -52,6 +52,10 @@
     <string name="new_address">New Address:</string>
     <string name="date_of_event">Date of Event:</string>
     <string name="place_of_event">Place of Event:</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="log_in">Log In</string>
+    <string name="wrong_username_or_password">Wrong username or password!</string>
 
 
 </resources>
