@@ -11,7 +11,7 @@ import dagger.Provides;
 @Module
 public class AsyncModule {
     @Provides
-  //  @Singleton
+    @Singleton
     public SchedulerProvider schedulerProvider() {
         return AsyncSchedulerProvider.getInstance();
     }

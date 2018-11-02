@@ -60,7 +60,9 @@ public abstract class ActivityBindingModule {
 
 
     @ActivityScoped
-    @ContributesAndroidInjector()
+    @ContributesAndroidInjector(modules = {
+            StatusCheckModule.class
+    })
     abstract StatusCheckActivity statusCheckActivity();
 
     @ActivityScoped
@@ -68,7 +70,7 @@ public abstract class ActivityBindingModule {
     abstract LogInActivity logInActivity();
 
     @ActivityScoped
-    @ContributesAndroidInjector
+    @ContributesAndroidInjector()
     abstract CardApplicationFormsListActivity cardApplicationFormsListActivity();
 
     @ActivityScoped

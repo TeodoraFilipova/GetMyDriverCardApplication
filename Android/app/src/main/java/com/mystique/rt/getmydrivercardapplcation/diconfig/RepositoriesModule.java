@@ -26,7 +26,7 @@ import dagger.Provides;
 public class RepositoriesModule {
 
     @Provides
-   // @Singleton
+    @Singleton
     public CardApplicationFormRepository cardApplicationFormRepository(
             @Named("baseServerUrl") String baseServerUrl,
             HttpRequester httpRequester,
@@ -37,7 +37,7 @@ public class RepositoriesModule {
     }
 
     @Provides
-  //  @Singleton
+    @Singleton
     public DriverRepository driverRepository(
             @Named("baseServerUrl") String baseServerUrl,
             HttpRequester httpRequester,
@@ -48,7 +48,7 @@ public class RepositoriesModule {
     }
 
     @Provides
-  //  @Singleton
+    @Singleton
     public PictureRepository pictureRepository(
             @Named("baseServerUrl") String baseServerUrl,
             HttpRequester httpRequester,
@@ -60,7 +60,7 @@ public class RepositoriesModule {
 
 
     @Provides
- //   @Singleton
+    @Singleton
     public UserRepository userRepository(
             @Named("baseServerUrl") String baseServerUrl,
             HttpRequester httpRequester,
