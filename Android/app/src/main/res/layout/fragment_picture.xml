@@ -4,49 +4,68 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
     <TextView
         android:id="@+id/tv_picfragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Picture"
-        android:textSize="30dp"
+        android:textSize="20dp"
+        android:textAlignment="center"
         />
 
     <ImageView
         android:id="@+id/iv_selfie"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_below="@id/tv_picfragment"/>
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_below="@id/tv_picfragment" />
 
     <Button
     android:id="@+id/btn_selfiecamera"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="Make selfie"/>
+    android:text="Make selfie"
+        android:layout_below="@id/iv_selfie"/>
 
     <Button
         android:id="@+id/btn_selfiesave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Set selfie"/>
+        android:layout_below="@+id/iv_selfie"
+        android:layout_centerHorizontal="true"
+        android:text="Set selfie" />
 
-    <!--<ImageView
+
+    <TextView
+        android:id="@+id/tv_drivingtext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:text="Driving license picture"
+        android:textAlignment="center"
+        android:textSize="20dp" />
+
+    <ImageView
         android:id="@+id/iv_drivinglicence"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_below="@id/tv_picfragment"/>
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tv_drivingtext" />
 
     <Button
         android:id="@+id/btn_drivingliccamera"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Make picture to driving license"/>
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/iv_drivinglicence"
+        android:text="Make picture to driving license" />
 
     <Button
         android:id="@+id/btn_drivinglsafe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Set picture"/>-->
+        android:layout_alignBottom="@+id/btn_drivingliccamera"
+        android:layout_toEndOf="@+id/btn_drivingliccamera"
+        android:text="Set picture" />
 
 </RelativeLayout>
