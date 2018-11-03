@@ -1,3 +1,5 @@
+
+
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -38,6 +40,9 @@ VALUES (LOAD_FILE ('C:\Users\R&T\Desktop\Other\DEUTSCH\cv\pipi.jpg')),
 (LOAD_FILE ('C:\Users\R&T\Desktop\Other\DEUTSCH\cv\pipi.jpg')),
 (LOAD_FILE ('C:\Users\R&T\Desktop\Other\DEUTSCH\cv\pipi.jpg'));
 /*!40000 ALTER TABLE `pictures` ENABLE KEYS */;
+
+
+UPDATE pictures SET Picture = LOAD_FILE ('C:\\Users\\R&T\\Desktop\\Other\\DEUTSCH\\cv\\pipi.jpg') WHERE pictureId = 19;
 UNLOCK TABLES;
 
 LOCK TABLES `cardapplicationforms` WRITE;

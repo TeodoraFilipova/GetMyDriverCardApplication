@@ -20,12 +20,18 @@
         android:layout_below="@id/tv_picfragment"/>
 
     <Button
-        android:id="@+id/btn_selfiecamera"
+    android:id="@+id/btn_selfiecamera"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Make selfie"/>
+
+    <Button
+        android:id="@+id/btn_selfiesave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Make selfie"/>
+        android:text="Set selfie"/>
 
-    <ImageView
+    <!--<ImageView
         android:id="@+id/iv_drivinglicence"
         android:layout_width="200dp"
         android:layout_height="200dp"
@@ -35,7 +41,12 @@
         android:id="@+id/btn_drivingliccamera"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Make selfie"/>
+        android:text="Make picture to driving license"/>
 
+    <Button
+        android:id="@+id/btn_drivinglsafe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Set picture"/>-->
 
 </RelativeLayout>
