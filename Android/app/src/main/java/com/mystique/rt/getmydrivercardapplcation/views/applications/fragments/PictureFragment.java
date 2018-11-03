@@ -60,7 +60,7 @@ public class PictureFragment extends Fragment implements PictureMakeView {
     ImageView drivingLicSaveImageView;*/
 
     @Inject
-    private PictureFragmentPresenter mPresenter;
+    PictureFragmentPresenter mPresenter;
 
     public PictureFragment() {
         // Required empty public constructor

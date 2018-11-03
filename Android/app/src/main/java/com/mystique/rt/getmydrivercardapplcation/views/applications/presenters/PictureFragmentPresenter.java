@@ -27,7 +27,7 @@ public class PictureFragmentPresenter implements PicturePresenter {
     BitmapParser mPictureParser;
 
     @Inject
-    private PictureFragment mPictureView;
+    PictureFragment mPictureView;
 
 
 
