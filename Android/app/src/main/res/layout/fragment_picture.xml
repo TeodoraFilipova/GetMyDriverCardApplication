@@ -45,14 +45,12 @@
         android:text="Driving license picture"
         android:textAlignment="center"
         android:textSize="20dp" />
-
     <ImageView
         android:id="@+id/iv_drivinglicence"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/tv_drivingtext" />
-
     <Button
         android:id="@+id/btn_drivingliccamera"
         android:layout_width="wrap_content"
@@ -60,7 +58,6 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/iv_drivinglicence"
         android:text="Make picture to driving license" />
-
     <Button
         android:id="@+id/btn_drivinglsafe"
         android:layout_width="wrap_content"
