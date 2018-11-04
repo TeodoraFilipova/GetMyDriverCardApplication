@@ -4,38 +4,39 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
+    <!--<TextView
         android:id="@+id/tv_picfragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Picture"
         android:textSize="20dp"
         android:textAlignment="center"
-        />
-
-    <ImageView
-        android:id="@+id/iv_selfie"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_below="@id/tv_picfragment" />
+        />-->
 
     <Button
-    android:id="@+id/btn_selfiecamera"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Make selfie"
-        android:layout_below="@id/iv_selfie"/>
-
-    <Button
-        android:id="@+id/btn_selfiesave"
+        android:id="@+id/btn_picturecamera"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/iv_selfie"
         android:layout_centerHorizontal="true"
-        android:text="Set selfie" />
+        android:text="Open camera" />
+
+    <ImageView
+        android:id="@+id/iv_picture"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_below="@+id/btn_picturecamera"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/btn_picturesave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_picture"
+        android:layout_centerHorizontal="true"
+        android:text="Set picture" />
 
 
-    <TextView
+    <!--<TextView
         android:id="@+id/tv_drivingtext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -66,6 +67,6 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/btn_drivingliccamera"
         android:layout_toEndOf="@+id/btn_drivingliccamera"
-        android:text="Set picture" />
+        android:text="Set picture" />-->
 
 </RelativeLayout>
