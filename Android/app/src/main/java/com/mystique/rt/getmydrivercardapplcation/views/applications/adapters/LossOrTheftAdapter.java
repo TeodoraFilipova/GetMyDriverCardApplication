@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.mystique.rt.getmydrivercardapplcation.views.applications.fragments.LossTheftFragment;
 import com.mystique.rt.getmydrivercardapplcation.views.applications.fragments.PersonalInfoFragment;
-import com.mystique.rt.getmydrivercardapplcation.views.applications.fragments.PictureFragment;
+import com.mystique.rt.getmydrivercardapplcation.views.applications.fragments.SelfieFragment;
 import com.mystique.rt.getmydrivercardapplcation.views.applications.fragments.SignDeclarationFragment;
 
 public class LossOrTheftAdapter extends FragmentStatePagerAdapter {
@@ -30,8 +30,8 @@ public class LossOrTheftAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
         switch (position){
             case 0: return new PersonalInfoFragment();
-            case 1: return new PictureFragment();
-            case 2: return new PictureFragment();
+            case 1: return new SelfieFragment();
+            case 2: return new SelfieFragment();
             case 3: return new LossTheftFragment();
             case 4: return new SignDeclarationFragment();
         }

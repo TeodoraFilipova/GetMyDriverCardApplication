@@ -5,7 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.mystique.rt.getmydrivercardapplcation.views.applications.fragments.PersonalInfoFragment;
-import com.mystique.rt.getmydrivercardapplcation.views.applications.fragments.PictureFragment;
+import com.mystique.rt.getmydrivercardapplcation.views.applications.fragments.SelfieFragment;
 import com.mystique.rt.getmydrivercardapplcation.views.applications.fragments.SignDeclarationFragment;
 
 public class RenewalAdapter extends FragmentStatePagerAdapter {
@@ -18,7 +18,7 @@ public class RenewalAdapter extends FragmentStatePagerAdapter {
     public CharSequence getPageTitle(int position) {
         switch (position){
             case 0: return "Personal Info";
-            case 1: return "Selfie"; // trying to combine in one camera 2 pictures
+            case 1: return "Selfie";
             case 2: return "Driving Licence Pic";
             case 3: return "Declaration and sign";
             default: return null;
@@ -29,8 +29,8 @@ public class RenewalAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
         switch (position){
             case 0: return new PersonalInfoFragment();
-            case 1: return new PictureFragment();
-            case 2: return new PictureFragment();
+            case 1: return new SelfieFragment();
+            case 2: return new SelfieFragment();
             case 3: return new SignDeclarationFragment();
         }
         return null;
