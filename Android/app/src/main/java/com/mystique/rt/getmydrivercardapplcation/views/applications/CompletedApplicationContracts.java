@@ -27,8 +27,6 @@ public interface CompletedApplicationContracts {
 
         void showSecondMessage();
 
-        void showThirdMessage();
-
         void sendMail();
     }
 

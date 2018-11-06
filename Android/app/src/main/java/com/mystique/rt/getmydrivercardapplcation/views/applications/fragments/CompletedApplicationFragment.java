@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.mystique.rt.getmydrivercardapplcation.R;
 import com.mystique.rt.getmydrivercardapplcation.apputils.Constants;
@@ -15,6 +17,7 @@ import com.mystique.rt.getmydrivercardapplcation.views.applications.CompletedApp
 
 import javax.inject.Inject;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -22,11 +25,17 @@ import butterknife.ButterKnife;
  */
 public class CompletedApplicationFragment extends Fragment implements CompletedApplicationContracts.View {
     private RememberAll mRememberAll;
-    private CompletedApplicationContracts.Presenter mPresenter;
+    CompletedApplicationContracts.Presenter mPresenter;
 
     private int mNextPictureId;
     private int mNextDriverId;
     private int mNextCardApplicationFormId;
+
+    @BindView(R.id.text_completed)
+    TextView mMessageTextView;
+
+    @BindView(R.id.pb_loading)
+    ProgressBar mLoading;
 
     @Inject
     public CompletedApplicationFragment() {
@@ -41,6 +50,7 @@ public class CompletedApplicationFragment extends Fragment implements CompletedA
         View view = inflater.inflate(R.layout.fragment_completed_application, container, false);
         ButterKnife.bind(this, view);
         mRememberAll = RememberAll.getInstance();
+        showLoading();
 
         // SELFIE
         mPresenter.getLastUpdatedPicture();
@@ -127,27 +137,28 @@ public class CompletedApplicationFragment extends Fragment implements CompletedA
 
     @Override
     public void setPresenter(CompletedApplicationContracts.Presenter presenter) {
-
+        mPresenter = presenter;
     }
 
     @Override
     public void showMessageApplicationCompleted() {
-
+        hideLoading();
+        mMessageTextView.setText("Your application has been submitted! Please check your email!");
     }
 
     @Override
     public void hideLoading() {
-
+        mLoading.setVisibility(View.GONE);
     }
 
     @Override
     public void showError(Throwable error) {
-
+        mMessageTextView.setText(error.getMessage());
     }
 
     @Override
     public void showLoading() {
-
+        mLoading.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -167,17 +178,12 @@ public class CompletedApplicationFragment extends Fragment implements CompletedA
 
     @Override
     public void showFirstMessage() {
-
+        mMessageTextView.setText("Your personal details have been processed. Please do NOT close this window!");
     }
 
     @Override
     public void showSecondMessage() {
-
-    }
-
-    @Override
-    public void showThirdMessage() {
-
+        mMessageTextView.setText("Your photographs have been processed. Please wait while we complete this application!");
     }
 
     @Override

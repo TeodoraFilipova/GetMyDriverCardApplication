@@ -9,7 +9,10 @@ import com.mystique.rt.getmydrivercardapplcation.views.applications.fragments.Co
 
 import javax.inject.Inject;
 
-public class CompletedApplicationActivity extends AppCompatActivity {
+import butterknife.ButterKnife;
+import dagger.android.support.DaggerAppCompatActivity;
+
+public class CompletedApplicationActivity extends DaggerAppCompatActivity {
 
     @Inject
     CompletedApplicationFragment mFragment;
@@ -21,6 +24,7 @@ public class CompletedApplicationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_completed_application);
+        ButterKnife.bind(this);
 
     //    mFragment = CompletedApplicationFragment.getInstance();
 

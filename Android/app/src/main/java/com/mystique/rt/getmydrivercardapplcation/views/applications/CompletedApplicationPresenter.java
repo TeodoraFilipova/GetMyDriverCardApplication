@@ -227,6 +227,6 @@ public class CompletedApplicationPresenter implements CompletedApplicationContra
     }
 
     private void tellViewCardApplicationFormSaveSuccessful(CardApplicationForm cardApplicationForm) {
-        mView.showThirdMessage();
+        mView.showMessageApplicationCompleted();
     }
 }
