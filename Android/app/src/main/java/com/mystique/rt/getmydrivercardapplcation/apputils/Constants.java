@@ -1,7 +1,7 @@
 package com.mystique.rt.getmydrivercardapplcation.apputils;
 
 public class Constants {
-    public static final String BASE_SERVER_URL = "http://192.168.1.5:8080/api";
+    public static final String BASE_SERVER_URL = "http://10.121.189.165:8080/api";
 
     public static final int STATUS_CHECK_CODE_LENGTH = 10;
 
@@ -35,7 +35,6 @@ public class Constants {
     // APPLICATION STATUSES
     public static final String STATUS_NEW = "new";
 
-    public static final String RENEWAL_REASON_NEW_SELFIE = "change in personal photograph";
 
     // todo application types: first, EU to BG...
 

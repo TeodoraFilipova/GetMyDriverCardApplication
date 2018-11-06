@@ -63,6 +63,7 @@
     <string name="open_camera">Open_camera</string>
     <string name="new_address">New address</string>
     <string name="old_card_date_of_expiry">Old card date of expiry</string>
+    <string name="email">Email</string>
 
 
 </resources>
