@@ -43,6 +43,9 @@ public class OldCardFragment extends Fragment {
     @BindView(R.id.et_oldcard_number)
     EditText mOldCardNumberEditText;
 
+    @BindView(R.id.et_oldcard_authority)
+    EditText mOldCardAuthorityEditText;
+
     @BindView(R.id.et_oldcard_country)
     EditText mOldCardCountryEditText;
 

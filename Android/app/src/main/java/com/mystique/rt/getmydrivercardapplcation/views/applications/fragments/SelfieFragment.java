@@ -97,7 +97,7 @@ public class SelfieFragment extends Fragment {
         return view;
     }
 
-    // TODO waiting for the class
+    // TODO RememberAll Things!
     private void checkCurrentRememberAllforData() {
     }
 

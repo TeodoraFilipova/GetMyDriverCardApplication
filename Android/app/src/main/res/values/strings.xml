@@ -48,8 +48,6 @@
     <string name="date_of_birth">Date of Birth:</string>
     <string name="address">Address:</string>
     <string name="phone_number">Phone Number:</string>
-    <string name="email">Email:</string>
-    <string name="new_address">New Address:</string>
     <string name="date_of_event">Date of Event:</string>
     <string name="place_of_event">Place of Event:</string>
     <string name="username">Username</string>
@@ -59,9 +57,11 @@
     <string name="old_card_number">Old card number</string>
     <string name="old_card_country">Old card country</string>
     <string name="push_button_to_make_picture">Push button to make picture!</string>
-    <string name="open_camera">Open camera</string>
     <string name="new_first_name">New first name</string>
     <string name="new_last_name">New last name</string>
+    <string name="old_card_authority">Old card authority</string>
+    <string name="open_camera">Open_camera</string>
+    <string name="new_address">New address</string>
 
 
 </resources>

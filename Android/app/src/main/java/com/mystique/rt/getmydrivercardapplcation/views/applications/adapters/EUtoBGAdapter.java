@@ -28,6 +28,7 @@ public class EUtoBGAdapter extends FragmentStatePagerAdapter {
         }
     }
 
+    //new fragments added
     @Override
     public Fragment getItem(int position) {
         switch (position){
