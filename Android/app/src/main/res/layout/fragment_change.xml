@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/layout_new_firstname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_new_firstname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/new_first_name"
+            android:visibility="visible"/>
+
+        <EditText
+            android:id="@+id/et_new_firstname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/new_first_name"
+            android:inputType="text"
+            android:visibility="visible"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_new_lastname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/layout_new_firstname">
+
+        <TextView
+            android:id="@+id/tv_new_lastname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/new_last_name"
+            android:visibility="visible"/>
+
+        <EditText
+            android:id="@+id/et_new_lastname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/new_last_name"
+            android:inputType="text"
+            android:visibility="visible"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_new_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout_new_lastname"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_new_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/new_address"
+            android:visibility="visible"/>
+
+        <EditText
+            android:id="@+id/et_new_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/new_address"
+            android:inputType="textMultiLine"
+            android:visibility="visible"
+            />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_newselfie_camera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/layout_new_address"
+        android:text="@string/open_camera"
+        android:visibility="visible"/>
+
+    <ImageView
+        android:id="@+id/iv_newselfie_picture"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_below="@+id/btn_newselfie_camera"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="@string/push_button_to_make_picture"
+        android:visibility="visible"/>
+
+</RelativeLayout>

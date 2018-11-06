@@ -7,12 +7,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.provider.Settings;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,79 +22,66 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.mystique.rt.getmydrivercardapplcation.BuildConfig;
 import com.mystique.rt.getmydrivercardapplcation.R;
-import com.mystique.rt.getmydrivercardapplcation.models.Picture;
 import com.mystique.rt.getmydrivercardapplcation.parsers.bitmap.BitmapParser;
 import com.mystique.rt.getmydrivercardapplcation.parsers.bitmap.ByteArrayBitmapParser;
 
 import java.io.ByteArrayOutputStream;
-import java.io.File;
-
-import javax.inject.Inject;
+import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
-import pl.aprilapps.easyphotopicker.DefaultCallback;
-import pl.aprilapps.easyphotopicker.EasyImage;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PictureFragment extends Fragment {
+public class SelfieFragment extends Fragment {
 
 
     private static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 1888;
+
     @BindView(R.id.btn_picturecamera)
     Button selfieButton;
 
-    @BindView(R.id.btn_picturesave)
-    Button selfieSaveButton;
 
     @BindView(R.id.iv_picture)
     ImageView selfieImageView;
 
 
-    BitmapParser mPictureParser;
+    BitmapParser mSelfieParser;
 
-    //CardApplicationForm mCurrentCardApplicationForm;
 
-   /* @BindView(R.id.btn_drivingliccamera)
-    Button drivingLicButton;
-
-    @BindView(R.id.iv_drivinglicence)
-    ImageView drivingLicImageView;
-
-    @BindView(R.id.btn_drivinglsafe)
-    ImageView drivingLicSaveImageView;*/
-
-    public PictureFragment() {
+    public SelfieFragment() {
         // Required empty public constructor
     }
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_picture, container, false);
+        View view = inflater.inflate(R.layout.fragment_selfie, container, false);
 
         ButterKnife.bind(this, view);
 
-        mPictureParser = new ByteArrayBitmapParser();
+        mSelfieParser = new ByteArrayBitmapParser();
 
         Context context = getActivity();
 
-        PackageManager packageManager = context.getPackageManager();
+        PackageManager packageManager = Objects.requireNonNull(context).getPackageManager();
 
+        checkCurrentRememberAllforData();
+
+        // checking if camera exist
         if(!packageManager.hasSystemFeature(PackageManager.FEATURE_CAMERA)){
             Toast.makeText(getActivity(), "This device does not have a camera.", Toast.LENGTH_SHORT)
                     .show();
         }
 
+        // checking if camera is restricted to wark with the app and ask to change restricted permissions
         if (!checkPermissions(context)){
-            Toast.makeText(getActivity(), "This device camera is restricted. Switch the camera to use it.",
-                    Toast.LENGTH_SHORT)
-                    .show();
+            showPermissionsAlert(context);
+
         } else {
             Toast.makeText(getActivity(), "The device a camera is checked.", Toast.LENGTH_SHORT)
                     .show();
@@ -105,36 +94,19 @@ public class PictureFragment extends Fragment {
             }
         });
 
-        selfieSaveButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                saveSelfie();
-            }
-        });
-
         return view;
+    }
+
+    // TODO RememberAll Things!
+    private void checkCurrentRememberAllforData() {
     }
 
 
     public void makeSelfie() {
-        //EasyImage.openCamera(this, EasyImage.REQ_SOURCE_CHOOSER);
         Intent cameraIntent=new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        getActivity().startActivityFromFragment(PictureFragment.this, cameraIntent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
+        Objects.requireNonNull(getActivity()).startActivityFromFragment(SelfieFragment.this, cameraIntent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
     }
 
-    // method to re-write when have to save application form
-    public void saveSelfie(){
-        Bitmap bitmap = ((BitmapDrawable)selfieImageView
-                .getDrawable())
-                .getBitmap();
-
-        byte[] byteImage = mPictureParser.fromBitmap(bitmap);
-
-        Picture currentImage = new Picture();
-        selfieImageView.setImageBitmap(bitmap);
-        //mCardApplicationForm.getDriver().setSelfie(selfiePic);
-
-    };
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -143,35 +115,59 @@ public class PictureFragment extends Fragment {
             if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
                 if (resultCode == Activity.RESULT_OK && data != null) {
 
-                    Bitmap bmp = (Bitmap) data.getExtras().get("data");
+                    Bitmap bmp = (Bitmap) Objects.requireNonNull(data.getExtras()).get("data");
+
                     ByteArrayOutputStream stream = new ByteArrayOutputStream();
                     if (bmp != null) {
+
+                        //for saving in database
+                        byte[] byteSelfie = mSelfieParser.fromBitmap(bmp);
+
+                        //for viewing
                         bmp.compress(Bitmap.CompressFormat.PNG, 100, stream);
                     }
 
                     selfieImageView.setImageBitmap(bmp);
-
                 }
             }
         }catch(Exception e){
-            Toast.makeText(this.getActivity(), e+"Something went wrong", Toast.LENGTH_LONG).show();
+            Toast.makeText(this.getActivity(), e+"Getting picture from camera fails. Make picture again!", Toast.LENGTH_LONG).show();
 
         }
-
-        /*//EasyImage.handleActivityResult(requestCode, resultCode, data, getActivity(), new DefaultCallback() {
-            @Override
-            public void onImagePicked(File imageFile, EasyImage.ImageSource source, int type) {
-                String path = imageFile.getPath();
-                Bitmap bitmap = BitmapFactory.decodeFile(path);
-                ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 200, bytes);
-                selfieImageView.setImageBitmap(bitmap);
-            }
-        });*/
     }
 
     static boolean checkPermissions(Context context) {
         return ActivityCompat.checkSelfPermission(context, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED
                 && ActivityCompat.checkSelfPermission(context, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED;
     }
+
+    private void showPermissionsAlert(Context context) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle("Permissions required!")
+                .setMessage("Camera needs few permissions to work properly. Grant them in settings.")
+                .setPositiveButton("GOTO SETTINGS", (dialog, which) -> openSettings(Objects.requireNonNull(getActivity())))
+                .setNegativeButton("CANCEL", (dialog, which) -> {
+                }).show();
+    }
+
+    static void openSettings(Context context) {
+        Intent intent = new Intent();
+        intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+        intent.setData(Uri.fromParts("package", BuildConfig.APPLICATION_ID, null));
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(intent);
+    }
+
+
+    /*if (savedInstanceState != null) {
+        super.onViewStateRestored(savedInstanceState);
+        byte[] savedPicture = savedInstanceState.getByteArray("saveBundleSelfie");
+        selfieImageView.setImageBitmap(mSelfieParser.toBitmap(savedPicture));
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle state) {
+        super.onSaveInstanceState(state);
+        state.putByteArray("saveBundleSelfie", saveBundlePicture);
+    }*/
 }

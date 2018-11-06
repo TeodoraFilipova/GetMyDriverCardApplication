@@ -23,4 +23,6 @@ public class RenewalActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
     }
 
+
+
 }
