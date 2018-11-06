@@ -24,10 +24,16 @@ import android.widget.Toast;
 
 import com.mystique.rt.getmydrivercardapplcation.BuildConfig;
 import com.mystique.rt.getmydrivercardapplcation.R;
+import com.mystique.rt.getmydrivercardapplcation.apputils.RememberAll;
 import com.mystique.rt.getmydrivercardapplcation.parsers.bitmap.BitmapParser;
 import com.mystique.rt.getmydrivercardapplcation.parsers.bitmap.ByteArrayBitmapParser;
+import com.mystique.rt.getmydrivercardapplcation.views.applications.FocusListener;
 
 import java.io.ByteArrayOutputStream;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Objects;
 
 import butterknife.BindView;
@@ -36,7 +42,7 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class OldCardFragment extends Fragment {
+public class OldCardFragment extends Fragment implements FocusListener {
 
     private static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 1890;
 
@@ -49,15 +55,17 @@ public class OldCardFragment extends Fragment {
     @BindView(R.id.et_oldcard_country)
     EditText mOldCardCountryEditText;
 
-    @BindView(R.id.btn_oldcard_piccamera)
-    Button oldCardPicButton;
+    @BindView(R.id.et_oldcard_date_of_expiry)
+    EditText mOldCardDateOfExpiryEditText;
 
+    @BindView(R.id.btn_oldcard_piccamera)
+    Button mOldCardPicButton;
 
     @BindView(R.id.iv_picture)
-    ImageView oldCardPieImageView;
+    ImageView mOldCardPicImageView;
 
-
-    BitmapParser moldCardPicParser;
+    private RememberAll mRememberAll;
+    BitmapParser mOldCardPicParser;
 
 
     public OldCardFragment() {
@@ -73,13 +81,14 @@ public class OldCardFragment extends Fragment {
 
         ButterKnife.bind(this, view);
 
-        moldCardPicParser = new ByteArrayBitmapParser();
+        mOldCardPicParser = new ByteArrayBitmapParser();
+        mRememberAll = RememberAll.getInstance();
 
         Context context = getActivity();
 
         PackageManager packageManager = Objects.requireNonNull(context).getPackageManager();
 
-        checkCurrentRememberAllforData();
+        checkRememberAllForCurrentData();
 
         // checking if camera exist
         if(!packageManager.hasSystemFeature(PackageManager.FEATURE_CAMERA)){
@@ -96,18 +105,58 @@ public class OldCardFragment extends Fragment {
                     .show();
         }
 
-        oldCardPicButton.setOnClickListener(new View.OnClickListener() {
+        mOldCardPicButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 makeOldCardPic();
             }
         });
 
+        mOldCardNumberEditText.setOnFocusChangeListener((v, hasFocus) -> {
+            if(!hasFocus) {
+                mRememberAll.setOldCardNumber(mOldCardNumberEditText.getText().toString());
+            }
+        });
+
+        mOldCardCountryEditText.setOnFocusChangeListener((v, hasFocus) -> {
+            if(!hasFocus) {
+                mRememberAll.setOldCardCountry(mOldCardCountryEditText.getText().toString());
+            }
+        });
+
+        mOldCardAuthorityEditText.setOnFocusChangeListener((v, hasFocus) -> {
+            if(!hasFocus) {
+                mRememberAll.setOldCardAuthority(mOldCardAuthorityEditText.getText().toString());
+            }
+        });
+
         return view;
     }
 
-    // TODO waiting for the class
-    private void checkCurrentRememberAllforData() {
+    private void checkRememberAllForCurrentData() {
+        if (mRememberAll.getOldCardPic().getPicture() != null) {
+            Bitmap savedOldCardPic = mOldCardPicParser.toBitmap(mRememberAll.getOldCardPic().getPicture());
+            mOldCardPicImageView.setImageBitmap(savedOldCardPic);
+        }
+
+        if (mRememberAll.getCardApplicationForm().getOldCardDateOfExpiry() != null) {
+            DateFormat df = new SimpleDateFormat("dd.MM.yyyy");
+            Date dateOfExpiry = mRememberAll.getCardApplicationForm().getOldCardDateOfExpiry();
+            String dateOfExpiryString = df.format(dateOfExpiry);
+            mOldCardDateOfExpiryEditText.setText(dateOfExpiryString);
+        }
+
+        if (mRememberAll.getCardApplicationForm().getOldCardAuthority() != null) {
+            mOldCardAuthorityEditText.setText(mRememberAll.getCardApplicationForm().getOldCardAuthority());
+        }
+
+        if (mRememberAll.getCardApplicationForm().getOldCardCountry() != null) {
+            mOldCardCountryEditText.setText(mRememberAll.getCardApplicationForm().getOldCardCountry());
+        }
+
+        if (mRememberAll.getCardApplicationForm().getOldCardNumber() != null) {
+            mOldCardNumberEditText.setText(mRememberAll.getCardApplicationForm().getOldCardNumber());
+        }
     }
 
 
@@ -130,13 +179,14 @@ public class OldCardFragment extends Fragment {
                     if (bmp != null) {
 
                         //for saving in database
-                        byte[] byteSelfie = moldCardPicParser.fromBitmap(bmp);
+                        byte[] byteSelfie = mOldCardPicParser.fromBitmap(bmp);
+                        mRememberAll.setOldCardPic(byteSelfie);
 
                         //for viewing
                         bmp.compress(Bitmap.CompressFormat.PNG, 100, stream);
                     }
 
-                    oldCardPieImageView.setImageBitmap(bmp);
+                    mOldCardPicImageView.setImageBitmap(bmp);
                 }
             }
         }catch(Exception e){
@@ -168,4 +218,15 @@ public class OldCardFragment extends Fragment {
     }
 
 
+    @Override
+    public void saveDateToObject() {
+        DateFormat df = new SimpleDateFormat("dd.MM.yyyy");
+        Date dateOfExpiry = null;
+        try {
+            dateOfExpiry = df.parse(mOldCardDateOfExpiryEditText.getText().toString());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        mRememberAll.setDateOfBirth(dateOfExpiry);
+    }
 }

@@ -42,14 +42,14 @@
     <string name="edit_text_status_code_hint">Your Status Code Here</string>
     <string name="wrong_status_number">Wrong application number! Please, check that you write the correct personal status number</string>
     <string name="application">Application id</string>
-    <string name="personal_number_egn">Personal Number (EGN):</string>
-    <string name="first_name">First Name(s):</string>
-    <string name="last_name">Last Name(s):</string>
-    <string name="date_of_birth">Date of Birth:</string>
-    <string name="address">Address:</string>
-    <string name="phone_number">Phone Number:</string>
-    <string name="date_of_event">Date of Event:</string>
-    <string name="place_of_event">Place of Event:</string>
+    <string name="personal_number_egn">Personal Number (EGN)</string>
+    <string name="first_name">First Name(s)</string>
+    <string name="last_name">Last Name(s)</string>
+    <string name="date_of_birth">Date of Birth</string>
+    <string name="address">Address</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="date_of_event">Date of Event</string>
+    <string name="place_of_event">Place of Event</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="log_in">Log In</string>
@@ -62,6 +62,7 @@
     <string name="old_card_authority">Old card authority</string>
     <string name="open_camera">Open_camera</string>
     <string name="new_address">New address</string>
+    <string name="old_card_date_of_expiry">Old card date of expiry</string>
 
 
 </resources>

@@ -12,6 +12,7 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.mystique.rt.getmydrivercardapplcation.R;
+import com.mystique.rt.getmydrivercardapplcation.apputils.Constants;
 import com.mystique.rt.getmydrivercardapplcation.apputils.Navigator;
 import com.mystique.rt.getmydrivercardapplcation.apputils.RememberAll;
 import com.mystique.rt.getmydrivercardapplcation.views.applications.activities.AddressReplacementActivity;
@@ -31,6 +32,9 @@ import butterknife.ButterKnife;
  */
 public class ApplicationChooseFragment extends Fragment {
     private Class mKlass;
+    private String mType;
+    private String mRenewalReason;
+
     private Navigator mNavigator;
     private RememberAll mRememberAll;
 
@@ -60,46 +64,68 @@ public class ApplicationChooseFragment extends Fragment {
                 switch (checkedId) {
                     case R.id.radio_first:
                         mKlass = FirstApplicationActivity.class;
+                        mType = Constants.APP_TYPE_FIRST;
+                        mRenewalReason = Constants.RENEWAL_REASON_FIRST;
                         Toast.makeText(getContext(), "First application selected", Toast.LENGTH_LONG).show();
                         break;
                     case R.id.radio_EU_for_BG:
                         mKlass = EUtoBGActivity.class;
+                        mType = Constants.APP_TYPE_EUTOBG;
+                        mRenewalReason = Constants.RENEWAL_REASON_EUTOBG;
                         Toast.makeText(getContext(), "EU for BG card application selected", Toast.LENGTH_LONG).show();
                         break;
                     case R.id.radio_loss:
                         mKlass = LossOrTheftActivity.class;
+                        mType = Constants.APP_TYPE_REPLACEMENT_CARD;
+                        mRenewalReason = Constants.RENEWAL_REASON_LOST;
                         Toast.makeText(getContext(), "Loss application selected", Toast.LENGTH_LONG).show();
                         break;
                     case R.id.radio_theft:
                         mKlass = LossOrTheftActivity.class;
+                        mType = Constants.APP_TYPE_REPLACEMENT_CARD;
+                        mRenewalReason = Constants.RENEWAL_REASON_STOLEN;
                         Toast.makeText(getContext(), "Theft application selected", Toast.LENGTH_LONG).show();
                         break;
                     case R.id.radio_damaged:
                         mKlass = RenewalActivity.class;
+                        mType = Constants.APP_TYPE_REPLACEMENT_CARD;
+                        mRenewalReason = Constants.RENEWAL_REASON_DAMAGED;
                         Toast.makeText(getContext(), "Damaged application selected", Toast.LENGTH_LONG).show();
                         break;
                     case R.id.radio_malfunction:
                         mKlass = RenewalActivity.class;
+                        mType = Constants.APP_TYPE_REPLACEMENT_CARD;
+                        mRenewalReason = Constants.RENEWAL_REASON_MALFUNCTIONING;
                         Toast.makeText(getContext(), "Malfunction application selected", Toast.LENGTH_LONG).show();
                         break;
                     case R.id.radio_name:
                         mKlass = NameReplacementActivity.class;
+                        mType = Constants.APP_TYPE_REPLACEMENT_PERSON;
+                        mRenewalReason = Constants.RENEWAL_REASON_NAME;
                         Toast.makeText(getContext(), "Name change application selected", Toast.LENGTH_LONG).show();
                         break;
                     case R.id.radio_address:
                         mKlass = AddressReplacementActivity.class;
+                        mType = Constants.APP_TYPE_REPLACEMENT_PERSON;
+                        mRenewalReason = Constants.RENEWAL_REASON_ADDRESS;
                         Toast.makeText(getContext(), "Address change application selected", Toast.LENGTH_LONG).show();
                         break;
                     case R.id.radio_selfie:
                         mKlass = PictureReplacementActivity.class;
+                        mType = Constants.APP_TYPE_REPLACEMENT_PERSON;
+                        mRenewalReason = Constants.RENEWAL_REASON_SELFIE;
                         Toast.makeText(getContext(), "Photo change application selected", Toast.LENGTH_LONG).show();
                         break;
                     case R.id.radio_expired:
                         mKlass = RenewalActivity.class;
+                        mType = Constants.APP_TYPE_RENEWAL;
+                        mRenewalReason = Constants.RENEWAL_REASON_EXPIRED;
                         Toast.makeText(getContext(), "Expired application selected", Toast.LENGTH_LONG).show();
                         break;
                     case R.id.radio_suspended:
                         mKlass = RenewalActivity.class;
+                        mType = Constants.APP_TYPE_RENEWAL;
+                        mRenewalReason = Constants.RENEWAL_REASON_SUSPENDED;
                         Toast.makeText(getContext(), "Suspended application selected", Toast.LENGTH_LONG).show();
                         break;
                     default:
@@ -112,7 +138,7 @@ public class ApplicationChooseFragment extends Fragment {
         mSubmitButton.setOnClickListener(v -> {
             // go to the appropriate application form slider/activity
             if (mKlass != null) {
-                mRememberAll.startNewApplicationForm("type", "type");
+                mRememberAll.startNewApplicationForm(mType, mRenewalReason);
                 mNavigator.navigateToActivity(mKlass);
             } else {
                 Toast.makeText(getContext(), "Please select application type before continuing!!!", Toast.LENGTH_LONG).show();

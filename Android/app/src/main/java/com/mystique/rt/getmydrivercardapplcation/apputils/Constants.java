@@ -6,10 +6,33 @@ public class Constants {
     public static final int STATUS_CHECK_CODE_LENGTH = 10;
 
     public static final String LAST_UPDATED_TRUE = "last updated";
+
     public static final String EMAIL_SUBJECT = "Your Tachograph Card Application";
     public static final String EMAIL_MESSAGE = "Your unique code for checking the status of your application is: ";
-    public static final String APP_TYPE_FIRST = "first";
 
+    // APPLICATION RENEWAL REASONS
+    public static final String RENEWAL_REASON_FIRST = "N/A";
+    public static final String RENEWAL_REASON_LOST = "lost card";
+    public static final String RENEWAL_REASON_STOLEN = "stolen card";
+    public static final String RENEWAL_REASON_EUTOBG = "exchanging EU for BG card";
+    public static final String RENEWAL_REASON_NAME = "name change";
+    public static final String RENEWAL_REASON_ADDRESS = "address change";
+    public static final String RENEWAL_REASON_SELFIE = "personal photograph change";
+    public static final String RENEWAL_REASON_EXPIRED = "card expired";
+    public static final String RENEWAL_REASON_SUSPENDED = "card suspended";
+    public static final String RENEWAL_REASON_DAMAGED = "card damaged";
+    public static final String RENEWAL_REASON_MALFUNCTIONING = "card malfunctioning";
+
+    // APPLICATION TYPES
+    public static final String APP_TYPE_FIRST = "first application";
+    public static final String APP_TYPE_EUTOBG = "exchanging EU card for BG card";
+    public static final String APP_TYPE_REPLACEMENT_CARD = "replacement of card due to problems with card";
+    public static final String APP_TYPE_REPLACEMENT_PERSON = "replacement of card due to change in personal details";
+    public static final String APP_TYPE_RENEWAL = "renewal of card";
+
+
+
+    // APPLICATION STATUSES
     public static final String STATUS_NEW = "new";
 
     public static final String RENEWAL_REASON_NEW_SELFIE = "change in personal photograph";

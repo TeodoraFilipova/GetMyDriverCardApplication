@@ -24,6 +24,7 @@ import android.widget.Toast;
 
 import com.mystique.rt.getmydrivercardapplcation.BuildConfig;
 import com.mystique.rt.getmydrivercardapplcation.R;
+import com.mystique.rt.getmydrivercardapplcation.apputils.RememberAll;
 import com.mystique.rt.getmydrivercardapplcation.parsers.bitmap.BitmapParser;
 import com.mystique.rt.getmydrivercardapplcation.parsers.bitmap.ByteArrayBitmapParser;
 
@@ -48,7 +49,7 @@ public class SelfieFragment extends Fragment {
     @BindView(R.id.iv_picture)
     ImageView selfieImageView;
 
-
+    private RememberAll mRememberAll;
     BitmapParser mSelfieParser;
 
 
@@ -65,12 +66,13 @@ public class SelfieFragment extends Fragment {
         ButterKnife.bind(this, view);
 
         mSelfieParser = new ByteArrayBitmapParser();
+        mRememberAll = RememberAll.getInstance();
 
         Context context = getActivity();
 
         PackageManager packageManager = Objects.requireNonNull(context).getPackageManager();
 
-        checkCurrentRememberAllforData();
+        checkRememberAllForCurrentData();
 
         // checking if camera exist
         if(!packageManager.hasSystemFeature(PackageManager.FEATURE_CAMERA)){
@@ -97,8 +99,11 @@ public class SelfieFragment extends Fragment {
         return view;
     }
 
-    // TODO RememberAll Things!
-    private void checkCurrentRememberAllforData() {
+    private void checkRememberAllForCurrentData() {
+        if (mRememberAll.getSelfiePic().getPicture() != null) {
+            Bitmap savedSelfiePic = mSelfieParser.toBitmap(mRememberAll.getSelfiePic().getPicture());
+            selfieImageView.setImageBitmap(savedSelfiePic);
+        }
     }
 
 
@@ -122,6 +127,7 @@ public class SelfieFragment extends Fragment {
 
                         //for saving in database
                         byte[] byteSelfie = mSelfieParser.fromBitmap(bmp);
+                        mRememberAll.setSelfiePicture(byteSelfie);
 
                         //for viewing
                         bmp.compress(Bitmap.CompressFormat.PNG, 100, stream);

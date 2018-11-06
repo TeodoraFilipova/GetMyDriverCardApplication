@@ -25,6 +25,7 @@ import android.widget.Toast;
 
 import com.mystique.rt.getmydrivercardapplcation.BuildConfig;
 import com.mystique.rt.getmydrivercardapplcation.R;
+import com.mystique.rt.getmydrivercardapplcation.apputils.RememberAll;
 import com.mystique.rt.getmydrivercardapplcation.parsers.bitmap.BitmapParser;
 import com.mystique.rt.getmydrivercardapplcation.parsers.bitmap.ByteArrayBitmapParser;
 
@@ -39,6 +40,7 @@ import butterknife.ButterKnife;
  */
 public class ChangeFragment extends Fragment {
 
+    private RememberAll mRememberAll;
 
     private static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 1891;
 
@@ -75,6 +77,7 @@ public class ChangeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_change, container, false);
 
         ButterKnife.bind(this, view);
+        mRememberAll = RememberAll.getInstance();
 
         mChangeParser = new ByteArrayBitmapParser();
 
@@ -82,7 +85,25 @@ public class ChangeFragment extends Fragment {
 
         PackageManager packageManager = Objects.requireNonNull(context).getPackageManager();
 
-        checkCurrentRememberAllforData();
+        mNewFirstNameEditText.setOnFocusChangeListener((v, hasFocus) -> {
+            if(!hasFocus) {
+                mRememberAll.setNewFirstName(mNewFirstNameEditText.getText().toString());
+            }
+        });
+
+        mNewLastNameEditText.setOnFocusChangeListener((v, hasFocus) -> {
+            if(!hasFocus) {
+                mRememberAll.setNewLastName(mNewLastNameEditText.getText().toString());
+            }
+        });
+
+        mNewAddressEditText.setOnFocusChangeListener((v, hasFocus) -> {
+            if(!hasFocus) {
+                mRememberAll.setNewAddress(mNewAddressEditText.getText().toString());
+            }
+        });
+
+        checkRememberAllForCurrentData();
 
         // checking if camera exist
         if(!packageManager.hasSystemFeature(PackageManager.FEATURE_CAMERA)){
@@ -90,12 +111,12 @@ public class ChangeFragment extends Fragment {
                     .show();
         }
 
-        // checking if camera is restricted to wark with the app and ask to change restricted permissions
+        // checking if camera is restricted to work with the app and ask to change restricted permissions
         if (!checkPermissions(context)){
             showPermissionsAlert(context);
 
         } else {
-            Toast.makeText(getActivity(), "The device a camera is checked.", Toast.LENGTH_SHORT)
+            Toast.makeText(getActivity(), "The device camera is checked.", Toast.LENGTH_SHORT)
                     .show();
         }
 
@@ -109,8 +130,23 @@ public class ChangeFragment extends Fragment {
         return view;
     }
 
-    // TODO RememberAll Things!
-    private void checkCurrentRememberAllforData() {
+    private void checkRememberAllForCurrentData() {
+        if (mRememberAll.getNewSelfiePic().getPicture() != null) {
+            Bitmap savedSelfie = mChangeParser.toBitmap(mRememberAll.getNewSelfiePic().getPicture());
+            newSelfieImageView.setImageBitmap(savedSelfie);
+        }
+
+        if (mRememberAll.getCardApplicationForm().getNewAddress() != null) {
+            mNewAddressEditText.setText(mRememberAll.getCardApplicationForm().getNewAddress());
+        }
+
+        if (mRememberAll.getCardApplicationForm().getNewFirstName() != null) {
+            mNewFirstNameEditText.setText(mRememberAll.getCardApplicationForm().getNewFirstName());
+        }
+
+        if (mRememberAll.getCardApplicationForm().getNewLastName() != null) {
+            mNewLastNameEditText.setText(mRememberAll.getCardApplicationForm().getNewLastName());
+        }
     }
 
 
@@ -134,6 +170,7 @@ public class ChangeFragment extends Fragment {
 
                         //for saving in database
                         byte[] byteSelfie = mChangeParser.fromBitmap(bmp);
+                        mRememberAll.setNewSelfiePicture(byteSelfie);
 
                         //for viewing
                         bmp.compress(Bitmap.CompressFormat.PNG, 100, stream);
@@ -143,7 +180,7 @@ public class ChangeFragment extends Fragment {
                 }
             }
         }catch(Exception e){
-            Toast.makeText(this.getActivity(), e+"Getting picture from camera fails. Make picture again!", Toast.LENGTH_LONG).show();
+            Toast.makeText(this.getActivity(), e+"Getting picture from camera failed. Take picture again!", Toast.LENGTH_LONG).show();
 
         }
     }
@@ -156,8 +193,8 @@ public class ChangeFragment extends Fragment {
     private void showPermissionsAlert(Context context) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle("Permissions required!")
-                .setMessage("Camera needs few permissions to work properly. Grant them in settings.")
-                .setPositiveButton("GOTO SETTINGS", (dialog, which) -> openSettings(Objects.requireNonNull(getActivity())))
+                .setMessage("Camera needs a few permissions to work properly. Grant them in settings.")
+                .setPositiveButton("GO TO SETTINGS", (dialog, which) -> openSettings(Objects.requireNonNull(getActivity())))
                 .setNegativeButton("CANCEL", (dialog, which) -> {
                 }).show();
     }

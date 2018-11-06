@@ -24,6 +24,7 @@ import android.widget.Toast;
 
 import com.mystique.rt.getmydrivercardapplcation.BuildConfig;
 import com.mystique.rt.getmydrivercardapplcation.R;
+import com.mystique.rt.getmydrivercardapplcation.apputils.RememberAll;
 import com.mystique.rt.getmydrivercardapplcation.parsers.bitmap.BitmapParser;
 import com.mystique.rt.getmydrivercardapplcation.parsers.bitmap.ByteArrayBitmapParser;
 
@@ -38,6 +39,7 @@ import butterknife.ButterKnife;
  */
 public class DrivingLicensePictureFragment extends Fragment {
 
+    private RememberAll mRememberAll;
     private static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 1889;
 
 
@@ -64,12 +66,13 @@ public class DrivingLicensePictureFragment extends Fragment {
         ButterKnife.bind(this, view);
 
         mDrivingPicParser = new ByteArrayBitmapParser();
+        mRememberAll = RememberAll.getInstance();
 
         Context context = getActivity();
 
         PackageManager packageManager = Objects.requireNonNull(context).getPackageManager();
 
-        checkCurrentRememberAllforData();
+        checkRememberAllForCurrentData();
 
         // checking if camera exist
         if(!packageManager.hasSystemFeature(PackageManager.FEATURE_CAMERA)){
@@ -102,8 +105,11 @@ public class DrivingLicensePictureFragment extends Fragment {
         return view;
     }
 
-    // TODO RememberAll Things!
-    private void checkCurrentRememberAllforData() {
+    private void checkRememberAllForCurrentData() {
+        if (mRememberAll.getDrivingLicensePic().getPicture() != null) {
+            Bitmap savedDrivingLicPic = mDrivingPicParser.toBitmap(mRememberAll.getDrivingLicensePic().getPicture());
+            drivingLicPicImageView.setImageBitmap(savedDrivingLicPic);
+        }
     }
 
     @Override
@@ -131,6 +137,7 @@ public class DrivingLicensePictureFragment extends Fragment {
 
                         //for saving in database
                         byte[] byteSelfie = mDrivingPicParser.fromBitmap(bmp);
+                        mRememberAll.setDrivingLicensePicture(byteSelfie);
 
                         //for viewing
                         bmp.compress(Bitmap.CompressFormat.PNG, 100, stream);

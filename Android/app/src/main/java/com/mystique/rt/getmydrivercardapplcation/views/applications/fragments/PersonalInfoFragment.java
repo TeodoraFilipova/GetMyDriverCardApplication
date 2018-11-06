@@ -66,6 +66,8 @@ public class PersonalInfoFragment extends Fragment implements FocusListener {
 
         mRememberAll = RememberAll.getInstance();
 
+        checkRememberAllForCurrentData();
+
         mPersonalNumberEditText.setOnFocusChangeListener((v, hasFocus) -> {
             if(!hasFocus) {
                 mRememberAll.setPersonalNumber(mPersonalNumberEditText.getText().toString());
@@ -118,6 +120,39 @@ public class PersonalInfoFragment extends Fragment implements FocusListener {
         return view;
     }
 
+    private void checkRememberAllForCurrentData() {
+        if (mRememberAll.getDriver().getPersonalNumber() != null) {
+            mPersonalNumberEditText.setText(mRememberAll.getDriver().getPersonalNumber());
+        }
+
+        if (mRememberAll.getDriver().getFirstName() != null) {
+            mFirstNameEditText.setText(mRememberAll.getDriver().getFirstName());
+        }
+
+        if (mRememberAll.getDriver().getLastName() != null) {
+            mLastNameEditText.setText(mRememberAll.getDriver().getLastName());
+        }
+
+        if (mRememberAll.getDriver().getDateOfBirth() != null) {
+            DateFormat df = new SimpleDateFormat("dd.MM.yyyy");
+            Date dateOfBirth = mRememberAll.getDriver().getDateOfBirth();
+            String dateOfBirthString = df.format(dateOfBirth);
+            mDateOfBirthEditText.setText(dateOfBirthString);
+        }
+
+        if (mRememberAll.getDriver().getAddress() != null) {
+            mAddressEditText.setText(mRememberAll.getDriver().getAddress());
+        }
+
+        if (mRememberAll.getDriver().getPhoneNumber() != null) {
+            mPhoneNumberEditText.setText(mRememberAll.getDriver().getPhoneNumber());
+        }
+
+        if (mRememberAll.getDriver().getEmail() != null) {
+            mEmailEditText.setText(mRememberAll.getDriver().getEmail());
+        }
+    }
+
     @Override
     public void saveDateToObject() {
         DateFormat df = new SimpleDateFormat("dd.MM.yyyy");
@@ -129,4 +164,5 @@ public class PersonalInfoFragment extends Fragment implements FocusListener {
         }
         mRememberAll.setDateOfBirth(dateOfBirth);
     }
+
 }
