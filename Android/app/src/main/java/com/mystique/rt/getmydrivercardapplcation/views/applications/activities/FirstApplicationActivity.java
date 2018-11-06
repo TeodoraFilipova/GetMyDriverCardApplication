@@ -9,6 +9,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
 import com.mystique.rt.getmydrivercardapplcation.R;
+import com.mystique.rt.getmydrivercardapplcation.apputils.Navigator;
 import com.mystique.rt.getmydrivercardapplcation.views.applications.adapters.FirstApplicationAdapter;
 
 import java.io.File;
@@ -16,7 +17,7 @@ import java.io.File;
 import pl.aprilapps.easyphotopicker.DefaultCallback;
 import pl.aprilapps.easyphotopicker.EasyImage;
 
-public class FirstApplicationActivity extends AppCompatActivity {
+public class FirstApplicationActivity extends AppCompatActivity implements Navigator{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,4 +37,9 @@ public class FirstApplicationActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
     }
 
+    @Override
+    public void navigateToActivity(Class activityClass) {
+        Intent intent = new Intent(this, activityClass);
+        startActivity(intent);
+    }
 }

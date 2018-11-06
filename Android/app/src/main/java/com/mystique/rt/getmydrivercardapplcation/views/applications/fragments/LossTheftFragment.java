@@ -10,6 +10,7 @@ import android.widget.EditText;
 
 import com.mystique.rt.getmydrivercardapplcation.R;
 import com.mystique.rt.getmydrivercardapplcation.apputils.SetDate;
+import com.mystique.rt.getmydrivercardapplcation.views.applications.FocusListener;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -17,7 +18,7 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class LossTheftFragment extends Fragment {
+public class LossTheftFragment extends Fragment implements FocusListener {
 
     @BindView(R.id.et_date_of_event)
     EditText mDateOfEventEditText;
@@ -34,9 +35,13 @@ public class LossTheftFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_loss_theft, container, false);
         ButterKnife.bind(this, view);
 
-        SetDate fromDate = new SetDate(mDateOfEventEditText, getContext());
+        SetDate fromDate = new SetDate(mDateOfEventEditText, getContext(), this);
 
         return view;
     }
 
+    @Override
+    public void saveDateToObject() {
+
+    }
 }

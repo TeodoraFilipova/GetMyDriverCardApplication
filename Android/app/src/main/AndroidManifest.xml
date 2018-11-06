@@ -13,7 +13,7 @@
         android:name="android.hardware.camera.front"
         android:required="false" />
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".views.AndroidApplication"
@@ -72,7 +72,8 @@
         <activity
             android:name=".views.admin.applicationslist.CardApplicationFormsListActivity"
             android:label="@string/title_activity_card_application_list"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".views.applications.activities.CompletedApplicationActivity"></activity>
     </application>
 
 </manifest>

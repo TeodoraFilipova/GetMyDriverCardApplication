@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.mystique.rt.getmydrivercardapplcation.R;
 import com.mystique.rt.getmydrivercardapplcation.apputils.Navigator;
+import com.mystique.rt.getmydrivercardapplcation.apputils.RememberAll;
 import com.mystique.rt.getmydrivercardapplcation.views.applications.activities.AddressReplacementActivity;
 import com.mystique.rt.getmydrivercardapplcation.views.applications.activities.ApplicationChooseActivity;
 import com.mystique.rt.getmydrivercardapplcation.views.applications.activities.EUtoBGActivity;
@@ -31,6 +32,7 @@ import butterknife.ButterKnife;
 public class ApplicationChooseFragment extends Fragment {
     private Class mKlass;
     private Navigator mNavigator;
+    private RememberAll mRememberAll;
 
     @BindView(R.id.radio_group)
     RadioGroup mRadioGroup;
@@ -50,6 +52,7 @@ public class ApplicationChooseFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_application_choose, container, false);
         ButterKnife.bind(this, view);
+        mRememberAll = RememberAll.getInstance();
 
         mRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -106,14 +109,13 @@ public class ApplicationChooseFragment extends Fragment {
             }
         });
 
-        mSubmitButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                // go to the appropriate application form slider/activity
-                if (mKlass != null) {
-                    mNavigator.navigateToActivity(mKlass);
-                } else {
-                    Toast.makeText(getContext(), "Please select application type before continuing!!!", Toast.LENGTH_LONG).show();
-                }
+        mSubmitButton.setOnClickListener(v -> {
+            // go to the appropriate application form slider/activity
+            if (mKlass != null) {
+                mRememberAll.startNewApplicationForm("type", "type");
+                mNavigator.navigateToActivity(mKlass);
+            } else {
+                Toast.makeText(getContext(), "Please select application type before continuing!!!", Toast.LENGTH_LONG).show();
             }
         });
 
