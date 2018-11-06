@@ -6,6 +6,7 @@ import com.mystique.rt.getmydrivercardapplcation.views.admin.details.CardApplica
 import com.mystique.rt.getmydrivercardapplcation.views.admin.login.LogInActivity;
 import com.mystique.rt.getmydrivercardapplcation.views.applications.activities.AddressReplacementActivity;
 import com.mystique.rt.getmydrivercardapplcation.views.applications.activities.ApplicationChooseActivity;
+import com.mystique.rt.getmydrivercardapplcation.views.applications.activities.CompletedApplicationActivity;
 import com.mystique.rt.getmydrivercardapplcation.views.applications.activities.EUtoBGActivity;
 import com.mystique.rt.getmydrivercardapplcation.views.applications.activities.FirstApplicationActivity;
 import com.mystique.rt.getmydrivercardapplcation.views.applications.activities.LossOrTheftActivity;
@@ -57,6 +58,12 @@ public abstract class ActivityBindingModule {
     @ActivityScoped
     @ContributesAndroidInjector()
     abstract RenewalActivity renewalActivity();
+
+    @ActivityScoped
+    @ContributesAndroidInjector(modules = {
+            CompletedApplicationModule.class
+    })
+    abstract CompletedApplicationActivity completedApplicationActivity();
 
 
     @ActivityScoped

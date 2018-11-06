@@ -19,6 +19,7 @@ import javax.inject.Singleton;
         AsyncModule.class,
         CardApplicationDetailsModule.class,
         CardApplicationFormsListModule.class,
+        CompletedApplicationModule.class,
         HttpModule.class,
         LogInModule.class,
         ParsersModule.class,
