@@ -7,6 +7,8 @@ import com.mystique.springdrivercard.services.pictureService.PictureService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/pictures")
 public class PictureController {
@@ -21,6 +23,11 @@ public class PictureController {
     @GetMapping("/{id}")
     public Picture getPictureByID(@PathVariable int id) {
         return pictureService.getPictureByID(id);
+    }
+
+    @GetMapping
+    public List<Picture> getAllPictures() {
+        return pictureService.getAllPictures();
     }
 
     @PostMapping("/new")
