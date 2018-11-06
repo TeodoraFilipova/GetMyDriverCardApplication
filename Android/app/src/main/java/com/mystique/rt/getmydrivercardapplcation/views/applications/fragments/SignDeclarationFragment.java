@@ -85,12 +85,12 @@ public class SignDeclarationFragment extends Fragment {
 
             @Override
             public void onSigned() {
-                if (mAgreamentCheckBox.isChecked()){
+                if (mAgreamentCheckBox.isChecked()) {
                     mClearPadButton.setEnabled(true);
                     mSubmitButton.setEnabled(true);
                 } else {
                     Toast.makeText(getContext(), "Check the declaration agreement!", Toast.LENGTH_LONG)
-                    .show();
+                            .show();
                 }
 
             }
@@ -101,7 +101,6 @@ public class SignDeclarationFragment extends Fragment {
                 mClearPadButton.setEnabled(false);
             }
         });
-
 
 
         mClearPadButton.setOnClickListener(new View.OnClickListener() {
@@ -123,7 +122,7 @@ public class SignDeclarationFragment extends Fragment {
     }
 
     @OnClick(R.id.btn_clear_pad)
-    public void clearOnClick(){
+    public void clearOnClick() {
         mSignaturePad.clear();
     }
 
@@ -131,6 +130,7 @@ public class SignDeclarationFragment extends Fragment {
     public void goToCompletionActivity() {
         mSignImage = mSignaturePad.getSignatureBitmap();
         byte[] byteSign = mSignParser.fromBitmap(mSignImage);
+        mRememberAll.setSignaturePicture(byteSign);
         mNavigator.navigateToActivity(CompletedApplicationActivity.class);
     }
 
