@@ -7,9 +7,10 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
 import com.mystique.rt.getmydrivercardapplcation.R;
+import com.mystique.rt.getmydrivercardapplcation.apputils.Navigator;
 import com.mystique.rt.getmydrivercardapplcation.views.applications.adapters.NameReplacementAdapter;
 
-public class NameReplacementActivity extends AppCompatActivity {
+public class NameReplacementActivity extends AppCompatActivity implements Navigator {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,12 @@ public class NameReplacementActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
+    public void navigateToActivity(Class activityClass) {
+        Intent intent = new Intent(this, activityClass);
+        startActivity(intent);
     }
 // TODO RememberAll Things!
 }

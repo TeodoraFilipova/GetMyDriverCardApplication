@@ -31,7 +31,7 @@
     <string name="application_type_selfie">Replacement of card due to a photograph change</string>
     <string name="application_type_expired">Replacement of card due to expiration</string>
     <string name="application_type_suspended">Replacement of card due to a suspension/withdrawal</string>
-    <string name="submit_text">Submit</string>
+    <string name="submit_text">Sign declaration and submit application</string>
     <string name="welcome">Welcome to the GetMyDriverCard application by Mystique! Please, select one of the options below.</string>
     <string name="button_start_new_application">Start a new card application</string>
     <string name="button_check_status">Check application status</string>
@@ -62,6 +62,14 @@
     <string name="old_card_authority">Old card authority</string>
     <string name="open_camera">Open_camera</string>
     <string name="new_address">New address</string>
+    <string name="email">email</string>
+    <string name="choose_office_for_receiving_the_card">choose_office_for_receiving_the_card</string>
+    <string name="i_declare">I declare that the details in this form are correct and understand that it is a criminal offence
+    if I make a false declaration to get a digital tachograph driver card and can lead to a fine of up to 5000 British pounds,
+    and/or a maximum of two years imprisonment.</string>
+    <string name="clear_signature_pad">Clear signature pad</string>
+    <string name="agreement">Check if you have read and agreed to this declaration.</string>
+    <string name="submit_application">Submit application</string>
 
 
 </resources>
