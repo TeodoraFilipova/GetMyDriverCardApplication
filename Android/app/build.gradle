@@ -63,4 +63,7 @@ dependencies {
     implementation files('libs/activation.jar')
     implementation files('libs/additionnal.jar')
     implementation files('libs/mail.jar')
+
+    //signature pad
+    implementation 'com.github.gcacace:signature-pad:1.2.1'
 }
