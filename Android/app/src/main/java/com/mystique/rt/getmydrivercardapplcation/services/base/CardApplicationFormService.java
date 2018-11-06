@@ -25,4 +25,6 @@ public interface CardApplicationFormService {
     List<CardApplicationForm> getFilteredFormsBySubmissionDate(String pattern) throws Exception;
 
     List<CardApplicationForm> getFilteredFormsByStatus(String status) throws Exception;
+
+    CardApplicationForm getLastUpdatedForm() throws IOException;
 }

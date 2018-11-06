@@ -27,6 +27,7 @@ public class CardApplicationForm implements Serializable {
     private Picture signaturePicture;
     private String statusCheckCode;
     private String details;
+    private String lastUpdated;
 
 
     // Constructors
@@ -388,5 +389,13 @@ public class CardApplicationForm implements Serializable {
 
     public void setDetails(String details) {
         this.details = details;
+    }
+
+    public String getLastUpdated() {
+        return lastUpdated;
+    }
+
+    public void setLastUpdated(String lastUpdated) {
+        this.lastUpdated = lastUpdated;
     }
 }

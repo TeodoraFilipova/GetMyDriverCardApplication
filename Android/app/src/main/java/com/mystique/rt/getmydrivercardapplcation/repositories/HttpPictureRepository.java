@@ -6,6 +6,7 @@ import com.mystique.rt.getmydrivercardapplcation.parsers.json.JsonParser;
 import com.mystique.rt.getmydrivercardapplcation.repositories.base.PictureRepository;
 
 import java.io.IOException;
+import java.util.List;
 
 public class HttpPictureRepository implements PictureRepository {
     private final HttpRequester mHttpRequester;
@@ -33,6 +34,12 @@ public class HttpPictureRepository implements PictureRepository {
         String url = mServerUrl + "/" + id;
         String json = mHttpRequester.get(url);
         return mJsonParser.fromJson(json);
+    }
+
+    @Override
+    public List<Picture> getAllPictures() throws IOException {
+        String jsonArray = mHttpRequester.get(mServerUrl);
+        return mJsonParser.fromJsonArray(jsonArray);
     }
 
     @Override

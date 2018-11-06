@@ -5,6 +5,7 @@ import java.io.Serializable;
 public class Picture implements Serializable {
     private int pictureId;
     private byte[] picture;
+    private String lastUpdated;
 
     public Picture() {
         // empty constructor
@@ -29,5 +30,13 @@ public class Picture implements Serializable {
 
     public void setPicture(byte[] picture) {
         this.picture = picture;
+    }
+
+    public String getLastUpdated() {
+        return lastUpdated;
+    }
+
+    public void setLastUpdated(String lastUpdated) {
+        this.lastUpdated = lastUpdated;
     }
 }

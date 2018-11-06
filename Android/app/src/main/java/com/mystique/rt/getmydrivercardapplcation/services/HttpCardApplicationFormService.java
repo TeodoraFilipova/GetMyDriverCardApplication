@@ -1,5 +1,6 @@
 package com.mystique.rt.getmydrivercardapplcation.services;
 
+import com.mystique.rt.getmydrivercardapplcation.apputils.Constants;
 import com.mystique.rt.getmydrivercardapplcation.models.CardApplicationForm;
 import com.mystique.rt.getmydrivercardapplcation.repositories.base.CardApplicationFormRepository;
 import com.mystique.rt.getmydrivercardapplcation.services.base.CardApplicationFormService;
@@ -122,6 +123,17 @@ public class HttpCardApplicationFormService implements CardApplicationFormServic
             }
         }
         return filteredForms;
+    }
+
+    @Override
+    public CardApplicationForm getLastUpdatedForm() throws IOException {
+        List<CardApplicationForm> allForms = getAllForms();
+        for (CardApplicationForm form : allForms) {
+            if (form.getLastUpdated().equals(Constants.LAST_UPDATED_TRUE)) {
+                return form;
+            }
+        }
+        return null;
     }
 
 }

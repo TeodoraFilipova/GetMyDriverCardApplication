@@ -11,5 +11,7 @@ public interface DriverRepository {
 
     Driver getById(int id) throws IOException;
 
+    List<Driver> getAllDrivers() throws IOException;
+
     Driver updateById(int id, Driver driver) throws IOException;
 }
