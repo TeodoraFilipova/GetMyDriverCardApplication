@@ -100,6 +100,22 @@ public class SqlCardApplicationRepository implements CardApplicationRepository {
     }
 
     @Override
+    public List<Driver> getAllDrivers() {
+        List<Driver> result = new ArrayList<>();
+        try (
+                Session session = sessionFactory.openSession();
+        ) {
+            session.beginTransaction();
+            result = session.createQuery("from Driver").list();
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            throw new RuntimeException(e);
+        }
+        return result;
+    }
+
+    @Override
     public void updateDriver(int id, Driver driver) {
         try (
                 Session session = sessionFactory.openSession();
@@ -145,6 +161,22 @@ public class SqlCardApplicationRepository implements CardApplicationRepository {
         ) {
             session.beginTransaction();
             result = session.get(Picture.class, id);
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            throw new RuntimeException(e);
+        }
+        return result;
+    }
+
+    @Override
+    public List<Picture> getAllPictures() {
+        List<Picture> result = new ArrayList<>();
+        try (
+                Session session = sessionFactory.openSession();
+        ) {
+            session.beginTransaction();
+            result = session.createQuery("from Picture").list();
             session.getTransaction().commit();
         } catch (Exception e) {
             System.out.println(e.getMessage());

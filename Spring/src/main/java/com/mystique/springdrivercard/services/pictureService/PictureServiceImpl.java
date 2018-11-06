@@ -5,6 +5,8 @@ import com.mystique.springdrivercard.repositories.CardApplicationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PictureServiceImpl implements PictureService {
 
@@ -18,6 +20,11 @@ public class PictureServiceImpl implements PictureService {
     @Override
     public Picture getPictureByID(int id) {
         return repository.getPictureByID(id);
+    }
+
+    @Override
+    public List<Picture> getAllPictures() {
+        return repository.getAllPictures();
     }
 
     @Override

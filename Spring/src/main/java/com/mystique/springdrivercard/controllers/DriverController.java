@@ -5,6 +5,8 @@ import com.mystique.springdrivercard.services.driverService.DriverService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 @RestController
 @RequestMapping("/api/drivers")
@@ -24,6 +26,11 @@ public class DriverController {
     @GetMapping("/{id}")
     public Driver getDriverByID(@PathVariable int id) {
         return driverService.getDriverByID(id);
+    }
+
+    @GetMapping
+    public List<Driver> getAllDrivers(){
+        return driverService.getAllDrivers();
     }
 
     @PutMapping("/{id}")

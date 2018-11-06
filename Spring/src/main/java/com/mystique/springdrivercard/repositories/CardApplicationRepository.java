@@ -24,11 +24,15 @@ public interface CardApplicationRepository {
 
     Driver getDriverByID(int id);
 
+    List<Driver> getAllDrivers();
+
     void updateDriver(int id, Driver driver);
 
 
     // Picture: if we need picture from CardAppForm
     Picture getPictureByID(int id);
+
+    List<Picture> getAllPictures();
 
     void addNewPicture(Picture picture);
 

@@ -5,6 +5,8 @@ import com.mystique.springdrivercard.repositories.CardApplicationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class DriverServiceImpl implements DriverService {
     private CardApplicationRepository repository;
@@ -22,6 +24,11 @@ public class DriverServiceImpl implements DriverService {
     @Override
     public Driver getDriverByID(int id) {
         return repository.getDriverByID(id);
+    }
+
+    @Override
+    public List<Driver> getAllDrivers() {
+        return repository.getAllDrivers();
     }
 
     @Override
