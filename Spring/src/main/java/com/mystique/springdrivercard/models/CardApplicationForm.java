@@ -9,7 +9,7 @@ import java.util.Date;
 @Table(name = "cardapplicationforms")
 public class CardApplicationForm {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+ //   @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cardapplicationformID", nullable = false)
     private int cardApplicationFormId;
 
