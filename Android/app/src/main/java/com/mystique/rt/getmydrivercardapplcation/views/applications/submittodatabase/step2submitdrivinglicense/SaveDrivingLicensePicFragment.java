@@ -50,6 +50,7 @@ public class SaveDrivingLicensePicFragment extends Fragment implements SaveDrivi
 
         ButterKnife.bind(this, view);
         mRememberAll = RememberAll.getInstance();
+        mPresenter.subscribe(this);
 
         showLoading();
         mPresenter.getLastUpdatedPicture();

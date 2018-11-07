@@ -51,6 +51,7 @@ public class SaveDriverFragment extends Fragment implements SaveDriverContracts.
 
         ButterKnife.bind(this, view);
         mRememberAll = RememberAll.getInstance();
+        mPresenter.subscribe(this);
 
         showLoading();
         mPresenter.getAllDrivers();

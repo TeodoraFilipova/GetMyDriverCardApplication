@@ -49,6 +49,7 @@ public class SaveSelfieFragment extends Fragment implements SaveSelfieContracts.
 
         ButterKnife.bind(this, view);
         mRememberAll = RememberAll.getInstance();
+        mPresenter.subscribe(this);
 
         showLoading();
         mPresenter.getLastUpdatedPicture();

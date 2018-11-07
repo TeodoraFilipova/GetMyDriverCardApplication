@@ -52,6 +52,7 @@ public class SaveSignaturePicFragment extends Fragment implements SaveSignatureP
 
         ButterKnife.bind(this, view);
         mRememberAll = RememberAll.getInstance();
+        mPresenter.subscribe(this);
 
         showLoading();
         mPresenter.getLastUpdatedPicture();

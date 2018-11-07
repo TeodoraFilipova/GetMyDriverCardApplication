@@ -54,14 +54,13 @@ public class RememberAll {
 
             mCardApplicationForm.setDriver(currentDriver);
             mCardApplicationForm.setSignaturePicture(mSignaturePic);
+        }
+        if (mNewSelfiePic.getPicture() != null) {
+            mCardApplicationForm.setNewSelfie(mNewSelfiePic);
+        }
 
-            if (mNewSelfiePic.getPicture() != null) {
-                mCardApplicationForm.setNewSelfie(mNewSelfiePic);
-            }
-
-            if (mOldCardPic.getPicture() != null) {
-                mCardApplicationForm.setOldCardPicture(mOldCardPic);
-            }
+        if (mOldCardPic.getPicture() != null) {
+            mCardApplicationForm.setOldCardPicture(mOldCardPic);
         }
 
         return mCardApplicationForm;

@@ -49,6 +49,7 @@ public class SaveCardApplicationFormFragment extends Fragment implements SaveCar
 
         ButterKnife.bind(this, view);
         mRememberAll = RememberAll.getInstance();
+        mPresenter.subscribe(this);
 
         showLoading();
         mPresenter.getLastUpdatedCardApplicationForm();
