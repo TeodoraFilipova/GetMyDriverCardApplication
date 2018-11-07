@@ -16,6 +16,7 @@ import com.mystique.rt.getmydrivercardapplcation.R;
 import com.mystique.rt.getmydrivercardapplcation.apputils.Navigator;
 import com.mystique.rt.getmydrivercardapplcation.apputils.RememberAll;
 import com.mystique.rt.getmydrivercardapplcation.parsers.bitmap.BitmapParser;
+import com.mystique.rt.getmydrivercardapplcation.parsers.bitmap.ByteArrayBitmapParser;
 import com.mystique.rt.getmydrivercardapplcation.views.applications.activities.CompletedApplicationActivity;
 
 import butterknife.BindView;
@@ -59,6 +60,8 @@ public class SignDeclarationFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_sing_declaration, container, false);
         ButterKnife.bind(this, view);
         mRememberAll = RememberAll.getInstance();
+        mSignParser = new ByteArrayBitmapParser();
+        setNavigator((Navigator) getActivity());
 
         mSubmitButton.setEnabled(false);
         mClearPadButton.setEnabled(false);
