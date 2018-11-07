@@ -46,6 +46,7 @@ public class SignDeclarationFragment extends Fragment {
     Button mSubmitButton;
 
     private Bitmap mSignImage;
+
     private BitmapParser mSignParser;
 
     public SignDeclarationFragment() {

@@ -2,12 +2,15 @@ package com.mystique.rt.getmydrivercardapplcation.views.applications.fragments;
 
 
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.Spinner;
 
+import com.jaredrummler.materialspinner.MaterialSpinner;
 import com.mystique.rt.getmydrivercardapplcation.R;
 import com.mystique.rt.getmydrivercardapplcation.apputils.RememberAll;
 import com.mystique.rt.getmydrivercardapplcation.apputils.SetDate;
@@ -25,7 +28,7 @@ import butterknife.OnFocusChange;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PersonalInfoFragment extends Fragment implements FocusListener {
+public class PersonalInfoFragment extends Fragment implements FocusListener{
 
     @BindView(R.id.et_personal_number)
     EditText mPersonalNumberEditText;
@@ -48,7 +51,19 @@ public class PersonalInfoFragment extends Fragment implements FocusListener {
     @BindView(R.id.et_email)
     EditText mEmailEditText;
 
+    @BindView(R.id.dropdown_spinner)
+    MaterialSpinner mOfficeChooseSpinner;
+
     private RememberAll mRememberAll;
+
+    private static final String[] OFFICES = {
+            "London - Central office",
+            "London - office Bromley",
+            "London - office Hillington",
+            "Glasgow",
+            "Leeds",
+            "Cambridge"
+    };
 
     public PersonalInfoFragment() {
         // Required empty public constructor
@@ -117,6 +132,30 @@ public class PersonalInfoFragment extends Fragment implements FocusListener {
             }
         });
 
+        mOfficeChooseSpinner.setItems(OFFICES);
+        mOfficeChooseSpinner.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener<String>() {
+
+            @Override public void onItemSelected(MaterialSpinner view, int position, long id, String item) {
+                Snackbar.make(view, "Selected office " + item, Snackbar.LENGTH_LONG).show();
+            }
+        });
+
+
+        /*(
+                (MaterialSpinner.OnItemSelectedListener<String>)
+                    (materialSpinner, possition, id, item)
+                            -> Snackbar.make(view, "Office is selected " + item, Snackbar.LENGTH_LONG).show());*/
+
+        mOfficeChooseSpinner.setOnNothingSelectedListener(new MaterialSpinner.OnNothingSelectedListener() {
+
+            @Override public void onNothingSelected(MaterialSpinner spinner) {
+                Snackbar.make(spinner, "No office selected", Snackbar.LENGTH_LONG).show();
+            }
+        });
+        /*(
+                spinner -> Snackbar.make(spinner, "No office selected", Snackbar.LENGTH_LONG).show()
+        );
+*/
         return view;
     }
 
@@ -151,6 +190,8 @@ public class PersonalInfoFragment extends Fragment implements FocusListener {
         if (mRememberAll.getDriver().getEmail() != null) {
             mEmailEditText.setText(mRememberAll.getDriver().getEmail());
         }
+
+        // field in CardApplicationFor - peyment information??
     }
 
     @Override
@@ -164,5 +205,6 @@ public class PersonalInfoFragment extends Fragment implements FocusListener {
         }
         mRememberAll.setDateOfBirth(dateOfBirth);
     }
+
 
 }

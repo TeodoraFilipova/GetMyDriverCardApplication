@@ -62,7 +62,7 @@
     <string name="old_card_authority">Old card authority</string>
     <string name="open_camera">Open_camera</string>
     <string name="new_address">New address</string>
-    <string name="choose_office_for_receiving_the_card">choose_office_for_receiving_the_card</string>
+    <string name="choose_office">Office to receive</string>
     <string name="i_declare">I declare that the details in this form are correct and understand that it is a criminal offence
     if I make a false declaration to get a digital tachograph driver card and can lead to a fine of up to 5000 British pounds,
     and/or a maximum of two years imprisonment.</string>
