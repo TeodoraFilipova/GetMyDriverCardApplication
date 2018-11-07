@@ -27,8 +27,8 @@ public class CardApplicationForm {
     @Column(name = "Type", nullable = false)
     private String type;
 
-    @Column(name = "PaymentInformation", nullable = false)
-    private String paymentInformation;
+    @Column(name = "ReceivingOffice", nullable = false)
+    private String receivingOffice;
 
     @Column(name = "DrivingLicenseNumber")
     private String drivingLicenseNumber;
@@ -92,13 +92,13 @@ public class CardApplicationForm {
 
     // First application for a new card
     public CardApplicationForm(Driver driver, Date dateOfSubmission, String status, String type,
-                               String paymentInformation, String drivingLicenseCountry,
+                               String receivingOffice, String drivingLicenseCountry,
                                String drivingLicenseNumber, Picture signaturePicture, String statusCheckCode) {
         this.driver = driver;
         this.dateOfSubmission = dateOfSubmission;
         this.status = status;
         this.type = type;
-        this.paymentInformation = paymentInformation;
+        this.receivingOffice = receivingOffice;
         this.drivingLicenseCountry = drivingLicenseCountry;
         this.drivingLicenseNumber = drivingLicenseNumber;
         this.signaturePicture = signaturePicture;
@@ -108,7 +108,7 @@ public class CardApplicationForm {
 
     // Exchanging EU for BG card
     public CardApplicationForm(Driver driver, Date dateOfSubmission, String status, String type,
-                               String paymentInformation, String oldCardCountry, String oldCardNumber,
+                               String receivingOffice, String oldCardCountry, String oldCardNumber,
                                String oldCardAuthority, String drivingLicenseCountry,
                                String drivingLicenseNumber, Date oldCardDateOfExpiry,
                                Picture oldCardPicture, Picture signaturePicture, String statusCheckCode) {
@@ -116,7 +116,7 @@ public class CardApplicationForm {
         this.dateOfSubmission = dateOfSubmission;
         this.status = status;
         this.type = type;
-        this.paymentInformation = paymentInformation;
+        this.receivingOffice = receivingOffice;
         this.oldCardCountry = oldCardCountry;
         this.oldCardNumber = oldCardNumber;
         this.oldCardAuthority = oldCardAuthority;
@@ -131,7 +131,7 @@ public class CardApplicationForm {
 
     // Replacement due to loss/theft
     public CardApplicationForm(Driver driver, Date dateOfSubmission, String status, String type,
-                               String paymentInformation, Date dateOfEvent, String placeOfEvent,
+                               String receivingOffice, Date dateOfEvent, String placeOfEvent,
                                String oldCardCountry, String oldCardNumber, String oldCardAuthority,
                                String drivingLicenseCountry, String drivingLicenseNumber,
                                Date oldCardDateOfExpiry, String statusCheckCode,
@@ -140,7 +140,7 @@ public class CardApplicationForm {
         this.dateOfSubmission = dateOfSubmission;
         this.status = status;
         this.type = type;
-        this.paymentInformation = paymentInformation;
+        this.receivingOffice = receivingOffice;
         this.dateOfEvent = dateOfEvent;
         this.placeOfEvent = placeOfEvent;
         this.oldCardCountry = oldCardCountry;
@@ -157,7 +157,7 @@ public class CardApplicationForm {
 
     // Replacement new name
     public CardApplicationForm(Driver driver, Date dateOfSubmission, String status, String type,
-                               String paymentInformation, String oldCardCountry,
+                               String receivingOffice, String oldCardCountry,
                                String oldCardNumber, String oldCardAuthority,
                                String drivingLicenseCountry, Date oldCardDateOfExpiry,
                                String drivingLicenseNumber, String renewalReason,
@@ -167,7 +167,7 @@ public class CardApplicationForm {
         this.dateOfSubmission = dateOfSubmission;
         this.status = status;
         this.type = type;
-        this.paymentInformation = paymentInformation;
+        this.receivingOffice = receivingOffice;
         this.oldCardCountry = oldCardCountry;
         this.oldCardNumber = oldCardNumber;
         this.oldCardAuthority = oldCardAuthority;
@@ -185,7 +185,7 @@ public class CardApplicationForm {
 
     // Replacement new address
     public CardApplicationForm(Driver driver, Date dateOfSubmission, String status, String type,
-                               String paymentInformation, String oldCardCountry,
+                               String receivingOffice, String oldCardCountry,
                                String oldCardNumber, String oldCardAuthority,
                                String drivingLicenseCountry, Date oldCardDateOfExpiry,
                                String drivingLicenseNumber, String renewalReason,
@@ -195,7 +195,7 @@ public class CardApplicationForm {
         this.dateOfSubmission = dateOfSubmission;
         this.status = status;
         this.type = type;
-        this.paymentInformation = paymentInformation;
+        this.receivingOffice = receivingOffice;
         this.oldCardCountry = oldCardCountry;
         this.oldCardNumber = oldCardNumber;
         this.oldCardAuthority = oldCardAuthority;
@@ -212,7 +212,7 @@ public class CardApplicationForm {
 
     // Replacement new selfie
     public CardApplicationForm(Driver driver, Date dateOfSubmission, String status, String type,
-                               String paymentInformation, String oldCardCountry,
+                               String receivingOffice, String oldCardCountry,
                                String oldCardNumber, String oldCardAuthority,
                                String drivingLicenseCountry, Date oldCardDateOfExpiry,
                                String drivingLicenseNumber, String renewalReason,
@@ -222,7 +222,7 @@ public class CardApplicationForm {
         this.dateOfSubmission = dateOfSubmission;
         this.status = status;
         this.type = type;
-        this.paymentInformation = paymentInformation;
+        this.receivingOffice = receivingOffice;
         this.oldCardCountry = oldCardCountry;
         this.oldCardNumber = oldCardNumber;
         this.oldCardAuthority = oldCardAuthority;
@@ -239,7 +239,7 @@ public class CardApplicationForm {
 
     // Renewal expired, suspended, damaged, malfunctioning
     public CardApplicationForm(Driver driver, Date dateOfSubmission, String status, String type,
-                               String paymentInformation, String oldCardCountry,
+                               String receivingOffice, String oldCardCountry,
                                String oldCardNumber, String oldCardAuthority,
                                String drivingLicenseCountry, Date oldCardDateOfExpiry,
                                String drivingLicenseNumber, String renewalReason,
@@ -248,7 +248,7 @@ public class CardApplicationForm {
         this.dateOfSubmission = dateOfSubmission;
         this.status = status;
         this.type = type;
-        this.paymentInformation = paymentInformation;
+        this.receivingOffice = receivingOffice;
         this.oldCardCountry = oldCardCountry;
         this.oldCardNumber = oldCardNumber;
         this.oldCardAuthority = oldCardAuthority;
@@ -297,12 +297,12 @@ public class CardApplicationForm {
         this.type = type;
     }
 
-    public String getPaymentInformation() {
-        return paymentInformation;
+    public String getReceivingOffice() {
+        return receivingOffice;
     }
 
-    public void setPaymentInformation(String paymentInformation) {
-        this.paymentInformation = paymentInformation;
+    public void setReceivingOffice(String receivingOffice) {
+        this.receivingOffice = receivingOffice;
     }
 
     public Picture getSignaturePicture() {
