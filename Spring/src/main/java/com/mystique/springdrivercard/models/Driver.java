@@ -48,6 +48,8 @@ public class Driver {
     @JoinColumn(name = "DrivingPicID", nullable = false)
     private Picture drivingPic;
 
+    @Column(name = "LastSetID")
+    private String lastSetID;
 
     public Driver(){
     }
@@ -152,5 +154,13 @@ public class Driver {
 
     public void setCardApplicationForms(List<CardApplicationForm> cardApplicationForms) {
         this.cardApplicationForms = cardApplicationForms;
+    }
+
+    public String getLastSetID() {
+        return lastSetID;
+    }
+
+    public void setLastSetID(String lastSetID) {
+        this.lastSetID = lastSetID;
     }
 }

@@ -84,6 +84,9 @@ public class CardApplicationForm {
     @Column(name = "Details")
     private String details;
 
+    @Column(name = "LastSetID")
+    private String lastSetID;
+
 
     // Constructors
     public CardApplicationForm() {
@@ -447,5 +450,13 @@ public class CardApplicationForm {
 
     public void setDetails(String details) {
         this.details = details;
+    }
+
+    public String getLastSetID() {
+        return lastSetID;
+    }
+
+    public void setLastSetID(String lastSetID) {
+        this.lastSetID = lastSetID;
     }
 }

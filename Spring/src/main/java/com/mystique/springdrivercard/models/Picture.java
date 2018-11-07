@@ -12,10 +12,12 @@ public class Picture {
     @Column(name = "PictureID", nullable = false)
     private int pictureId;
 
-
     @Lob
     @Column(name = "Picture", columnDefinition = "BLOB", nullable = false)
     private byte[] picture;
+
+    @Column(name = "LastSetID")
+    private String lastSetID;
 
     public Picture() {
     }
@@ -40,5 +42,13 @@ public class Picture {
 
     public void setPicture(byte[] picture) {
         this.picture = picture;
+    }
+
+    public String getLastSetID() {
+        return lastSetID;
+    }
+
+    public void setLastSetID(String lastSetID) {
+        this.lastSetID = lastSetID;
     }
 }
