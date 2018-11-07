@@ -25,12 +25,12 @@ DROP TABLE IF EXISTS `cardapplicationforms`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cardapplicationforms` (
-  `cardapplicationformID` int(11) NOT NULL AUTO_INCREMENT,
+  `cardapplicationformID` int(11) NOT NULL,
   `driverID` int(11) NOT NULL,
   `DateOfSubmission` date NOT NULL,
   `Status` varchar(20) NOT NULL DEFAULT 'new',
   `Type` varchar(20) NOT NULL,
-  `PaymentInformation` varchar(100) NOT NULL,
+  `ReceivingOffice` varchar(100) NOT NULL,
   `SignaturePicID` int(11) NOT NULL,
   `DateOfEvent` date DEFAULT NULL,
   `PlaceOfEvent` varchar(200) DEFAULT NULL,
@@ -47,6 +47,7 @@ CREATE TABLE `cardapplicationforms` (
   `DrivingLicenseNumber` varchar(50) DEFAULT NULL,
   `DrivingLicenseCountry` varchar(50) DEFAULT NULL,
   `StatusCheckCode` varchar(10) NOT NULL,
+  `LastSetID` varchar(10) DEFAULT NULL,
   `Details` varchar(300) DEFAULT NULL,
   PRIMARY KEY (`cardapplicationformID`),
   KEY `driverID_idx` (`driverID`),
@@ -77,7 +78,7 @@ DROP TABLE IF EXISTS `drivers`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `drivers` (
-  `driverID` int(11) NOT NULL AUTO_INCREMENT,
+  `driverID` int(11) NOT NULL,
   `PersonalNumber` varchar(45) NOT NULL,
   `FirstName` varchar(200) NOT NULL,
   `LastName` varchar(50) NOT NULL,
@@ -87,6 +88,7 @@ CREATE TABLE `drivers` (
   `Email` varchar(30) NOT NULL,
   `SelfieID` int(11) NOT NULL,
   `DrivingPicID` int(11) NOT NULL,
+  `LastSetID` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`driverID`),
   KEY `SelfieID_idx` (`SelfieID`),
   KEY `DrivingPicID_idx` (`DrivingPicID`),
@@ -112,8 +114,9 @@ DROP TABLE IF EXISTS `pictures`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `pictures` (
-  `PictureID` int(11) NOT NULL AUTO_INCREMENT,
+  `PictureID` int(11) NOT NULL,
   `Picture` blob NOT NULL,
+  `LastSetID` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`PictureID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
