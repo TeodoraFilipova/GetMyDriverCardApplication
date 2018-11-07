@@ -160,7 +160,7 @@ public class RememberAll {
     }
 
     public void setCollectionOffice(String collectionOffice) {
-        mCardApplicationForm.setPaymentInformation(collectionOffice);
+        mCardApplicationForm.setReceivingOffice(collectionOffice);
     }
 
     public void setDateOfEvent(Date dateOfEvent) {

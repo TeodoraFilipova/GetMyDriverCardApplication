@@ -5,7 +5,7 @@ public class Constants {
 
     public static final int STATUS_CHECK_CODE_LENGTH = 10;
 
-    public static final String LAST_UPDATED_TRUE = "last updated";
+    public static final String LAST_UPDATED_TRUE = "yes";
 
     public static final String EMAIL_SUBJECT = "Your Tachograph Card Application";
     public static final String EMAIL_MESSAGE = "Your unique code for checking the status of your application is: ";

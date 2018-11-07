@@ -116,7 +116,7 @@ public class CardApplicationDetailsFragment extends Fragment implements CardAppl
     TextView mCheckCodeTextView;
 
     @BindView(R.id.tv_paymentinfo)
-    TextView mPaymentInfoTextView;
+    TextView mReceivingOfficeTextView;
 
     @BindView(R.id.iv_signature)
     ImageView mSignatureImageView;
@@ -179,7 +179,7 @@ public class CardApplicationDetailsFragment extends Fragment implements CardAppl
         mNewSelfieImageView.setImageBitmap(mPictureParser.toBitmap(form.getNewSelfie().getPicture()));
         mDetailsTextView.setText(form.getDetails());
         mCheckCodeTextView.setText(form.getStatusCheckCode());
-        mPaymentInfoTextView.setText(form.getPaymentInformation());
+        mReceivingOfficeTextView.setText(form.getReceivingOffice());
         mSignatureImageView.setImageBitmap(mPictureParser.toBitmap(form.getSignaturePicture().getPicture()));
 
     }
