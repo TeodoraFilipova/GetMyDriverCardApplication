@@ -63,15 +63,15 @@ public class HttpCardApplicationFormService implements CardApplicationFormServic
     }
 
     @Override
-    public List<CardApplicationForm> getFilteredFormsByID(String pattern) throws Exception {
+    public List<CardApplicationForm> getFilteredFormsByPersonalNumber(String pattern) throws Exception {
         String patternToLower = pattern.toLowerCase();
 
         List<CardApplicationForm> forms = getAllForms();
         List<CardApplicationForm> filteredForms = new ArrayList<>();
 
         for (int i = 0; i < forms.size(); i++) {
-            String form = String.valueOf(forms.get(i).getCardApplicationFormId());
-            if (form.contains(patternToLower)) { // not right declaration // fixed now maybe but should be personalNumber, not ID?
+            String form = String.valueOf(forms.get(i).getDriver().getPersonalNumber());
+            if (form.contains(patternToLower)) {
                 filteredForms.add(forms.get(i));
             }
         }
@@ -100,11 +100,8 @@ public class HttpCardApplicationFormService implements CardApplicationFormServic
         List<CardApplicationForm> forms = getAllForms();
         List<CardApplicationForm> filteredForms = new ArrayList<>();
 
-        // is date to string right declaration
-        // probably not how we want to filter dates
-        // use compareTo() or equals() ?
         for (int i = 0; i < forms.size(); i++) {
-            if (forms.get(i).getDateOfSubmission().toString().contains(patternToLower)) {
+            if (forms.get(i).getDateOfSubmission().toString().equals(patternToLower)) {
                 filteredForms.add(forms.get(i));
             }
         }

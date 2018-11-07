@@ -46,11 +46,11 @@ public class CardApplicationFormsListPresenter implements CardApplicationFormsLi
     }
 
    @Override
-    public void filterCardApplicationFormsByID(String pattern) {
+    public void filterCardApplicationFormsByPersonalNumber(String pattern) {
        mView.showLoading();
        Disposable observable = Observable
                .create((ObservableOnSubscribe<List<CardApplicationForm>>) emitter -> {
-                   List<CardApplicationForm> forms = mCardAppFormService.getFilteredFormsByID(pattern);
+                   List<CardApplicationForm> forms = mCardAppFormService.getFilteredFormsByPersonalNumber(pattern);
                    emitter.onNext(forms);
                    emitter.onComplete();
                })
