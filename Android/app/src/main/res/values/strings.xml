@@ -71,6 +71,7 @@
     <string name="submit_application">Submit application</string>
     <string name="old_card_date_of_expiry">Old card date of expiry</string>
     <string name="email">Email</string>
+    <string name="application_successful">Your application has now been processed successfully! Please check your email for further instructions.</string>
 
 
 </resources>

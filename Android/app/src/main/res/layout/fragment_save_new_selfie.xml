@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.applications.submittodatabase.CompletedApplicationFragment">
+    tools:context=".views.applications.submittodatabase.step4submitnewselfie.SaveNewSelfieFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,7 +14,7 @@
             android:id="@+id/text_completed"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Your application is being processed! Please wait."/>
+            android:text="Please wait another moment."/>
 
         <ProgressBar
             android:id="@+id/pb_loading"

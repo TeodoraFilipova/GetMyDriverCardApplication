@@ -25,6 +25,7 @@ import android.widget.Toast;
 import com.mystique.rt.getmydrivercardapplcation.BuildConfig;
 import com.mystique.rt.getmydrivercardapplcation.R;
 import com.mystique.rt.getmydrivercardapplcation.apputils.RememberAll;
+import com.mystique.rt.getmydrivercardapplcation.apputils.SetDate;
 import com.mystique.rt.getmydrivercardapplcation.parsers.bitmap.BitmapParser;
 import com.mystique.rt.getmydrivercardapplcation.parsers.bitmap.ByteArrayBitmapParser;
 import com.mystique.rt.getmydrivercardapplcation.views.applications.FocusListener;
@@ -83,6 +84,8 @@ public class OldCardFragment extends Fragment implements FocusListener {
 
         mOldCardPicParser = new ByteArrayBitmapParser();
         mRememberAll = RememberAll.getInstance();
+
+        SetDate setDate = new SetDate(mOldCardDateOfExpiryEditText, getContext(), this);
 
         Context context = getActivity();
 

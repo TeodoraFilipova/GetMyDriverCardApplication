@@ -17,7 +17,7 @@ import com.mystique.rt.getmydrivercardapplcation.apputils.Navigator;
 import com.mystique.rt.getmydrivercardapplcation.apputils.RememberAll;
 import com.mystique.rt.getmydrivercardapplcation.parsers.bitmap.BitmapParser;
 import com.mystique.rt.getmydrivercardapplcation.parsers.bitmap.ByteArrayBitmapParser;
-import com.mystique.rt.getmydrivercardapplcation.views.applications.activities.CompletedApplicationActivity;
+import com.mystique.rt.getmydrivercardapplcation.views.applications.submittodatabase.step1submitselfie.SaveSelfieActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -135,7 +135,7 @@ public class SignDeclarationFragment extends Fragment {
         mSignImage = mSignaturePad.getSignatureBitmap();
         byte[] byteSign = mSignParser.fromBitmap(mSignImage);
         mRememberAll.setSignaturePicture(byteSign);
-        mNavigator.navigateToActivity(CompletedApplicationActivity.class);
+        mNavigator.navigateToActivity(SaveSelfieActivity.class);
     }
 
     public void setNavigator(Navigator navigator) {

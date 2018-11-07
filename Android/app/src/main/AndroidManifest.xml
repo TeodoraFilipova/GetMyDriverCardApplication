@@ -73,7 +73,13 @@
             android:name=".views.admin.applicationslist.CardApplicationFormsListActivity"
             android:label="@string/title_activity_card_application_list"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".views.applications.activities.CompletedApplicationActivity"></activity>
+        <activity android:name=".views.applications.submittodatabase.step1submitselfie.SaveSelfieActivity" />
+        <activity android:name=".views.applications.submittodatabase.step2submitdrivinglicense.SaveDrivingLicensePicActivity" />
+        <activity android:name=".views.applications.submittodatabase.step3submitsignaturepic.SaveSignaturePicActivity" />
+        <activity android:name=".views.applications.submittodatabase.step4submitnewselfie.SaveNewSelfieActivity" />
+        <activity android:name=".views.applications.submittodatabase.step5submitoldcardpic.SaveOldCardPicActivity" />
+        <activity android:name=".views.applications.submittodatabase.step6submitdriver.SaveDriverActivity" />
+        <activity android:name=".views.applications.submittodatabase.step7submitcardapplicationform.SaveCardApplicationFormActivity"></activity>
     </application>
 
 </manifest>
