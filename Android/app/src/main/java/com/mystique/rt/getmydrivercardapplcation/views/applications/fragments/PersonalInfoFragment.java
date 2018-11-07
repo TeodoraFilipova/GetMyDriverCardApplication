@@ -28,7 +28,7 @@ import butterknife.OnFocusChange;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PersonalInfoFragment extends Fragment implements FocusListener{
+public class PersonalInfoFragment extends Fragment implements FocusListener {
 
     @BindView(R.id.et_personal_number)
     EditText mPersonalNumberEditText;
@@ -64,6 +64,7 @@ public class PersonalInfoFragment extends Fragment implements FocusListener{
             "Leeds",
             "Cambridge"
     };
+    private int mSelectedOfficeIndex;
 
     public PersonalInfoFragment() {
         // Required empty public constructor
@@ -84,19 +85,19 @@ public class PersonalInfoFragment extends Fragment implements FocusListener{
         checkRememberAllForCurrentData();
 
         mPersonalNumberEditText.setOnFocusChangeListener((v, hasFocus) -> {
-            if(!hasFocus) {
+            if (!hasFocus) {
                 mRememberAll.setPersonalNumber(mPersonalNumberEditText.getText().toString());
             }
         });
 
         mFirstNameEditText.setOnFocusChangeListener((v, hasFocus) -> {
-            if(!hasFocus) {
+            if (!hasFocus) {
                 mRememberAll.setFirstName(mFirstNameEditText.getText().toString());
             }
         });
 
         mLastNameEditText.setOnFocusChangeListener((v, hasFocus) -> {
-            if(!hasFocus) {
+            if (!hasFocus) {
                 mRememberAll.setLastName(mLastNameEditText.getText().toString());
             }
         });
@@ -115,19 +116,19 @@ public class PersonalInfoFragment extends Fragment implements FocusListener{
 //        });
 
         mAddressEditText.setOnFocusChangeListener((v, hasFocus) -> {
-            if(!hasFocus) {
+            if (!hasFocus) {
                 mRememberAll.setAddress(mAddressEditText.getText().toString());
             }
         });
 
         mPhoneNumberEditText.setOnFocusChangeListener((v, hasFocus) -> {
-            if(!hasFocus) {
+            if (!hasFocus) {
                 mRememberAll.setPhoneNumber(mPhoneNumberEditText.getText().toString());
             }
         });
 
         mEmailEditText.setOnFocusChangeListener((v, hasFocus) -> {
-            if(!hasFocus) {
+            if (!hasFocus) {
                 mRememberAll.setEmail(mEmailEditText.getText().toString());
             }
         });
@@ -135,7 +136,10 @@ public class PersonalInfoFragment extends Fragment implements FocusListener{
         mOfficeChooseSpinner.setItems(OFFICES);
         mOfficeChooseSpinner.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener<String>() {
 
-            @Override public void onItemSelected(MaterialSpinner view, int position, long id, String item) {
+            @Override
+            public void onItemSelected(MaterialSpinner view, int position, long id, String item) {
+                mRememberAll.getCardApplicationForm().setReceivingOffice(item);
+                mSelectedOfficeIndex = position;
                 Snackbar.make(view, "Selected office " + item, Snackbar.LENGTH_LONG).show();
             }
         });
@@ -148,7 +152,8 @@ public class PersonalInfoFragment extends Fragment implements FocusListener{
 
         mOfficeChooseSpinner.setOnNothingSelectedListener(new MaterialSpinner.OnNothingSelectedListener() {
 
-            @Override public void onNothingSelected(MaterialSpinner spinner) {
+            @Override
+            public void onNothingSelected(MaterialSpinner spinner) {
                 Snackbar.make(spinner, "No office selected", Snackbar.LENGTH_LONG).show();
             }
         });
@@ -191,7 +196,9 @@ public class PersonalInfoFragment extends Fragment implements FocusListener{
             mEmailEditText.setText(mRememberAll.getDriver().getEmail());
         }
 
-        // field in CardApplicationFor - peyment information??
+        if (mRememberAll.getCardApplicationForm().getReceivingOffice() != null) {
+            mOfficeChooseSpinner.setSelectedIndex(mSelectedOfficeIndex);
+        }
     }
 
     @Override
