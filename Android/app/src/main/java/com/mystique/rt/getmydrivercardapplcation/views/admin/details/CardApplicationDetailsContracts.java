@@ -21,7 +21,9 @@ public interface CardApplicationDetailsContracts {
 
         void loadCardApplicationForm();
 
-        void updateCardApplicationForm();
+        void updateCardApplicationForm(String item);
+
+        void sendMail(String item);
 
         //do we need this?
         void setCardApplicationFormId(int id);

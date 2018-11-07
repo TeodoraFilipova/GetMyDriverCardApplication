@@ -1,368 +1,794 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:orientation="vertical">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="77dp"
-        tools:layout_editor_absoluteY="0dp">
+        android:layout_height="match_parent">
 
-        <RelativeLayout
-            android:layout_width="383dp"
-            android:layout_height="573dp"
-            android:layout_marginBottom="4dp"
-            android:layout_marginTop="8dp"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.611"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="1dp">
 
-            <TextView
-                android:id="@+id/tv_cardappformid"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/application" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tv_dateofsubmission"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_cardappformid"
-                android:text="Date of submission"
-                android:textColor="@color/md_blue_900" />
-
-            <TextView
-                android:id="@+id/tv_status"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignStart="@+id/tv_type"
-                android:layout_below="@+id/tv_cardappformid"
-                android:text="Status"
-                android:textColor="@color/md_blue_900" />
-
-            <TextView
-                android:id="@+id/tv_type"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="121dp"
-                android:text="Type"
-                android:textColor="@color/md_blue_900" />
-
+        <LinearLayout
+            android:id="@+id/layout_change_status_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="48dp"
-                android:text="Driver personal information"
-                android:textStyle="bold" />
+                android:text="@string/change_for_status" />
 
-            <TextView
-                android:id="@+id/tv_firstname"
+            <com.jaredrummler.materialspinner.MaterialSpinner
+                android:id="@+id/status_spinner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="75dp"
-                android:text="First Name"
-                android:textAlignment="center"
-                android:textColor="@color/md_blue_900" />
+                />
 
-            <TextView
-                android:id="@+id/tv_lastname"
+            <Button
+                android:id="@+id/btn_change_status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="101dp"
-                android:text="Last Name"
-                android:textAlignment="center"
-                android:textColor="@color/md_blue_900" />
+                android:text="@string/set_status"
+                />
+        </LinearLayout>
 
-            <TextView
-                android:id="@+id/tv_personalnumber"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="128dp"
-                android:text="Personal number"
-                android:textAlignment="center"
-                android:textColor="@color/md_blue_900" />
-
-            <TextView
-                android:id="@+id/tv_dateofbirth"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignTop="@+id/tv_personalnumber"
-                android:layout_marginEnd="93dp"
-                android:text="Date of birth"
-                android:textAlignment="center"
-                android:textColor="@color/md_blue_900" />
-
-            <TextView
-                android:id="@+id/tv_address"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="156dp"
-                android:text="Address"
-                android:textAlignment="center"
-                android:textColor="@color/md_blue_900" />
-
-
-            <TextView
-                android:id="@+id/tv_phone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignEnd="@+id/tv_personalnumber"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="205dp"
-                android:text="Phone number"
-                android:textColor="@color/md_blue_900" />
-
-            <TextView
-                android:id="@+id/tv_email"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_alignStart="@+id/tv_phone"
-                android:layout_marginTop="247dp"
-                android:text="E-mail"
-                android:textAlignment="center"
-                android:textColor="@color/md_blue_900" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignStart="@+id/iv_selfie"
-                android:layout_alignTop="@+id/tv_phone"
-                android:text="Selfie" />
-
-            <ImageView
-                android:id="@+id/iv_selfie"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_below="@+id/tv_phone"
-                android:layout_toStartOf="@+id/tv_status" />
-
-            <TextView
-                android:id="@+id/tv_drivinglicense"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/iv_selfie"
-                android:text="Driving license" />
-
-            <ImageView
-                android:id="@+id/iv_drivingpic"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/tv_drivinglicense" />
-
-
-            <TextView
-                android:id="@+id/tv_driving_number"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_driving_country"
-                android:layout_toEndOf="@+id/tv_personalnumber"
-                android:text="Driving license number"
-                android:textColor="@color/md_blue_900" />
-
-            <TextView
-                android:id="@+id/tv_driving_country"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_drivinglicense"
-                android:layout_toEndOf="@+id/tv_personalnumber"
-                android:text="Driving license country"
-                android:textColor="@color/md_blue_900" />
-
-            <TextView
-                android:id="@+id/tv_loss"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/iv_drivingpic"
-                android:text="Loss/ Theft info" />
-
-            <TextView
-                android:id="@+id/tv_placeofevent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tv_loss"
-                android:text="Place of event"
-                android:textColor="@color/md_blue_900" />
-
-            <TextView
-                android:id="@+id/tv_dateofevent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/tv_placeofevent"
-                android:text="Date of event"
-                android:textColor="@color/md_blue_900" />
-
-
-            <TextView
-                android:id="@+id/tv_oldcardinfo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tv_dateofevent"
-                android:text="Old card info" />
-
-            <ImageView
-                android:id="@+id/iv_oldcardpic"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_below="@id/tv_oldcardinfo" />
-
-            <TextView
-                android:id="@+id/tv_oldcardcountry"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_oldcardinfo"
-                android:layout_toEndOf="@+id/tv_personalnumber"
-                android:text="Country"
-                android:textAlignment="center"
-                android:textColor="@color/md_blue_900" />
-
-
-            <TextView
-                android:id="@+id/tv_oldcardauthority"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_oldcardinfo"
-                android:layout_marginStart="-121dp"
-                android:layout_toEndOf="@+id/tv_type"
-                android:text="Authority"
-                android:textAlignment="center"
-                android:textColor="@color/md_blue_900" />
-
-            <TextView
-                android:id="@+id/tv_oldcardnumber"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_above="@+id/iv_oldcardpic"
-                android:layout_toEndOf="@+id/tv_phone"
-                android:text="Number"
-                android:textAlignment="center"
-                android:textColor="@color/md_blue_900" />
-
-            <TextView
-                android:id="@+id/tv_oldcarddateofexpiry"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_dateofevent"
-                android:layout_marginStart="-121dp"
-                android:layout_toEndOf="@+id/tv_type"
-                android:text="Date of expiry"
-                android:textAlignment="center"
-                android:textColor="@color/md_blue_900" />
-
-
-            <TextView
-                android:id="@+id/tv_renewalreason"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_above="@+id/tv_newaddress"
-                android:layout_alignEnd="@+id/tv_dateofbirth"
-                android:text="Renewal reason"
-                android:textColor="@color/md_blue_900" />
-
-            <TextView
-                android:id="@+id/tv_updateinfo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/iv_oldcardpic"
-                android:text="Update driver information" />
-
-            <TextView
-                android:id="@+id/tv_newaddress"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tv_updateinfo"
-                android:text="New address"
-                android:textAlignment="center"
-                android:textColor="@color/md_blue_900" />
-
-            <TextView
-                android:id="@+id/tv_newFirsName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tv_newaddress"
-                android:text="New first name"
-                android:textColor="@color/md_blue_900" />
-
-            <TextView
-                android:id="@+id/tv_newLastName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tv_newFirsName"
-                android:text="New last name"
-                android:textColor="@color/md_blue_900" />
-
-            <TextView
-                android:id="@+id/tv_newselfieinfo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tv_newLastName"
-                android:text="New selfie" />
-
-            <ImageView
-                android:id="@+id/iv_newselfie"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_below="@id/tv_newselfieinfo" />
-
-            <TextView
-                android:id="@+id/tv_details"
+        <LinearLayout
+                android:id="@+id/layout_cardid_details"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_below="@id/iv_newselfie"
-                android:text="Details"
-                android:textColor="@color/md_blue_900" />
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
 
             <TextView
-                android:id="@+id/tv_checkcode"
+                android:textStyle="italic"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/tv_details"
-                android:text="Check code"
-                android:textColor="@color/md_blue_900" />
+                android:text="@string/formid" />
 
             <TextView
-                android:id="@+id/tv_paymentinfo"
+                android:id="@+id/tv_cardappformid_details"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_details"
-                android:layout_centerHorizontal="true"
-                android:text="Paymant information"
-                android:textColor="@color/md_blue_900" />
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_submission_date_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
 
             <TextView
-                android:id="@+id/tv_signatureinfo"
+                android:textStyle="italic"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/tv_paymentinfo"
-                android:text="Signature" />
+                android:text="@string/submission_date" />
+
+            <TextView
+                android:id="@+id/tv_dateofsubmission_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/md_blue_900" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_status_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+        <TextView
+            android:textStyle="italic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/status" />
+
+        <TextView
+                android:id="@+id/tv_status_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/md_blue_900" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_formtype_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+        <TextView
+            android:textStyle="italic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/type" />
+
+            <TextView
+                android:id="@+id/tv_type_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/md_blue_900" />
+
+        </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/layout_driverinfo_part"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+    <TextView
+        android:id="@+id/tv_driverinfo_part_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/driver_personal_information"
+        android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_firstname_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:textStyle="italic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/firstname" />
+
+        <TextView
+            android:id="@+id/tv_firstname_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/md_blue_900" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/layout_lastname_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:textStyle="italic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lastname" />
+
+        <TextView
+            android:id="@+id/tv_lastname_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/md_blue_900" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_personal_number_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:textStyle="italic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/personal_number_egn" />
+
+        <TextView
+            android:id="@+id/tv_personal_number_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/md_blue_900" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/layout_date_of_birth_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:textStyle="italic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/date_of_birth" />
+
+        <TextView
+            android:id="@+id/tv_date_of_birth_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/date_of_birth" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/layout_address_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:textStyle="italic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/address" />
+
+        <TextView
+            android:id="@+id/tv_address_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/address" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/layout_phone_number_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:textStyle="italic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/phone_number" />
+
+        <TextView
+            android:id="@+id/tv_phone_number_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/phone_number" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_email_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:textStyle="italic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/email" />
+
+        <TextView
+            android:id="@+id/tv_email_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/email" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_receiving_office_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:orientation="horizontal">
+
+        <TextView
+            android:textStyle="italic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Office to receive:" />
+
+        <TextView
+            android:id="@+id/tv_office_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/office_to_receive" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_driverpics_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:textStyle="italic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/driver_picture" />
+
 
             <ImageView
-                android:id="@+id/iv_signature"
+                android:id="@+id/iv_driverselfie_details"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:layout_below="@id/tv_signatureinfo" />
+                android:contentDescription="@string/picture" />
 
-        </RelativeLayout>
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:textStyle="italic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/driving_license" />
+
+            <ImageView
+                android:id="@+id/iv_drivinglicense_details"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:contentDescription="@string/picture" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/layout_license_number_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+        <TextView
+            android:textStyle="italic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/driving_license_number" />
+
+
+        <TextView
+            android:id="@+id/tv_license_number_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dr_l_number" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_license_coutry_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+        <TextView
+            android:textStyle="italic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/driving_license_coutry" />
+
+
+        <TextView
+            android:id="@+id/tv_license_coutry_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/driving_license_country" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_loose_theft_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lost_theft_information"
+            android:textStyle="bold"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_loosplace_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+        <TextView
+            android:textStyle="italic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/place_of_event_detail" />
+
+        <TextView
+            android:id="@+id/tv_placeofevent_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/md_blue_900" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_lossdate_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+        <TextView
+            android:textStyle="italic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/date_of_event_details" />
+
+        <TextView
+            android:id="@+id/tv_dateofevent_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/md_blue_900"
+            android:inputType="date"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_oldcard_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/old_card_information"
+            android:textStyle="bold"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_oldcard_number_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+        <TextView
+            android:textStyle="italic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/card_number" />
+
+        <TextView
+            android:id="@+id/tv_oldcard_number_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/md_blue_900" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_oldcard_date_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+        <TextView
+            android:textStyle="italic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/old_card_date" />
+
+        <TextView
+            android:id="@+id/tv_oldcard_date_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/md_blue_900"
+            android:inputType="date"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_oldcard_authority_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+        <TextView
+            android:textStyle="italic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/authority" />
+
+        <TextView
+            android:id="@+id/tv_oldcard_authority_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/md_blue_900"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_oldcard_country_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+        <TextView
+            android:textStyle="italic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Country:" />
+
+        <TextView
+            android:id="@+id/tv_oldcard_country_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/md_blue_900"
+            />
+    </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_oldcard_date_of_expiry_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <TextView
+                android:textStyle="italic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Country:" />
+
+            <TextView
+                android:id="@+id/tv_oldcard_date_of_expiry_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/md_blue_900"
+                />
+        </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_oldcard_pic_details"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:textStyle="italic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/old_card_picture" />
+
+        <ImageView
+            android:id="@+id/iv_oldcard_picture_details"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:contentDescription="@string/picture" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/layout_newinfo_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/renewing_information"
+            android:textStyle="bold"
+            />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/layout_new_firstname_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+        <TextView
+            android:textStyle="italic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/new_first_name_details" />
+
+        <TextView
+            android:id="@+id/tv_new_firstname_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/md_blue_900"
+            />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/layout_new_lastname_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+        <TextView
+            android:textStyle="italic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/new_last_name_details" />
+
+        <TextView
+            android:id="@+id/tv_new_lastname_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/md_blue_900"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_new_address_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+        <TextView
+            android:textStyle="italic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New address:" />
+
+        <TextView
+            android:id="@+id/tv_new_address_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/md_blue_900"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_new_selfie_details"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:orientation="vertical"
+        tools:ignore="UseCompoundDrawables">
+
+        <TextView
+            android:textStyle="italic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New selfie:" />
+
+        <ImageView
+            android:id="@+id/iv_newselfie_picture_details"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:contentDescription="@string/picture" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_details_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+        <TextView
+            android:textStyle="italic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/details" />
+
+        <TextView
+            android:id="@+id/tv_details_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/md_blue_900"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_renewal_reason_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+        <TextView
+            android:textStyle="italic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/renewal_reason" />
+
+        <TextView
+            android:id="@+id/tv_renewal_reason_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/md_blue_900"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_check_code_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+        <TextView
+            android:textStyle="italic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/status_check_code" />
+
+        <TextView
+            android:id="@+id/tv_status_checkcode_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/md_blue_900"
+            />
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:id="@+id/layout_signature_details"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:textStyle="italic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/signature" />
+
+        <ImageView
+            android:id="@+id/iv_signature_details"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:contentDescription="@string/picture" />
+
+    </LinearLayout>
+
+    </LinearLayout>
+
 
     </ScrollView>
 
-    </android.support.constraint.ConstraintLayout>
+</android.support.constraint.ConstraintLayout>

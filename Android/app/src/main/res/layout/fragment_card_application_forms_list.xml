@@ -15,32 +15,67 @@
             android:layout_height="match_parent"
             android:visibility="gone" />
 
+        <TextView
+            android:id="@+id/tv_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="14dp"
+            android:text="@string/search_application_forms"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btn_searchclean"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:text="@string/clear_search" />
+
         <EditText
             android:id="@+id/et_id_filter_search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter form id to search" />
+            android:hint="@string/search_driver_personal_number"
+            android:layout_below="@id/btn_searchclean"
+            android:textStyle="italic"/>
 
         <EditText
             android:id="@+id/et_name_filter_search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter name to search"
-            android:layout_below="@id/et_id_filter_search"/>
+            android:hint="@string/search_form_by_driver_name"
+            android:layout_below="@id/et_id_filter_search"
+            android:textStyle="italic"/>
 
         <EditText
             android:id="@+id/et_submission_filter_search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter submission date to search"
-            android:layout_below="@id/et_name_filter_search"/>
+            android:hint="@string/search_form_by_submission_date"
+            android:layout_below="@id/et_name_filter_search"
+            android:textStyle="italic"
+            android:inputType="date"/>
 
         <EditText
             android:id="@+id/et_status_filter_search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter to status search"
-            android:layout_below="@id/et_submission_filter_search"/>
+            android:hint="@string/search_form_by_status"
+            android:layout_below="@id/et_submission_filter_search"
+            android:textStyle="italic"/>
+
+        <TextView
+            android:id="@+id/tv_formlist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="109dp"
+            android:layout_marginTop="241dp"
+            android:text="@string/applications_list"
+            android:textSize="20sp" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/lv_cardappforms"

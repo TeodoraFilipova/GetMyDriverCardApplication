@@ -16,7 +16,7 @@ public interface CardApplicationFormService {
 
     CardApplicationForm updateFormById(int id, CardApplicationForm applicationForm) throws IOException;
 
-    List<CardApplicationForm> getFilteredFormsByID(String pattern) throws Exception;
+    List<CardApplicationForm> getFilteredFormsByPersonalNumber(String pattern) throws Exception;
 
     List<CardApplicationForm> getFilteredFormsByName(String pattern) throws Exception;
 

@@ -29,7 +29,7 @@ public interface CardApplicationFormsListContracts {
 
         void loadCardApplicationsForms();
 
-        void filterCardApplicationFormsByID(String pattern);
+        void filterCardApplicationFormsByPersonalNumber(String pattern);
 
         void filterCardApplicationFormsByName(String pattern);
 

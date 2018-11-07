@@ -9,12 +9,15 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.mystique.rt.getmydrivercardapplcation.R;
+import com.mystique.rt.getmydrivercardapplcation.apputils.SetDate;
 import com.mystique.rt.getmydrivercardapplcation.models.CardApplicationForm;
+import com.mystique.rt.getmydrivercardapplcation.views.applications.FocusListener;
 
 import java.util.List;
 
@@ -28,7 +31,8 @@ import butterknife.OnTextChanged;
  * A simple {@link Fragment} subclass.
  */
 public class CardApplicationFormsListFragment extends Fragment
-        implements CardApplicationFormsListContracts.View, CardApplicationFormsListAdapter.OnProductClickListener{
+        implements CardApplicationFormsListContracts.View, CardApplicationFormsListAdapter.OnProductClickListener,
+        FocusListener{
 
     private CardApplicationFormsListContracts.Navigator mNavigator;
 
@@ -47,6 +51,9 @@ public class CardApplicationFormsListFragment extends Fragment
     @BindView(R.id.et_status_filter_search)
     EditText mStatusSearchFilterText;
 
+    @BindView(R.id.btn_searchclean)
+    Button mSearchCliearButton;
+
     @BindView(R.id.lv_cardappforms)
     RecyclerView mCardAppFormsListView;
 
@@ -55,6 +62,7 @@ public class CardApplicationFormsListFragment extends Fragment
 
     private CardApplicationFormsListContracts.Presenter mPresenter;
     private GridLayoutManager mCardAppFormsViewLayoutManager;
+    SetDate fromDate;
 
     @Inject
     public CardApplicationFormsListFragment() {
@@ -70,11 +78,20 @@ public class CardApplicationFormsListFragment extends Fragment
 
         ButterKnife.bind(this, view);
 
+        fromDate = new SetDate(mSubmissionSearchFilterText, getContext(), this);
+
         mCardAppFormsAdapter.setOnProductClickListener(this);
         mCardAppFormsListView.setAdapter(mCardAppFormsAdapter);
 
         mCardAppFormsViewLayoutManager = new GridLayoutManager(getContext(), 2);
         mCardAppFormsListView.setLayoutManager(mCardAppFormsViewLayoutManager);
+
+        mSearchCliearButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mPresenter.loadCardApplicationsForms();
+            }
+        });
 
         return view;
     }
@@ -141,7 +158,7 @@ public class CardApplicationFormsListFragment extends Fragment
     @OnTextChanged(R.id.et_id_filter_search)
     public void onIDTextChanged() {
         String pattern = mIDSearchFilterText.getText().toString();
-        mPresenter.filterCardApplicationFormsByID(pattern);
+        mPresenter.filterCardApplicationFormsByPersonalNumber(pattern);
     }
 
     @OnTextChanged(R.id.et_name_filter_search)
@@ -152,7 +169,7 @@ public class CardApplicationFormsListFragment extends Fragment
 
     @OnTextChanged(R.id.et_submission_filter_search)
     public void onSubmissionTextChanged() {
-        String pattern = mSubmissionSearchFilterText.getText().toString();
+        String pattern = fromDate.toString();
         mPresenter.filterCardApplicationFormsBySubmissionDate(pattern);
     }
 
@@ -162,4 +179,8 @@ public class CardApplicationFormsListFragment extends Fragment
         mPresenter.filterCardApplicationFormsByStatus(pattern);
     }
 
+    @Override
+    public void saveDateToObject() {
+
+    }
 }

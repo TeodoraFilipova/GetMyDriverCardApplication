@@ -42,7 +42,7 @@
     <string name="edit_text_status_code_hint">Your Status Code Here</string>
     <string name="wrong_status_number">Wrong application number! Please, check that you write the correct personal status number</string>
     <string name="application">Application id</string>
-    <string name="personal_number_egn">Personal Number (EGN)</string>
+    <string name="personal_number_egn">Personal Number</string>
     <string name="first_name">First Name(s)</string>
     <string name="last_name">Last Name(s)</string>
     <string name="date_of_birth">Date of Birth</string>
@@ -71,6 +71,46 @@
     <string name="submit_application">Submit application</string>
     <string name="old_card_date_of_expiry">Old card date of expiry</string>
     <string name="email">Email</string>
+    <string name="search_driver_personal_number">by driver Personal number</string>
+    <string name="search_form_by_driver_name">by driver name</string>
+    <string name="search_form_by_submission_date">by submission date</string>
+    <string name="search_form_by_status">by status</string>
+    <string name="search_application_forms">Search application forms</string>
+    <string name="clear_search">Clear search</string>
+    <string name="applications_list">Applications list</string>
+    <string name="set_status">set status</string>
+    <string name="change_for_status">Change status</string>
+    <string name="date_of_submission">Date of submission</string>
+    <string name="formid">FormID:</string>
+    <string name="submission_date">Submission Date:</string>
+    <string name="status">Status:</string>
+    <string name="type">Type:</string>
+    <string name="driver_personal_information">Driver personal information</string>
+    <string name="firstname">First name (s):</string>
+    <string name="lastname">Last name (s):</string>
+    <string name="office_to_receive">Office to receive:</string>
+    <string name="driver_picture">Driver picture:</string>
+    <string name="picture">Picture</string>
+    <string name="driving_license">Driving license</string>
+    <string name="driving_license_number">Driving license number:</string>
+    <string name="dr_l_number">driving license number</string>
+    <string name="driving_license_coutry">Driving license coutry:</string>
+    <string name="driving_license_country">Driving license country</string>
+    <string name="lost_theft_information">Lost / Theft information</string>
+    <string name="place_of_event_detail">Place of event:</string>
+    <string name="date_of_event_details">Date of event:</string>
+    <string name="old_card_date">Old card date:</string>
+    <string name="old_card_information">Old card information</string>
+    <string name="card_number">Card number:</string>
+    <string name="renewing_information">Renewing information</string>
+    <string name="new_first_name_details">New First name:</string>
+    <string name="old_card_picture">Old card picture</string>
+    <string name="details">Details:</string>
+    <string name="renewal_reason">Renewal reason:</string>
+    <string name="status_check_code">Status check code:</string>
+    <string name="signature">Signature:</string>
+    <string name="authority">Authority:</string>
+    <string name="new_last_name_details">New Last name:</string>
 
 
 </resources>
