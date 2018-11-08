@@ -8,15 +8,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.github.chrisbanes.photoview.PhotoView;
 import com.jaredrummler.materialspinner.MaterialSpinner;
 import com.mystique.rt.getmydrivercardapplcation.R;
+import com.mystique.rt.getmydrivercardapplcation.apputils.Constants;
+import com.mystique.rt.getmydrivercardapplcation.apputils.email.SendMail;
 import com.mystique.rt.getmydrivercardapplcation.models.CardApplicationForm;
 import com.mystique.rt.getmydrivercardapplcation.parsers.bitmap.BitmapParser;
-import com.mystique.rt.getmydrivercardapplcation.parsers.bitmap.ByteArrayBitmapParser;
 
 import javax.inject.Inject;
 
@@ -28,11 +29,12 @@ import butterknife.ButterKnife;
  */
 public class CardApplicationDetailsFragment extends Fragment implements CardApplicationDetailsContracts.View{
 
-    private static final String[] STATUS_FIELDS = { "approved", "rejected", "completed" };
+
 
     private String statusChangeItem = "";
 
     private CardApplicationDetailsContracts.Presenter mPresenter;
+
 
     @Inject
     BitmapParser mPictureParser;
@@ -170,7 +172,7 @@ public class CardApplicationDetailsFragment extends Fragment implements CardAppl
 
         ButterKnife.bind(this, view);
 
-        mStatusSpinner.setItems(STATUS_FIELDS);
+        mStatusSpinner.setItems(Constants.STATUS_FIELDS);
         mStatusSpinner.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener<String>() {
             @Override
             public void onItemSelected(MaterialSpinner view, int position, long id, String item) {
@@ -183,7 +185,7 @@ public class CardApplicationDetailsFragment extends Fragment implements CardAppl
             @Override
             public void onClick(View v) {
                 mPresenter.updateCardApplicationForm(statusChangeItem);
-                mPresenter.sendMail(statusChangeItem);
+                mPresenter.sendMail(getContext(), mEmailTextView.toString(), statusChangeItem.toString(), mReceivingOfficeTextView.toString());
             }
         });
 
@@ -262,6 +264,14 @@ public class CardApplicationDetailsFragment extends Fragment implements CardAppl
 
     @Override
     public void hideLoading() {
+
+    }
+
+
+    @Override
+    public void showMessageApplicationStatusChange() {
+        Toast.makeText(getActivity(), "Application status has been changed. Email massage has been send.", Toast.LENGTH_SHORT)
+                .show();
 
     }
 }

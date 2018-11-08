@@ -1,5 +1,7 @@
 package com.mystique.rt.getmydrivercardapplcation.views.admin.details;
 
+import android.content.Context;
+
 import com.mystique.rt.getmydrivercardapplcation.models.CardApplicationForm;
 
 public interface CardApplicationDetailsContracts {
@@ -14,6 +16,8 @@ public interface CardApplicationDetailsContracts {
 
         void hideLoading();
 
+        void showMessageApplicationStatusChange();
+
     }
 
     interface Presenter {
@@ -23,7 +27,7 @@ public interface CardApplicationDetailsContracts {
 
         void updateCardApplicationForm(String item);
 
-        void sendMail(String item);
+        void sendMail(Context context, String email, String status, String office);
 
         //do we need this?
         void setCardApplicationFormId(int id);

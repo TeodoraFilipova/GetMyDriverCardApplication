@@ -1,5 +1,11 @@
 package com.mystique.rt.getmydrivercardapplcation.views.admin.details;
 
+import android.app.Activity;
+import android.content.Context;
+import android.widget.Toast;
+
+import com.mystique.rt.getmydrivercardapplcation.apputils.Constants;
+import com.mystique.rt.getmydrivercardapplcation.apputils.RememberAll;
 import com.mystique.rt.getmydrivercardapplcation.apputils.email.SendMail;
 import com.mystique.rt.getmydrivercardapplcation.async.SchedulerProvider;
 import com.mystique.rt.getmydrivercardapplcation.models.CardApplicationForm;
@@ -17,6 +23,7 @@ public class CardApplicationDetailsPresenter implements CardApplicationDetailsCo
 
     private CardApplicationDetailsContracts.View mView;
     private int mCardApplicationFormId;
+
 
     @Inject
     public CardApplicationDetailsPresenter(
@@ -64,24 +71,27 @@ public class CardApplicationDetailsPresenter implements CardApplicationDetailsCo
                 .subscribe(mView::showCardApplicationFormDetails);
     }
 
+
     @Override
-    public void sendMail(String item) {
-
-       /* //Getting content for email
-        String email = editTextEmail.getText().toString().trim();
-        String subject = editTextSubject.getText().toString().trim();
-        String message = editTextMessage.getText().toString().trim();
-
-        //Creating SendMail object
-        SendMail sm = new SendMail(this, email, subject, message);
-
-        //Executing sendmail to send email
-        sm.execute();*/
+    public void setCardApplicationFormId(int id) { mCardApplicationFormId = id;
 
     }
 
     @Override
-    public void setCardApplicationFormId(int id) { mCardApplicationFormId = id;
+    public void sendMail(Context context, String mail, String status, String office) {
+        String email = String.valueOf(mail);
+        String subject = Constants.STATUS_EMAIL_SUBJECT;
+        String message;
+        if (status.equals("completed")){
+            message = Constants.STATUS_EMAIL_MESSAGE1  + status + ". "
+                    + Constants.STATUS_EMAIL_MESSAGE2 + office;
+        } else {
+            message = Constants.STATUS_EMAIL_MESSAGE1  + status + ". ";
+        }
+        SendMail sm = new SendMail(context, email, subject, message);
+        sm.execute();
+
+        mView.showMessageApplicationStatusChange();
 
     }
 }
