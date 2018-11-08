@@ -18,8 +18,8 @@ public class CardApplicationServiceImpl implements CardApplicationService {
     }
 
     @Override
-    public void addCardApplicationForm(CardApplicationForm cardApplicationForm) {
-        repository.addCardApplicationForm(cardApplicationForm);
+    public CardApplicationForm addCardApplicationForm(CardApplicationForm cardApplicationForm) {
+        return repository.addCardApplicationForm(cardApplicationForm);
     }
 
     @Override
@@ -33,7 +33,7 @@ public class CardApplicationServiceImpl implements CardApplicationService {
     }
 
     @Override
-    public void updateCardApplication(int id, CardApplicationForm cardApplicationForm) {
-        repository.updateCardApplication(id, cardApplicationForm);
+    public CardApplicationForm updateCardApplication(int id, CardApplicationForm cardApplicationForm) {
+        return repository.updateCardApplication(id, cardApplicationForm);
     }
 }

@@ -31,8 +31,8 @@ public class PictureController {
     }
 
     @PostMapping("/new")
-    public void addNewPicture(@RequestBody Picture picture) {
-        pictureService.addNewPicture(picture);
+    public Picture addNewPicture(@RequestBody Picture picture) {
+        return pictureService.addNewPicture(picture);
     }
 
     @PutMapping("/{id}")

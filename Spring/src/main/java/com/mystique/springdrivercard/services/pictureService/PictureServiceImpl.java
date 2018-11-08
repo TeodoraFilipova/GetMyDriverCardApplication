@@ -28,12 +28,12 @@ public class PictureServiceImpl implements PictureService {
     }
 
     @Override
-    public void addNewPicture(Picture picture) {
-        repository.addNewPicture(picture);
+    public Picture addNewPicture(Picture picture) {
+        return repository.addNewPicture(picture);
     }
 
     @Override
-    public void updatePicture(int id, Picture picture) {
-        repository.updatePicture(id, picture);
+    public Picture updatePicture(int id, Picture picture) {
+        return repository.updatePicture(id, picture);
     }
 }

@@ -5,11 +5,11 @@ import com.mystique.springdrivercard.models.CardApplicationForm;
 import java.util.List;
 
 public interface CardApplicationService {
-    void addCardApplicationForm(CardApplicationForm cardApplicationForm);
+    CardApplicationForm addCardApplicationForm(CardApplicationForm cardApplicationForm);
 
     List<CardApplicationForm> getAllCardApplications();
 
     CardApplicationForm getCardApplicationByID(int id);
 
-    void updateCardApplication(int id, CardApplicationForm cardApplicationForm);
+    CardApplicationForm updateCardApplication(int id, CardApplicationForm cardApplicationForm);
 }

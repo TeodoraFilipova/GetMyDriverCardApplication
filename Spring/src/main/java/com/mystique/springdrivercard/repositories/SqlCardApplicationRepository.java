@@ -20,13 +20,14 @@ public class SqlCardApplicationRepository implements CardApplicationRepository {
     private SessionFactory sessionFactory;
 
     @Override
-    public void addCardApplicationForm(CardApplicationForm cardApplicationForm) {
+    public CardApplicationForm addCardApplicationForm(CardApplicationForm cardApplicationForm) {
         try (
                 Session session = sessionFactory.openSession();
         ) {
             session.beginTransaction();
             session.save(cardApplicationForm);
             session.getTransaction().commit();
+            return cardApplicationForm;
         } catch (Exception e) {
             System.out.println(e.getMessage());
             throw new RuntimeException(e);
@@ -67,7 +68,7 @@ public class SqlCardApplicationRepository implements CardApplicationRepository {
     }
 
     @Override
-    public void updateCardApplication(int id, CardApplicationForm cardApplicationForm) {
+    public CardApplicationForm updateCardApplication(int id, CardApplicationForm cardApplicationForm) {
         try (
                 Session session = sessionFactory.openSession();
         ) {
@@ -76,6 +77,7 @@ public class SqlCardApplicationRepository implements CardApplicationRepository {
             cardFormToChange.setStatus(cardApplicationForm.getStatus());
             cardFormToChange.setDetails(cardApplicationForm.getDetails());
             session.getTransaction().commit();
+            return cardApplicationForm;
         } catch (Exception e) {
             System.out.println(e.getMessage());
             throw new RuntimeException(e);
@@ -116,7 +118,7 @@ public class SqlCardApplicationRepository implements CardApplicationRepository {
     }
 
     @Override
-    public void updateDriver(int id, Driver driver) {
+    public Driver updateDriver(int id, Driver driver) {
         try (
                 Session session = sessionFactory.openSession();
         ) {
@@ -129,6 +131,8 @@ public class SqlCardApplicationRepository implements CardApplicationRepository {
             driverFormToChange.setAddress(driver.getAddress());
 
             session.getTransaction().commit();
+
+            return driver;
         } catch (Exception e) {
             System.out.println(e.getMessage());
             throw new RuntimeException(e);
@@ -138,13 +142,14 @@ public class SqlCardApplicationRepository implements CardApplicationRepository {
     }
 
     @Override
-    public void addDriver(Driver driver) {
+    public Driver addDriver(Driver driver) {
         try (
                 Session session = sessionFactory.openSession();
         ) {
             session.beginTransaction();
             session.save(driver);
             session.getTransaction().commit();
+            return driver;
         } catch (Exception e) {
             System.out.println(e.getMessage());
             throw new RuntimeException(e);
@@ -186,13 +191,14 @@ public class SqlCardApplicationRepository implements CardApplicationRepository {
     }
 
     @Override
-    public void addNewPicture(Picture picture) {
+    public Picture addNewPicture(Picture picture) {
         try (
                 Session session = sessionFactory.openSession();
         ) {
             session.beginTransaction();
             session.save(picture);
             session.getTransaction().commit();
+            return picture;
         } catch (Exception e) {
             System.out.println(e.getMessage());
             throw new RuntimeException(e);
@@ -200,7 +206,7 @@ public class SqlCardApplicationRepository implements CardApplicationRepository {
     }
 
     @Override
-    public void updatePicture(int id, Picture picture) {
+    public Picture updatePicture(int id, Picture picture) {
         try (
                 Session session = sessionFactory.openSession();
         ) {
@@ -208,6 +214,7 @@ public class SqlCardApplicationRepository implements CardApplicationRepository {
             Picture pictureToChange = session.get(Picture.class, id);
             pictureToChange.setPicture(picture.getPicture());
             session.getTransaction().commit();
+            return picture;
         } catch (Exception e) {
             System.out.println(e.getMessage());
             throw new RuntimeException(e);

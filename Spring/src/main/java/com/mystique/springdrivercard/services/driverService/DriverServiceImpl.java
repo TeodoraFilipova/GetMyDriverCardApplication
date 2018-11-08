@@ -17,8 +17,8 @@ public class DriverServiceImpl implements DriverService {
     }
 
     @Override
-    public void addDriver(Driver driver) {
-        repository.addDriver(driver);
+    public Driver addDriver(Driver driver) {
+        return repository.addDriver(driver);
     }
 
     @Override
@@ -32,7 +32,7 @@ public class DriverServiceImpl implements DriverService {
     }
 
     @Override
-    public void updateDriver(int id, Driver driver) {
-        repository.updateDriver(id, driver);
+    public Driver updateDriver(int id, Driver driver) {
+        return repository.updateDriver(id, driver);
     }
 }

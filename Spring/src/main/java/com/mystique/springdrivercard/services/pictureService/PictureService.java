@@ -9,7 +9,7 @@ public interface PictureService {
 
     List<Picture> getAllPictures();
 
-    void addNewPicture(Picture picture);
+    Picture addNewPicture(Picture picture);
 
-    void updatePicture(int id, Picture picture);
+    Picture updatePicture(int id, Picture picture);
 }
