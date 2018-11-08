@@ -8,14 +8,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.github.chrisbanes.photoview.PhotoView;
 import com.jaredrummler.materialspinner.MaterialSpinner;
 import com.mystique.rt.getmydrivercardapplcation.R;
+import com.mystique.rt.getmydrivercardapplcation.apputils.Constants;
+import com.mystique.rt.getmydrivercardapplcation.apputils.email.SendMail;
 import com.mystique.rt.getmydrivercardapplcation.models.CardApplicationForm;
 import com.mystique.rt.getmydrivercardapplcation.parsers.bitmap.BitmapParser;
-import com.mystique.rt.getmydrivercardapplcation.parsers.bitmap.ByteArrayBitmapParser;
 
 import javax.inject.Inject;
 
@@ -27,11 +29,12 @@ import butterknife.ButterKnife;
  */
 public class CardApplicationDetailsFragment extends Fragment implements CardApplicationDetailsContracts.View{
 
-    private static final String[] STATUS_FIELDS = { "approved", "rejected", "completed" };
+
 
     private String statusChangeItem = "";
 
     private CardApplicationDetailsContracts.Presenter mPresenter;
+
 
     @Inject
     BitmapParser mPictureParser;
@@ -76,11 +79,17 @@ public class CardApplicationDetailsFragment extends Fragment implements CardAppl
     @BindView(R.id.tv_email_details)
     TextView mEmailTextView;
 
-    @BindView(R.id.iv_driverselfie_details)
+    /*@BindView(R.id.iv_driverselfie_details)
     ImageView mSelfieImageView;
 
     @BindView(R.id.iv_drivinglicense_details)
-    ImageView mDrivingPicImageView;
+    ImageView mDrivingPicImageView;*/
+
+    @BindView(R.id.pv_driverselfie_details)
+    PhotoView mSelfiePhotoView;
+
+    @BindView(R.id.pv_drivinglicense_details)
+    PhotoView mDrivingLicensePhotoView;
 
     @BindView(R.id.tv_license_number_details)
     TextView mDrivingNumberTextView;
@@ -94,8 +103,12 @@ public class CardApplicationDetailsFragment extends Fragment implements CardAppl
     @BindView(R.id.tv_dateofevent_details)
     TextView mDareOfEventTextView;
 
-    @BindView(R.id.iv_oldcard_picture_details)
-    ImageView mOldCardPicImageView;
+    /*@BindView(R.id.iv_oldcard_picture_details)
+    ImageView mOldCardPicImageView;*/
+
+    @BindView(R.id.pv_oldcard_picture_details)
+    PhotoView mOldCardPicPhotoView;
+
 
     @BindView(R.id.tv_oldcard_country_details)
     TextView mOldCardCountryTextView;
@@ -121,8 +134,14 @@ public class CardApplicationDetailsFragment extends Fragment implements CardAppl
     @BindView(R.id.tv_new_lastname_details)
     TextView mNewLastNameTextView;
 
-    @BindView(R.id.iv_newselfie_picture_details)
-    ImageView mNewSelfieImageView;
+    /*@BindView(R.id.iv_newselfie_picture_details)
+    ImageView mNewSelfieImageView;*/
+
+
+    @BindView(R.id.pv_newselfie_picture_details)
+    PhotoView mNewSelfiePhotoView;
+
+
 
     @BindView(R.id.tv_details_details)
     TextView mDetailsTextView;
@@ -133,8 +152,11 @@ public class CardApplicationDetailsFragment extends Fragment implements CardAppl
     @BindView(R.id.tv_office_details)
     TextView mReceivingOfficeTextView;
 
-    @BindView(R.id.iv_signature_details)
-    ImageView mSignatureImageView;
+    /*@BindView(R.id.iv_signature_details)
+    ImageView mSignatureImageView;*/
+
+    @BindView(R.id.pv_signature_details)
+    PhotoView mSignaturePhotoView;
 
     @Inject
     public CardApplicationDetailsFragment() {
@@ -150,7 +172,7 @@ public class CardApplicationDetailsFragment extends Fragment implements CardAppl
 
         ButterKnife.bind(this, view);
 
-        mStatusSpinner.setItems(STATUS_FIELDS);
+        mStatusSpinner.setItems(Constants.STATUS_FIELDS);
         mStatusSpinner.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener<String>() {
             @Override
             public void onItemSelected(MaterialSpinner view, int position, long id, String item) {
@@ -163,11 +185,9 @@ public class CardApplicationDetailsFragment extends Fragment implements CardAppl
             @Override
             public void onClick(View v) {
                 mPresenter.updateCardApplicationForm(statusChangeItem);
-                mPresenter.sendMail(statusChangeItem);
+                mPresenter.sendMail(getContext(), mEmailTextView.toString(), statusChangeItem.toString(), mReceivingOfficeTextView.toString());
             }
         });
-
-
 
         return view;
     }
@@ -193,14 +213,19 @@ public class CardApplicationDetailsFragment extends Fragment implements CardAppl
         mPhoneTextView.setText(form.getDriver().getPhoneNumber());
         mEmailTextView.setText(form.getDriver().getEmail());
 
-        mSelfieImageView.setImageBitmap(mPictureParser.toBitmap(form.getDriver().getSelfie().getPicture()));
-        mDrivingPicImageView.setImageBitmap(mPictureParser.toBitmap(form.getDriver().getDrivingPic().getPicture()));
+        mSelfiePhotoView.setImageBitmap(mPictureParser.toBitmap(form.getDriver().getSelfie().getPicture()));
+        mDrivingLicensePhotoView.setImageBitmap(mPictureParser.toBitmap(form.getDriver().getSelfie().getPicture()));
+        //mSelfieImageView.setImageBitmap(mPictureParser.toBitmap(form.getDriver().getDrivingPic().getPicture()));
+        //mDrivingPicImageView.setImageBitmap(mPictureParser.toBitmap(form.getDriver().getDrivingPic().getPicture()));
 
         mDrivingNumberTextView.setText(form.getDrivingLicenseNumber());
         mDrivingCountryTextView.setText(form.getDrivingLicenseCountry());
         mPlaseOfEventTextView.setText(form.getPlaceOfEvent());
         mDareOfEventTextView.setText((CharSequence) form.getDateOfEvent());
-        mOldCardPicImageView.setImageBitmap(mPictureParser.toBitmap(form.getOldCardPicture().getPicture()));
+
+        mOldCardPicPhotoView.setImageBitmap(mPictureParser.toBitmap(form.getOldCardPicture().getPicture()));
+        /*mOldCardPicImageView.setImageBitmap(mPictureParser.toBitmap(form.getOldCardPicture().getPicture()));*/
+
         mOldCardCountryTextView.setText(form.getOldCardCountry());
         mOldCardAuthorityTextView.setText(form.getOldCardAuthority());
         mOldCardNumberTextView.setText(form.getOldCardNumber());
@@ -209,11 +234,16 @@ public class CardApplicationDetailsFragment extends Fragment implements CardAppl
         mNewAddressTextView.setText(form.getNewAddress());
         mNewFirstNameTextView.setText(form.getNewFirstName());
         mNewLastNameTextView.setText(form.getNewLastName());
-        mNewSelfieImageView.setImageBitmap(mPictureParser.toBitmap(form.getNewSelfie().getPicture()));
+
+        mNewSelfiePhotoView.setImageBitmap(mPictureParser.toBitmap(form.getNewSelfie().getPicture()));
+        /*mNewSelfieImageView.setImageBitmap(mPictureParser.toBitmap(form.getNewSelfie().getPicture()));*/
+
         mDetailsTextView.setText(form.getDetails());
         mCheckCodeTextView.setText(form.getStatusCheckCode());
         mReceivingOfficeTextView.setText(form.getReceivingOffice());
-        mSignatureImageView.setImageBitmap(mPictureParser.toBitmap(form.getSignaturePicture().getPicture()));
+
+        mSignaturePhotoView.setImageBitmap(mPictureParser.toBitmap(form.getSignaturePicture().getPicture()));
+        /*mSignatureImageView.setImageBitmap(mPictureParser.toBitmap(form.getSignaturePicture().getPicture()));*/
 
     }
 
@@ -234,6 +264,14 @@ public class CardApplicationDetailsFragment extends Fragment implements CardAppl
 
     @Override
     public void hideLoading() {
+
+    }
+
+
+    @Override
+    public void showMessageApplicationStatusChange() {
+        Toast.makeText(getActivity(), "Application status has been changed. Email massage has been send.", Toast.LENGTH_SHORT)
+                .show();
 
     }
 }

@@ -10,6 +10,10 @@ public class Constants {
     public static final String EMAIL_SUBJECT = "Your Tachograph Card Application";
     public static final String EMAIL_MESSAGE = "Your unique code for checking the status of your application is: ";
 
+    public static final String STATUS_EMAIL_SUBJECT = "Your Tachograph Card Application new status";
+    public static final String STATUS_EMAIL_MESSAGE1 = "Your Tachograph Card Application status is changed to: ";
+    public static final String STATUS_EMAIL_MESSAGE2 = "You could receive it in our office in ";
+
     // APPLICATION RENEWAL REASONS
     public static final String RENEWAL_REASON_FIRST = "N/A";
     public static final String RENEWAL_REASON_LOST = "lost card";
@@ -52,4 +56,5 @@ public class Constants {
     public static final int EIGHTEEN_YEARS_IN_DAYS = 6574;
 
 
+   public static final String[] STATUS_FIELDS = { "approved", "rejected", "completed" }; ;
 }
