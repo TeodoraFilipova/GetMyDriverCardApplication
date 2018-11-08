@@ -73,8 +73,8 @@ public class SaveDriverFragment extends Fragment implements SaveDriverContracts.
 
     @Override
     public void showError(Throwable error) {
-        mMessageTextView.setText(error.getMessage());
-    }
+        mMessageTextView.setText("In Driver: " + error.getMessage());
+        mLoading.setVisibility(View.GONE);    }
 
     @Override
     public void showLoading() {

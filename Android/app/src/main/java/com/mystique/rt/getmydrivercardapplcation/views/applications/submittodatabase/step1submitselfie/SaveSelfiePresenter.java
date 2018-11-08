@@ -30,6 +30,7 @@ public class SaveSelfiePresenter implements SaveSelfieContracts.Presenter {
 
     @Override
     public void savePicture(Picture picture) {
+        String doWeGetHere = "???";
         Disposable observable = Observable
                 .create((ObservableOnSubscribe<Picture>) emitter -> {
                     Picture pic = mPictureService.addPicture(picture);
@@ -57,7 +58,7 @@ public class SaveSelfiePresenter implements SaveSelfieContracts.Presenter {
 //                .observeOn(mSchedulerProvider.ui())
 //                .subscribe(this::tellViewToSetNextPicId, error -> mView.showError(error));
         Picture picture = new Picture();
-        picture.setPictureId(7);
+        picture.setPictureId(14);
         tellViewToSetNextPicId(picture);
     }
 

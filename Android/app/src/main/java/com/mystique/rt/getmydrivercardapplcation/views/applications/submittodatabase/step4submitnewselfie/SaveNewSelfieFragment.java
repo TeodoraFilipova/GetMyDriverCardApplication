@@ -70,8 +70,8 @@ public class SaveNewSelfieFragment extends Fragment implements SaveNewSelfieCont
 
     @Override
     public void showError(Throwable error) {
-        mMessageTextView.setText(error.getMessage());
-    }
+        mMessageTextView.setText("In New Selfie: " + error.getMessage());
+        mLoading.setVisibility(View.GONE);    }
 
     @Override
     public void showLoading() {

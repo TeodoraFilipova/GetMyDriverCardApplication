@@ -14,7 +14,7 @@
             android:id="@+id/text_completed"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Almost done! Do NOT close this window."/>
+            android:text="Driver! Almost done! Do NOT close this window."/>
 
         <ProgressBar
             android:id="@+id/pb_loading"

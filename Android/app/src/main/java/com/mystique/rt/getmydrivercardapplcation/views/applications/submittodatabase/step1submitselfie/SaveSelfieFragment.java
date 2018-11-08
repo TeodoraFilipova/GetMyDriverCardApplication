@@ -71,7 +71,8 @@ public class SaveSelfieFragment extends Fragment implements SaveSelfieContracts.
 
     @Override
     public void showError(Throwable error) {
-        mMessageTextView.setText(error.getMessage());
+        mMessageTextView.setText("In Selfie: " + error.getMessage());
+        mLoading.setVisibility(View.GONE);
     }
 
     @Override
@@ -89,6 +90,7 @@ public class SaveSelfieFragment extends Fragment implements SaveSelfieContracts.
     public void updateRememberAll() {
         mRememberAll.getCardApplicationForm().getDriver().getSelfie().setPictureId(mNextPictureId);
         mRememberAll.getCardApplicationForm().getDriver().getSelfie().setLastUpdated(Constants.LAST_UPDATED_TRUE);
+        Picture test = mRememberAll.getCardApplicationForm().getDriver().getSelfie();
         mPresenter.savePicture(mRememberAll.getCardApplicationForm().getDriver().getSelfie());
     }
 

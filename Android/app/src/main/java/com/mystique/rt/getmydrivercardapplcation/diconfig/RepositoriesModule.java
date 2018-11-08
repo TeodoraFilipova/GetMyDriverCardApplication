@@ -1,6 +1,7 @@
 package com.mystique.rt.getmydrivercardapplcation.diconfig;
 
 
+import com.google.gson.Gson;
 import com.mystique.rt.getmydrivercardapplcation.http.HttpRequester;
 import com.mystique.rt.getmydrivercardapplcation.models.CardApplicationForm;
 import com.mystique.rt.getmydrivercardapplcation.models.Driver;
@@ -52,7 +53,7 @@ public class RepositoriesModule {
     public PictureRepository pictureRepository(
             @Named("baseServerUrl") String baseServerUrl,
             HttpRequester httpRequester,
-            JsonParser<Picture> jsonParser
+            Gson jsonParser
     ) {
         String url = baseServerUrl + "/pictures";
         return new HttpPictureRepository(url, httpRequester, jsonParser);

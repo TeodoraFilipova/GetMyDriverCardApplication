@@ -71,8 +71,8 @@ public class SaveDrivingLicensePicFragment extends Fragment implements SaveDrivi
 
     @Override
     public void showError(Throwable error) {
-        mMessageTextView.setText(error.getMessage());
-    }
+        mMessageTextView.setText("In Driving License: " + error.getMessage());
+        mLoading.setVisibility(View.GONE);    }
 
     @Override
     public void showLoading() {

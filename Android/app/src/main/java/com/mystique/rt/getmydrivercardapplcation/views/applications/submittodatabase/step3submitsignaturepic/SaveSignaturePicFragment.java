@@ -73,8 +73,8 @@ public class SaveSignaturePicFragment extends Fragment implements SaveSignatureP
 
     @Override
     public void showError(Throwable error) {
-        mMessageTextView.setText(error.getMessage());
-    }
+        mMessageTextView.setText("In Signature: " + error.getMessage());
+        mLoading.setVisibility(View.GONE);    }
 
     @Override
     public void showLoading() {

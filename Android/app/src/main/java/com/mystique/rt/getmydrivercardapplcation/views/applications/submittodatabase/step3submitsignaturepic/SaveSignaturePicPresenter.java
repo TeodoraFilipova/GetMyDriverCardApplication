@@ -56,7 +56,7 @@ public class SaveSignaturePicPresenter implements SaveSignaturePicContracts.Pres
 //                .observeOn(mSchedulerProvider.ui())
 //                .subscribe(this::tellViewToSetNextPicId, error -> mView.showError(error));
         Picture picture = new Picture();
-        picture.setPictureId(7);
+        picture.setPictureId(16);
         tellViewToSetNextPicId(picture);
     }
 
