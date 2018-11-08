@@ -91,6 +91,7 @@ public class SaveSelfieFragment extends Fragment implements SaveSelfieContracts.
         mRememberAll.getCardApplicationForm().getDriver().getSelfie().setPictureId(mNextPictureId);
         mRememberAll.getCardApplicationForm().getDriver().getSelfie().setLastUpdated(Constants.LAST_UPDATED_TRUE);
         Picture test = mRememberAll.getCardApplicationForm().getDriver().getSelfie();
+        Picture testSignature = mRememberAll.getCardApplicationForm().getSignaturePicture();
         mPresenter.savePicture(mRememberAll.getCardApplicationForm().getDriver().getSelfie());
     }
 

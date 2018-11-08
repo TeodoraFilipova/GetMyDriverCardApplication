@@ -18,8 +18,8 @@ public class CardApplicationFormController {
     }
 
     @PostMapping("/new")
-    public void addCardApplicationForm(@RequestBody CardApplicationForm cardApplicationForm) {
-        service.addCardApplicationForm(cardApplicationForm);
+    public CardApplicationForm addCardApplicationForm(@RequestBody CardApplicationForm cardApplicationForm) {
+        return service.addCardApplicationForm(cardApplicationForm);
     }
 
     @GetMapping
@@ -33,8 +33,8 @@ public class CardApplicationFormController {
     }
 
     @PutMapping("/{id}")
-    public void updateCardApplication(@PathVariable int id,
+    public CardApplicationForm updateCardApplication(@PathVariable int id,
                                       @RequestBody CardApplicationForm cardApplicationForm) {
-        service.updateCardApplication(id, cardApplicationForm);
+        return service.updateCardApplication(id, cardApplicationForm);
     }
 }

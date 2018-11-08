@@ -73,8 +73,14 @@ public class SaveDriverFragment extends Fragment implements SaveDriverContracts.
 
     @Override
     public void showError(Throwable error) {
-        mMessageTextView.setText("In Driver: " + error.getMessage());
-        mLoading.setVisibility(View.GONE);    }
+        try {
+            throw new Throwable(error);
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
+        }
+//        mMessageTextView.setText("In Driver: " + error.getMessage());
+//        mLoading.setVisibility(View.GONE);
+    }
 
     @Override
     public void showLoading() {
@@ -91,6 +97,7 @@ public class SaveDriverFragment extends Fragment implements SaveDriverContracts.
     public void updateRememberAll() {
         mRememberAll.getCardApplicationForm().getDriver().setDriverId(mNextDriverId);
         mRememberAll.getCardApplicationForm().getDriver().setLastUpdated(Constants.LAST_UPDATED_TRUE);
+        Driver testDriver = mRememberAll.getCardApplicationForm().getDriver();
         mPresenter.saveDriver(mRememberAll.getCardApplicationForm().getDriver());
     }
 

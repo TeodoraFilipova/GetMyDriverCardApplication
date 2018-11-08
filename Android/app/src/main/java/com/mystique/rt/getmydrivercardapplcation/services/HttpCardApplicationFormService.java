@@ -126,7 +126,9 @@ public class HttpCardApplicationFormService implements CardApplicationFormServic
     public CardApplicationForm getLastUpdatedForm() throws IOException {
         List<CardApplicationForm> allForms = getAllForms();
         for (CardApplicationForm form : allForms) {
-            if (form.getLastUpdated().equals(Constants.LAST_UPDATED_TRUE)) {
+            if(form.getCardApplicationFormId() == 6) {
+         //   if(form.getLastUpdated()!=null) {
+//            if (form.getLastUpdated().equals(Constants.LAST_UPDATED_TRUE)) {
                 return form;
             }
         }

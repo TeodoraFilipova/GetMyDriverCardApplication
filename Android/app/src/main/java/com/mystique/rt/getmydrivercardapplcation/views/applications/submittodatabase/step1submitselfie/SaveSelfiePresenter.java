@@ -58,7 +58,7 @@ public class SaveSelfiePresenter implements SaveSelfieContracts.Presenter {
 //                .observeOn(mSchedulerProvider.ui())
 //                .subscribe(this::tellViewToSetNextPicId, error -> mView.showError(error));
         Picture picture = new Picture();
-        picture.setPictureId(14);
+        picture.setPictureId(68);
         tellViewToSetNextPicId(picture);
     }
 

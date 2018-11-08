@@ -19,8 +19,8 @@ public class DriverController {
     }
 
     @PostMapping("/new")
-    public void addDriver(@RequestBody Driver driver) {
-        driverService.addDriver(driver);
+    public Driver addDriver(@RequestBody Driver driver) {
+        return driverService.addDriver(driver);
     }
 
     @GetMapping("/{id}")
@@ -34,8 +34,8 @@ public class DriverController {
     }
 
     @PutMapping("/{id}")
-    public void updateDriver(@PathVariable int id, @RequestBody Driver driver) {
-        driverService.updateDriver(id, driver);
+    public Driver updateDriver(@PathVariable int id, @RequestBody Driver driver) {
+        return driverService.updateDriver(id, driver);
     }
 
 

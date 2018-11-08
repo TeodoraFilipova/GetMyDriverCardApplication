@@ -81,6 +81,7 @@ public class PersonalInfoFragment extends Fragment implements FocusListener {
         SetDate fromDate = new SetDate(mDateOfBirthEditText, getContext(), this);
 
         mRememberAll = RememberAll.getInstance();
+        mRememberAll.getCardApplicationForm().setReceivingOffice(OFFICES[0]);
 
         checkRememberAllForCurrentData();
 
@@ -178,7 +179,7 @@ public class PersonalInfoFragment extends Fragment implements FocusListener {
         }
 
         if (mRememberAll.getDriver().getDateOfBirth() != null) {
-            DateFormat df = new SimpleDateFormat("dd.MM.yyyy");
+            DateFormat df = new SimpleDateFormat(getString(R.string.date_format));
             Date dateOfBirth = mRememberAll.getDriver().getDateOfBirth();
             String dateOfBirthString = df.format(dateOfBirth);
             mDateOfBirthEditText.setText(dateOfBirthString);
@@ -203,7 +204,7 @@ public class PersonalInfoFragment extends Fragment implements FocusListener {
 
     @Override
     public void saveDateToObject() {
-        DateFormat df = new SimpleDateFormat("dd.MM.yyyy");
+        DateFormat df = new SimpleDateFormat(getString(R.string.date_format));
         Date dateOfBirth = null;
         try {
             dateOfBirth = df.parse(mDateOfBirthEditText.getText().toString());

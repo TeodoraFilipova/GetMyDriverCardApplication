@@ -58,7 +58,7 @@ public class SaveDriverPresenter implements SaveDriverContracts.Presenter {
 //                .observeOn(mSchedulerProvider.ui())
 //                .subscribe(this::tellViewToSetNextDriverId, error -> mView.showError(error));
         Driver driver = new Driver();
-        driver.setDriverId(1);
+        driver.setDriverId(2);
         tellViewToSetNextDriverId(driver);
     }
 

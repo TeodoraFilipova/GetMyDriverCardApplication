@@ -31,7 +31,7 @@ public class RepositoriesModule {
     public CardApplicationFormRepository cardApplicationFormRepository(
             @Named("baseServerUrl") String baseServerUrl,
             HttpRequester httpRequester,
-            JsonParser<CardApplicationForm> jsonParser
+            Gson jsonParser
     ) {
         String url = baseServerUrl + "/applications";
         return new HttpCardApplicationFormRepository(url, httpRequester, jsonParser);
@@ -42,7 +42,7 @@ public class RepositoriesModule {
     public DriverRepository driverRepository(
             @Named("baseServerUrl") String baseServerUrl,
             HttpRequester httpRequester,
-            JsonParser<Driver> jsonParser
+            Gson jsonParser
     ) {
         String url = baseServerUrl + "/drivers";
         return new HttpDriverRepository(url, httpRequester, jsonParser);

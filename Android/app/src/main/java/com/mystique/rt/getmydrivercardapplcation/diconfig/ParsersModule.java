@@ -17,23 +17,23 @@ import dagger.Provides;
 
 @Module
 public class ParsersModule {
-    @Provides
-    public JsonParser<CardApplicationForm> jsonParserCardAppl(){
-        return new GsonJsonParser<>(CardApplicationForm.class, CardApplicationForm[].class);
-    }
+//    @Provides
+//    public JsonParser<CardApplicationForm> jsonParserCardAppl(){
+//        return new GsonJsonParser<>(CardApplicationForm.class, CardApplicationForm[].class);
+//    }
 
     @Provides
     public Gson gson (){
         return new GsonBuilder()
-              //  .setDateFormat(Formats.STRING_DATE_FORMAT)
+                .setDateFormat("yyyy-MM-dd")
                 .registerTypeHierarchyAdapter(byte[].class,
                         new ByteArrayToBase64TypeAdapter()).create();
     }
 
-    @Provides
-    public JsonParser<Driver> jsonParserDriver(){
-        return new GsonJsonParser<>(Driver.class, Driver[].class);
-    }
+//    @Provides
+//    public JsonParser<Driver> jsonParserDriver(){
+//        return new GsonJsonParser<>(Driver.class, Driver[].class);
+//    }
 
 //    @Provides
 //    public JsonParser<Picture> jsonParserPicture(){

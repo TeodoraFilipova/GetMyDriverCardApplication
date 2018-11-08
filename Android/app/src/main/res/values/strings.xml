@@ -112,6 +112,7 @@
     <string name="signature">Signature:</string>
     <string name="authority">Authority:</string>
     <string name="new_last_name_details">New Last name:</string>
+    <string name="date_format">yyyy-MM-dd</string>
 
 
 </resources>

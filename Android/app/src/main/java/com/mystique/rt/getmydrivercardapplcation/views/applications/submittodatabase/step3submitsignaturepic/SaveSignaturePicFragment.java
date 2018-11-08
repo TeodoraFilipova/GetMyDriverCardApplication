@@ -98,10 +98,10 @@ public class SaveSignaturePicFragment extends Fragment implements SaveSignatureP
     public void moveOnToNextSaveActivity() {
         mLoading.setVisibility(View.GONE);
 
-        if (mRememberAll.getCardApplicationForm().getNewSelfie().getPicture() != null) {
+        if (mRememberAll.getNewSelfiePic().getPicture() != null) {
             Class nextActivity = SaveNewSelfieActivity.class;
             mNavigator.navigateToNextActivity(nextActivity);
-        } else if (mRememberAll.getCardApplicationForm().getOldCardPicture().getPicture() != null) {
+        } else if (mRememberAll.getOldCardPic().getPicture() != null) {
             Class nextActivity = SaveOldCardPicActivity.class;
             mNavigator.navigateToNextActivity(nextActivity);
         } else {

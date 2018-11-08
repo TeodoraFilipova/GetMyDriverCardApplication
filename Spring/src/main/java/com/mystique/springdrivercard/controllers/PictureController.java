@@ -36,7 +36,7 @@ public class PictureController {
     }
 
     @PutMapping("/{id}")
-    public void updatePicture(@PathVariable int id, @RequestBody Picture picture) {
-        pictureService.updatePicture(id, picture);
+    public Picture updatePicture(@PathVariable int id, @RequestBody Picture picture) {
+        return pictureService.updatePicture(id, picture);
     }
 }

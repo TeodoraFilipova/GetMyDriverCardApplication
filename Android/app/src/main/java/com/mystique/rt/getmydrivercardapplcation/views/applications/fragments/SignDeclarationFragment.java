@@ -19,6 +19,8 @@ import com.mystique.rt.getmydrivercardapplcation.parsers.bitmap.BitmapParser;
 import com.mystique.rt.getmydrivercardapplcation.parsers.bitmap.ByteArrayBitmapParser;
 import com.mystique.rt.getmydrivercardapplcation.views.applications.submittodatabase.step1submitselfie.SaveSelfieActivity;
 
+import java.io.ByteArrayOutputStream;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -133,6 +135,8 @@ public class SignDeclarationFragment extends Fragment {
     @OnClick(R.id.btn_submit)
     public void goToCompletionActivity() {
         mSignImage = mSignaturePad.getSignatureBitmap();
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        mSignImage.compress(Bitmap.CompressFormat.PNG, 100, stream);
         byte[] byteSign = mSignParser.fromBitmap(mSignImage);
         mRememberAll.setSignaturePicture(byteSign);
         mNavigator.navigateToActivity(SaveSelfieActivity.class);

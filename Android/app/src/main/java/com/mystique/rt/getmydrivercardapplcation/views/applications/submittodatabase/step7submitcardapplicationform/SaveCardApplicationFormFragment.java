@@ -71,7 +71,12 @@ public class SaveCardApplicationFormFragment extends Fragment implements SaveCar
 
     @Override
     public void showError(Throwable error) {
-        mMessageTextView.setText(error.getMessage());
+        try {
+            throw new Throwable(error);
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
+        }
+//        mMessageTextView.setText(error.getMessage());
     }
 
     @Override
@@ -100,17 +105,18 @@ public class SaveCardApplicationFormFragment extends Fragment implements SaveCar
     @Override
     public void sendEmail() {
         hideLoading();
-        mRememberAll.resetRememberAll();
 
         String email = mRememberAll.getCardApplicationForm().getDriver().getEmail().trim();
         String subject = Constants.EMAIL_SUBJECT;
-        String message = Constants.EMAIL_MESSAGE;
+        String message = Constants.EMAIL_MESSAGE + mRememberAll.getCardApplicationForm().getStatusCheckCode();
 
         SendMail sm = new SendMail(getContext(), email, subject, message);
 
         sm.execute();
 
         mMessageTextView.setText(R.string.application_successful);
+        mRememberAll.resetRememberAll();
+
     }
 
 }

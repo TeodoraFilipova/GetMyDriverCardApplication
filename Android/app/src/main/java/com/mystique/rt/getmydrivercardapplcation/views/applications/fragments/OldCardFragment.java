@@ -143,7 +143,7 @@ public class OldCardFragment extends Fragment implements FocusListener {
         }
 
         if (mRememberAll.getCardApplicationForm().getOldCardDateOfExpiry() != null) {
-            DateFormat df = new SimpleDateFormat("dd.MM.yyyy");
+            DateFormat df = new SimpleDateFormat(getString(R.string.date_format));
             Date dateOfExpiry = mRememberAll.getCardApplicationForm().getOldCardDateOfExpiry();
             String dateOfExpiryString = df.format(dateOfExpiry);
             mOldCardDateOfExpiryEditText.setText(dateOfExpiryString);
@@ -223,7 +223,7 @@ public class OldCardFragment extends Fragment implements FocusListener {
 
     @Override
     public void saveDateToObject() {
-        DateFormat df = new SimpleDateFormat("dd.MM.yyyy");
+        DateFormat df = new SimpleDateFormat(getString(R.string.date_format));
         Date dateOfExpiry = null;
         try {
             dateOfExpiry = df.parse(mOldCardDateOfExpiryEditText.getText().toString());
