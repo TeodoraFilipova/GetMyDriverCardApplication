@@ -313,11 +313,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
         <LinearLayout
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
@@ -327,19 +327,25 @@
                 android:text="@string/driver_picture" />
 
 
-            <ImageView
+            <!--<ImageView
                 android:id="@+id/iv_driverselfie_details"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:contentDescription="@string/picture" />
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:contentDescription="@string/picture" />-->
+
+            <com.github.chrisbanes.photoview.PhotoView
+                android:id="@+id/pv_driverselfie_details"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:contentDescription="@string/picture"/>
 
         </LinearLayout>
 
 
 
         <LinearLayout
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
@@ -348,11 +354,17 @@
                 android:layout_height="wrap_content"
                 android:text="@string/driving_license" />
 
-            <ImageView
+            <!--<ImageView
                 android:id="@+id/iv_drivinglicense_details"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:contentDescription="@string/picture" />
+                android:contentDescription="@string/picture" />-->
+
+            <com.github.chrisbanes.photoview.PhotoView
+                android:id="@+id/pv_drivinglicense_details"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:contentDescription="@string/picture"/>
 
         </LinearLayout>
     </LinearLayout>
@@ -579,8 +591,8 @@
 
     <LinearLayout
         android:id="@+id/layout_oldcard_pic_details"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         >
 
@@ -590,11 +602,17 @@
             android:layout_height="wrap_content"
             android:text="@string/old_card_picture" />
 
-        <ImageView
+        <!--<ImageView
             android:id="@+id/iv_oldcard_picture_details"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:contentDescription="@string/picture" />
+            android:contentDescription="@string/picture" />-->
+
+        <com.github.chrisbanes.photoview.PhotoView
+            android:id="@+id/pv_oldcard_picture_details"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:contentDescription="@string/picture"/>
 
     </LinearLayout>
 
@@ -682,8 +700,8 @@
 
     <LinearLayout
         android:id="@+id/layout_new_selfie_details"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         tools:ignore="UseCompoundDrawables">
 
@@ -693,11 +711,17 @@
             android:layout_height="wrap_content"
             android:text="New selfie:" />
 
-        <ImageView
+        <!--<ImageView
             android:id="@+id/iv_newselfie_picture_details"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:contentDescription="@string/picture" />
+            android:contentDescription="@string/picture" />-->
+
+        <com.github.chrisbanes.photoview.PhotoView
+            android:id="@+id/pv_newselfie_picture_details"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:contentDescription="@string/picture"/>
 
     </LinearLayout>
 
@@ -768,8 +792,8 @@
 
     <LinearLayout
         android:id="@+id/layout_signature_details"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <TextView
@@ -778,11 +802,17 @@
             android:layout_height="wrap_content"
             android:text="@string/signature" />
 
-        <ImageView
+        <!--<ImageView
             android:id="@+id/iv_signature_details"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:contentDescription="@string/picture" />
+            android:contentDescription="@string/picture" />-->
+
+        <com.github.chrisbanes.photoview.PhotoView
+            android:id="@+id/pv_signature_details"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:contentDescription="@string/picture"/>
 
     </LinearLayout>
 
