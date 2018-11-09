@@ -408,7 +408,7 @@
             android:textStyle="italic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/driving_license_coutry" />
+            android:text="@string/driving_license_country_2" />
 
 
         <TextView
