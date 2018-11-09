@@ -56,5 +56,5 @@ public class Constants {
     public static final int EIGHTEEN_YEARS_IN_DAYS = 6574;
 
 
-   public static final String[] STATUS_FIELDS = { "approved", "rejected", "completed" }; ;
+   public static final String[] STATUS_FIELDS = {"---", "approved", "rejected", "completed" }; ;
 }

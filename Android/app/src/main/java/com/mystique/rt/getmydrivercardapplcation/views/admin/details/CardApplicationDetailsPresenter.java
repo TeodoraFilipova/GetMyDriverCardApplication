@@ -79,7 +79,7 @@ public class CardApplicationDetailsPresenter implements CardApplicationDetailsCo
 
     @Override
     public void sendMail(Context context, String mail, String status, String office) {
-        String email = String.valueOf(mail);
+        String email = mail;
         String subject = Constants.STATUS_EMAIL_SUBJECT;
         String message;
         if (status.equals("completed")){

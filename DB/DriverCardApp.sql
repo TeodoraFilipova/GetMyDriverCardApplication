@@ -47,8 +47,8 @@ CREATE TABLE `cardapplicationforms` (
   `DrivingLicenseNumber` varchar(50) DEFAULT NULL,
   `DrivingLicenseCountry` varchar(50) DEFAULT NULL,
   `StatusCheckCode` varchar(10) NOT NULL,
-  `LastSetID` varchar(10) DEFAULT NULL,
-  `Details` varchar(300) DEFAULT NULL,
+  `LastSetID` varchar(10) DEFAULT '',
+  `Details` varchar(300) DEFAULT '',
   PRIMARY KEY (`cardapplicationformID`),
   KEY `driverID_idx` (`driverID`),
   KEY `SignaturePicID_idx` (`SignaturePicID`),
@@ -88,7 +88,7 @@ CREATE TABLE `drivers` (
   `Email` varchar(30) NOT NULL,
   `SelfieID` int(11) NOT NULL,
   `DrivingPicID` int(11) NOT NULL,
-  `LastSetID` varchar(10) DEFAULT NULL,
+  `LastSetID` varchar(10) DEFAULT '',
   PRIMARY KEY (`driverID`),
   KEY `SelfieID_idx` (`SelfieID`),
   KEY `DrivingPicID_idx` (`DrivingPicID`),
@@ -116,7 +116,7 @@ DROP TABLE IF EXISTS `pictures`;
 CREATE TABLE `pictures` (
   `PictureID` int(11) NOT NULL,
   `Picture` blob NOT NULL,
-  `LastSetID` varchar(10) DEFAULT NULL,
+  `LastSetID` varchar(10)  DEFAULT '',
   PRIMARY KEY (`PictureID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;

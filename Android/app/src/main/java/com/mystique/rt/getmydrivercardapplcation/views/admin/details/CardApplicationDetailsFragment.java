@@ -198,7 +198,7 @@ public class CardApplicationDetailsFragment extends Fragment implements CardAppl
             @Override
             public void onClick(View v) {
                 mPresenter.updateCardApplicationForm(statusChangeItem);
-                mPresenter.sendMail(getContext(), mEmailTextView.toString(), statusChangeItem.toString(), mReceivingOfficeTextView.toString());
+                mPresenter.sendMail(getContext(), String.valueOf(mEmailTextView.getText()), statusChangeItem, String.valueOf(mReceivingOfficeTextView.getText()));
             }
         });
 
@@ -249,7 +249,7 @@ public class CardApplicationDetailsFragment extends Fragment implements CardAppl
             mDareOfEventTextView.setText(dateOfEvent);
         }
 
-        if(form.getOldCardPicture().getPicture()!= null){
+        if(form.getOldCardPicture() != null){
             mOldCardDetailsLayout.setVisibility(View.VISIBLE);
         mOldCardPicPhotoView.setImageBitmap(mPictureParser.toBitmap(form.getOldCardPicture().getPicture()));}
         /*mOldCardPicImageView.setImageBitmap(mPictureParser.toBitmap(form.getOldCardPicture().getPicture()));*/
@@ -316,7 +316,7 @@ public class CardApplicationDetailsFragment extends Fragment implements CardAppl
 
     @Override
     public void showMessageApplicationStatusChange() {
-        Toast.makeText(getActivity(), "Application status has been changed. Email massage has been send.", Toast.LENGTH_SHORT)
+        Toast.makeText(getActivity(), "Application status has been changed.", Toast.LENGTH_SHORT)
                 .show();
 
     }

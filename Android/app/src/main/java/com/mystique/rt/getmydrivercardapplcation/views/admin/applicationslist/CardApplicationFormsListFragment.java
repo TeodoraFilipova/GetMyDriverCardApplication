@@ -2,6 +2,7 @@ package com.mystique.rt.getmydrivercardapplcation.views.admin.applicationslist;
 
 
 import android.app.Fragment;
+import android.graphics.Rect;
 import android.os.Bundle;
 
 import android.support.v7.widget.GridLayoutManager;
@@ -86,6 +87,7 @@ public class CardApplicationFormsListFragment extends Fragment
         mCardAppFormsListView.setAdapter(mCardAppFormsAdapter);
 
         mCardAppFormsViewLayoutManager = new GridLayoutManager(getContext(), 2);
+        //mCardAppFormsViewLayoutManager.setMeasuredDimension(, 200, 200);
         mCardAppFormsListView.setLayoutManager(mCardAppFormsViewLayoutManager);
 
         mSearchCliearButton.setOnClickListener(new View.OnClickListener() {

@@ -76,7 +76,7 @@
     <string name="search_form_by_driver_name">by driver name</string>
     <string name="search_form_by_submission_date">by submission date</string>
     <string name="search_form_by_status">by status</string>
-    <string name="search_application_forms">Search application forms</string>
+    <string name="search_application_forms">Search application forms   </string>
     <string name="clear_search">Clear search</string>
     <string name="applications_list">Applications list</string>
     <string name="set_status">set status</string>
