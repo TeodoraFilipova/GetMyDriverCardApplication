@@ -62,7 +62,7 @@ public class OldCardFragment extends Fragment implements FocusListener {
     @BindView(R.id.btn_oldcard_piccamera)
     Button mOldCardPicButton;
 
-    @BindView(R.id.iv_picture)
+    @BindView(R.id.iv_oldcard_picture)
     ImageView mOldCardPicImageView;
 
     private RememberAll mRememberAll;
@@ -104,7 +104,7 @@ public class OldCardFragment extends Fragment implements FocusListener {
             showPermissionsAlert(context);
 
         } else {
-            Toast.makeText(getActivity(), "The device a camera is checked.", Toast.LENGTH_SHORT)
+            Toast.makeText(getActivity(), "The device camera has all necessary permissions.", Toast.LENGTH_SHORT)
                     .show();
         }
 
@@ -193,7 +193,7 @@ public class OldCardFragment extends Fragment implements FocusListener {
                 }
             }
         }catch(Exception e){
-            Toast.makeText(this.getActivity(), e+"Getting picture from camera fails. Make picture again!", Toast.LENGTH_LONG).show();
+            Toast.makeText(this.getActivity(), e.getMessage()+"Getting picture from camera fails. Make picture again!", Toast.LENGTH_LONG).show();
 
         }
     }
@@ -230,6 +230,6 @@ public class OldCardFragment extends Fragment implements FocusListener {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        mRememberAll.setDateOfBirth(dateOfExpiry);
+        mRememberAll.setOldCardDateOfExpiry(dateOfExpiry);
     }
 }

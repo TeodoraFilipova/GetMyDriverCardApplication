@@ -252,7 +252,7 @@ public class PersonalInfoFragment extends Fragment implements FocusListener, Val
     }
     @Override
     public void onValidationSucceeded() {
-        Toast.makeText(getContext(), "Yay! we got it right!", Toast.LENGTH_SHORT).show();
+  //      Toast.makeText(getContext(), "Yay! we got it right!", Toast.LENGTH_SHORT).show();
     }
 
     @Override

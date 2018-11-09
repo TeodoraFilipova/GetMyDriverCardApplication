@@ -110,12 +110,19 @@ public class SaveDriverFragment extends Fragment implements SaveDriverContracts.
     @Override
     public void checkIfDriverExists(List<Driver> drivers) {
         boolean driverExists = false;
+        boolean driverHasLastSetId = false;
         int existingDriverId = 0;
 
         for (Driver driver : drivers) {
             if (driver.getPersonalNumber().equals(mRememberAll.getCardApplicationForm().getDriver().getPersonalNumber())) {
                 driverExists = true;
                 existingDriverId = driver.getDriverId();
+
+                if (existingDriverId != drivers.size()) {
+                    mRememberAll.getCardApplicationForm().getDriver().setLastSetID("");
+                } else {
+                    mRememberAll.getCardApplicationForm().getDriver().setLastSetID(Constants.LAST_UPDATED_TRUE);
+                }
                 break;
             }
         }

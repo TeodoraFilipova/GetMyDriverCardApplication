@@ -90,7 +90,7 @@ public class DrivingLicensePictureFragment extends Fragment {
             showPermissionsAlert(context);
 
         } else {
-            Toast.makeText(getActivity(), "The device a camera is checked.", Toast.LENGTH_SHORT)
+            Toast.makeText(getActivity(), "The device camera has all necessary permissions!", Toast.LENGTH_SHORT)
                     .show();
         }
 

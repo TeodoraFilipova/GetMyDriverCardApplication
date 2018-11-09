@@ -21,10 +21,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.mystique.rt.getmydrivercardapplcation.BuildConfig;
 import com.mystique.rt.getmydrivercardapplcation.R;
+import com.mystique.rt.getmydrivercardapplcation.apputils.Constants;
 import com.mystique.rt.getmydrivercardapplcation.apputils.RememberAll;
 import com.mystique.rt.getmydrivercardapplcation.parsers.bitmap.BitmapParser;
 import com.mystique.rt.getmydrivercardapplcation.parsers.bitmap.ByteArrayBitmapParser;
@@ -43,6 +45,15 @@ public class ChangeFragment extends Fragment {
     private RememberAll mRememberAll;
 
     private static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 1891;
+
+    @BindView(R.id.layout_new_firstname)
+    LinearLayout mFirstNameLinearLayout;
+
+    @BindView(R.id.layout_new_lastname)
+    LinearLayout mLastNameLinearLayout;
+
+    @BindView(R.id.layout_new_address)
+    LinearLayout mAddressLinearLayout;
 
     @BindView(R.id.et_new_firstname)
     EditText mNewFirstNameEditText;
@@ -85,6 +96,8 @@ public class ChangeFragment extends Fragment {
 
         PackageManager packageManager = Objects.requireNonNull(context).getPackageManager();
 
+        setFieldVisibilityAccordingToType();
+
         mNewFirstNameEditText.setOnFocusChangeListener((v, hasFocus) -> {
             if(!hasFocus) {
                 mRememberAll.setNewFirstName(mNewFirstNameEditText.getText().toString());
@@ -116,7 +129,7 @@ public class ChangeFragment extends Fragment {
             showPermissionsAlert(context);
 
         } else {
-            Toast.makeText(getActivity(), "The device camera is checked.", Toast.LENGTH_SHORT)
+            Toast.makeText(getActivity(), "The device camera has all necessary permissions!", Toast.LENGTH_SHORT)
                     .show();
         }
 
@@ -128,6 +141,18 @@ public class ChangeFragment extends Fragment {
         });
 
         return view;
+    }
+
+    private void setFieldVisibilityAccordingToType() {
+        if (mRememberAll.getCardApplicationForm().getRenewalReason().equals(Constants.RENEWAL_REASON_NAME)) {
+            mFirstNameLinearLayout.setVisibility(View.VISIBLE);
+            mLastNameLinearLayout.setVisibility(View.VISIBLE);
+        } else if (mRememberAll.getCardApplicationForm().getRenewalReason().equals(Constants.RENEWAL_REASON_ADDRESS)) {
+            mAddressLinearLayout.setVisibility(View.VISIBLE);
+        } else {
+            newSelfieButton.setVisibility(View.VISIBLE);
+            newSelfieImageView.setVisibility(View.VISIBLE);
+        }
     }
 
     private void checkRememberAllForCurrentData() {

@@ -76,12 +76,12 @@ public class LossTheftFragment extends Fragment implements FocusListener {
     @Override
     public void saveDateToObject() {
         DateFormat df = new SimpleDateFormat(getString(R.string.date_format));
-        Date dateOfBirth = null;
+        Date dateOfEvent = null;
         try {
-            dateOfBirth = df.parse(mDateOfEventEditText.getText().toString());
+            dateOfEvent = df.parse(mDateOfEventEditText.getText().toString());
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        mRememberAll.setDateOfBirth(dateOfBirth);
+        mRememberAll.setDateOfEvent(dateOfEvent);
     }
 }
