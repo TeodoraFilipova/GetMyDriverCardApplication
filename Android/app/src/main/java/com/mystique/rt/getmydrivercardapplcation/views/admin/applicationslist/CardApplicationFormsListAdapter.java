@@ -12,6 +12,8 @@ import com.mystique.rt.getmydrivercardapplcation.R;
 import com.mystique.rt.getmydrivercardapplcation.models.CardApplicationForm;
 import com.squareup.picasso.Picasso;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -105,13 +107,18 @@ public class CardApplicationFormsListAdapter
 
 
         void bind(CardApplicationForm form) {
-            mCardAppFormIDTextView.setText(form.getCardApplicationFormId());
+            mCardAppFormIDTextView.setText(String.valueOf(form.getCardApplicationFormId()));
             mFirstNameTextView.setText(form.getDriver().getFirstName());
             mLastNameTextView.setText(form.getDriver().getLastName());
             mPersonalNumberTextView.setText(form.getDriver().getPersonalNumber());
-            mDateofSubmissionTextView.setText((CharSequence) form.getDateOfSubmission());
+
+            DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+            String reportDate = df.format(form.getDateOfSubmission());
+
+            mDateofSubmissionTextView.setText(reportDate);
             mStatusTextView.setText(form.getStatus());
 
+            mForm = form;
         }
 
         @OnClick

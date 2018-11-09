@@ -10,8 +10,9 @@ import com.mystique.rt.getmydrivercardapplcation.models.CardApplicationForm;
 import javax.inject.Inject;
 
 import butterknife.ButterKnife;
+import dagger.android.support.DaggerAppCompatActivity;
 
-public class CardApplicationDetailsActivity extends AppCompatActivity {
+public class CardApplicationDetailsActivity extends DaggerAppCompatActivity {
 
     public static final String EXTRA_KEY = "CARDAPPLICATIONFORM_EXTRA_KEY";
 

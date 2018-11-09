@@ -19,6 +19,8 @@ import com.mystique.rt.getmydrivercardapplcation.apputils.SetDate;
 import com.mystique.rt.getmydrivercardapplcation.models.CardApplicationForm;
 import com.mystique.rt.getmydrivercardapplcation.views.applications.FocusListener;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -90,6 +92,10 @@ public class CardApplicationFormsListFragment extends Fragment
             @Override
             public void onClick(View v) {
                 mPresenter.loadCardApplicationsForms();
+                mIDSearchFilterText.setText("");
+                mNameSearchFilterText.setText("");
+                mSubmissionSearchFilterText.setText("");
+                mStatusSearchFilterText.setText("");
             }
         });
 
@@ -128,7 +134,7 @@ public class CardApplicationFormsListFragment extends Fragment
     public void showEmptyCardApplicationsList() {
         mCardAppFormsAdapter.clear();
         mCardAppFormsAdapter.notifyDataSetChanged();
-        Toast.makeText(getContext(),"No card applications available to show!", Toast.LENGTH_LONG)
+        Toast.makeText(getContext(),"No card applications available to show!", Toast.LENGTH_SHORT)
                 .show();
     }
 
@@ -169,7 +175,7 @@ public class CardApplicationFormsListFragment extends Fragment
 
     @OnTextChanged(R.id.et_submission_filter_search)
     public void onSubmissionTextChanged() {
-        String pattern = fromDate.toString();
+        String pattern = mSubmissionSearchFilterText.getText().toString();
         mPresenter.filterCardApplicationFormsBySubmissionDate(pattern);
     }
 

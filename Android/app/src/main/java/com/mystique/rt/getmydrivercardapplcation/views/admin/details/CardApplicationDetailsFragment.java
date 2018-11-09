@@ -19,6 +19,9 @@ import com.mystique.rt.getmydrivercardapplcation.apputils.email.SendMail;
 import com.mystique.rt.getmydrivercardapplcation.models.CardApplicationForm;
 import com.mystique.rt.getmydrivercardapplcation.parsers.bitmap.BitmapParser;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
 import javax.inject.Inject;
 
 import butterknife.BindView;
@@ -201,14 +204,21 @@ public class CardApplicationDetailsFragment extends Fragment implements CardAppl
 
     @Override
     public void showCardApplicationFormDetails(CardApplicationForm form) {
-        mIDTextView.setText(form.getCardApplicationFormId());
-        mSubmissionTextView.setText((CharSequence) form.getDateOfSubmission());
+        mIDTextView.setText(String.valueOf(form.getCardApplicationFormId()));
+
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        String dateOfSubmission = df.format(form.getDateOfSubmission());
+        mSubmissionTextView.setText(dateOfSubmission);
+
         mStatusTextView.setText(form.getStatus());
         mTypeTextView.setText(form.getType());
         mFirstNameTextView.setText(form.getDriver().getFirstName());
         mLastNameTextView.setText(form.getDriver().getLastName());
         mPersonalNumberTextView.setText(form.getDriver().getPersonalNumber());
-        mDateOfBirthNumberTextView.setText((CharSequence) form.getDriver().getDateOfBirth());
+
+        String dateOfBirth = df.format(form.getDriver().getDateOfBirth());
+        mDateOfBirthNumberTextView.setText(dateOfBirth);
+
         mAddressTextView.setText(form.getDriver().getAddress());
         mPhoneTextView.setText(form.getDriver().getPhoneNumber());
         mEmailTextView.setText(form.getDriver().getEmail());
@@ -221,7 +231,9 @@ public class CardApplicationDetailsFragment extends Fragment implements CardAppl
         mDrivingNumberTextView.setText(form.getDrivingLicenseNumber());
         mDrivingCountryTextView.setText(form.getDrivingLicenseCountry());
         mPlaseOfEventTextView.setText(form.getPlaceOfEvent());
-        mDareOfEventTextView.setText((CharSequence) form.getDateOfEvent());
+
+        String dateOfEvent = df.format(form.getDateOfEvent());
+        mDareOfEventTextView.setText(dateOfEvent);
 
         mOldCardPicPhotoView.setImageBitmap(mPictureParser.toBitmap(form.getOldCardPicture().getPicture()));
         /*mOldCardPicImageView.setImageBitmap(mPictureParser.toBitmap(form.getOldCardPicture().getPicture()));*/
@@ -229,7 +241,10 @@ public class CardApplicationDetailsFragment extends Fragment implements CardAppl
         mOldCardCountryTextView.setText(form.getOldCardCountry());
         mOldCardAuthorityTextView.setText(form.getOldCardAuthority());
         mOldCardNumberTextView.setText(form.getOldCardNumber());
-        mOldCardDateOfExpieryTextView.setText((CharSequence) form.getOldCardDateOfExpiry());
+
+        String dateOfExpiry = df.format(form.getOldCardDateOfExpiry());
+        mOldCardDateOfExpieryTextView.setText(dateOfExpiry);
+
         mRenewalReasonTextView.setText(form.getRenewalReason());
         mNewAddressTextView.setText(form.getNewAddress());
         mNewFirstNameTextView.setText(form.getNewFirstName());
