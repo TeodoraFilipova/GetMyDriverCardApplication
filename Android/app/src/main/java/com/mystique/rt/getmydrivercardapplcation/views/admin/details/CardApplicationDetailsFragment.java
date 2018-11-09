@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -100,6 +101,9 @@ public class CardApplicationDetailsFragment extends Fragment implements CardAppl
     @BindView(R.id.tv_license_coutry_details)
     TextView mDrivingCountryTextView;
 
+    @BindView(R.id.layout_loose_theft_details)
+    LinearLayout mLooseTheftLayout;
+
     @BindView(R.id.tv_placeofevent_details)
     TextView mPlaseOfEventTextView;
 
@@ -108,6 +112,9 @@ public class CardApplicationDetailsFragment extends Fragment implements CardAppl
 
     /*@BindView(R.id.iv_oldcard_picture_details)
     ImageView mOldCardPicImageView;*/
+
+    @BindView(R.id.layout_oldcard_details)
+    LinearLayout mOldCardDetailsLayout;
 
     @BindView(R.id.pv_oldcard_picture_details)
     PhotoView mOldCardPicPhotoView;
@@ -124,6 +131,9 @@ public class CardApplicationDetailsFragment extends Fragment implements CardAppl
 
     @BindView(R.id.tv_oldcard_date_of_expiry_details)
     TextView mOldCardDateOfExpieryTextView;
+
+    @BindView(R.id.layout_newinfo_details)
+    LinearLayout mNewInfoDetailsLayout;
 
     @BindView(R.id.tv_renewal_reason_details)
     TextView mRenewalReasonTextView;
@@ -232,25 +242,46 @@ public class CardApplicationDetailsFragment extends Fragment implements CardAppl
         mDrivingCountryTextView.setText(form.getDrivingLicenseCountry());
         mPlaseOfEventTextView.setText(form.getPlaceOfEvent());
 
-        String dateOfEvent = df.format(form.getDateOfEvent());
-        mDareOfEventTextView.setText(dateOfEvent);
+        if(form.getDateOfEvent() != null){
+            mLooseTheftLayout.setVisibility(View.VISIBLE);
+            mDareOfEventTextView.setVisibility(View.VISIBLE);
+            String dateOfEvent = df.format(form.getDateOfEvent());
+            mDareOfEventTextView.setText(dateOfEvent);
+        }
 
-        mOldCardPicPhotoView.setImageBitmap(mPictureParser.toBitmap(form.getOldCardPicture().getPicture()));
+        if(form.getOldCardPicture().getPicture()!= null){
+            mOldCardDetailsLayout.setVisibility(View.VISIBLE);
+        mOldCardPicPhotoView.setImageBitmap(mPictureParser.toBitmap(form.getOldCardPicture().getPicture()));}
         /*mOldCardPicImageView.setImageBitmap(mPictureParser.toBitmap(form.getOldCardPicture().getPicture()));*/
 
-        mOldCardCountryTextView.setText(form.getOldCardCountry());
-        mOldCardAuthorityTextView.setText(form.getOldCardAuthority());
-        mOldCardNumberTextView.setText(form.getOldCardNumber());
+        if(form.getOldCardCountry()!= null){
+        mOldCardCountryTextView.setText(form.getOldCardCountry());}
 
+        if(form.getOldCardAuthority() != null){
+        mOldCardAuthorityTextView.setText(form.getOldCardAuthority());}
+
+        if(form.getOldCardNumber() != null){
+        mOldCardNumberTextView.setText(form.getOldCardNumber());}
+
+        if(form.getOldCardDateOfExpiry() != null){
         String dateOfExpiry = df.format(form.getOldCardDateOfExpiry());
-        mOldCardDateOfExpieryTextView.setText(dateOfExpiry);
+        mOldCardDateOfExpieryTextView.setText(dateOfExpiry);}
 
-        mRenewalReasonTextView.setText(form.getRenewalReason());
-        mNewAddressTextView.setText(form.getNewAddress());
-        mNewFirstNameTextView.setText(form.getNewFirstName());
-        mNewLastNameTextView.setText(form.getNewLastName());
+        if(form.getRenewalReason() != null){
+        mNewInfoDetailsLayout.setVisibility(View.VISIBLE);
+        mRenewalReasonTextView.setText(form.getRenewalReason());}
 
-        mNewSelfiePhotoView.setImageBitmap(mPictureParser.toBitmap(form.getNewSelfie().getPicture()));
+        if(form.getNewAddress() != null){
+        mNewAddressTextView.setText(form.getNewAddress());}
+
+        if(form.getNewFirstName() != null){
+        mNewFirstNameTextView.setText(form.getNewFirstName());}
+
+        if(form.getNewLastName() != null){
+        mNewLastNameTextView.setText(form.getNewLastName());}
+
+        if(form.getNewSelfie() != null){
+        mNewSelfiePhotoView.setImageBitmap(mPictureParser.toBitmap(form.getNewSelfie().getPicture()));}
         /*mNewSelfieImageView.setImageBitmap(mPictureParser.toBitmap(form.getNewSelfie().getPicture()));*/
 
         mDetailsTextView.setText(form.getDetails());
