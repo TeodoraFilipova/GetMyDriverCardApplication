@@ -34,7 +34,7 @@ public class HttpPictureService implements PictureService {
     public Picture getLastUpdatedPicture() throws IOException {
         List<Picture> allPictures = getAllPictures();
         for (Picture pic : allPictures) {
-            if (pic.getLastUpdated().equals(Constants.LAST_UPDATED_TRUE)) {
+            if (pic.getLastSetID().equals(Constants.LAST_UPDATED_TRUE)) {
                 return pic;
             }
         }

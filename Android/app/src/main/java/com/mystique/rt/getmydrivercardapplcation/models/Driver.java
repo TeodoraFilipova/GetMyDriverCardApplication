@@ -16,7 +16,7 @@ public class Driver implements Serializable {
     private String email;
     private Picture selfie;
     private Picture drivingPic;
-    private String lastUpdated;
+    private String lastSetID;
 
     public Driver(){
         // empty constructor
@@ -123,11 +123,11 @@ public class Driver implements Serializable {
         this.drivingPic = drivingPic;
     }
 
-    public String getLastUpdated() {
-        return lastUpdated;
+    public String getLastSetID() {
+        return lastSetID;
     }
 
-    public void setLastUpdated(String lastUpdated) {
-        this.lastUpdated = lastUpdated;
+    public void setLastSetID(String lastSetID) {
+        this.lastSetID = lastSetID;
     }
 }

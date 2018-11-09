@@ -60,7 +60,7 @@ public class HttpDriverService implements DriverService {
     public Driver getLastUpdatedDriver() throws IOException {
         List<Driver> allDrivers = getAllDrivers();
         for (Driver driver : allDrivers) {
-            if (driver.getLastUpdated().equals(Constants.LAST_UPDATED_TRUE)) {
+            if (driver.getLastSetID().equals(Constants.LAST_UPDATED_TRUE)) {
                 return driver;
             }
         }

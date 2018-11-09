@@ -65,7 +65,7 @@ public class SaveCardApplicationFormPresenter implements SaveCardApplicationForm
     public void updateLastCardApplicationForm(CardApplicationForm cardApplicationForm) {
         Disposable observable = Observable
                 .create((ObservableOnSubscribe<CardApplicationForm>) emitter -> {
-                    cardApplicationForm.setLastUpdated("");
+                    cardApplicationForm.setLastSetID("");
                     CardApplicationForm applicationForm = mCardApplicationFormService.updateFormById
                             (cardApplicationForm.getCardApplicationFormId(), cardApplicationForm);
                     emitter.onNext(applicationForm);

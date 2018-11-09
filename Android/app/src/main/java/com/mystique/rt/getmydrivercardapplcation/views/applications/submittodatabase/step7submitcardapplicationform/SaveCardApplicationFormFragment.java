@@ -98,7 +98,7 @@ public class SaveCardApplicationFormFragment extends Fragment implements SaveCar
     @Override
     public void updateRememberAll() {
         mRememberAll.getCardApplicationForm().setCardApplicationFormId(mNextCardApplicationFormId);
-        mRememberAll.getCardApplicationForm().setLastUpdated(Constants.LAST_UPDATED_TRUE);
+        mRememberAll.getCardApplicationForm().setLastSetID(Constants.LAST_UPDATED_TRUE);
         mPresenter.saveCardApplicationForm(mRememberAll.getCardApplicationForm());
     }
 

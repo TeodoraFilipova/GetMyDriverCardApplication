@@ -87,7 +87,7 @@ public class SaveOldCardPicFragment extends Fragment implements SaveOldCardPicCo
     @Override
     public void updateRememberAll() {
         mRememberAll.getCardApplicationForm().getOldCardPicture().setPictureId(mNextPictureId);
-        mRememberAll.getCardApplicationForm().getOldCardPicture().setLastUpdated(Constants.LAST_UPDATED_TRUE);
+        mRememberAll.getCardApplicationForm().getOldCardPicture().setLastSetID(Constants.LAST_UPDATED_TRUE);
         mPresenter.savePicture(mRememberAll.getCardApplicationForm().getOldCardPicture());
     }
 
