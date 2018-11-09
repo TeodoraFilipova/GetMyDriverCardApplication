@@ -1,16 +1,40 @@
 package com.mystique.rt.getmydrivercardapplcation.views.contacts;
 
+import android.Manifest;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
-import android.app.Activity;
+import android.provider.Settings;
+import android.support.v4.app.ActivityCompat;
+import android.support.v7.app.AlertDialog;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
+import com.mystique.rt.getmydrivercardapplcation.BuildConfig;
 import com.mystique.rt.getmydrivercardapplcation.R;
 import com.mystique.rt.getmydrivercardapplcation.views.BaseDrawerActivity;
 
+import java.util.Objects;
+
+import javax.inject.Inject;
+
+import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class ContactsActivity extends BaseDrawerActivity {
 
     public static final long IDENTIFIER = 547;
+
+
+    @BindView(R.id.btn_london_central)
+    Button mLondonCentralButton;
+
+    String officename = "";
+    int officenumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,11 +43,60 @@ public class ContactsActivity extends BaseDrawerActivity {
 
         ButterKnife.bind(this);
 
-        setSupportActionBar(getToolbar());
+        if (!checkPermissions(this)){
+            showPermissionsAlert(this);
+        } else {
+            Toast.makeText(this, "The device location tool is checked.", Toast.LENGTH_SHORT)
+                    .show();
+        }
+
+        mLondonCentralButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                officename = "LondonCentral";
+                officenumber = 1;
+                openMapClick();
+            }
+        });
+
+
+    }
+
+    //@OnClick(R.id.btn_london_central)
+    public void openMapClick() {
+        Intent viewMap = new Intent(this, MapActivity.class);
+        viewMap.putExtra("name", officename);
+        startActivity(viewMap);
     }
 
     @Override
     protected long getIdentifier() {
         return IDENTIFIER;
     }
+
+    static boolean checkPermissions(Context context) {
+        return ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
+                && ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED;
+    }
+
+    private void showPermissionsAlert(Context context) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle("Permissions required!")
+                .setMessage("Location find tool needs few permissions to work properly. Grant them in settings.")
+                .setPositiveButton("GOTO SETTINGS", (dialog, which) -> openSettings(Objects.requireNonNull(this)))
+                .setNegativeButton("CANCEL", (dialog, which) -> {
+                }).show();
+    }
+
+    static void openSettings(Context context) {
+        Intent intent = new Intent();
+        intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+        intent.setData(Uri.fromParts("package", BuildConfig.APPLICATION_ID, null));
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(intent);
+    }
+
+
+
+
 }

@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".views.contacts.ContactsActivity">
 
+
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
@@ -18,15 +19,54 @@
             app:popupTheme="@style/PopupOverlay" />
 
         <TextView
+            android:id="@+id/tv_contacts"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Contats"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:text="Receiving offices"
+            android:paddingBottom="10dp"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold"
+            android:textSize="20dp"/>
+
+    <LinearLayout
+        android:id="@+id/layout_london_central"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_contacts"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:textStyle="italic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingEnd="5dp"
+            android:text="London - Central office" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Address: 37 Wood St, London EC2P 2NQ "/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Phone number: +44 7410 367931"/>
+
+        <Button
+            android:id="@+id/btn_london_central"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="View on map"/>
+
+    </LinearLayout>
+
+
 
     </RelativeLayout>
+
+
+
 
 
 </android.support.constraint.ConstraintLayout>

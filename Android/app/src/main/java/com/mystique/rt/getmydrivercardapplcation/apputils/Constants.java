@@ -1,7 +1,7 @@
 package com.mystique.rt.getmydrivercardapplcation.apputils;
 
 public class Constants {
-    public static final String BASE_SERVER_URL = "http://192.168.1.4:8080/api";
+    public static final String BASE_SERVER_URL = "http://192.168.0.102:8080/api";
 
     public static final int STATUS_CHECK_CODE_LENGTH = 10;
 
@@ -53,5 +53,12 @@ public class Constants {
     public static final int EIGHTEEN_YEARS_IN_DAYS = 6574;
 
 
-   public static final String[] STATUS_FIELDS = {"---", "approved", "rejected", "completed" }; ;
+   public static final String[] STATUS_FIELDS = {"---", "approved", "rejected", "completed" };
+
+    public static final String LONDON = "LondonCentral";
+
+    public static final double LONDON_CENTRAL_LATITUDE = 42.6912445620777;
+    public static final double LONDON_CENTRAL_LONGITUDE = 23.330605030059818;
+
+
 }

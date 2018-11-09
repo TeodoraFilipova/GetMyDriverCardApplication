@@ -7,6 +7,8 @@ import com.mystique.rt.getmydrivercardapplcation.services.base.CardApplicationFo
 import com.mystique.rt.getmydrivercardapplcation.validators.base.Validator;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
@@ -100,8 +102,11 @@ public class HttpCardApplicationFormService implements CardApplicationFormServic
         List<CardApplicationForm> forms = getAllForms();
         List<CardApplicationForm> filteredForms = new ArrayList<>();
 
+
         for (int i = 0; i < forms.size(); i++) {
-            if (forms.get(i).getDateOfSubmission().toString().equals(patternToLower)) {
+            DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+            String checkedDate = df.format(forms.get(i).getDateOfSubmission());
+            if (checkedDate.equals(patternToLower)) {
                 filteredForms.add(forms.get(i));
             }
         }

@@ -114,6 +114,7 @@
     <string name="new_last_name_details">New Last name:   </string>
     <string name="date_format">yyyy-MM-dd</string>
     <string name="dots">...</string>
+    <string name="title_activity_map">MapActivity</string>
 
 
 </resources>

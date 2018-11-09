@@ -23,13 +23,20 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.mobsandgeeks.saripaar.ValidationError;
+import com.mobsandgeeks.saripaar.Validator;
+import com.mobsandgeeks.saripaar.annotation.Length;
+import com.mobsandgeeks.saripaar.annotation.NotEmpty;
+import com.mobsandgeeks.saripaar.annotation.Pattern;
 import com.mystique.rt.getmydrivercardapplcation.BuildConfig;
 import com.mystique.rt.getmydrivercardapplcation.R;
 import com.mystique.rt.getmydrivercardapplcation.apputils.RememberAll;
 import com.mystique.rt.getmydrivercardapplcation.parsers.bitmap.BitmapParser;
 import com.mystique.rt.getmydrivercardapplcation.parsers.bitmap.ByteArrayBitmapParser;
+import com.mystique.rt.getmydrivercardapplcation.views.applications.FocusListener;
 
 import java.io.ByteArrayOutputStream;
+import java.util.List;
 import java.util.Objects;
 
 import butterknife.BindView;
@@ -38,19 +45,25 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ChangeFragment extends Fragment {
+public class ChangeFragment extends Fragment implements FocusListener, Validator.ValidationListener{
 
     private RememberAll mRememberAll;
 
     private static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 1891;
 
     @BindView(R.id.et_new_firstname)
+    @NotEmpty
+    @Pattern(regex = "^[\\p{L} .'-]+$", message = "Must not contain special characters!")
     EditText mNewFirstNameEditText;
 
     @BindView(R.id.et_new_lastname)
+    @NotEmpty
+    @Pattern(regex = "^[\\p{L} .'-]+$", message = "Must not contain special characters!")
     EditText mNewLastNameEditText;
 
     @BindView(R.id.et_new_address)
+    @NotEmpty
+    @Length(max = 500, message = "Must be less than 500 characters")
     EditText mNewAddressEditText;
 
     @BindView(R.id.btn_newselfie_camera)
@@ -62,6 +75,7 @@ public class ChangeFragment extends Fragment {
 
 
     BitmapParser mChangeParser;
+    private Validator mValidator;
 
 
     public ChangeFragment() {
@@ -85,22 +99,29 @@ public class ChangeFragment extends Fragment {
 
         PackageManager packageManager = Objects.requireNonNull(context).getPackageManager();
 
+        mValidator = new Validator(this);
+        mValidator.setValidationListener(this);
+
         mNewFirstNameEditText.setOnFocusChangeListener((v, hasFocus) -> {
             if(!hasFocus) {
                 mRememberAll.setNewFirstName(mNewFirstNameEditText.getText().toString());
             }
+            mValidator.validate();
+
         });
 
         mNewLastNameEditText.setOnFocusChangeListener((v, hasFocus) -> {
             if(!hasFocus) {
                 mRememberAll.setNewLastName(mNewLastNameEditText.getText().toString());
             }
+            mValidator.validate();
         });
 
         mNewAddressEditText.setOnFocusChangeListener((v, hasFocus) -> {
             if(!hasFocus) {
                 mRememberAll.setNewAddress(mNewAddressEditText.getText().toString());
             }
+            mValidator.validate();
         });
 
         checkRememberAllForCurrentData();
@@ -207,4 +228,29 @@ public class ChangeFragment extends Fragment {
         context.startActivity(intent);
     }
 
+    @Override
+    public void onValidationSucceeded() {
+        Toast.makeText(getContext(), "Yay! we got it right!", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onValidationFailed(List<ValidationError> errors) {
+        for (ValidationError error : errors) {
+            View view = error.getView();
+            String message = error.getCollatedErrorMessage(getContext());
+
+            // Display error messages ;)
+            if (view instanceof EditText) {
+                ((EditText) view).setError(message);
+            } else {
+                Toast.makeText(getContext(), message, Toast.LENGTH_LONG).show();
+            }
+        }
+    }
+
+    //Do we need to overwrite this, if we do not use it!
+    @Override
+    public void saveDateToObject() {
+
+    }
 }
