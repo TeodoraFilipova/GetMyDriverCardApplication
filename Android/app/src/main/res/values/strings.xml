@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">GetMyDriverCardApplcation</string>
+    <string name="app_name">GetMyDriverCardApplication</string>
     <string name="title_activity_welcome">WelcomeActivity</string>
     <string name="title_activity_first_application">FirstApplicationActivity</string>
 
@@ -56,11 +56,11 @@
     <string name="wrong_username_or_password">Wrong username or password!</string>
     <string name="old_card_number">Old card number</string>
     <string name="old_card_country">Old card country</string>
-    <string name="push_button_to_make_picture">Push button to make picture!</string>
+    <string name="push_button_to_make_picture">Click button to take a picture!</string>
     <string name="new_first_name">New first name</string>
     <string name="new_last_name">New last name</string>
     <string name="old_card_authority">Old card authority</string>
-    <string name="open_camera">Open_camera</string>
+    <string name="open_camera">Open Camera</string>
     <string name="new_address">New address</string>
     <string name="choose_office">Office to receive</string>
     <string name="i_declare">I declare that the details in this form are correct and understand that it is a criminal offence
@@ -95,12 +95,12 @@
     <string name="driving_license">Driving license</string>
     <string name="driving_license_number">Driving license number:   </string>
     <string name="dr_l_number">driving license number</string>
-    <string name="driving_license_coutry">Driving license coutry:   </string>
+    <string name="driving_license_country_2">Driving license country:   </string>
     <string name="driving_license_country">Driving license country:   </string>
     <string name="lost_theft_information">Lost / Theft information</string>
     <string name="place_of_event_detail">Place of event:   </string>
     <string name="date_of_event_details">Date of event:   </string>
-    <string name="old_card_date">Old card date:   </string>
+    <string name="old_card_date">Old card date of expiry:   </string>
     <string name="old_card_information">Old card information</string>
     <string name="card_number">Card number:   </string>
     <string name="renewing_information">Renewing information</string>

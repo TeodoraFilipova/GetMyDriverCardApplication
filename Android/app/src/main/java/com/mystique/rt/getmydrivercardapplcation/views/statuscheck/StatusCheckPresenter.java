@@ -42,7 +42,7 @@ public class StatusCheckPresenter implements StatusCheckContracts.Presenter {
     }
 
     private void presentStatusToView(CardApplicationForm applicationForm) {
-        if (applicationForm == null) {
+        if (applicationForm.getStatusCheckCode() == null) {
             mView.showNotFound();
         } else {
             mView.showStatus(applicationForm.getStatus());

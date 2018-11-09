@@ -16,6 +16,7 @@ import com.mobsandgeeks.saripaar.ValidationError;
 import com.mobsandgeeks.saripaar.Validator;
 import com.mobsandgeeks.saripaar.annotation.Digits;
 import com.mobsandgeeks.saripaar.annotation.Email;
+import com.mobsandgeeks.saripaar.annotation.Length;
 import com.mobsandgeeks.saripaar.annotation.Max;
 import com.mobsandgeeks.saripaar.annotation.NotEmpty;
 import com.mobsandgeeks.saripaar.annotation.Past;
@@ -41,44 +42,45 @@ import butterknife.OnFocusChange;
 public class PersonalInfoFragment extends Fragment implements FocusListener, Validator.ValidationListener {
 
     @BindView(R.id.et_personal_number)
-//    @NotEmpty
-//    @Digits(integer = 45)
+    @NotEmpty
+    @Digits(integer = 45, message = "Should contain only numbers and be no longer than 45 characters!")
     EditText mPersonalNumberEditText;
 
     @BindView(R.id.et_first_name)
-//    @NotEmpty
-//    @Pattern(regex = "^[\\p{L} .'-]+$")
+    @NotEmpty
+    @Pattern(regex = "^[\\p{L} .'-]+$", message = "Must not contain special characters!")
     EditText mFirstNameEditText;
 
     @BindView(R.id.et_last_name)
-//    @NotEmpty
-//    @Pattern(regex = "^[\\p{L} .'-]+$")
+    @NotEmpty
+    @Pattern(regex = "^[\\p{L} .'-]+$", message = "Must not contain special characters!")
     EditText mLastNameEditText;
 
     @BindView(R.id.et_date_of_birth)
-//    @NotEmpty
-//    @Past
+    @NotEmpty
+    @Past(dateFormat = "yyyy-MM-dd")
     EditText mDateOfBirthEditText;
 
     @BindView(R.id.et_address)
-//    @NotEmpty
-//    @Max(500)
+    @NotEmpty
+    @Length(max = 500, message = "Must be less than 500 characters")
     EditText mAddressEditText;
 
     @BindView(R.id.et_phone_number)
-//    @NotEmpty
-//    @Pattern(regex = "^\\+(?:[0-9] ?){6,14}[0-9]$")
+    @NotEmpty
+    @Pattern(regex = "^\\+(?:[0-9] ?){6,14}[0-9]$", message = "Must start with a + sign followed by digits!")
     EditText mPhoneNumberEditText;
 
     @BindView(R.id.et_email)
-//    @NotEmpty
-//    @Email
+    @NotEmpty
+    @Email
     EditText mEmailEditText;
 
     @BindView(R.id.dropdown_spinner)
     MaterialSpinner mOfficeChooseSpinner;
 
     private RememberAll mRememberAll;
+    private Validator mValidator;
 
     private static final String[] OFFICES = {
             "London - Central office",
@@ -107,23 +109,29 @@ public class PersonalInfoFragment extends Fragment implements FocusListener, Val
         mRememberAll = RememberAll.getInstance();
         mRememberAll.getCardApplicationForm().setReceivingOffice(OFFICES[0]);
 
+        mValidator = new Validator(this);
+        mValidator.setValidationListener(this);
+
         checkRememberAllForCurrentData();
 
         mPersonalNumberEditText.setOnFocusChangeListener((v, hasFocus) -> {
             if (!hasFocus) {
                 mRememberAll.setPersonalNumber(mPersonalNumberEditText.getText().toString());
+                mValidator.validate();
             }
         });
 
         mFirstNameEditText.setOnFocusChangeListener((v, hasFocus) -> {
             if (!hasFocus) {
                 mRememberAll.setFirstName(mFirstNameEditText.getText().toString());
+                mValidator.validate();
             }
         });
 
         mLastNameEditText.setOnFocusChangeListener((v, hasFocus) -> {
             if (!hasFocus) {
                 mRememberAll.setLastName(mLastNameEditText.getText().toString());
+                mValidator.validate();
             }
         });
 
@@ -143,18 +151,21 @@ public class PersonalInfoFragment extends Fragment implements FocusListener, Val
         mAddressEditText.setOnFocusChangeListener((v, hasFocus) -> {
             if (!hasFocus) {
                 mRememberAll.setAddress(mAddressEditText.getText().toString());
+                mValidator.validate();
             }
         });
 
         mPhoneNumberEditText.setOnFocusChangeListener((v, hasFocus) -> {
             if (!hasFocus) {
                 mRememberAll.setPhoneNumber(mPhoneNumberEditText.getText().toString());
+                mValidator.validate();
             }
         });
 
         mEmailEditText.setOnFocusChangeListener((v, hasFocus) -> {
             if (!hasFocus) {
                 mRememberAll.setEmail(mEmailEditText.getText().toString());
+                mValidator.validate();
             }
         });
 
@@ -236,6 +247,8 @@ public class PersonalInfoFragment extends Fragment implements FocusListener, Val
             e.printStackTrace();
         }
         mRememberAll.setDateOfBirth(dateOfBirth);
+
+        mValidator.validate();
     }
     @Override
     public void onValidationSucceeded() {

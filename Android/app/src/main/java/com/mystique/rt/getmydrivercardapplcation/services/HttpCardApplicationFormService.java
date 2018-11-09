@@ -59,7 +59,7 @@ public class HttpCardApplicationFormService implements CardApplicationFormServic
                 return app;
             }
         }
-        return null;
+        return new CardApplicationForm();
     }
 
     @Override
