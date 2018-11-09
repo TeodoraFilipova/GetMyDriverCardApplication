@@ -220,7 +220,8 @@
             android:id="@+id/tv_date_of_birth_details"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/date_of_birth" />
+            android:text="@string/date_of_birth"
+            android:textColor="@color/md_blue_900"/>
 
     </LinearLayout>
 
@@ -242,7 +243,8 @@
             android:id="@+id/tv_address_details"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/address" />
+            android:text="@string/address"
+            android:textColor="@color/md_blue_900"/>
 
     </LinearLayout>
 
@@ -263,7 +265,8 @@
             android:id="@+id/tv_phone_number_details"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/phone_number" />
+            android:text="@string/phone_number"
+            android:textColor="@color/md_blue_900"/>
 
     </LinearLayout>
 
@@ -283,7 +286,8 @@
             android:id="@+id/tv_email_details"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/email" />
+            android:text="@string/email"
+            android:textColor="@color/md_blue_900"/>
 
     </LinearLayout>
 
@@ -304,7 +308,8 @@
             android:id="@+id/tv_office_details"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/office_to_receive" />
+            android:text="@string/office_to_receive"
+            android:textColor="@color/md_blue_900"/>
 
     </LinearLayout>
 
@@ -388,7 +393,8 @@
             android:id="@+id/tv_license_number_details"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/dr_l_number" />
+            android:text="@string/dr_l_number"
+            android:textColor="@color/md_blue_900"/>
     </LinearLayout>
 
     <LinearLayout
@@ -409,7 +415,8 @@
             android:id="@+id/tv_license_coutry_details"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/driving_license_country" />
+            android:text="@string/driving_license_country"
+            android:textColor="@color/md_blue_900"/>
     </LinearLayout>
 
     <LinearLayout
