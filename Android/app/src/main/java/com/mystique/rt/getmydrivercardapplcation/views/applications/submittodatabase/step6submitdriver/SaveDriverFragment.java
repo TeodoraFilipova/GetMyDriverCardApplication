@@ -96,7 +96,7 @@ public class SaveDriverFragment extends Fragment implements SaveDriverContracts.
     @Override
     public void updateRememberAll() {
         mRememberAll.getCardApplicationForm().getDriver().setDriverId(mNextDriverId);
-        mRememberAll.getCardApplicationForm().getDriver().setLastUpdated(Constants.LAST_UPDATED_TRUE);
+        mRememberAll.getCardApplicationForm().getDriver().setLastSetID(Constants.LAST_UPDATED_TRUE);
         Driver testDriver = mRememberAll.getCardApplicationForm().getDriver();
         mPresenter.saveDriver(mRememberAll.getCardApplicationForm().getDriver());
     }

@@ -2,6 +2,7 @@ package com.mystique.springdrivercard.models;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "pictures")
@@ -16,7 +17,8 @@ public class Picture {
     @Column(name = "Picture", columnDefinition = "BLOB", nullable = false)
     private byte[] picture;
 
-    @Column(name = "LastSetID")
+    @Column(name = "LastSetID", nullable = false)
+    @NotNull
     private String lastSetID;
 
     public Picture() {

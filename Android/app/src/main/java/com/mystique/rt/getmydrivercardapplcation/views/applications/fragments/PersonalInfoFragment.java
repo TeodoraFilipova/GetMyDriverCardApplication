@@ -9,8 +9,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.jaredrummler.materialspinner.MaterialSpinner;
+import com.mobsandgeeks.saripaar.ValidationError;
+import com.mobsandgeeks.saripaar.Validator;
+import com.mobsandgeeks.saripaar.annotation.Digits;
+import com.mobsandgeeks.saripaar.annotation.Email;
+import com.mobsandgeeks.saripaar.annotation.Max;
+import com.mobsandgeeks.saripaar.annotation.NotEmpty;
+import com.mobsandgeeks.saripaar.annotation.Past;
+import com.mobsandgeeks.saripaar.annotation.Pattern;
 import com.mystique.rt.getmydrivercardapplcation.R;
 import com.mystique.rt.getmydrivercardapplcation.apputils.RememberAll;
 import com.mystique.rt.getmydrivercardapplcation.apputils.SetDate;
@@ -20,6 +29,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -28,27 +38,41 @@ import butterknife.OnFocusChange;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PersonalInfoFragment extends Fragment implements FocusListener {
+public class PersonalInfoFragment extends Fragment implements FocusListener, Validator.ValidationListener {
 
     @BindView(R.id.et_personal_number)
+//    @NotEmpty
+//    @Digits(integer = 45)
     EditText mPersonalNumberEditText;
 
     @BindView(R.id.et_first_name)
+//    @NotEmpty
+//    @Pattern(regex = "^[\\p{L} .'-]+$")
     EditText mFirstNameEditText;
 
     @BindView(R.id.et_last_name)
+//    @NotEmpty
+//    @Pattern(regex = "^[\\p{L} .'-]+$")
     EditText mLastNameEditText;
 
     @BindView(R.id.et_date_of_birth)
+//    @NotEmpty
+//    @Past
     EditText mDateOfBirthEditText;
 
     @BindView(R.id.et_address)
+//    @NotEmpty
+//    @Max(500)
     EditText mAddressEditText;
 
     @BindView(R.id.et_phone_number)
+//    @NotEmpty
+//    @Pattern(regex = "^\\+(?:[0-9] ?){6,14}[0-9]$")
     EditText mPhoneNumberEditText;
 
     @BindView(R.id.et_email)
+//    @NotEmpty
+//    @Email
     EditText mEmailEditText;
 
     @BindView(R.id.dropdown_spinner)
@@ -213,6 +237,24 @@ public class PersonalInfoFragment extends Fragment implements FocusListener {
         }
         mRememberAll.setDateOfBirth(dateOfBirth);
     }
+    @Override
+    public void onValidationSucceeded() {
+        Toast.makeText(getContext(), "Yay! we got it right!", Toast.LENGTH_SHORT).show();
+    }
 
+    @Override
+    public void onValidationFailed(List<ValidationError> errors) {
+        for (ValidationError error : errors) {
+            View view = error.getView();
+            String message = error.getCollatedErrorMessage(getContext());
+
+            // Display error messages ;)
+            if (view instanceof EditText) {
+                ((EditText) view).setError(message);
+            } else {
+                Toast.makeText(getContext(), message, Toast.LENGTH_LONG).show();
+            }
+        }
+    }
 
 }

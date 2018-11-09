@@ -77,4 +77,7 @@ dependencies {
 
     //zoom foto view
     implementation 'com.github.chrisbanes:PhotoView:2.1.4'
+
+    // validation
+    implementation 'com.mobsandgeeks:android-saripaar:2.0.3'
 }

@@ -89,9 +89,7 @@ public class SaveSelfieFragment extends Fragment implements SaveSelfieContracts.
     @Override
     public void updateRememberAll() {
         mRememberAll.getCardApplicationForm().getDriver().getSelfie().setPictureId(mNextPictureId);
-        mRememberAll.getCardApplicationForm().getDriver().getSelfie().setLastUpdated(Constants.LAST_UPDATED_TRUE);
-        Picture test = mRememberAll.getCardApplicationForm().getDriver().getSelfie();
-        Picture testSignature = mRememberAll.getCardApplicationForm().getSignaturePicture();
+        mRememberAll.getCardApplicationForm().getDriver().getSelfie().setLastSetID(Constants.LAST_UPDATED_TRUE);
         mPresenter.savePicture(mRememberAll.getCardApplicationForm().getDriver().getSelfie());
     }
 

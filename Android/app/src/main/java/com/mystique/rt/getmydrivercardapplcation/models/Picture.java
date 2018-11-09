@@ -5,13 +5,13 @@ import java.io.Serializable;
 public class Picture implements Serializable {
     private int pictureId;
     private byte[] picture;
-    private String lastUpdated;
+    private String lastSetID;
 
     public Picture() {
         // empty constructor
     }
 
-    public Picture(byte[] picture){
+    public Picture(byte[] picture) {
         this.picture = picture;
     }
 
@@ -32,11 +32,11 @@ public class Picture implements Serializable {
         this.picture = picture;
     }
 
-    public String getLastUpdated() {
-        return lastUpdated;
+    public String getLastSetID() {
+        return lastSetID;
     }
 
-    public void setLastUpdated(String lastUpdated) {
-        this.lastUpdated = lastUpdated;
+    public void setLastSetID(String lastSetID) {
+        this.lastSetID = lastSetID;
     }
 }

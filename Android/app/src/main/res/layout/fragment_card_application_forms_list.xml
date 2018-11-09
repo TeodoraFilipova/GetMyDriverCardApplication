@@ -81,7 +81,7 @@
             android:id="@+id/lv_cardappforms"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/et_status_filter_search"
+            android:layout_below="@id/tv_formlist"
             android:visibility="gone" />
 
 

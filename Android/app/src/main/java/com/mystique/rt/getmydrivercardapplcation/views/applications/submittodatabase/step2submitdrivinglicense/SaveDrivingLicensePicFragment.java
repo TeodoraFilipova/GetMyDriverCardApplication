@@ -88,7 +88,7 @@ public class SaveDrivingLicensePicFragment extends Fragment implements SaveDrivi
     @Override
     public void updateRememberAll() {
         mRememberAll.getCardApplicationForm().getDriver().getDrivingPic().setPictureId(mNextPictureId);
-        mRememberAll.getCardApplicationForm().getDriver().getDrivingPic().setLastUpdated(Constants.LAST_UPDATED_TRUE);
+        mRememberAll.getCardApplicationForm().getDriver().getDrivingPic().setLastSetID(Constants.LAST_UPDATED_TRUE);
         mPresenter.savePicture(mRememberAll.getCardApplicationForm().getDriver().getDrivingPic());
     }
 

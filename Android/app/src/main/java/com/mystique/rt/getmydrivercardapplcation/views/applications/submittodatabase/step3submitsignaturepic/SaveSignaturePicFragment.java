@@ -90,7 +90,7 @@ public class SaveSignaturePicFragment extends Fragment implements SaveSignatureP
     @Override
     public void updateRememberAll() {
         mRememberAll.getCardApplicationForm().getSignaturePicture().setPictureId(mNextPictureId);
-        mRememberAll.getCardApplicationForm().getSignaturePicture().setLastUpdated(Constants.LAST_UPDATED_TRUE);
+        mRememberAll.getCardApplicationForm().getSignaturePicture().setLastSetID(Constants.LAST_UPDATED_TRUE);
         mPresenter.savePicture(mRememberAll.getCardApplicationForm().getSignaturePicture());
     }
 

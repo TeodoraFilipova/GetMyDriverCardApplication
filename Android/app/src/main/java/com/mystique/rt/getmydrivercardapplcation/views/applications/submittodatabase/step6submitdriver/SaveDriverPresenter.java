@@ -48,18 +48,18 @@ public class SaveDriverPresenter implements SaveDriverContracts.Presenter {
 
     @Override
     public void getLastUpdatedDriver() {
-//        Disposable observable = Observable
-//                .create((ObservableOnSubscribe<Driver>) emitter -> {
-//                    Driver lastUpdatedDriver = mDriverService.getLastUpdatedDriver();
-//                    emitter.onNext(lastUpdatedDriver);
-//                    emitter.onComplete();
-//                })
-//                .subscribeOn(mSchedulerProvider.background())
-//                .observeOn(mSchedulerProvider.ui())
-//                .subscribe(this::tellViewToSetNextDriverId, error -> mView.showError(error));
-        Driver driver = new Driver();
-        driver.setDriverId(2);
-        tellViewToSetNextDriverId(driver);
+        Disposable observable = Observable
+                .create((ObservableOnSubscribe<Driver>) emitter -> {
+                    Driver lastUpdatedDriver = mDriverService.getLastUpdatedDriver();
+                    emitter.onNext(lastUpdatedDriver);
+                    emitter.onComplete();
+                })
+                .subscribeOn(mSchedulerProvider.background())
+                .observeOn(mSchedulerProvider.ui())
+                .subscribe(this::tellViewToSetNextDriverId, error -> mView.showError(error));
+//        Driver driver = new Driver();
+//        driver.setDriverId(2);
+//        tellViewToSetNextDriverId(driver);
     }
 
     private void tellViewToSetNextDriverId(Driver driver) {
@@ -68,17 +68,17 @@ public class SaveDriverPresenter implements SaveDriverContracts.Presenter {
 
     @Override
     public void updateLastDriver(Driver driver) {
-//        Disposable observable = Observable
-//                .create((ObservableOnSubscribe<Driver>) emitter -> {
-//                    driver.setLastUpdated("");
-//                    Driver dr = mDriverService.updateDriverById(driver.getDriverId(), driver);
-//                    emitter.onNext(dr);
-//                    emitter.onComplete();
-//                })
-//                .subscribeOn(mSchedulerProvider.background())
-//                .observeOn(mSchedulerProvider.ui())
-//                .subscribe(this::tellViewToUpdateRememberAll, error -> mView.showError(error));
-        tellViewToUpdateRememberAll(driver);
+        Disposable observable = Observable
+                .create((ObservableOnSubscribe<Driver>) emitter -> {
+                    driver.setLastSetID("");
+                    Driver dr = mDriverService.updateDriverById(driver.getDriverId(), driver);
+                    emitter.onNext(dr);
+                    emitter.onComplete();
+                })
+                .subscribeOn(mSchedulerProvider.background())
+                .observeOn(mSchedulerProvider.ui())
+                .subscribe(this::tellViewToUpdateRememberAll, error -> mView.showError(error));
+      //  tellViewToUpdateRememberAll(driver);
 
     }
 

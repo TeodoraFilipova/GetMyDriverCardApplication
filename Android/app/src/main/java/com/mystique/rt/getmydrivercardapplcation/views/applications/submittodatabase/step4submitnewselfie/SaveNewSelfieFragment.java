@@ -87,7 +87,7 @@ public class SaveNewSelfieFragment extends Fragment implements SaveNewSelfieCont
     @Override
     public void updateRememberAll() {
         mRememberAll.getCardApplicationForm().getNewSelfie().setPictureId(mNextPictureId);
-        mRememberAll.getCardApplicationForm().getNewSelfie().setLastUpdated(Constants.LAST_UPDATED_TRUE);
+        mRememberAll.getCardApplicationForm().getNewSelfie().setLastSetID(Constants.LAST_UPDATED_TRUE);
         mPresenter.savePicture(mRememberAll.getCardApplicationForm().getNewSelfie());
     }
 

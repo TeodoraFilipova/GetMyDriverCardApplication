@@ -46,18 +46,18 @@ public class SaveSignaturePicPresenter implements SaveSignaturePicContracts.Pres
 
     @Override
     public void getLastUpdatedPicture() {
-//        Disposable observable = Observable
-//                .create((ObservableOnSubscribe<Picture>) emitter -> {
-//                    Picture lastUpdatedPicture = mPictureService.getLastUpdatedPicture();
-//                    emitter.onNext(lastUpdatedPicture);
-//                    emitter.onComplete();
-//                })
-//                .subscribeOn(mSchedulerProvider.background())
-//                .observeOn(mSchedulerProvider.ui())
-//                .subscribe(this::tellViewToSetNextPicId, error -> mView.showError(error));
-        Picture picture = new Picture();
-        picture.setPictureId(70);
-        tellViewToSetNextPicId(picture);
+        Disposable observable = Observable
+                .create((ObservableOnSubscribe<Picture>) emitter -> {
+                    Picture lastUpdatedPicture = mPictureService.getLastUpdatedPicture();
+                    emitter.onNext(lastUpdatedPicture);
+                    emitter.onComplete();
+                })
+                .subscribeOn(mSchedulerProvider.background())
+                .observeOn(mSchedulerProvider.ui())
+                .subscribe(this::tellViewToSetNextPicId, error -> mView.showError(error));
+//        Picture picture = new Picture();
+//        picture.setPictureId(70);
+//        tellViewToSetNextPicId(picture);
     }
 
     private void tellViewToSetNextPicId(Picture lastUpdatedPic) {
@@ -66,17 +66,17 @@ public class SaveSignaturePicPresenter implements SaveSignaturePicContracts.Pres
 
     @Override
     public void updateLastPicture(Picture picture) {
-//        Disposable observable = Observable
-//                .create((ObservableOnSubscribe<Picture>) emitter -> {
-//                    picture.setLastUpdated("");
-//                    Picture pic = mPictureService.updatePictureById(picture.getPictureId(), picture);
-//                    emitter.onNext(pic);
-//                    emitter.onComplete();
-//                })
-//                .subscribeOn(mSchedulerProvider.background())
-//                .observeOn(mSchedulerProvider.ui())
-//                .subscribe(this::tellViewToUpdateRememberAll, error -> mView.showError(error));
-        tellViewToUpdateRememberAll(picture);
+        Disposable observable = Observable
+                .create((ObservableOnSubscribe<Picture>) emitter -> {
+                    picture.setLastSetID("");
+                    Picture pic = mPictureService.updatePictureById(picture.getPictureId(), picture);
+                    emitter.onNext(pic);
+                    emitter.onComplete();
+                })
+                .subscribeOn(mSchedulerProvider.background())
+                .observeOn(mSchedulerProvider.ui())
+                .subscribe(this::tellViewToUpdateRememberAll, error -> mView.showError(error));
+     //   tellViewToUpdateRememberAll(picture);
 
     }
 

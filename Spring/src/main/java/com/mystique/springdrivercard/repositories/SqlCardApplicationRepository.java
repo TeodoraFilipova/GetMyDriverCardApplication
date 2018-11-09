@@ -73,9 +73,10 @@ public class SqlCardApplicationRepository implements CardApplicationRepository {
                 Session session = sessionFactory.openSession();
         ) {
             session.beginTransaction();
-            CardApplicationForm cardFormToChange = session.get(CardApplicationForm.class, id);
-            cardFormToChange.setStatus(cardApplicationForm.getStatus());
-            cardFormToChange.setDetails(cardApplicationForm.getDetails());
+//            CardApplicationForm cardFormToChange = session.get(CardApplicationForm.class, id);
+//            cardFormToChange.setStatus(cardApplicationForm.getStatus());
+//            cardFormToChange.setDetails(cardApplicationForm.getDetails());
+            session.update(cardApplicationForm);
             session.getTransaction().commit();
             return cardApplicationForm;
         } catch (Exception e) {
@@ -123,13 +124,13 @@ public class SqlCardApplicationRepository implements CardApplicationRepository {
                 Session session = sessionFactory.openSession();
         ) {
             session.beginTransaction();
-            Driver driverFormToChange = session.get(Driver.class, id);
+           // Driver driverFormToChange = session.get(Driver.class, id);
 
             // field names should be changed in Driver, according to DB
-            driverFormToChange.setFirstName(driver.getFirstName());
-            driverFormToChange.setLastName(driver.getLastName());
-            driverFormToChange.setAddress(driver.getAddress());
-
+//            driverFormToChange.setFirstName(driver.getFirstName());
+//            driverFormToChange.setLastName(driver.getLastName());
+//            driverFormToChange.setAddress(driver.getAddress());
+            session.update(driver);
             session.getTransaction().commit();
 
             return driver;
@@ -211,8 +212,9 @@ public class SqlCardApplicationRepository implements CardApplicationRepository {
                 Session session = sessionFactory.openSession();
         ) {
             session.beginTransaction();
-            Picture pictureToChange = session.get(Picture.class, id);
-            pictureToChange.setPicture(picture.getPicture());
+         //   Picture pictureToChange = session.get(Picture.class, id);
+            session.update(picture);
+//            pictureToChange.setPicture(picture.getPicture());
             session.getTransaction().commit();
             return picture;
         } catch (Exception e) {
