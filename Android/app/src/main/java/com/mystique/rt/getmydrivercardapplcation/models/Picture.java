@@ -11,6 +11,11 @@ public class Picture implements Serializable {
         // empty constructor
     }
 
+    public Picture(int pictureId, String lastSetID) {
+        this.pictureId = pictureId;
+        this.lastSetID = lastSetID;
+    }
+
     public Picture(byte[] picture) {
         this.picture = picture;
     }
