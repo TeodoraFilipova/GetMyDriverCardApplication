@@ -72,7 +72,7 @@ public class SaveSelfieFragment extends Fragment implements SaveSelfieContracts.
 
     @Override
     public void showError(Throwable error) {
-        mMessageTextView.setText("In Selfie: " + error.getMessage());
+        mMessageTextView.setText("In Driver Photo: " + error.getMessage());
         mLoading.setVisibility(View.GONE);
     }
 

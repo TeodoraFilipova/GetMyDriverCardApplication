@@ -14,7 +14,7 @@
             android:id="@+id/text_completed"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Selfie! Your application is being processed! Please wait."/>
+            android:text="Your application is being processed! Please wait."/>
 
         <ProgressBar
             android:id="@+id/pb_loading"
