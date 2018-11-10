@@ -67,7 +67,14 @@ public class Driver {
         this.drivingPic = drivingPic;
     }
 
-
+    // for unit testing
+    public Driver(int driverId, String personalNumber, String firstName, String lastName, String lastSetID) {
+        this.driverId = driverId;
+        this.personalNumber = personalNumber;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.lastSetID = lastSetID;
+    }
     public String getFirstName() {
         return firstName;
     }
