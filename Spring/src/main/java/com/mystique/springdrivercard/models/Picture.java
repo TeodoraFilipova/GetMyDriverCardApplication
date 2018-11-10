@@ -28,6 +28,10 @@ public class Picture {
         this.picture = picture;
     }
 
+    public Picture(int pictureId, String lastSetID) {
+        this.pictureId = pictureId;
+        this.lastSetID = lastSetID;
+    }
 
     public int getPictureId() {
         return pictureId;

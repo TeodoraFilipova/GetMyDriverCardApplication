@@ -28,7 +28,7 @@ public class HttpPictureServiceTests {
     private static List<Picture> defaultMockRepositoryContent = Arrays.asList(
             new Picture(1, ""),
             new Picture(2, ""),
-            new Picture(3, Constants.LAST_UPDATED_TRUE));
+            new Picture(3, "yes"));
 
     @Test
     public void getAllPictures_Should_ReturnAllPicturesFromRepository_When_RepositoryHasPictures() throws IOException {

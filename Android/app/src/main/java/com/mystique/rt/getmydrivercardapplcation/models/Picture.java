@@ -11,6 +11,7 @@ public class Picture implements Serializable {
         // empty constructor
     }
 
+    // for unit testing
     public Picture(int pictureId, String lastSetID) {
         this.pictureId = pictureId;
         this.lastSetID = lastSetID;
