@@ -18,10 +18,14 @@ import com.mystique.rt.getmydrivercardapplcation.R;
 import com.mystique.rt.getmydrivercardapplcation.apputils.Constants;
 import com.mystique.rt.getmydrivercardapplcation.apputils.email.SendMail;
 import com.mystique.rt.getmydrivercardapplcation.models.CardApplicationForm;
+import com.mystique.rt.getmydrivercardapplcation.models.Driver;
+import com.mystique.rt.getmydrivercardapplcation.models.Picture;
 import com.mystique.rt.getmydrivercardapplcation.parsers.bitmap.BitmapParser;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.inject.Inject;
 
@@ -171,6 +175,12 @@ public class CardApplicationDetailsFragment extends Fragment implements CardAppl
     @BindView(R.id.pv_signature_details)
     PhotoView mSignaturePhotoView;
 
+    private Picture mDrivingLicensePhoto;
+    private Picture mSelfie;
+    private Picture mNewSelfie;
+    private int mDriverId;
+    private String mLastSetId;
+
     @Inject
     public CardApplicationDetailsFragment() {
         // Required empty public constructor
@@ -234,7 +244,10 @@ public class CardApplicationDetailsFragment extends Fragment implements CardAppl
         mEmailTextView.setText(form.getDriver().getEmail());
 
         mSelfiePhotoView.setImageBitmap(mPictureParser.toBitmap(form.getDriver().getSelfie().getPicture()));
-        mDrivingLicensePhotoView.setImageBitmap(mPictureParser.toBitmap(form.getDriver().getSelfie().getPicture()));
+        mSelfie = form.getDriver().getSelfie();
+
+        mDrivingLicensePhotoView.setImageBitmap(mPictureParser.toBitmap(form.getDriver().getDrivingPic().getPicture()));
+        mDrivingLicensePhoto = form.getDriver().getDrivingPic();
         //mSelfieImageView.setImageBitmap(mPictureParser.toBitmap(form.getDriver().getDrivingPic().getPicture()));
         //mDrivingPicImageView.setImageBitmap(mPictureParser.toBitmap(form.getDriver().getDrivingPic().getPicture()));
 
@@ -281,7 +294,8 @@ public class CardApplicationDetailsFragment extends Fragment implements CardAppl
         mNewLastNameTextView.setText(form.getNewLastName());}
 
         if(form.getNewSelfie() != null){
-        mNewSelfiePhotoView.setImageBitmap(mPictureParser.toBitmap(form.getNewSelfie().getPicture()));}
+        mNewSelfiePhotoView.setImageBitmap(mPictureParser.toBitmap(form.getNewSelfie().getPicture()));
+        mNewSelfie = form.getNewSelfie();}
         /*mNewSelfieImageView.setImageBitmap(mPictureParser.toBitmap(form.getNewSelfie().getPicture()));*/
 
         mDetailsTextView.setText(form.getDetails());
@@ -291,6 +305,8 @@ public class CardApplicationDetailsFragment extends Fragment implements CardAppl
         mSignaturePhotoView.setImageBitmap(mPictureParser.toBitmap(form.getSignaturePicture().getPicture()));
         /*mSignatureImageView.setImageBitmap(mPictureParser.toBitmap(form.getSignaturePicture().getPicture()));*/
 
+        mDriverId = form.getDriver().getDriverId();
+        mLastSetId = form.getDriver().getLastSetID();
     }
 
     @Override
@@ -309,8 +325,8 @@ public class CardApplicationDetailsFragment extends Fragment implements CardAppl
     }
 
     @Override
-    public void hideLoading() {
-
+    public void hideLoading(Driver driver) {
+        Toast.makeText(getContext(), "Information updated!", Toast.LENGTH_SHORT).show();
     }
 
 
@@ -319,5 +335,44 @@ public class CardApplicationDetailsFragment extends Fragment implements CardAppl
         Toast.makeText(getActivity(), "Application status has been changed.", Toast.LENGTH_SHORT)
                 .show();
 
+        if (statusChangeItem.equals(Constants.STATUS_FIELDS[1])) {
+            assembleUpdatedDriver();
+        }
+    }
+
+    private void assembleUpdatedDriver() {
+        String applicationType = mTypeTextView.getText().toString();
+        if (applicationType.equals(Constants.APP_TYPE_REPLACEMENT_PERSON)) {
+            Driver updatedDriver = new Driver();
+            updatedDriver.setPersonalNumber(mPersonalNumberTextView.getText().toString());
+            updatedDriver.setFirstName(mFirstNameTextView.getText().toString());
+            updatedDriver.setLastName(mLastNameTextView.getText().toString());
+            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+            Date dateOfBirth = null;
+            try {
+                dateOfBirth = df.parse(mDateOfBirthNumberTextView.getText().toString());
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            updatedDriver.setDateOfBirth(dateOfBirth);
+            updatedDriver.setAddress(mAddressTextView.getText().toString());
+            updatedDriver.setPhoneNumber(mPhoneTextView.getText().toString());
+            updatedDriver.setEmail(mEmailTextView.getText().toString());
+            updatedDriver.setSelfie(mSelfie);
+            updatedDriver.setDrivingPic(mDrivingLicensePhoto);
+            updatedDriver.setDriverId(mDriverId);
+            updatedDriver.setLastSetID(mLastSetId);
+
+            if (mRenewalReasonTextView.getText().equals(Constants.RENEWAL_REASON_NAME)) {
+                updatedDriver.setFirstName(mNewFirstNameTextView.getText().toString());
+                updatedDriver.setLastName(mNewLastNameTextView.getText().toString());
+            } else if (mRenewalReasonTextView.getText().equals(Constants.RENEWAL_REASON_ADDRESS)) {
+                updatedDriver.setAddress(mNewAddressTextView.getText().toString());
+            } else {
+                updatedDriver.setSelfie(mNewSelfie);
+            }
+
+            mPresenter.updateDriver(updatedDriver);
+        }
     }
 }

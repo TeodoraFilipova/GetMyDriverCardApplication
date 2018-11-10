@@ -9,7 +9,9 @@ import com.mystique.rt.getmydrivercardapplcation.apputils.RememberAll;
 import com.mystique.rt.getmydrivercardapplcation.apputils.email.SendMail;
 import com.mystique.rt.getmydrivercardapplcation.async.SchedulerProvider;
 import com.mystique.rt.getmydrivercardapplcation.models.CardApplicationForm;
+import com.mystique.rt.getmydrivercardapplcation.models.Driver;
 import com.mystique.rt.getmydrivercardapplcation.services.base.CardApplicationFormService;
+import com.mystique.rt.getmydrivercardapplcation.services.base.DriverService;
 
 import javax.inject.Inject;
 
@@ -19,6 +21,7 @@ import io.reactivex.disposables.Disposable;
 
 public class CardApplicationDetailsPresenter implements CardApplicationDetailsContracts.Presenter {
     private final CardApplicationFormService mFormService;
+    private final DriverService mDriverService;
     private final SchedulerProvider mSchedulerProvider;
 
     private CardApplicationDetailsContracts.View mView;
@@ -28,9 +31,11 @@ public class CardApplicationDetailsPresenter implements CardApplicationDetailsCo
     @Inject
     public CardApplicationDetailsPresenter(
             CardApplicationFormService formService,
+            DriverService driverService,
             SchedulerProvider schedulerProvider
     ) {
         mFormService = formService;
+        mDriverService = driverService;
         mSchedulerProvider = schedulerProvider;
     }
 
@@ -75,6 +80,19 @@ public class CardApplicationDetailsPresenter implements CardApplicationDetailsCo
     @Override
     public void setCardApplicationFormId(int id) { mCardApplicationFormId = id;
 
+    }
+
+    @Override
+    public void updateDriver(Driver updatedDriver) {
+        Disposable observable = Observable
+                .create((ObservableOnSubscribe<Driver>) emitter -> {
+                    Driver dr = mDriverService.updateDriverById(updatedDriver.getDriverId(), updatedDriver);
+                    emitter.onNext(dr);
+                    emitter.onComplete();
+                })
+                .subscribeOn(mSchedulerProvider.background())
+                .observeOn(mSchedulerProvider.ui())
+                .subscribe(mView::hideLoading, error -> mView.showError(error));
     }
 
     @Override

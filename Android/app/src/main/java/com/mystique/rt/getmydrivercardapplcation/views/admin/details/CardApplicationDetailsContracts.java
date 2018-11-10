@@ -3,6 +3,7 @@ package com.mystique.rt.getmydrivercardapplcation.views.admin.details;
 import android.content.Context;
 
 import com.mystique.rt.getmydrivercardapplcation.models.CardApplicationForm;
+import com.mystique.rt.getmydrivercardapplcation.models.Driver;
 
 public interface CardApplicationDetailsContracts {
     interface View {
@@ -14,9 +15,10 @@ public interface CardApplicationDetailsContracts {
 
         void showLoading();
 
-        void hideLoading();
+        void hideLoading(Driver driver);
 
         void showMessageApplicationStatusChange();
+
 
     }
 
@@ -31,5 +33,7 @@ public interface CardApplicationDetailsContracts {
 
         //do we need this?
         void setCardApplicationFormId(int id);
+
+        void updateDriver(Driver updatedDriver);
     }
 }
