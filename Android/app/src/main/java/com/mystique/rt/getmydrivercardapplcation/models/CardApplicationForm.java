@@ -207,6 +207,13 @@ public class CardApplicationForm implements Serializable {
         this.details = "";
     }
 
+    //constructor for unitesting
+    public CardApplicationForm(String status, String type, String statusCheckCode) {
+        this.status = status;
+        this.type = type;
+        this.statusCheckCode = statusCheckCode;
+    }
+
     public int getCardApplicationFormId() {
         return cardApplicationFormId;
     }
