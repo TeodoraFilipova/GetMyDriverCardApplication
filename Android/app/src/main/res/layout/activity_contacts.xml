@@ -6,6 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".views.contacts.ContactsActivity">
 
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -22,51 +25,206 @@
             android:id="@+id/tv_contacts"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Receiving offices"
-            android:paddingBottom="10dp"
+            android:layout_below="@+id/drawer_toolbar"
             android:layout_centerHorizontal="true"
-            android:textStyle="bold"
-            android:textSize="20dp"/>
+            android:paddingBottom="10dp"
+            android:text="Offices"
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
-    <LinearLayout
-        android:id="@+id/layout_london_central"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tv_contacts"
-        android:orientation="vertical"
-        >
-
-        <TextView
-            android:textStyle="italic"
+        <LinearLayout
+            android:id="@+id/layout_london_central"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingEnd="5dp"
-            android:text="London - Central office" />
+            android:layout_below="@id/tv_contacts"
+            android:orientation="vertical">
 
-        <TextView
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="5dp"
+                android:text="London - Central office"
+                android:textStyle="italic" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Address: 37 Wood St, London SW1A 2PW" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phone number: +44 7410 367931" />
+
+            <Button
+                android:id="@+id/btn_london_central"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="View on map" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_london_bromley"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Address: 37 Wood St, London EC2P 2NQ "/>
+            android:layout_below="@id/layout_london_central"
+            android:orientation="vertical">
 
-        <TextView
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="5dp"
+                android:text="London - Bromley office"
+                android:textStyle="italic" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Address: 127 Buchanan St, London EC5Q 5PN " />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phone number: +44 1255 112856" />
+
+            <Button
+                android:id="@+id/btn_london_bromley"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="View on map" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_london_hillingdon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Phone number: +44 7410 367931"/>
+            android:layout_below="@id/layout_london_bromley"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btn_london_central"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="5dp"
+                android:text="London - Hillingdon office"
+                android:textStyle="italic" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Address: 67 Roseley Drive, London EC9T 4ER " />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phone number: +44 1129 778932" />
+
+            <Button
+                android:id="@+id/btn_london_hillingdon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="View on map" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_glasgow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="View on map"/>
+            android:layout_below="@id/layout_london_hillingdon"
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="5dp"
+                android:text="Glasgow office"
+                android:textStyle="italic" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Address: 169 Sauchiehall St, Glasgow G4 0PQ" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phone number: +44 7923 692865" />
+
+            <Button
+                android:id="@+id/btn_glasgow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="View on map" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_leeds"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/layout_glasgow"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="5dp"
+                android:text="Leeds office"
+                android:textStyle="italic" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Address: 15 Bell St, Leeds L82 4DR" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phone number: +44 5529 856339" />
+
+            <Button
+                android:id="@+id/btn_leeds"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="View on map" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_cambridge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/layout_leeds"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="5dp"
+                android:text="Cambridge office"
+                android:textStyle="italic" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Address: 98 Anderson St, Cambridge C74 9PL" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phone number: +44 1154 2236955" />
+
+            <Button
+                android:id="@+id/btn_cambridge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="View on map" />
+
+        </LinearLayout>
 
     </RelativeLayout>
-
-
-
-
+</ScrollView>
 
 </android.support.constraint.ConstraintLayout>

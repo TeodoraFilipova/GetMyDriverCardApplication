@@ -115,6 +115,7 @@
     <string name="date_format">yyyy-MM-dd</string>
     <string name="dots">...</string>
     <string name="title_activity_map">MapActivity</string>
+    <string name="title_activity_maps">Map</string>
 
 
 </resources>

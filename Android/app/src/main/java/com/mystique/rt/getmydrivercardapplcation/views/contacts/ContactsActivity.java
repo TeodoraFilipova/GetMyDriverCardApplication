@@ -33,6 +33,21 @@ public class ContactsActivity extends BaseDrawerActivity {
     @BindView(R.id.btn_london_central)
     Button mLondonCentralButton;
 
+    @BindView(R.id.btn_london_bromley)
+    Button mLondonBromleyButton;
+
+    @BindView(R.id.btn_london_hillingdon)
+    Button mLondonHillingdonButton;
+
+    @BindView(R.id.btn_glasgow)
+    Button mGlasgowButton;
+
+    @BindView(R.id.btn_leeds)
+    Button mLeedsButton;
+
+    @BindView(R.id.btn_cambridge)
+    Button mCambridgeButton;
+
     String officename = "";
     int officenumber;
 
@@ -43,7 +58,7 @@ public class ContactsActivity extends BaseDrawerActivity {
 
         ButterKnife.bind(this);
 
-        if (!checkPermissions(this)){
+        if (!checkPermissions(this)) {
             showPermissionsAlert(this);
         } else {
             Toast.makeText(this, "The device location tool is checked.", Toast.LENGTH_SHORT)
@@ -59,12 +74,55 @@ public class ContactsActivity extends BaseDrawerActivity {
             }
         });
 
+        mLondonBromleyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                officename = "LondonBromley";
+                officenumber = 2;
+                openMapClick();
+            }
+        });
 
+        mLondonHillingdonButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                officename = "LondonHillingdon";
+                officenumber = 3;
+                openMapClick();
+            }
+        });
+
+        mGlasgowButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                officename = "Glasgow";
+                officenumber = 4;
+                openMapClick();
+            }
+        });
+
+        mLeedsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                officename = "Leeds";
+                officenumber = 5;
+                openMapClick();
+            }
+        });
+
+        mCambridgeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                officename = "Cambridge";
+                officenumber = 6;
+                openMapClick();
+            }
+        });
     }
 
     //@OnClick(R.id.btn_london_central)
     public void openMapClick() {
-        Intent viewMap = new Intent(this, MapActivity.class);
+        Intent viewMap = new Intent(this, MapsActivity.class);
         viewMap.putExtra("name", officename);
         startActivity(viewMap);
     }
@@ -95,8 +153,6 @@ public class ContactsActivity extends BaseDrawerActivity {
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
     }
-
-
 
 
 }
