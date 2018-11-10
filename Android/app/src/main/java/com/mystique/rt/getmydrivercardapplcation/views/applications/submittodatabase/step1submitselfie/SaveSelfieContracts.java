@@ -13,7 +13,7 @@ public interface SaveSelfieContracts {
 
         void setNextPictureId(Picture lastUpdatedPicture);
 
-        void updateRememberAll();
+        void updateRememberAll(Picture lastUpdatedPicture);
 
         void moveOnToNextSaveActivity();
     }

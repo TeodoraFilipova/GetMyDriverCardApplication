@@ -52,6 +52,7 @@ public class SaveSelfieFragment extends Fragment implements SaveSelfieContracts.
         mPresenter.subscribe(this);
 
         showLoading();
+
         mPresenter.getLastUpdatedPicture();
 
         return view;
@@ -87,9 +88,14 @@ public class SaveSelfieFragment extends Fragment implements SaveSelfieContracts.
     }
 
     @Override
-    public void updateRememberAll() {
+    public void updateRememberAll(Picture lastUpdatedPicture) {
         mRememberAll.getCardApplicationForm().getDriver().getSelfie().setPictureId(mNextPictureId);
         mRememberAll.getCardApplicationForm().getDriver().getSelfie().setLastSetID(Constants.LAST_UPDATED_TRUE);
+
+        if (mRememberAll.getCardApplicationForm().getRenewalReason().equals(Constants.RENEWAL_REASON_SELFIE)) {
+            mRememberAll.getCardApplicationForm().getDriver().getSelfie().setPicture(lastUpdatedPicture.getPicture());
+        }
+
         mPresenter.savePicture(mRememberAll.getCardApplicationForm().getDriver().getSelfie());
     }
 

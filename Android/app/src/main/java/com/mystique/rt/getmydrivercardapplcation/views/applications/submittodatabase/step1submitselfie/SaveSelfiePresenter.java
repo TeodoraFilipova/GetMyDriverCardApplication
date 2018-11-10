@@ -81,6 +81,6 @@ public class SaveSelfiePresenter implements SaveSelfieContracts.Presenter {
     }
 
     private void tellViewToUpdateRememberAll(Picture lastUpdatedPicture) {
-        mView.updateRememberAll();
+        mView.updateRememberAll(lastUpdatedPicture);
     }
 }

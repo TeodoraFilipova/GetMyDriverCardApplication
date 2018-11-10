@@ -22,7 +22,7 @@ public class PictureReplacementAdapter extends FragmentStatePagerAdapter {
             case 0: return "Personal Details";
   //          case 1: return "Driver Photo"; // trying to combine in one camera 2 pictures
             case 1: return "Driving Licence Photo";
-            case 2: return "New selfie";
+            case 2: return "New Photo";
             case 3: return "Declaration";
             default: return null;
         }
