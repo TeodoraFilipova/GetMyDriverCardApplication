@@ -29,7 +29,7 @@ CREATE TABLE `cardapplicationforms` (
   `driverID` int(11) NOT NULL,
   `DateOfSubmission` date NOT NULL,
   `Status` varchar(20) NOT NULL DEFAULT 'new',
-  `Type` varchar(20) NOT NULL,
+  `Type` varchar(60) NOT NULL,
   `ReceivingOffice` varchar(100) NOT NULL,
   `SignaturePicID` int(11) NOT NULL,
   `DateOfEvent` date DEFAULT NULL,

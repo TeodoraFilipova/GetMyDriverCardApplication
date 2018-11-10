@@ -83,7 +83,6 @@ public class SelfieFragment extends Fragment {
         // checking if camera is restricted to wark with the app and ask to change restricted permissions
         if (!checkPermissions(context)){
             showPermissionsAlert(context);
-
         } else {
             Toast.makeText(getActivity(), "The device camera has all necessary permissions.", Toast.LENGTH_SHORT)
                     .show();

@@ -22,6 +22,11 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.mobsandgeeks.saripaar.ValidationError;
+import com.mobsandgeeks.saripaar.Validator;
+import com.mobsandgeeks.saripaar.annotation.Digits;
+import com.mobsandgeeks.saripaar.annotation.Length;
+import com.mobsandgeeks.saripaar.annotation.NotEmpty;
 import com.mystique.rt.getmydrivercardapplcation.BuildConfig;
 import com.mystique.rt.getmydrivercardapplcation.R;
 import com.mystique.rt.getmydrivercardapplcation.apputils.RememberAll;
@@ -35,6 +40,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 import butterknife.BindView;
@@ -43,17 +49,23 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class OldCardFragment extends Fragment implements FocusListener {
+public class OldCardFragment extends Fragment implements FocusListener, Validator.ValidationListener {
 
     private static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 1890;
 
     @BindView(R.id.et_oldcard_number)
+    @NotEmpty
+    @Digits(integer = 45, message = "Should contain only numbers and be no longer than 45 characters!")
     EditText mOldCardNumberEditText;
 
     @BindView(R.id.et_oldcard_authority)
+    @NotEmpty
+    @Length(max = 50, message = "Must be less than 50 characters")
     EditText mOldCardAuthorityEditText;
 
     @BindView(R.id.et_oldcard_country)
+    @NotEmpty
+    @Length(max = 50, message = "Must be less than 50 characters")
     EditText mOldCardCountryEditText;
 
     @BindView(R.id.et_oldcard_date_of_expiry)
@@ -66,6 +78,7 @@ public class OldCardFragment extends Fragment implements FocusListener {
     ImageView mOldCardPicImageView;
 
     private RememberAll mRememberAll;
+    private Validator mValidator;
     BitmapParser mOldCardPicParser;
 
 
@@ -84,6 +97,9 @@ public class OldCardFragment extends Fragment implements FocusListener {
 
         mOldCardPicParser = new ByteArrayBitmapParser();
         mRememberAll = RememberAll.getInstance();
+
+        mValidator = new Validator(this);
+        mValidator.setValidationListener(this);
 
         SetDate setDate = new SetDate(mOldCardDateOfExpiryEditText, getContext(), this);
 
@@ -118,18 +134,21 @@ public class OldCardFragment extends Fragment implements FocusListener {
         mOldCardNumberEditText.setOnFocusChangeListener((v, hasFocus) -> {
             if(!hasFocus) {
                 mRememberAll.setOldCardNumber(mOldCardNumberEditText.getText().toString());
+                mValidator.validate();
             }
         });
 
         mOldCardCountryEditText.setOnFocusChangeListener((v, hasFocus) -> {
             if(!hasFocus) {
                 mRememberAll.setOldCardCountry(mOldCardCountryEditText.getText().toString());
+                mValidator.validate();
             }
         });
 
         mOldCardAuthorityEditText.setOnFocusChangeListener((v, hasFocus) -> {
             if(!hasFocus) {
                 mRememberAll.setOldCardAuthority(mOldCardAuthorityEditText.getText().toString());
+                mValidator.validate();
             }
         });
 
@@ -231,5 +250,25 @@ public class OldCardFragment extends Fragment implements FocusListener {
             e.printStackTrace();
         }
         mRememberAll.setOldCardDateOfExpiry(dateOfExpiry);
+    }
+
+    @Override
+    public void onValidationSucceeded() {
+        Toast.makeText(getContext(), "Yay! we got it right!", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onValidationFailed(List<ValidationError> errors) {
+        for (ValidationError error : errors) {
+            View view = error.getView();
+            String message = error.getCollatedErrorMessage(getContext());
+
+            // Display error messages ;)
+            if (view instanceof EditText) {
+                ((EditText) view).setError(message);
+            } else {
+                Toast.makeText(getContext(), message, Toast.LENGTH_LONG).show();
+            }
+        }
     }
 }
