@@ -18,10 +18,10 @@ public class RenewalAdapter extends FragmentStatePagerAdapter {
     @Override
     public CharSequence getPageTitle(int position) {
         switch (position){
-            case 0: return "Personal Info";
-            case 1: return "Selfie";
-            case 2: return "Driving Licence Pic";
-            case 3: return "Declaration and sign";
+            case 0: return "Personal Details";
+            case 1: return "Driver Photo"; // trying to combine in one camera 2 pictures
+            case 2: return "Driving Licence Photo";
+            case 3: return "Declaration";
             default: return null;
         }
     }

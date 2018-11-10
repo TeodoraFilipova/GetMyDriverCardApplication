@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">GetMyDriverCardApplication</string>
+    <string name="app_name">GetMyDriverCard</string>
     <string name="title_activity_welcome">WelcomeActivity</string>
     <string name="title_activity_first_application">FirstApplicationActivity</string>
 
@@ -19,8 +19,8 @@
     <string name="title_activity_application_choose">ApplicationChooseActivity</string>
     <string name="title_activity_applications_list">ApplicationsListActivity</string>
     <string name="title_activity_details">DetailsActivity</string>
-    <string name="select_application_type_prompt">Please, select the reason for your application from the options below.</string>
-    <string name="application_type_first">First tachograph card with local driving license</string>
+    <string name="select_application_type_prompt">Please, select your application from the options below.</string>
+    <string name="application_type_first">First card with local driving license</string>
     <string name="application_type_EU_for_BG">Exchanging EU for BG card</string>
     <string name="application_type_loss">Replacement of lost card</string>
     <string name="application_type_theft">Replacement of stolen card</string>
@@ -31,8 +31,8 @@
     <string name="application_type_selfie">Replacement due to photograph change</string>
     <string name="application_type_expired">Replacement due to expiration</string>
     <string name="application_type_suspended">Replacement due to suspension/withdrawal</string>
-    <string name="submit_text">Submit</string>
-    <string name="welcome">Welcome to the GetMyDriverCard application by Mystique! Please, select one of the options below.</string>
+    <string name="submit_text">Apply</string>
+    <string name="welcome">Welcome! \n Please, select one of the options below.</string>
     <string name="button_start_new_application">Start a new card application</string>
     <string name="button_check_status">Check application status</string>
     <string name="button_log_in_to_admin_panel">Log in to Admin Panel</string>

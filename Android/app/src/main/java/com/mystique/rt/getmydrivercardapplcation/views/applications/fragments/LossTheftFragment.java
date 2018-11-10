@@ -3,6 +3,8 @@ package com.mystique.rt.getmydrivercardapplcation.views.applications.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -66,11 +68,22 @@ public class LossTheftFragment extends Fragment implements FocusListener, Valida
 
         checkRememberAllForCurrentData();
 
-        mPlaceOfEventEditText.setOnFocusChangeListener((v, hasFocus) -> {
-            if (!hasFocus) {
-                mRememberAll.setPlaceOfEvent(mPlaceOfEventEditText.getText().toString());
+        mPlaceOfEventEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
             }
-            mValidator.validate();
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                mRememberAll.setPlaceOfEvent(mPlaceOfEventEditText.getText().toString());
+                mValidator.validate();
+            }
         });
 
         return view;
@@ -105,7 +118,6 @@ public class LossTheftFragment extends Fragment implements FocusListener, Valida
 
     @Override
     public void onValidationSucceeded() {
-        Toast.makeText(getContext(), "Yay! we got it right!", Toast.LENGTH_SHORT).show();
     }
 
     @Override

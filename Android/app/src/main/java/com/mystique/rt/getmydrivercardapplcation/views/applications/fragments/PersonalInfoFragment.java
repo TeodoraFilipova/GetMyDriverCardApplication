@@ -4,6 +4,8 @@ package com.mystique.rt.getmydrivercardapplcation.views.applications.fragments;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -84,8 +86,8 @@ public class PersonalInfoFragment extends Fragment implements FocusListener, Val
 
     private static final String[] OFFICES = {
             "London - Central office",
-            "London - office Bromley",
-            "London - office Hillington",
+            "London - Bromley office",
+            "London - Hillingdon office",
             "Glasgow",
             "Leeds",
             "Cambridge"
@@ -114,60 +116,117 @@ public class PersonalInfoFragment extends Fragment implements FocusListener, Val
 
         checkRememberAllForCurrentData();
 
-        mPersonalNumberEditText.setOnFocusChangeListener((v, hasFocus) -> {
-            if (!hasFocus) {
+        mPersonalNumberEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
                 mRememberAll.setPersonalNumber(mPersonalNumberEditText.getText().toString());
                 mValidator.validate();
             }
         });
 
-        mFirstNameEditText.setOnFocusChangeListener((v, hasFocus) -> {
-            if (!hasFocus) {
-                mRememberAll.setFirstName(mFirstNameEditText.getText().toString());
-                mValidator.validate();
-            }
-        });
+        mFirstNameEditText.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-        mLastNameEditText.setOnFocusChangeListener((v, hasFocus) -> {
-            if (!hasFocus) {
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+                    mRememberAll.setFirstName(mFirstNameEditText.getText().toString());
+                    mValidator.validate();
+                }
+            });
+
+        mLastNameEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
                 mRememberAll.setLastName(mLastNameEditText.getText().toString());
                 mValidator.validate();
             }
         });
 
-//        mDateOfBirthEditText.setOnFocusChangeListener((v, hasFocus) -> {
-//            if(!hasFocus) {
-//                DateFormat df = new SimpleDateFormat("dd.MM.yyyy");
-//                Date dateOfBirth = null;
-//                try {
-//                    dateOfBirth = df.parse(mDateOfBirthEditText.getText().toString());
-//                } catch (ParseException e) {
-//                    e.printStackTrace();
-//                }
-//                mRememberAll.setDateOfBirth(dateOfBirth);
-//            }
-//        });
 
-        mAddressEditText.setOnFocusChangeListener((v, hasFocus) -> {
-            if (!hasFocus) {
+        mAddressEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
                 mRememberAll.setAddress(mAddressEditText.getText().toString());
                 mValidator.validate();
             }
         });
 
-        mPhoneNumberEditText.setOnFocusChangeListener((v, hasFocus) -> {
-            if (!hasFocus) {
+
+
+        mPhoneNumberEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
                 mRememberAll.setPhoneNumber(mPhoneNumberEditText.getText().toString());
                 mValidator.validate();
             }
         });
 
-        mEmailEditText.setOnFocusChangeListener((v, hasFocus) -> {
-            if (!hasFocus) {
+        mEmailEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
                 mRememberAll.setEmail(mEmailEditText.getText().toString());
                 mValidator.validate();
             }
         });
+
 
         mOfficeChooseSpinner.setItems(OFFICES);
         mOfficeChooseSpinner.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener<String>() {
@@ -180,12 +239,6 @@ public class PersonalInfoFragment extends Fragment implements FocusListener, Val
             }
         });
 
-
-        /*(
-                (MaterialSpinner.OnItemSelectedListener<String>)
-                    (materialSpinner, possition, id, item)
-                            -> Snackbar.make(view, "Office is selected " + item, Snackbar.LENGTH_LONG).show());*/
-
         mOfficeChooseSpinner.setOnNothingSelectedListener(new MaterialSpinner.OnNothingSelectedListener() {
 
             @Override
@@ -193,10 +246,7 @@ public class PersonalInfoFragment extends Fragment implements FocusListener, Val
                 Snackbar.make(spinner, "No office selected", Snackbar.LENGTH_LONG).show();
             }
         });
-        /*(
-                spinner -> Snackbar.make(spinner, "No office selected", Snackbar.LENGTH_LONG).show()
-        );
-*/
+
         return view;
     }
 
@@ -252,7 +302,6 @@ public class PersonalInfoFragment extends Fragment implements FocusListener, Val
     }
     @Override
     public void onValidationSucceeded() {
-  //      Toast.makeText(getContext(), "Yay! we got it right!", Toast.LENGTH_SHORT).show();
     }
 
     @Override

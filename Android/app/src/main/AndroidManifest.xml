@@ -21,11 +21,13 @@
         android:name=".views.AndroidApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/GetMyDriverCardAppication"
+        android:label="GetMyDriverCard"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".views.MainActivity">
+
+        <activity android:name=".views.MainActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -34,62 +36,83 @@
         </activity>
         <activity
             android:name=".views.applications.activities.FirstApplicationActivity"
-            android:label="@string/title_activity_first_application" />
+            android:label="GetMyDriverCard"
+            android:configChanges="orientation|screenSize|keyboardHidden"/>
         <activity
             android:name=".views.applications.activities.NameReplacementActivity"
-            android:label="@string/title_activity_name_replacement" />
+            android:label="GetMyDriverCard"
+            android:configChanges="orientation|screenSize|keyboardHidden"/>
         <activity
             android:name=".views.applications.activities.LossOrTheftActivity"
-            android:label="LossOrTheftActivity" />
+            android:label="GetMyDriverCard"
+            android:configChanges="orientation|screenSize|keyboardHidden"/>
         <activity
             android:name=".views.applications.activities.EUtoBGActivity"
-            android:label="@string/title_activity_bgto_eu" />
+            android:label="GetMyDriverCard"
+            android:configChanges="orientation|screenSize|keyboardHidden"/>
         <activity
             android:name=".views.applications.activities.AddressReplacementActivity"
-            android:label="@string/title_activity_address_replacement" />
+            android:label="GetMyDriverCard"
+            android:configChanges="orientation|screenSize|keyboardHidden"/>
         <activity
             android:name=".views.applications.activities.PictureReplacementActivity"
-            android:label="@string/title_activity_picture_replacement" />
+            android:label="GetMyDriverCard"
+            android:configChanges="orientation|screenSize|keyboardHidden"/>
         <activity
             android:name=".views.applications.activities.RenewalActivity"
-            android:label="@string/title_activity_renewal" />
+            android:label="GetMyDriverCard"
+            android:configChanges="orientation|screenSize|keyboardHidden"/>
         <activity
             android:name=".views.statuscheck.StatusCheckActivity"
-            android:label="@string/title_activity_status_check"
-            android:theme="@style/AppTheme" />
+            android:label="GetMyDriverCard"
+            android:theme="@style/AppTheme"
+            android:configChanges="orientation|screenSize|keyboardHidden"/>
         <activity
             android:name=".views.admin.login.LogInActivity"
-            android:label="@string/title_activity_log_in" />
+            android:label="GetMyDriverCard"
+            android:configChanges="orientation|screenSize|keyboardHidden"/>
         <activity
             android:name=".views.contacts.ContactsActivity"
-            android:label="@string/title_activity_contacts" />
+            android:label="GetMyDriverCard"
+            android:configChanges="orientation|screenSize|keyboardHidden"/>
         <activity
             android:name=".views.applications.activities.ApplicationChooseActivity"
-            android:label="@string/title_activity_application_choose"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            android:label="GetMyDriverCard"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:configChanges="orientation|screenSize|keyboardHidden"/>
         <activity
             android:name=".views.admin.details.CardApplicationDetailsActivity"
-            android:label="@string/title_activity_details"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            android:label="GetMyDriverCard"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:configChanges="orientation|screenSize|keyboardHidden"/>
         <activity
             android:name=".views.admin.applicationslist.CardApplicationFormsListActivity"
-            android:label="@string/title_activity_card_application_list"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".views.applications.submittodatabase.step1submitselfie.SaveSelfieActivity" />
-        <activity android:name=".views.applications.submittodatabase.step2submitdrivinglicense.SaveDrivingLicensePicActivity" />
-        <activity android:name=".views.applications.submittodatabase.step3submitsignaturepic.SaveSignaturePicActivity" />
-        <activity android:name=".views.applications.submittodatabase.step4submitnewselfie.SaveNewSelfieActivity" />
-        <activity android:name=".views.applications.submittodatabase.step5submitoldcardpic.SaveOldCardPicActivity" />
-        <activity android:name=".views.applications.submittodatabase.step6submitdriver.SaveDriverActivity" />
-        <activity android:name=".views.applications.submittodatabase.step7submitcardapplicationform.SaveCardApplicationFormActivity" />
-        <!--
-             The API key for Google Maps-based APIs is defined as a string resource.
-             (See the file "res/values/google_maps_api.xml").
-             Note that the API key is linked to the encryption key used to sign the APK.
-             You need a different API key for each encryption key, including the release key that is used to
-             sign the APK for publishing.
-             You can define the keys for the debug and release targets in src/debug/ and src/release/. 
-        -->
+            android:label="GetMyDriverCard"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:configChanges="orientation|screenSize|keyboardHidden"/>
+        <activity android:name=".views.applications.submittodatabase.step1submitselfie.SaveSelfieActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"/>
+        <activity android:name=".views.applications.submittodatabase.step2submitdrivinglicense.SaveDrivingLicensePicActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"/>
+        <activity android:name=".views.applications.submittodatabase.step3submitsignaturepic.SaveSignaturePicActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"/>
+        <activity android:name=".views.applications.submittodatabase.step4submitnewselfie.SaveNewSelfieActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"/>
+        <activity android:name=".views.applications.submittodatabase.step5submitoldcardpic.SaveOldCardPicActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"/>
+        <activity android:name=".views.applications.submittodatabase.step6submitdriver.SaveDriverActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"/>
+        <activity android:name=".views.applications.submittodatabase.step7submitcardapplicationform.SaveCardApplicationFormActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"/>
+
+    <!--
+                 The API key for Google Maps-based APIs is defined as a string resource.
+                 (See the file "res/values/google_maps_api.xml").
+                 Note that the API key is linked to the encryption key used to sign the APK.
+                 You need a different API key for each encryption key, including the release key that is used to
+                 sign the APK for publishing.
+                 You can define the keys for the debug and release targets in src/debug/ and src/release/.
+            -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />

@@ -288,7 +288,6 @@ public class ChangeFragment extends Fragment implements FocusListener, Validator
 
     @Override
     public void onValidationSucceeded() {
-        Toast.makeText(getContext(), "Yay! we got it right!", Toast.LENGTH_SHORT).show();
     }
 
     @Override

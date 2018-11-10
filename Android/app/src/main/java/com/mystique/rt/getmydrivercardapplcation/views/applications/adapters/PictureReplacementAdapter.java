@@ -19,11 +19,11 @@ public class PictureReplacementAdapter extends FragmentStatePagerAdapter {
     @Override
     public CharSequence getPageTitle(int position) {
         switch (position){
-            case 0: return "Personal Info";
-            case 1: return "Selfie";
-            case 2: return "Driving Licence Pic";
-            case 3: return "New selfie";
-            case 4: return "Declaration and sign";
+            case 0: return "Personal Details";
+  //          case 1: return "Driver Photo"; // trying to combine in one camera 2 pictures
+            case 1: return "Driving Licence Photo";
+            case 2: return "New selfie";
+            case 3: return "Declaration";
             default: return null;
         }
     }
@@ -33,17 +33,17 @@ public class PictureReplacementAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
         switch (position){
             case 0: return new PersonalInfoFragment();
-            case 1: return new SelfieFragment();
-            case 2: return new DrivingLicensePictureFragment();
-            case 3: return new ChangeFragment();
-            case 4: return new SignDeclarationFragment();
+       //     case 1: return new SelfieFragment();
+            case 1: return new DrivingLicensePictureFragment();
+            case 2: return new ChangeFragment();
+            case 3: return new SignDeclarationFragment();
         }
         return null;
     }
 
     @Override
     public int getCount() {
-        return 5;
+        return 4;
     }
 }
 

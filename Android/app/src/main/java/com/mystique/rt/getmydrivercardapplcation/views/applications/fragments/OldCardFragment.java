@@ -14,6 +14,8 @@ import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -131,22 +133,58 @@ public class OldCardFragment extends Fragment implements FocusListener, Validato
             }
         });
 
-        mOldCardNumberEditText.setOnFocusChangeListener((v, hasFocus) -> {
-            if(!hasFocus) {
+        mOldCardNumberEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
                 mRememberAll.setOldCardNumber(mOldCardNumberEditText.getText().toString());
                 mValidator.validate();
             }
         });
 
-        mOldCardCountryEditText.setOnFocusChangeListener((v, hasFocus) -> {
-            if(!hasFocus) {
+
+
+        mOldCardCountryEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
                 mRememberAll.setOldCardCountry(mOldCardCountryEditText.getText().toString());
                 mValidator.validate();
             }
         });
 
-        mOldCardAuthorityEditText.setOnFocusChangeListener((v, hasFocus) -> {
-            if(!hasFocus) {
+
+        mOldCardAuthorityEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
                 mRememberAll.setOldCardAuthority(mOldCardAuthorityEditText.getText().toString());
                 mValidator.validate();
             }
@@ -254,7 +292,6 @@ public class OldCardFragment extends Fragment implements FocusListener, Validato
 
     @Override
     public void onValidationSucceeded() {
-        Toast.makeText(getContext(), "Yay! we got it right!", Toast.LENGTH_SHORT).show();
     }
 
     @Override
