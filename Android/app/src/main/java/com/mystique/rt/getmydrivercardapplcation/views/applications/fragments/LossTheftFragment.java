@@ -13,6 +13,7 @@ import com.mobsandgeeks.saripaar.ValidationError;
 import com.mobsandgeeks.saripaar.Validator;
 import com.mobsandgeeks.saripaar.annotation.Length;
 import com.mobsandgeeks.saripaar.annotation.NotEmpty;
+import com.mobsandgeeks.saripaar.annotation.Past;
 import com.mystique.rt.getmydrivercardapplcation.R;
 import com.mystique.rt.getmydrivercardapplcation.apputils.RememberAll;
 import com.mystique.rt.getmydrivercardapplcation.apputils.SetDate;
@@ -36,6 +37,7 @@ public class LossTheftFragment extends Fragment implements FocusListener, Valida
     private Validator mValidator;
 
     @BindView(R.id.et_date_of_event)
+    @Past(dateFormat = "yyyy-MM-dd")
     EditText mDateOfEventEditText;
 
 
@@ -65,7 +67,7 @@ public class LossTheftFragment extends Fragment implements FocusListener, Valida
         checkRememberAllForCurrentData();
 
         mPlaceOfEventEditText.setOnFocusChangeListener((v, hasFocus) -> {
-            if(!hasFocus) {
+            if (!hasFocus) {
                 mRememberAll.setPlaceOfEvent(mPlaceOfEventEditText.getText().toString());
             }
             mValidator.validate();
@@ -97,7 +99,6 @@ public class LossTheftFragment extends Fragment implements FocusListener, Valida
             e.printStackTrace();
         }
         mRememberAll.setDateOfEvent(dateOfEvent);
-        mRememberAll.setDateOfBirth(dateOfBirth);
 
         mValidator.validate();
     }

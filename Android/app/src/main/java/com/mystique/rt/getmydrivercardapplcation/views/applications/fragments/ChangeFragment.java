@@ -49,7 +49,7 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ChangeFragment extends Fragment implements FocusListener, Validator.ValidationListener{
+public class ChangeFragment extends Fragment implements FocusListener, Validator.ValidationListener {
 
     private RememberAll mRememberAll;
 
@@ -96,7 +96,6 @@ public class ChangeFragment extends Fragment implements FocusListener, Validator
     }
 
 
-
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -111,6 +110,11 @@ public class ChangeFragment extends Fragment implements FocusListener, Validator
         Context context = getActivity();
 
         PackageManager packageManager = Objects.requireNonNull(context).getPackageManager();
+
+        mValidator = new Validator(this);
+        mValidator.setValidationListener(this);
+
+        checkRememberAllForCurrentData();
 
         setFieldVisibilityAccordingToType();
 
@@ -127,16 +131,11 @@ public class ChangeFragment extends Fragment implements FocusListener, Validator
 
             @Override
             public void afterTextChanged(Editable s) {
-        mValidator = new Validator(this);
-        mValidator.setValidationListener(this);
-
-        mNewFirstNameEditText.setOnFocusChangeListener((v, hasFocus) -> {
-            if(!hasFocus) {
                 mRememberAll.setNewFirstName(mNewFirstNameEditText.getText().toString());
+                mValidator.validate();
             }
-            mValidator.validate();
-
         });
+
 
         mNewLastNameEditText.addTextChangedListener(new TextWatcher() {
             @Override
@@ -152,8 +151,8 @@ public class ChangeFragment extends Fragment implements FocusListener, Validator
             @Override
             public void afterTextChanged(Editable s) {
                 mRememberAll.setNewLastName(mNewLastNameEditText.getText().toString());
+                mValidator.validate();
             }
-            mValidator.validate();
         });
 
         mNewAddressEditText.addTextChangedListener(new TextWatcher() {
@@ -170,40 +169,20 @@ public class ChangeFragment extends Fragment implements FocusListener, Validator
             @Override
             public void afterTextChanged(Editable s) {
                 mRememberAll.setNewAddress(mNewAddressEditText.getText().toString());
+                mValidator.validate();
             }
-            mValidator.validate();
         });
 
-//        mNewFirstNameEditText.setOnFocusChangeListener((v, hasFocus) -> {
-//            if(!hasFocus) {
-//                mRememberAll.setNewFirstName(mNewFirstNameEditText.getText().toString());
-//            }
-//        });
-//
-//        mNewLastNameEditText.setOnFocusChangeListener((v, hasFocus) -> {
-//            if(!hasFocus) {
-//                mRememberAll.setNewLastName(mNewLastNameEditText.getText().toString());
-//            }
-//        });
-//
-//        mNewAddressEditText.setOnFocusChangeListener((v, hasFocus) -> {
-//            if(!hasFocus) {
-//                mRememberAll.setNewAddress(mNewAddressEditText.getText().toString());
-//            }
-//        });
-
-        checkRememberAllForCurrentData();
 
         // checking if camera exist
-        if(!packageManager.hasSystemFeature(PackageManager.FEATURE_CAMERA)){
+        if (!packageManager.hasSystemFeature(PackageManager.FEATURE_CAMERA)) {
             Toast.makeText(getActivity(), "This device does not have a camera.", Toast.LENGTH_SHORT)
                     .show();
         }
 
         // checking if camera is restricted to work with the app and ask to change restricted permissions
-        if (!checkPermissions(context)){
+        if (!checkPermissions(context)) {
             showPermissionsAlert(context);
-
         } else {
             Toast.makeText(getActivity(), "The device camera has all necessary permissions!", Toast.LENGTH_SHORT)
                     .show();
@@ -215,9 +194,8 @@ public class ChangeFragment extends Fragment implements FocusListener, Validator
                 makeNewSelfiePic();
             }
         });
-
         return view;
-    }
+}
 
     private void setFieldVisibilityAccordingToType() {
         if (mRememberAll.getCardApplicationForm().getRenewalReason().equals(Constants.RENEWAL_REASON_NAME)) {
@@ -251,8 +229,8 @@ public class ChangeFragment extends Fragment implements FocusListener, Validator
     }
 
 
-    public void makeNewSelfiePic(){
-        Intent cameraIntent=new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+    public void makeNewSelfiePic() {
+        Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         Objects.requireNonNull(getActivity()).startActivityFromFragment(ChangeFragment.this, cameraIntent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
     }
 
@@ -280,8 +258,8 @@ public class ChangeFragment extends Fragment implements FocusListener, Validator
                     newSelfieImageView.setImageBitmap(bmp);
                 }
             }
-        }catch(Exception e){
-            Toast.makeText(this.getActivity(), e+"Getting picture from camera failed. Take picture again!", Toast.LENGTH_LONG).show();
+        } catch (Exception e) {
+            Toast.makeText(this.getActivity(), e + "Getting picture from camera failed. Take picture again!", Toast.LENGTH_LONG).show();
 
         }
     }
@@ -328,7 +306,7 @@ public class ChangeFragment extends Fragment implements FocusListener, Validator
         }
     }
 
-    //Do we need to overwrite this, if we do not use it!
+    //Do we need to overwrite this, if we do not use it! -- No
     @Override
     public void saveDateToObject() {
 
