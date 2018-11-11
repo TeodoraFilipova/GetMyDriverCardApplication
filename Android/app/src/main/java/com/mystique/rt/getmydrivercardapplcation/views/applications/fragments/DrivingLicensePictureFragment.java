@@ -1,3 +1,4 @@
+
 package com.mystique.rt.getmydrivercardapplcation.views.applications.fragments;
 
 
@@ -33,9 +34,17 @@ import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
 /**
- * A simple {@link Fragment} subclass.
+ * <h1>DrivingLicensePicture Fragment</h1>
+ *
+ * <b>Description: </b> Fragment uses devise camera to collect driving license photo for
+ * different user application types, which is organised by Adapters in different activities
+ * in slider view.
+ *
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
  */
 public class DrivingLicensePictureFragment extends Fragment {
 

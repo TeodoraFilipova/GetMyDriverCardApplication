@@ -1,3 +1,6 @@
+
+
+
 package com.mystique.rt.getmydrivercardapplcation.views.applications.activities;
 
 import android.content.Intent;
@@ -10,7 +13,18 @@ import com.mystique.rt.getmydrivercardapplcation.R;
 import com.mystique.rt.getmydrivercardapplcation.apputils.Navigator;
 import com.mystique.rt.getmydrivercardapplcation.views.applications.adapters.LossOrTheftAdapter;
 
-
+/**
+ * <h1>LossOrTheft Activity</h1>
+ *
+ * <b>Description: </b> Activity with with editing information for
+ * First card application form, which is organised by LossOrTheft Adapter
+ * to slider view of needed Fragments (exp. Personal information fragment etc.)
+ *
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
+ */
 public class LossOrTheftActivity extends AppCompatActivity implements Navigator {
 
     @Override

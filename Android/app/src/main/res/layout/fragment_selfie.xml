@@ -4,8 +4,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+            android:text="Driver Photo"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/md_red_800"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
     <Button
         android:id="@+id/btn_picturecamera"
         android:layout_width="wrap_content"
@@ -22,5 +42,15 @@
         android:contentDescription="push_button_to_make_picture"
         />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/pic_recomentdations"
+            android:textSize="15dp"
+            android:textStyle="italic"/>
 
+    </LinearLayout>
+
+    </LinearLayout>
+    </ScrollView>
 </RelativeLayout>

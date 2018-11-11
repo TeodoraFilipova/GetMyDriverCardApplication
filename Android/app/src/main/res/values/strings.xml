@@ -19,7 +19,7 @@
     <string name="title_activity_application_choose">ApplicationChooseActivity</string>
     <string name="title_activity_applications_list">ApplicationsListActivity</string>
     <string name="title_activity_details">DetailsActivity</string>
-    <string name="select_application_type_prompt">Please, select your application from the options below.</string>
+    <string name="select_application_type_prompt">Select your application from type</string>
     <string name="application_type_first">First card with local driving license</string>
     <string name="application_type_EU_for_BG">Exchanging EU for BG card</string>
     <string name="application_type_loss">Replacement of lost card</string>
@@ -116,6 +116,7 @@
     <string name="dots">...</string>
     <string name="title_activity_map">MapActivity</string>
     <string name="title_activity_maps">Map</string>
+    <string name="pic_recomentdations">Recommendations: take photo against a plain light background, looking straight at the camera, have a neutral expression, your eyes open, your face uncovered, and no smiling, no reflection or glare, no sunglasses, no hair hiding your eyes, no head covering e.g. hat/cap (unless for religious or medical reasons), no shadows.</string>
 
 
 </resources>

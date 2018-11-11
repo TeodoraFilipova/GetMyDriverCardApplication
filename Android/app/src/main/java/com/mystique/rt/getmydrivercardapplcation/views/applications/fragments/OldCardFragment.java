@@ -1,3 +1,5 @@
+
+
 package com.mystique.rt.getmydrivercardapplcation.views.applications.fragments;
 
 
@@ -22,6 +24,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mobsandgeeks.saripaar.ValidationError;
@@ -49,7 +52,16 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * A simple {@link Fragment} subclass.
+ * <h1>OldCard Fragment</h1>
+ *
+ * <b>Description: </b> Fragment uses devise camera to collect old card information - names, driver picture for
+ * different user application types, which is organised by Adapters in different activities
+ * in slider view.
+ *
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
  */
 public class OldCardFragment extends Fragment implements FocusListener, Validator.ValidationListener {
 

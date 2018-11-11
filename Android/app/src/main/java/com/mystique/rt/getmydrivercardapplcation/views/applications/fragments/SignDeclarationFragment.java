@@ -1,3 +1,5 @@
+
+
 package com.mystique.rt.getmydrivercardapplcation.views.applications.fragments;
 
 
@@ -26,7 +28,16 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
- * A simple {@link Fragment} subclass.
+ * <h1>SignDeclaration Fragment</h1>
+ *
+ * <b>Description: </b> Fragment take user declaration acception and signature picture for
+ * different user application types, which is organised by Adapters in different activities
+ * in slider view.
+ *
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
  */
 public class SignDeclarationFragment extends Fragment {
 

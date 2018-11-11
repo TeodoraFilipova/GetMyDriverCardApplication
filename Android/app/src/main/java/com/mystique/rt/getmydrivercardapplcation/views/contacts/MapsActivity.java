@@ -11,6 +11,16 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.mystique.rt.getmydrivercardapplcation.R;
+/**
+ * <h1>Map Activity</h1>
+ *
+ * <b>Description: </b> Contains google map view.
+ *
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
+ */
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 

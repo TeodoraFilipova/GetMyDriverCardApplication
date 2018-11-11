@@ -1,3 +1,4 @@
+
 package com.mystique.rt.getmydrivercardapplcation.views.applications.adapters;
 
 import android.support.v4.app.Fragment;
@@ -9,7 +10,17 @@ import com.mystique.rt.getmydrivercardapplcation.views.applications.fragments.Ol
 import com.mystique.rt.getmydrivercardapplcation.views.applications.fragments.PersonalInfoFragment;
 import com.mystique.rt.getmydrivercardapplcation.views.applications.fragments.SelfieFragment;
 import com.mystique.rt.getmydrivercardapplcation.views.applications.fragments.SignDeclarationFragment;
-
+/**
+ * <h1>EUtoBGAdapter Adapter class</h1>
+ *
+ * <b>Description: </b> Organises EUtoBGAdapter Activity
+ * to slider view of needed Fragments (exp. Personal information fragment etc.)
+ *
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
+ */
 public class EUtoBGAdapter extends FragmentStatePagerAdapter {
 
     public EUtoBGAdapter(FragmentManager fm) {
@@ -19,11 +30,11 @@ public class EUtoBGAdapter extends FragmentStatePagerAdapter {
     @Override
     public CharSequence getPageTitle(int position) {
         switch (position){
-            case 0: return "Personal Details";
-            case 1: return "Driver Photo"; // trying to combine in one camera 2 pictures
-            case 2: return "Driving Licence Photo";
-            case 3: return "Old Card info";
-            case 4: return "Declaration";
+            case 0: return "Driver";
+            case 1: return "Photo";
+            case 2: return "Photo";
+            case 3: return "Other";
+            case 4: return "Sign";
             default: return null;
         }
     }

@@ -4,84 +4,80 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Declaration and Signing"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/md_red_800"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
     <TextView
         android:id="@+id/tv_declaration_text"
-        android:layout_width="352dp"
-        android:layout_height="67dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="11dp"
         android:text="@string/i_declare"
         android:textSize="10sp"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/tv_agreament"
-        android:layout_width="wrap_content"
-        android:layout_height="23dp"
-        android:layout_alignTop="@+id/chb_declaration"
-        android:layout_below="@id/tv_declaration_text"
-        android:layout_marginTop="8dp"
-        android:layout_toEndOf="@+id/chb_declaration"
-        android:text="@string/agreement"
-        android:textSize="10sp"
-        android:textStyle="italic" />
+        <TextView
+            android:id="@+id/tv_agreament"
+            android:layout_width="wrap_content"
+            android:layout_height="23dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/agreement"
+            android:textSize="10sp"
+            android:textStyle="italic" />
 
-    <CheckBox
-        android:id="@+id/chb_declaration"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/btn_clear_pad"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="-105dp"
-        android:layout_marginStart="41dp"
-        android:visibility="visible" />
+        <CheckBox
+            android:id="@+id/chb_declaration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible" />
 
-
+    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
     <Button
         android:id="@+id/btn_clear_pad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="105dp"
         android:text="@string/clear_signature_pad"
         android:textStyle="italic" />
 
     <com.github.gcacace.signaturepad.views.SignaturePad
         android:id="@+id/sp_signature_pad"
         android:layout_width="match_parent"
-        android:layout_height="220dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="66dp"
+        android:layout_height="190dp"
         android:background="@android:color/white" />
 
     <Button
         android:id="@+id/btn_submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
         android:text="@string/submit_application" />
 
-    <!--&lt;!&ndash; TODO: Update blank fragment layout &ndash;&gt;
-    <TextView
-        android:id="@+id/text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Declaration and Sign"
-        android:layout_centerInParent="true"
-        android:textSize="30dp"
-        />
+       </LinearLayout>
 
-    <Button
-        android:id="@+id/button_submit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/submit_text"
-        android:layout_below="@+id/text"/>-->
+        </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>

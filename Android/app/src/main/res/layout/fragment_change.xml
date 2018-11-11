@@ -4,6 +4,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Renewing information"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/md_red_800"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
     <LinearLayout
         android:id="@+id/layout_new_firstname"
         android:layout_width="match_parent"
@@ -68,6 +86,10 @@
             android:hint="@string/new_address"
             android:inputType="textMultiLine" />
     </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
     <Button
         android:id="@+id/btn_newselfie_camera"
@@ -86,5 +108,19 @@
         android:layout_centerHorizontal="true"
         android:contentDescription="@string/push_button_to_make_picture"
         android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/tv_newselfie_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pic_recomentdations"
+                android:textSize="15dp"
+                android:textStyle="italic"
+                android:visibility="gone"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>

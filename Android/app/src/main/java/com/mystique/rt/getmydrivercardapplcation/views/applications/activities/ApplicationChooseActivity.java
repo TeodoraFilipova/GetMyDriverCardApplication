@@ -1,15 +1,4 @@
-/**
- * <h1>ApplicationChoose Activity</h1>
- *
- * <b>Description: </b> Start screen in new card application form,
- * where user should choose the type of his application and apply
- * with click button.
- *
- *
- * @author  Mystique Team
- * @version 1.0
- * @since   2018-11-12
- */
+
 
 package com.mystique.rt.getmydrivercardapplcation.views.applications.activities;
 
@@ -22,7 +11,18 @@ import com.mystique.rt.getmydrivercardapplcation.views.BaseDrawerActivity;
 import com.mystique.rt.getmydrivercardapplcation.views.applications.fragments.ApplicationChooseFragment;
 
 import butterknife.ButterKnife;
-
+/**
+ * <h1>ApplicationChoose Activity</h1>
+ *
+ * <b>Description: </b> Start screen in new card application,
+ * which uses Application Choose fragment, where user should choose
+ * the type of his application and apply with click button.
+ *
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
+ */
 public class ApplicationChooseActivity extends BaseDrawerActivity
         implements Navigator {
 
