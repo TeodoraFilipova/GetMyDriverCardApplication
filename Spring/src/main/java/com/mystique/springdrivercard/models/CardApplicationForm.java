@@ -265,6 +265,17 @@ public class CardApplicationForm {
         this.details = "";
     }
 
+    //constructor for unitesting
+    public CardApplicationForm(Driver driver, int cardApplicationFormId, Date dateOfSubmission,
+                               String status, String type,  String statusCheckCode, String lastSetID) {
+        this.driver = driver;
+        this.cardApplicationFormId = cardApplicationFormId;
+        this.dateOfSubmission = dateOfSubmission;
+        this.status = status;
+        this.type = type;
+        this.statusCheckCode = statusCheckCode;
+        this.lastSetID = lastSetID;
+    }
 
     // Getter & Setters
     // methods for changing status in Repository
