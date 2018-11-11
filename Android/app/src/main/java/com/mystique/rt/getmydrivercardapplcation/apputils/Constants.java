@@ -1,3 +1,15 @@
+/**
+ * <h1>Constants class</h1>
+ *
+ * <b>Description: </b> This class contains all constant values used throughout
+ * the application. Constants are reusable and publicly available. Their names
+ * are self-explanatory.
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
+ */
+
 package com.mystique.rt.getmydrivercardapplcation.apputils;
 
 public class Constants {

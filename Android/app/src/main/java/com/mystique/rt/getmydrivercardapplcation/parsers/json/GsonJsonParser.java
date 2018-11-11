@@ -1,3 +1,15 @@
+/**
+ * <h1>GsonJsonParser class</h1>
+ *
+ * <b>Description: </b> This class implements the methods for parsing
+ * to and from Json objects. It is used to pass objects to and from
+ * http requests.
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
+ */
+
 package com.mystique.rt.getmydrivercardapplcation.parsers.json;
 
 import android.util.Base64;

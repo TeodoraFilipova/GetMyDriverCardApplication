@@ -1,3 +1,14 @@
+/**
+ * <h1>AppComponent interface</h1>
+ *
+ * <b>Description: </b> This interface is a part of the Dagger dependency injection configuration.
+ * It provides, binds, and builds modules.
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
+ */
+
 package com.mystique.rt.getmydrivercardapplcation.diconfig;
 
 
@@ -19,7 +30,6 @@ import javax.inject.Singleton;
         AsyncModule.class,
         CardApplicationDetailsModule.class,
         CardApplicationFormsListModule.class,
-   //     CompletedApplicationModule.class,
         HttpModule.class,
         LogInModule.class,
         ParsersModule.class,

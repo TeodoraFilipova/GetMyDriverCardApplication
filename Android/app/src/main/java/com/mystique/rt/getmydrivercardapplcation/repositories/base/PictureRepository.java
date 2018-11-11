@@ -1,3 +1,14 @@
+/**
+ * <h1>PictureRepository interface</h1>
+ *
+ * <b>Description: </b> This interface defines the methods for the
+ * repository layer (get, add, update) of Picture.
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
+ */
+
 package com.mystique.rt.getmydrivercardapplcation.repositories.base;
 
 import com.mystique.rt.getmydrivercardapplcation.models.Picture;

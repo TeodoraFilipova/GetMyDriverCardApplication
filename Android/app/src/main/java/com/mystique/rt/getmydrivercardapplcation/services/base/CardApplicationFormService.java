@@ -1,3 +1,15 @@
+/**
+ * <h1>CardApplicationFormService interface</h1>
+ *
+ * <b>Description: </b> This interface defines the methods for the
+ * service layer (reflecting the business requirements of the
+ * application) of CardApplicationForm.
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
+ */
+
 package com.mystique.rt.getmydrivercardapplcation.services.base;
 
 import com.mystique.rt.getmydrivercardapplcation.models.CardApplicationForm;
