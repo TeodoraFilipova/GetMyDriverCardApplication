@@ -18,6 +18,7 @@ import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -34,7 +35,7 @@ public class HttpCardApplicationFormServiceTests {
     HttpCardApplicationFormService testHttpFormService;
 
     private static Driver driver = new Driver(1, "12345", "Gogo", "Kocev", "");
-    private static Date dateOfSubmission = new Date(2018-11-8);
+    private static Date dateOfSubmission = new Date();
 
     private static List<CardApplicationForm> defaultMockRepositoryContent = Arrays.asList(
 
@@ -174,11 +175,15 @@ public class HttpCardApplicationFormServiceTests {
 
 
 
-    /*@Test
-    public void getFilteredFormsByBySubmissionDate_Should_ReturnsFromWithTheSameBySubmissionDateRepository_WhenRepositoryHasMatch() throws Exception{
+    @Test
+    public void getFilteredFormsByBySubmissionDate_Should_ReturnsFromWithTheSameSubmissionDate_WhenRepositoryHasMatch() throws Exception{
         Mockito.when(mockRepository.getAll()).thenReturn(defaultMockRepositoryContent);
 
-        List<CardApplicationForm> result = testHttpFormService.getFilteredFormsBySubmissionDate("2018-11-8");
+        Date date = new Date();
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        String pattern = df.format(date);
+
+        List<CardApplicationForm> result = testHttpFormService.getFilteredFormsBySubmissionDate(pattern);
         CardApplicationForm[] finalResult = new CardApplicationForm[result.size()];
         finalResult = result.toArray(finalResult);
 
@@ -187,7 +192,7 @@ public class HttpCardApplicationFormServiceTests {
 
 
         Assert.assertEquals(expected, finalResult);
-    }*/
+    }
 
     @Test
     public void getFilteredFormsByStatus_Should_ReturnsFromWithTheSameStatusRepository_WhenRepositoryHasMatch() throws Exception{
