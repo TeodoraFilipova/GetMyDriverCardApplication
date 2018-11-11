@@ -111,15 +111,17 @@ public class HttpCardApplicationFormService implements CardApplicationFormServic
 
     @Override
     public List<CardApplicationForm> getFilteredFormsBySubmissionDate(String pattern) throws Exception {
-        String patternToLower = pattern.toLowerCase();
+       // String patternToLower = pattern.toLowerCase();
         List<CardApplicationForm> forms = getAllForms();
         List<CardApplicationForm> filteredForms = new ArrayList<>();
 
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+      //  String checkedDate = df.format(forms.get(i).getDateOfSubmission());
 
         for (int i = 0; i < forms.size(); i++) {
-            DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-            String checkedDate = df.format(forms.get(i).getDateOfSubmission());
-            if (checkedDate.equals(patternToLower)) {
+            Date date = forms.get(i).getDateOfSubmission();
+            String currentFormDateOfSubmission = df.format(date);
+            if (currentFormDateOfSubmission.trim().equals(pattern.trim())) {
                 filteredForms.add(forms.get(i));
             }
         }
