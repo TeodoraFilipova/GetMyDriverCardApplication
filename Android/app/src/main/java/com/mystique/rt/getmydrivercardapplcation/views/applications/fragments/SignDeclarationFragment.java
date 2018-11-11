@@ -136,7 +136,7 @@ public class SignDeclarationFragment extends Fragment {
     public void goToCompletionActivity() {
         mSignImage = mSignaturePad.getSignatureBitmap();
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        mSignImage.compress(Bitmap.CompressFormat.PNG, 100, stream);
+        mSignImage.compress(Bitmap.CompressFormat.PNG, 30, stream);
         byte[] byteSign = mSignParser.fromBitmap(mSignImage);
         mRememberAll.setSignaturePicture(byteSign);
         mNavigator.navigateToActivity(SaveSelfieActivity.class);

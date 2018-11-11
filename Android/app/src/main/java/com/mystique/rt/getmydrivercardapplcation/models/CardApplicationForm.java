@@ -208,10 +208,15 @@ public class CardApplicationForm implements Serializable {
     }
 
     //constructor for unitesting
-    public CardApplicationForm(String status, String type, String statusCheckCode) {
+    public CardApplicationForm(Driver driver, int cardApplicationFormId, Date dateOfSubmission,
+                               String status, String type,  String statusCheckCode, String lastSetID) {
+        this.driver = driver;
+        this.cardApplicationFormId = cardApplicationFormId;
+        this.dateOfSubmission = dateOfSubmission;
         this.status = status;
         this.type = type;
         this.statusCheckCode = statusCheckCode;
+        this.lastSetID = lastSetID;
     }
 
     public int getCardApplicationFormId() {
