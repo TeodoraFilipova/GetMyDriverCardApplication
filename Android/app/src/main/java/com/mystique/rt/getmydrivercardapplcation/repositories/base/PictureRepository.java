@@ -1,3 +1,12 @@
+
+
+package com.mystique.rt.getmydrivercardapplcation.repositories.base;
+
+import com.mystique.rt.getmydrivercardapplcation.models.Picture;
+
+import java.io.IOException;
+import java.util.List;
+
 /**
  * <h1>PictureRepository interface</h1>
  *
@@ -8,14 +17,6 @@
  * @version 1.0
  * @since   2018-11-12
  */
-
-package com.mystique.rt.getmydrivercardapplcation.repositories.base;
-
-import com.mystique.rt.getmydrivercardapplcation.models.Picture;
-
-import java.io.IOException;
-import java.util.List;
-
 public interface PictureRepository {
 
     Picture add(Picture picture) throws IOException;

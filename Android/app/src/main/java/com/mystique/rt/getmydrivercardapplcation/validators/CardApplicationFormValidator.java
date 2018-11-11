@@ -1,3 +1,10 @@
+
+
+package com.mystique.rt.getmydrivercardapplcation.validators;
+
+import com.mystique.rt.getmydrivercardapplcation.models.CardApplicationForm;
+import com.mystique.rt.getmydrivercardapplcation.validators.base.Validator;
+
 /**
  * <h1>CardApplicationFormValidator class</h1>
  *
@@ -8,12 +15,6 @@
  * @version 1.0
  * @since   2018-11-12
  */
-
-package com.mystique.rt.getmydrivercardapplcation.validators;
-
-import com.mystique.rt.getmydrivercardapplcation.models.CardApplicationForm;
-import com.mystique.rt.getmydrivercardapplcation.validators.base.Validator;
-
 public class CardApplicationFormValidator implements Validator<CardApplicationForm> {
 
 //    private String drivingLicenseNumber;

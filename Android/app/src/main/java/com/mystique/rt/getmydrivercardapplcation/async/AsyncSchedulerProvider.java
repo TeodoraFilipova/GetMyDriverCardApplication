@@ -1,3 +1,11 @@
+
+
+package com.mystique.rt.getmydrivercardapplcation.async;
+
+import io.reactivex.Scheduler;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
+
 /**
  * <h1>AsyncSchedulerProvider class</h1>
  *
@@ -8,13 +16,6 @@
  * @version 1.0
  * @since   2018-11-12
  */
-
-package com.mystique.rt.getmydrivercardapplcation.async;
-
-import io.reactivex.Scheduler;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
-
 public class AsyncSchedulerProvider implements SchedulerProvider {
     private static SchedulerProvider instance;
 

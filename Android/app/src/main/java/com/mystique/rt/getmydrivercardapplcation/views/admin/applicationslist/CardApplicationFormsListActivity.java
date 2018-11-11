@@ -1,3 +1,5 @@
+
+
 package com.mystique.rt.getmydrivercardapplcation.views.admin.applicationslist;
 
 import android.content.Intent;
@@ -12,6 +14,17 @@ import javax.inject.Inject;
 import butterknife.ButterKnife;
 import dagger.android.support.DaggerAppCompatActivity;
 
+/**
+ * <h1>CardApplicationFormListActivity</h1>
+ *
+ * <b>Description: </b> This activity handles and manages the screen which is responsible for
+ * visualizing a list of all applications from the database for viewing by the admin. It also
+ * handles navigation.
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
+ */
 public class CardApplicationFormsListActivity extends DaggerAppCompatActivity
 implements CardApplicationFormsListContracts.Navigator {
 

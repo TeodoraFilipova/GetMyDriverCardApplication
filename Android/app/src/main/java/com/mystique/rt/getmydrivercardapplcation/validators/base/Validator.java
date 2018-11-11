@@ -1,3 +1,7 @@
+
+
+package com.mystique.rt.getmydrivercardapplcation.validators.base;
+
 /**
  * <h1>Validator interface</h1>
  *
@@ -8,9 +12,6 @@
  * @version 1.0
  * @since   2018-11-12
  */
-
-package com.mystique.rt.getmydrivercardapplcation.validators.base;
-
 public interface Validator<T> {
 
     boolean isValid(T object);

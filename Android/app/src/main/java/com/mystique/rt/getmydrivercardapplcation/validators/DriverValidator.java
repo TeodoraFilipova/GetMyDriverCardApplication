@@ -1,13 +1,4 @@
-/**
- * <h1>DriverValidator class</h1>
- *
- * <b>Description: </b> This class implements the method for checking that
- * a Driver object is valid.
- *
- * @author  Mystique Team
- * @version 1.0
- * @since   2018-11-12
- */
+
 
 package com.mystique.rt.getmydrivercardapplcation.validators;
 
@@ -18,6 +9,16 @@ import com.mystique.rt.getmydrivercardapplcation.validators.base.Validator;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * <h1>DriverValidator class</h1>
+ *
+ * <b>Description: </b> This class implements the method for checking that
+ * a Driver object is valid.
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
+ */
 public class DriverValidator implements Validator<Driver> {
 
     @Override

@@ -1,14 +1,4 @@
-/**
- * <h1>HttpPictureService class</h1>
- *
- * <b>Description: </b> This class implements the methods for the
- * service layer (reflecting the business requirements of the
- * application) of Picture.
- *
- * @author  Mystique Team
- * @version 1.0
- * @since   2018-11-12
- */
+
 
 package com.mystique.rt.getmydrivercardapplcation.services;
 
@@ -20,6 +10,17 @@ import com.mystique.rt.getmydrivercardapplcation.services.base.PictureService;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * <h1>HttpPictureService class</h1>
+ *
+ * <b>Description: </b> This class implements the methods for the
+ * service layer (reflecting the business requirements of the
+ * application) of Picture.
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
+ */
 public class HttpPictureService implements PictureService {
     private final PictureRepository mPictureRepository;
 

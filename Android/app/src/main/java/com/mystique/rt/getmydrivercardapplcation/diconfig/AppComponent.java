@@ -1,13 +1,4 @@
-/**
- * <h1>AppComponent interface</h1>
- *
- * <b>Description: </b> This interface is a part of the Dagger dependency injection configuration.
- * It provides, binds, and builds modules.
- *
- * @author  Mystique Team
- * @version 1.0
- * @since   2018-11-12
- */
+
 
 package com.mystique.rt.getmydrivercardapplcation.diconfig;
 
@@ -22,7 +13,16 @@ import dagger.android.AndroidInjector;
 import dagger.android.support.AndroidSupportInjectionModule;
 import javax.inject.Singleton;
 
-
+/**
+ * <h1>AppComponent interface</h1>
+ *
+ * <b>Description: </b> This interface is a part of the Dagger dependency injection configuration.
+ * It provides, binds, and builds modules.
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
+ */
 @Singleton
 @Component(modules = {
         ActivityBindingModule.class,

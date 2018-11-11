@@ -1,3 +1,11 @@
+
+
+package com.mystique.rt.getmydrivercardapplcation.models;
+
+import java.io.Serializable;
+import java.util.Date;
+import java.util.List;
+
 /**
  * <h1>Driver Model class</h1>
  *
@@ -9,13 +17,6 @@
  * @version 1.0
  * @since   2018-11-12
  */
-
-package com.mystique.rt.getmydrivercardapplcation.models;
-
-import java.io.Serializable;
-import java.util.Date;
-import java.util.List;
-
 public class Driver implements Serializable {
     private int driverId;
     private List<CardApplicationForm> cardApplicationForms;

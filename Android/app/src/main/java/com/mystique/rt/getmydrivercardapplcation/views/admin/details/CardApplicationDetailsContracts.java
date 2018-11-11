@@ -5,6 +5,16 @@ import android.content.Context;
 import com.mystique.rt.getmydrivercardapplcation.models.CardApplicationForm;
 import com.mystique.rt.getmydrivercardapplcation.models.Driver;
 
+/**
+ * <h1>CardApplicationDetailsContracts</h1>
+ *
+ * <b>Description: </b> This interface defines the interfaces which are used by the
+ * fragment, presenter, activity trio in order to implement the MVP pattern.
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
+ */
 public interface CardApplicationDetailsContracts {
     interface View {
         void showCardApplicationFormDetails(CardApplicationForm form);

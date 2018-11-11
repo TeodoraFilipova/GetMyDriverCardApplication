@@ -1,13 +1,4 @@
-/**
- * <h1>SaveDriverModule</h1>
- *
- * <b>Description: </b> This class is a part of the Dagger dependency injection configuration.
- * It provides and injects instances of SaveDriverFragment and SaveDriverPresenter.
- *
- * @author  Mystique Team
- * @version 1.0
- * @since   2018-11-12
- */
+
 
 package com.mystique.rt.getmydrivercardapplcation.diconfig;
 
@@ -19,6 +10,16 @@ import dagger.Binds;
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
 
+/**
+ * <h1>SaveDriverModule</h1>
+ *
+ * <b>Description: </b> This class is a part of the Dagger dependency injection configuration.
+ * It provides and injects instances of SaveDriverFragment and SaveDriverPresenter.
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
+ */
 @Module
 public abstract class SaveDriverModule {
     @FragmentScoped

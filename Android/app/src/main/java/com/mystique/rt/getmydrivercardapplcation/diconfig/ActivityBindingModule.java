@@ -1,13 +1,4 @@
-/**
- * <h1>ActivityBindingModule</h1>
- *
- * <b>Description: </b> This class is a part of the Dagger dependency injection configuration.
- * It defines and provides activities based on their specific modules.
- *
- * @author  Mystique Team
- * @version 1.0
- * @since   2018-11-12
- */
+
 
 package com.mystique.rt.getmydrivercardapplcation.diconfig;
 
@@ -36,6 +27,16 @@ import com.mystique.rt.getmydrivercardapplcation.views.statuscheck.StatusCheckAc
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
 
+/**
+ * <h1>ActivityBindingModule</h1>
+ *
+ * <b>Description: </b> This class is a part of the Dagger dependency injection configuration.
+ * It defines and provides activities based on their specific modules.
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
+ */
 @Module
 public abstract class ActivityBindingModule {
 

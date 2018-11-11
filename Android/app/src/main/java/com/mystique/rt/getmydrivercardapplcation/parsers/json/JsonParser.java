@@ -1,3 +1,9 @@
+
+
+package com.mystique.rt.getmydrivercardapplcation.parsers.json;
+
+import java.util.List;
+
 /**
  * <h1>JsonParser interface</h1>
  *
@@ -8,11 +14,6 @@
  * @version 1.0
  * @since   2018-11-12
  */
-
-package com.mystique.rt.getmydrivercardapplcation.parsers.json;
-
-import java.util.List;
-
 public interface JsonParser<T> {
     List<T> fromJsonArray(String jsonString);
 

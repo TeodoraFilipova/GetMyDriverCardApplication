@@ -1,3 +1,12 @@
+
+
+package com.mystique.rt.getmydrivercardapplcation.parsers.bitmap;
+
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+
+import java.io.ByteArrayOutputStream;
+
 /**
  * <h1>ByteArrayBitmapParser class</h1>
  *
@@ -9,14 +18,6 @@
  * @version 1.0
  * @since   2018-11-12
  */
-
-package com.mystique.rt.getmydrivercardapplcation.parsers.bitmap;
-
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-
-import java.io.ByteArrayOutputStream;
-
 public class ByteArrayBitmapParser implements BitmapParser {
 
     public ByteArrayBitmapParser() {

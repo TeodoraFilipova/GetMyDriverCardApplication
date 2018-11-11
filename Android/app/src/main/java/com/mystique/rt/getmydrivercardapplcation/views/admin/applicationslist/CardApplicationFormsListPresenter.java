@@ -1,5 +1,7 @@
-package com.mystique.rt.getmydrivercardapplcation.views.admin.applicationslist;
 
+
+
+package com.mystique.rt.getmydrivercardapplcation.views.admin.applicationslist;
 
 import com.mystique.rt.getmydrivercardapplcation.async.SchedulerProvider;
 import com.mystique.rt.getmydrivercardapplcation.models.CardApplicationForm;
@@ -13,6 +15,16 @@ import io.reactivex.Observable;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.disposables.Disposable;
 
+/**
+ * <h1>CardApplicationFormListPresenter</h1>
+ *
+ * <b>Description: </b> This class is the Presenter of the MVP. It handles the logic
+ * and tasks related to the visualization of application forms in the form of a list.
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
+ */
 public class CardApplicationFormsListPresenter implements CardApplicationFormsListContracts.Presenter {
     private final CardApplicationFormService mCardAppFormService;
     private final SchedulerProvider mSchedulerProvider;

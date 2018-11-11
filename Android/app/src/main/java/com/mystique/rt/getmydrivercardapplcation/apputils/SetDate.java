@@ -1,15 +1,4 @@
-/**
- * <h1>SetDate class</h1>
- *
- * <b>Description: </b> This class handles the functionality for visualizing
- * a pop-up date picker when a selected EditText is on focus. It is used in
- * fragments of the slider which accept dates. This ensures that the input
- * is a valid date.
- *
- * @author  Mystique Team
- * @version 1.0
- * @since   2018-11-12
- */
+
 
 package com.mystique.rt.getmydrivercardapplcation.apputils;
 
@@ -25,6 +14,18 @@ import com.mystique.rt.getmydrivercardapplcation.views.applications.FocusListene
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+/**
+ * <h1>SetDate class</h1>
+ *
+ * <b>Description: </b> This class handles the functionality for visualizing
+ * a pop-up date picker when a selected EditText is on focus. It is used in
+ * fragments of the slider which accept dates. This ensures that the input
+ * is a valid date.
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
+ */
 public class SetDate implements View.OnFocusChangeListener, DatePickerDialog.OnDateSetListener {
 
     private EditText mEditText;

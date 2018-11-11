@@ -1,3 +1,9 @@
+
+
+package com.mystique.rt.getmydrivercardapplcation.models;
+
+import java.io.Serializable;
+
 /**
  * <h1>User Model class</h1>
  *
@@ -9,11 +15,6 @@
  * @version 1.0
  * @since   2018-11-12
  */
-
-package com.mystique.rt.getmydrivercardapplcation.models;
-
-import java.io.Serializable;
-
 public class User implements Serializable {
     private int userId;
     private String username;

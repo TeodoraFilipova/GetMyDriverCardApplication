@@ -19,6 +19,16 @@ import io.reactivex.Observable;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.disposables.Disposable;
 
+/**
+ * <h1>CardApplicationDetailsPresenter</h1>
+ *
+ * <b>Description: </b> This class is the Presenter of the MVP. It handles the logic
+ * and tasks related to the visualization of an application's fields.
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
+ */
 public class CardApplicationDetailsPresenter implements CardApplicationDetailsContracts.Presenter {
     private final CardApplicationFormService mFormService;
     private final DriverService mDriverService;

@@ -23,7 +23,14 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * A simple {@link Fragment} subclass.
+ * <h1>LogInFragment</h1>
+ *
+ * <b>Description: </b> This fragment represents the visualisation of the fields
+ * which constitute the log in functionality. It is the View of the MVP.
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
  */
 public class LogInFragment extends Fragment implements LogInContracts.View {
     private LogInContracts.Presenter mPresenter;

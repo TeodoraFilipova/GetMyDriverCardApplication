@@ -1,3 +1,6 @@
+
+
+package com.mystique.rt.getmydrivercardapplcation.apputils.email;
 /**
  * <h1>Config class</h1>
  *
@@ -8,9 +11,6 @@
  * @version 1.0
  * @since   2018-11-12
  */
-
-package com.mystique.rt.getmydrivercardapplcation.apputils.email;
-
 public class Config {
     public static final String EMAIL ="mystiquedrivercard@gmail.com";
     public static final String PASSWORD ="aly74fbG8Izw3";

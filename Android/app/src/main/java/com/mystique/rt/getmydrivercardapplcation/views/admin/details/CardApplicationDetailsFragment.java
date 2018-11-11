@@ -33,7 +33,14 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * A simple {@link Fragment} subclass.
+ * <h1>CardApplicationDetailsFragment</h1>
+ *
+ * <b>Description: </b> This fragment represents the visualisation of the details of
+ * the selected application form. It is the View of the MVP.
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
  */
 public class CardApplicationDetailsFragment extends Fragment implements CardApplicationDetailsContracts.View{
 

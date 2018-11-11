@@ -1,3 +1,13 @@
+
+
+package com.mystique.rt.getmydrivercardapplcation.services.base;
+
+import com.mystique.rt.getmydrivercardapplcation.models.CardApplicationForm;
+
+import java.io.IOException;
+import java.util.Date;
+import java.util.List;
+
 /**
  * <h1>CardApplicationFormService interface</h1>
  *
@@ -9,15 +19,6 @@
  * @version 1.0
  * @since   2018-11-12
  */
-
-package com.mystique.rt.getmydrivercardapplcation.services.base;
-
-import com.mystique.rt.getmydrivercardapplcation.models.CardApplicationForm;
-
-import java.io.IOException;
-import java.util.Date;
-import java.util.List;
-
 public interface CardApplicationFormService {
 
     List<CardApplicationForm> getAllForms() throws IOException;

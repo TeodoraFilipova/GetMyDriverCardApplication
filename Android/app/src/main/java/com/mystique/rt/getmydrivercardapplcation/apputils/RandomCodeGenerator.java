@@ -1,3 +1,9 @@
+
+
+package com.mystique.rt.getmydrivercardapplcation.apputils;
+
+import java.security.SecureRandom;
+
 /**
  * <h1>RandomCodeGenerator class</h1>
  *
@@ -10,11 +16,6 @@
  * @version 1.0
  * @since   2018-11-12
  */
-
-package com.mystique.rt.getmydrivercardapplcation.apputils;
-
-import java.security.SecureRandom;
-
 public class RandomCodeGenerator {
         private static final String AB = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
         private static SecureRandom rnd = new SecureRandom();

@@ -1,13 +1,4 @@
-/**
- * <h1>HttpModule</h1>
- *
- * <b>Description: </b> This class is a part of the Dagger dependency injection configuration.
- * It provides and injects instances of HttpRequester and baseServerUrl.
- *
- * @author  Mystique Team
- * @version 1.0
- * @since   2018-11-12
- */
+
 
 package com.mystique.rt.getmydrivercardapplcation.diconfig;
 
@@ -20,6 +11,16 @@ import javax.inject.Named;
 import dagger.Module;
 import dagger.Provides;
 
+/**
+ * <h1>HttpModule</h1>
+ *
+ * <b>Description: </b> This class is a part of the Dagger dependency injection configuration.
+ * It provides and injects instances of HttpRequester and baseServerUrl.
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
+ */
 @Module
 public class HttpModule {
     @Provides

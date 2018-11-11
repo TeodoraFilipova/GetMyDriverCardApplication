@@ -1,3 +1,5 @@
+
+
 package com.mystique.rt.getmydrivercardapplcation.views.admin.applicationslist;
 
 import android.support.annotation.NonNull;
@@ -23,6 +25,16 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+/**
+ * <h1>CardApplicationFormListAdapter</h1>
+ *
+ * <b>Description: </b> This adapter handles and manages the visualisation of
+ * application forms in the form of a list. It includes handling of onClick events.
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
+ */
 public class CardApplicationFormsListAdapter
         extends RecyclerView.Adapter<CardApplicationFormsListAdapter.CardAppFormViewHolder> {
 

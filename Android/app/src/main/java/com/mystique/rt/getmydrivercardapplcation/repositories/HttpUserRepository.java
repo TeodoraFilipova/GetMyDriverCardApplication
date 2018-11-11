@@ -1,3 +1,15 @@
+
+
+package com.mystique.rt.getmydrivercardapplcation.repositories;
+
+import com.mystique.rt.getmydrivercardapplcation.http.HttpRequester;
+import com.mystique.rt.getmydrivercardapplcation.models.User;
+import com.mystique.rt.getmydrivercardapplcation.parsers.json.JsonParser;
+import com.mystique.rt.getmydrivercardapplcation.repositories.base.UserRepository;
+
+import java.io.IOException;
+import java.util.List;
+
 /**
  * <h1>HttpUserRepository class</h1>
  *
@@ -10,17 +22,6 @@
  * @version 1.0
  * @since   2018-11-12
  */
-
-package com.mystique.rt.getmydrivercardapplcation.repositories;
-
-import com.mystique.rt.getmydrivercardapplcation.http.HttpRequester;
-import com.mystique.rt.getmydrivercardapplcation.models.User;
-import com.mystique.rt.getmydrivercardapplcation.parsers.json.JsonParser;
-import com.mystique.rt.getmydrivercardapplcation.repositories.base.UserRepository;
-
-import java.io.IOException;
-import java.util.List;
-
 public class HttpUserRepository implements UserRepository {
     private final HttpRequester mHttpRequester;
     private final String mServerUrl;

@@ -1,14 +1,4 @@
-/**
- * <h1>ServicesModule</h1>
- *
- * <b>Description: </b> This class is a part of the Dagger dependency injection configuration.
- * It provides and injects instances of CardApplicationFormService, DriverService, PictureService,
- * and UserService.
- *
- * @author  Mystique Team
- * @version 1.0
- * @since   2018-11-12
- */
+
 
 package com.mystique.rt.getmydrivercardapplcation.diconfig;
 
@@ -31,6 +21,17 @@ import com.mystique.rt.getmydrivercardapplcation.validators.base.Validator;
 import dagger.Module;
 import dagger.Provides;
 
+/**
+ * <h1>ServicesModule</h1>
+ *
+ * <b>Description: </b> This class is a part of the Dagger dependency injection configuration.
+ * It provides and injects instances of CardApplicationFormService, DriverService, PictureService,
+ * and UserService.
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
+ */
 @Module
 public class ServicesModule {
     @Provides

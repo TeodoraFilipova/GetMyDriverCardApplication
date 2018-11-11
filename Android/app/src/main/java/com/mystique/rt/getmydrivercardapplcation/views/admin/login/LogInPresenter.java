@@ -13,6 +13,16 @@ import io.reactivex.Observable;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.disposables.Disposable;
 
+/**
+ * <h1>LogInPresenter</h1>
+ *
+ * <b>Description: </b> This class is the Presenter of the MVP. It handles the logic
+ * and tasks related to the visualization of the log in screen.
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
+ */
 public class LogInPresenter implements LogInContracts.Presenter {
     private LogInContracts.View mView;
     private final UserService mUserService;

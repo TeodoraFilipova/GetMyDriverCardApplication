@@ -1,15 +1,4 @@
-/**
- * <h1>HttpPictureRepository class</h1>
- *
- * <b>Description: </b> This class implements the methods for the
- * repository layer (get, add, update) of Picture. It makes http
- * requests using an HttpRequester, a Gson parser, and the
- * server base url.
- *
- * @author  Mystique Team
- * @version 1.0
- * @since   2018-11-12
- */
+
 
 package com.mystique.rt.getmydrivercardapplcation.repositories;
 
@@ -23,6 +12,18 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * <h1>HttpPictureRepository class</h1>
+ *
+ * <b>Description: </b> This class implements the methods for the
+ * repository layer (get, add, update) of Picture. It makes http
+ * requests using an HttpRequester, a Gson parser, and the
+ * server base url.
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
+ */
 public class HttpPictureRepository implements PictureRepository {
     private final HttpRequester mHttpRequester;
     private final String mServerUrl;

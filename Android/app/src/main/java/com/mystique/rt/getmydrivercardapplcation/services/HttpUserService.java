@@ -1,3 +1,14 @@
+
+
+package com.mystique.rt.getmydrivercardapplcation.services;
+
+import com.mystique.rt.getmydrivercardapplcation.models.User;
+import com.mystique.rt.getmydrivercardapplcation.repositories.base.UserRepository;
+import com.mystique.rt.getmydrivercardapplcation.services.base.UserService;
+
+import java.io.IOException;
+import java.util.List;
+
 /**
  * <h1>HttpUserService class</h1>
  *
@@ -9,16 +20,6 @@
  * @version 1.0
  * @since   2018-11-12
  */
-
-package com.mystique.rt.getmydrivercardapplcation.services;
-
-import com.mystique.rt.getmydrivercardapplcation.models.User;
-import com.mystique.rt.getmydrivercardapplcation.repositories.base.UserRepository;
-import com.mystique.rt.getmydrivercardapplcation.services.base.UserService;
-
-import java.io.IOException;
-import java.util.List;
-
 public class HttpUserService implements UserService {
     private final UserRepository mUserRepository;
 

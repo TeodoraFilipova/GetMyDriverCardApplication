@@ -1,3 +1,13 @@
+
+
+package com.mystique.rt.getmydrivercardapplcation.apputils;
+
+import com.mystique.rt.getmydrivercardapplcation.models.CardApplicationForm;
+import com.mystique.rt.getmydrivercardapplcation.models.Driver;
+import com.mystique.rt.getmydrivercardapplcation.models.Picture;
+
+import java.util.Date;
+
 /**
  * <h1>RememberAll class</h1>
  *
@@ -13,15 +23,6 @@
  * @version 1.0
  * @since   2018-11-12
  */
-
-package com.mystique.rt.getmydrivercardapplcation.apputils;
-
-import com.mystique.rt.getmydrivercardapplcation.models.CardApplicationForm;
-import com.mystique.rt.getmydrivercardapplcation.models.Driver;
-import com.mystique.rt.getmydrivercardapplcation.models.Picture;
-
-import java.util.Date;
-
 public class RememberAll {
     private static RememberAll instance;
 

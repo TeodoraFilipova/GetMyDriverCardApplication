@@ -1,5 +1,7 @@
-package com.mystique.rt.getmydrivercardapplcation.views.admin.applicationslist;
 
+
+
+package com.mystique.rt.getmydrivercardapplcation.views.admin.applicationslist;
 
 import android.app.Fragment;
 import android.graphics.Rect;
@@ -31,7 +33,14 @@ import butterknife.ButterKnife;
 import butterknife.OnTextChanged;
 
 /**
- * A simple {@link Fragment} subclass.
+ * <h1>CardApplicationFormListFragment</h1>
+ *
+ * <b>Description: </b> This fragment represents the visualisation of
+ * application forms in the form of a list. It is the View of the MVP.
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
  */
 public class CardApplicationFormsListFragment extends Fragment
         implements CardApplicationFormsListContracts.View, CardApplicationFormsListAdapter.OnProductClickListener,

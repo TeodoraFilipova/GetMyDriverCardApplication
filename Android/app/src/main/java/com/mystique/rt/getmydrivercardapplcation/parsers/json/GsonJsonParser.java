@@ -1,14 +1,4 @@
-/**
- * <h1>GsonJsonParser class</h1>
- *
- * <b>Description: </b> This class implements the methods for parsing
- * to and from Json objects. It is used to pass objects to and from
- * http requests.
- *
- * @author  Mystique Team
- * @version 1.0
- * @since   2018-11-12
- */
+
 
 package com.mystique.rt.getmydrivercardapplcation.parsers.json;
 
@@ -24,6 +14,17 @@ import org.json.JSONObject;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * <h1>GsonJsonParser class</h1>
+ *
+ * <b>Description: </b> This class implements the methods for parsing
+ * to and from Json objects. It is used to pass objects to and from
+ * http requests.
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
+ */
 public class GsonJsonParser<T> implements JsonParser<T> {
     private final Class<T> mKlass;
     private final Class<T[]> mArrayKlass;

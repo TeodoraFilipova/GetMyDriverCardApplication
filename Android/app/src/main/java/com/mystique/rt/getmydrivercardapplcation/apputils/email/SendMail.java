@@ -1,16 +1,3 @@
-/**
- * <h1>SendMail class</h1>
- *
- * <b>Description: </b> This class handles the functionality for sending emails
- * to the users at key events in the application process. The class extends AsyncTask,
- * as sending email is executed asynchronously. It uses information from class Config
- * regarding the sender account.
- *
- * @author  Mystique Team
- * @version 1.0
- * @since   2018-11-12
- */
-
 package com.mystique.rt.getmydrivercardapplcation.apputils.email;
 
 import android.app.ProgressDialog;
@@ -28,6 +15,18 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+/**
+ * <h1>SendMail class</h1>
+ *
+ * <b>Description: </b> This class handles the functionality for sending emails
+ * to the users at key events in the application process. The class extends AsyncTask,
+ * as sending email is executed asynchronously. It uses information from class Config
+ * regarding the sender account.
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
+ */
 public class SendMail extends AsyncTask<Void,Void,Void> {
 
     //Declaring Variables

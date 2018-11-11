@@ -1,3 +1,5 @@
+package com.mystique.rt.getmydrivercardapplcation.apputils;
+
 /**
  * <h1>Constants class</h1>
  *
@@ -9,9 +11,6 @@
  * @version 1.0
  * @since   2018-11-12
  */
-
-package com.mystique.rt.getmydrivercardapplcation.apputils;
-
 public class Constants {
     public static final String BASE_SERVER_URL = "http://192.168.0.100:8080/api";
 

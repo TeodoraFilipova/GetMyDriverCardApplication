@@ -1,3 +1,9 @@
+
+
+package com.mystique.rt.getmydrivercardapplcation.parsers.bitmap;
+
+import android.graphics.Bitmap;
+
 /**
  * <h1>BitmapParser interface</h1>
  *
@@ -8,11 +14,6 @@
  * @version 1.0
  * @since   2018-11-12
  */
-
-package com.mystique.rt.getmydrivercardapplcation.parsers.bitmap;
-
-import android.graphics.Bitmap;
-
 public interface BitmapParser {
     Bitmap toBitmap(byte[] byteArrayPicture);
 

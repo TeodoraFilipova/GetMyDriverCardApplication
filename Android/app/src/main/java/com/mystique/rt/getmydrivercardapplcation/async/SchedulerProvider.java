@@ -1,3 +1,9 @@
+
+
+package com.mystique.rt.getmydrivercardapplcation.async;
+
+import io.reactivex.Scheduler;
+
 /**
  * <h1>SchedulerProvider interface</h1>
  *
@@ -8,11 +14,6 @@
  * @version 1.0
  * @since   2018-11-12
  */
-
-package com.mystique.rt.getmydrivercardapplcation.async;
-
-import io.reactivex.Scheduler;
-
 public interface SchedulerProvider {
     Scheduler background();
     Scheduler ui();

@@ -1,3 +1,8 @@
+
+package com.mystique.rt.getmydrivercardapplcation.http;
+
+import java.io.IOException;
+
 /**
  * <h1>HttpRequester interface</h1>
  *
@@ -8,11 +13,6 @@
  * @version 1.0
  * @since   2018-11-12
  */
-
-package com.mystique.rt.getmydrivercardapplcation.http;
-
-import java.io.IOException;
-
 public interface HttpRequester {
     String get(String url) throws IOException;
 

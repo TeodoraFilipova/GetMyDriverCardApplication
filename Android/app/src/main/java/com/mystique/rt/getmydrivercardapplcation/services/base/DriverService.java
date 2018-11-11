@@ -1,3 +1,12 @@
+
+
+package com.mystique.rt.getmydrivercardapplcation.services.base;
+
+import com.mystique.rt.getmydrivercardapplcation.models.Driver;
+
+import java.io.IOException;
+import java.util.List;
+
 /**
  * <h1>DriverService interface</h1>
  *
@@ -9,14 +18,6 @@
  * @version 1.0
  * @since   2018-11-12
  */
-
-package com.mystique.rt.getmydrivercardapplcation.services.base;
-
-import com.mystique.rt.getmydrivercardapplcation.models.Driver;
-
-import java.io.IOException;
-import java.util.List;
-
 public interface DriverService {
     Driver addDriver(Driver driver) throws IOException;
 

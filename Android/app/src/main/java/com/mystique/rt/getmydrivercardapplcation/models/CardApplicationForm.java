@@ -1,3 +1,10 @@
+
+
+package com.mystique.rt.getmydrivercardapplcation.models;
+
+import java.io.Serializable;
+import java.util.Date;
+
 /**
  * <h1>CardApplicationForm Model class</h1>
  *
@@ -9,12 +16,6 @@
  * @version 1.0
  * @since   2018-11-12
  */
-
-package com.mystique.rt.getmydrivercardapplcation.models;
-
-import java.io.Serializable;
-import java.util.Date;
-
 public class CardApplicationForm implements Serializable {
     private int cardApplicationFormId;
     private Driver driver;

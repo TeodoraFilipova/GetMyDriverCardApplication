@@ -1,14 +1,4 @@
-/**
- * <h1>HttpDriverService class</h1>
- *
- * <b>Description: </b> This class implements the methods for the
- * service layer (reflecting the business requirements of the
- * application) of Driver.
- *
- * @author  Mystique Team
- * @version 1.0
- * @since   2018-11-12
- */
+
 
 package com.mystique.rt.getmydrivercardapplcation.services;
 
@@ -21,6 +11,17 @@ import com.mystique.rt.getmydrivercardapplcation.validators.base.Validator;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * <h1>HttpDriverService class</h1>
+ *
+ * <b>Description: </b> This class implements the methods for the
+ * service layer (reflecting the business requirements of the
+ * application) of Driver.
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
+ */
 public class HttpDriverService implements DriverService {
     private final DriverRepository mDriverRepository;
     private final Validator<Driver> mDriverValidator;

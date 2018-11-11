@@ -1,14 +1,4 @@
-/**
- * <h1>HttpCardApplicationFormService class</h1>
- *
- * <b>Description: </b> This class implements the methods for the
- * service layer (reflecting the business requirements of the
- * application) of CardApplicationForm.
- *
- * @author  Mystique Team
- * @version 1.0
- * @since   2018-11-12
- */
+
 
 package com.mystique.rt.getmydrivercardapplcation.services;
 
@@ -27,6 +17,17 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * <h1>HttpCardApplicationFormService class</h1>
+ *
+ * <b>Description: </b> This class implements the methods for the
+ * service layer (reflecting the business requirements of the
+ * application) of CardApplicationForm.
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
+ */
 public class HttpCardApplicationFormService implements CardApplicationFormService {
     private final CardApplicationFormRepository mCardApplicationFormRepository;
     private final Validator<CardApplicationForm> mCardApplicationFormValidator;
