@@ -16,6 +16,17 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+
+/**
+ * <h1>StatusCheckActivity</h1>
+ *
+ * <b>Description: </b> This activity is responsible for user status check and using StatuCheckFragment.
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
+ */
+
 public class StatusCheckActivity extends BaseDrawerActivity {
     public static final long IDENTIFIER = 546;
 

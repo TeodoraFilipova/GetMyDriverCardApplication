@@ -16,6 +16,15 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Application Details"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/md_red_800"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
         <LinearLayout
             android:id="@+id/layout_change_status_details"
             android:layout_width="match_parent"
@@ -26,7 +35,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/change_for_status" />
+                android:text="@string/change_for_status"
+                android:textStyle="bold"/>
 
             <com.jaredrummler.materialspinner.MaterialSpinner
                 android:id="@+id/status_spinner"
@@ -59,6 +69,7 @@
                 android:id="@+id/tv_cardappformid_details"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/md_blue_900"
                 />
 
         </LinearLayout>

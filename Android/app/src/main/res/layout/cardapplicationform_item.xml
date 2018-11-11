@@ -12,13 +12,16 @@
         android:layout_height="match_parent"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="31dp"
-        tools:layout_editor_absoluteY="0dp">
+        tools:layout_editor_absoluteY="0dp"
+        >
+
 
         <TextView
             android:id="@+id/tv_cardappformid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/application" />
+            android:text="@string/application"
+            android:textSize="10sp"/>
 
         <TextView
             android:id="@+id/tv_firstname"
@@ -27,6 +30,7 @@
             android:layout_alignParentStart="true"
             android:layout_below="@+id/tv_cardappformid"
             android:text="@string/dots"
+            android:textSize="10sp"
             android:textColor="@color/md_blue_900" />
 
         <TextView
@@ -36,6 +40,7 @@
             android:layout_alignParentStart="true"
             android:layout_below="@+id/tv_firstname"
             android:text="@string/dots"
+            android:textSize="10sp"
             android:textColor="@color/md_blue_900" />
 
         <TextView
@@ -45,6 +50,7 @@
             android:layout_alignStart="@+id/tv_firstname"
             android:layout_below="@+id/tv_lastname"
             android:text="@string/dots"
+            android:textSize="10sp"
             android:textColor="@color/md_blue_900" />
 
 
@@ -55,6 +61,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/tv_personalnumber"
                 android:text="@string/dots"
+                android:textSize="10sp"
                 android:textColor="@color/md_blue_900" />
 
 
@@ -65,6 +72,7 @@
             android:layout_alignStart="@+id/tv_firstname"
             android:layout_below="@id/tv_email"
             android:text="@string/dots"
+            android:textSize="10sp"
             android:textColor="@color/md_blue_900" />
 
         <TextView
@@ -74,10 +82,9 @@
             android:layout_alignParentStart="true"
             android:layout_below="@+id/tv_dateofsubmission"
             android:text="@string/dots"
+            android:textSize="10sp"
             android:textAlignment="center"
             android:textColor="@color/md_blue_900" />
-
-
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

@@ -20,7 +20,7 @@
             android:id="@+id/tv_application_choice_prompt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Select your application from type"
+            android:text="Select your application form type"
             android:layout_centerHorizontal="true"
             android:textColor="@color/md_red_800"
             android:textSize="20dp"

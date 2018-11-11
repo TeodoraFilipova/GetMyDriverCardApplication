@@ -10,6 +10,16 @@ import io.reactivex.Observable;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.disposables.Disposable;
 
+/**
+ * <h1> StatusCheckPresenter</h1>
+ *
+ * <b>Description: </b> This class is the Presenter of the MVP. It handles the logic
+ * and tasks related to the visualization of the status check screen.
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
+ */
 public class StatusCheckPresenter implements StatusCheckContracts.Presenter {
     private final CardApplicationFormService mCardApplicationFormService;
     private final SchedulerProvider mSchedulerProvider;

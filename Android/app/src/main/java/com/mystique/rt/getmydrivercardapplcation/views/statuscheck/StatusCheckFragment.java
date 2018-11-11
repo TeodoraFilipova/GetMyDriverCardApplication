@@ -19,8 +19,16 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+
 /**
- * A simple {@link Fragment} subclass.
+ * <h1>StatusCheckFragment</h1>
+ *
+ * <b>Description: </b> This fragment represents the visualisation of the fields
+ * which constitute the status check functionality. It is the View of the MVP.
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
  */
 public class StatusCheckFragment extends Fragment implements StatusCheckContracts.View {
     @BindView(R.id.button_check_status)

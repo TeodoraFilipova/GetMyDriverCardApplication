@@ -123,7 +123,8 @@
             android:layout_height="wrap_content"
             android:text="@string/pic_recomentdations"
             android:textSize="15dp"
-            android:textStyle="italic" />
+            android:textStyle="italic"
+            android:visibility="gone"/>
         </LinearLayout>
 
     </LinearLayout>
