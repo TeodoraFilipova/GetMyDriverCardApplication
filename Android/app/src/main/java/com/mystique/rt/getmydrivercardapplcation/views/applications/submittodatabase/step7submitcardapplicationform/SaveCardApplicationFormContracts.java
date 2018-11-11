@@ -28,4 +28,8 @@ public interface SaveCardApplicationFormContracts {
 
         void updateLastCardApplicationForm(CardApplicationForm cardApplicationForm);
     }
+
+    interface Navigator {
+        void navigateBackToMain();
+    }
 }
