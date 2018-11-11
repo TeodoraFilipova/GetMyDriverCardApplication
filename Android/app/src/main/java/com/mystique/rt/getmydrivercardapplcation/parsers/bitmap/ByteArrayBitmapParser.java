@@ -1,3 +1,15 @@
+/**
+ * <h1>ByteArrayBitmapParser class</h1>
+ *
+ * <b>Description: </b> This class implements the methods for parsing
+ * between byte[] and Bitmap. It is used to pass images between ImageViews
+ * and Objects.
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
+ */
+
 package com.mystique.rt.getmydrivercardapplcation.parsers.bitmap;
 
 import android.graphics.Bitmap;

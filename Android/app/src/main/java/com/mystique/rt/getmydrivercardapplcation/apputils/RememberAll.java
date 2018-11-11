@@ -1,8 +1,21 @@
+/**
+ * <h1>RememberAll class</h1>
+ *
+ * <b>Description: </b> This class handles the functionality for initializing and
+ * updating the key Objects in this application (Picture, Driver, CardApplicationForm).
+ * It is publicly available through a static instance accessed by all fragments in
+ * the "slider" view. It facilitates the assembling of objects over a number of
+ * different fragments and various steps in preparation for their saving to the
+ * database. It also serves as a means of "saving the state" of fragment views as
+ * the user slides through them.
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
+ */
+
 package com.mystique.rt.getmydrivercardapplcation.apputils;
 
-import com.mystique.rt.getmydrivercardapplcation.apputils.idgenerators.CardApplicationFormIdGenerator;
-import com.mystique.rt.getmydrivercardapplcation.apputils.idgenerators.DriverIdGenerator;
-import com.mystique.rt.getmydrivercardapplcation.apputils.idgenerators.PictureIdGenerator;
 import com.mystique.rt.getmydrivercardapplcation.models.CardApplicationForm;
 import com.mystique.rt.getmydrivercardapplcation.models.Driver;
 import com.mystique.rt.getmydrivercardapplcation.models.Picture;
@@ -21,16 +34,11 @@ public class RememberAll {
     private Picture mOldCardPic;
 
     private RandomCodeGenerator mRandomCodeGenerator;
-//    private CardApplicationFormIdGenerator mCardApplicationFormIdGenerator;
-//    private DriverIdGenerator mDriverIdGenerator;
-//    private PictureIdGenerator mPictureIdGenerator;
+
 
     private RememberAll() {
         //  private constructor for singleton
         mRandomCodeGenerator = new RandomCodeGenerator();
-//        mCardApplicationFormIdGenerator = CardApplicationFormIdGenerator.getInstance();
-//        mDriverIdGenerator = DriverIdGenerator.getInstance();
-//        mPictureIdGenerator = PictureIdGenerator.getInstance();
     }
 
     public static RememberAll getInstance() {

@@ -1,3 +1,14 @@
+/**
+ * <h1>JsonParser interface</h1>
+ *
+ * <b>Description: </b> This interface defines the methods for parsing
+ * to and from Json objects.
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
+ */
+
 package com.mystique.rt.getmydrivercardapplcation.parsers.json;
 
 import java.util.List;

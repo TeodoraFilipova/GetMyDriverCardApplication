@@ -1,3 +1,14 @@
+/**
+ * <h1>CardApplicationFormValidator class</h1>
+ *
+ * <b>Description: </b> This class implements the method for checking that
+ * a CardApplicationForm is valid.
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
+ */
+
 package com.mystique.rt.getmydrivercardapplcation.validators;
 
 import com.mystique.rt.getmydrivercardapplcation.models.CardApplicationForm;

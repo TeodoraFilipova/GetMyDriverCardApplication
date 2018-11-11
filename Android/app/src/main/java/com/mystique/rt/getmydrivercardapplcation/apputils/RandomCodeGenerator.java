@@ -1,3 +1,16 @@
+/**
+ * <h1>RandomCodeGenerator class</h1>
+ *
+ * <b>Description: </b> This class handles the functionality for generating
+ * a random code of digits, lowercase and uppercase latin alphabet letters
+ * with a specified length. It is used to generate the Status Check Code
+ * for Application Forms.
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
+ */
+
 package com.mystique.rt.getmydrivercardapplcation.apputils;
 
 import java.security.SecureRandom;

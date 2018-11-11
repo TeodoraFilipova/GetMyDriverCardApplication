@@ -1,3 +1,16 @@
+/**
+ * <h1>HttpUserRepository class</h1>
+ *
+ * <b>Description: </b> This class implements the methods for the
+ * repository layer (get, add, update) of User. It makes http
+ * requests using an HttpRequester, a Gson parser, and the
+ * server base url.
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
+ */
+
 package com.mystique.rt.getmydrivercardapplcation.repositories;
 
 import com.mystique.rt.getmydrivercardapplcation.http.HttpRequester;

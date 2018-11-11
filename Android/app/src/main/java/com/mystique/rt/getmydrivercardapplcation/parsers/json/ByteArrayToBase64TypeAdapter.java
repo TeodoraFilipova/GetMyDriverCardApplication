@@ -1,3 +1,14 @@
+/**
+ * <h1>ByteArrayToBase64TypeAdapter class</h1>
+ *
+ * <b>Description: </b> This class defines the method for deserializing a
+ * Json object to byte[]. It is used to pass objects from http requests.
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
+ */
+
 package com.mystique.rt.getmydrivercardapplcation.parsers.json;
 
 import android.util.Base64;

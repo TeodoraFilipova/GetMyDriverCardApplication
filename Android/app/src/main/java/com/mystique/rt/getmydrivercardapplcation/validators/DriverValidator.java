@@ -1,3 +1,14 @@
+/**
+ * <h1>DriverValidator class</h1>
+ *
+ * <b>Description: </b> This class implements the method for checking that
+ * a Driver object is valid.
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
+ */
+
 package com.mystique.rt.getmydrivercardapplcation.validators;
 
 import com.mystique.rt.getmydrivercardapplcation.apputils.Constants;
@@ -11,7 +22,7 @@ public class DriverValidator implements Validator<Driver> {
 
     @Override
     public boolean isValid(Driver driver) {
-        return true;}
+        return driver != null;}
 //                driver != null &&
 //                isPersonalNumberValid(driver)&&
 //                isFirstNameValid(driver) &&

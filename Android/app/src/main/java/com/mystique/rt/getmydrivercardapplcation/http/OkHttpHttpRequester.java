@@ -1,3 +1,14 @@
+/**
+ * <h1>OkHttpHttpRequester class</h1>
+ *
+ * <b>Description: </b> This class implements the actions/methods which can be
+ * performed as a part of an HTTP request (get, post, put).
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
+ */
+
 package com.mystique.rt.getmydrivercardapplcation.http;
 
 import java.io.IOException;
