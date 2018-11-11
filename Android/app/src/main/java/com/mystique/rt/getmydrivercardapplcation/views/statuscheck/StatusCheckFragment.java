@@ -84,7 +84,7 @@ public class StatusCheckFragment extends Fragment implements StatusCheckContract
 
     @Override
     public void showStatus(String status) {
-        mStatusTextView.setText(status);
+        mStatusTextView.setText("Application status: " + status);
     }
 
     @Override

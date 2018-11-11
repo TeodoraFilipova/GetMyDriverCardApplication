@@ -117,6 +117,7 @@
     <string name="title_activity_map">MapActivity</string>
     <string name="title_activity_maps">Map</string>
     <string name="pic_recomentdations">Recommendations: take photo against a plain light background, looking straight at the camera, have a neutral expression, your eyes open, your face uncovered, and no smiling, no reflection or glare, no sunglasses, no hair hiding your eyes, no head covering e.g. hat/cap (unless for religious or medical reasons), no shadows.</string>
+    <string name="submit_button_status">Submit</string>
 
 
 </resources>
