@@ -3,6 +3,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Old Card Details"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/md_red_800"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
       <LinearLayout
         android:id="@+id/layout_oldcard_number"
         android:layout_width="match_parent"
@@ -27,7 +45,6 @@
         android:id="@+id/layout_oldcard_authority"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/layout_oldcard_number"
         android:orientation="horizontal">
 
         <TextView
@@ -48,7 +65,6 @@
         android:id="@+id/layout_oldcard_country"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/layout_oldcard_authority"
         android:orientation="horizontal">
 
         <TextView
@@ -69,7 +85,6 @@
         android:id="@+id/layout_oldcard_date_of_expiry"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/layout_oldcard_country"
         android:orientation="horizontal">
 
         <TextView
@@ -85,21 +100,33 @@
             android:hint="@string/old_card_date_of_expiry"
             android:inputType="date" />
     </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
     <Button
         android:id="@+id/btn_oldcard_piccamera"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/layout_oldcard_date_of_expiry"
         android:text="@string/open_camera" />
 
     <ImageView
         android:id="@+id/iv_oldcard_picture"
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:layout_below="@+id/btn_oldcard_piccamera"
-        android:layout_centerHorizontal="true"
         android:contentDescription="@string/push_button_to_make_picture" />
+
+        <TextView
+            android:id="@+id/tv_oldcardpic_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/pic_recomentdations"
+            android:textSize="15dp"
+            android:textStyle="italic" />
+        </LinearLayout>
+
+    </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>

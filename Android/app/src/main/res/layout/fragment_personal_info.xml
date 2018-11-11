@@ -4,6 +4,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Driver Personal details"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/md_red_800"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
     <LinearLayout
         android:id="@+id/layout_personal_number"
         android:layout_width="match_parent"
@@ -176,5 +195,9 @@
             android:layout_height="wrap_content" />
 
     </LinearLayout>
+
+    </LinearLayout>
+
+    </ScrollView>
 
 </RelativeLayout>

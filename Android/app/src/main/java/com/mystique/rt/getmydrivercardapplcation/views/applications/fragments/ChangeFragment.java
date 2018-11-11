@@ -1,3 +1,5 @@
+
+
 package com.mystique.rt.getmydrivercardapplcation.views.applications.fragments;
 
 
@@ -24,6 +26,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mobsandgeeks.saripaar.ValidationError;
@@ -45,9 +48,17 @@ import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
 /**
- * A simple {@link Fragment} subclass.
+ * <h1>Change Fragment</h1>
+ *
+ * <b>Description: </b> Fragment uses devise camera to collect renewing information - names, driver picture for
+ * different user application types, which is organised by Adapters in different activities
+ * in slider view.
+ *
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
  */
 public class ChangeFragment extends Fragment implements FocusListener, Validator.ValidationListener {
 
@@ -86,6 +97,8 @@ public class ChangeFragment extends Fragment implements FocusListener, Validator
     @BindView(R.id.iv_newselfie_picture)
     ImageView newSelfieImageView;
 
+    @BindView(R.id.tv_newselfie_text)
+    TextView newSelfieTextTextView;
 
     BitmapParser mChangeParser;
     private Validator mValidator;
@@ -206,6 +219,7 @@ public class ChangeFragment extends Fragment implements FocusListener, Validator
         } else {
             newSelfieButton.setVisibility(View.VISIBLE);
             newSelfieImageView.setVisibility(View.VISIBLE);
+            newSelfieTextTextView.setVisibility(View.VISIBLE);
         }
     }
 

@@ -1,3 +1,4 @@
+
 package com.mystique.rt.getmydrivercardapplcation.views.applications.fragments;
 
 
@@ -31,7 +32,16 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * A simple {@link Fragment} subclass.
+ * <h1>LossTheft Fragment</h1>
+ *
+ * <b>Description: </b> Fragment uses devise camera to collect information for Loss or Theft for
+ * different user application types, which is organised by Adapters in different activities
+ * in slider view.
+ *
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
  */
 public class LossTheftFragment extends Fragment implements FocusListener, Validator.ValidationListener {
 

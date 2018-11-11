@@ -1,3 +1,4 @@
+
 package com.mystique.rt.getmydrivercardapplcation.views.applications.fragments;
 
 
@@ -28,7 +29,16 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * A simple {@link Fragment} subclass.
+ * <h1>ApplicationChoose Fragment</h1>
+ *
+ * <b>Description: </b> Fragment used in ApplicationChoose activity.
+ * Start screen, where user should choose the type of his application and apply
+ * with click button.
+ *
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
  */
 public class ApplicationChooseFragment extends Fragment {
     private Class mKlass;
