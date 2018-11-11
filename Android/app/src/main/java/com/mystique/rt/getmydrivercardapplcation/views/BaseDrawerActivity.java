@@ -19,6 +19,17 @@ import com.mystique.rt.getmydrivercardapplcation.views.statuscheck.StatusCheckAc
 import butterknife.BindView;
 import dagger.android.support.DaggerAppCompatActivity;
 
+/**
+ * <h1>BaseDrawerActivity</h1>
+ *
+ * <b>Description: </b> This activity extends DaggerAppCompatActivity and acts as the
+ * parent activity class for all other activities which need to visualize a drawer for
+ * navigation.
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
+ */
 public abstract class BaseDrawerActivity extends DaggerAppCompatActivity {
 
     @BindView(R.id.drawer_toolbar)
