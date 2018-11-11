@@ -1,3 +1,16 @@
+/**
+ * <h1>ApplicationChoose Activity</h1>
+ *
+ * <b>Description: </b> Start screen in new card application form,
+ * where user should choose the type of his application and apply
+ * with click button.
+ *
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
+ */
+
 package com.mystique.rt.getmydrivercardapplcation.views.applications.activities;
 
 import android.content.Intent;

@@ -1,3 +1,16 @@
+/**
+ * <h1>Main Activity</h1>
+ *
+ * <b>Description: </b> Starting screen of the application with
+ * drawer menu and buttons to go in the main functional parts -
+ * Start a new card application, Check application status and
+ * Admin panel.
+ *
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
+ */
 package com.mystique.rt.getmydrivercardapplcation.views;
 
 

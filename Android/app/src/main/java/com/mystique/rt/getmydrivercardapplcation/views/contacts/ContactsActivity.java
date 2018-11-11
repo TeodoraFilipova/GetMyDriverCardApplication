@@ -1,3 +1,15 @@
+/**
+ * <h1>Contact Activity</h1>
+ *
+ * <b>Description: </b> Contains information for the receiving offices
+ * with address, telephone and view-on-map button.
+ *
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
+ */
+
 package com.mystique.rt.getmydrivercardapplcation.views.contacts;
 
 import android.Manifest;
