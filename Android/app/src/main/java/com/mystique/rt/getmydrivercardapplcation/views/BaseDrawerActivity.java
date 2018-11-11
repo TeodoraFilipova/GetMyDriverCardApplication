@@ -35,15 +35,15 @@ public abstract class BaseDrawerActivity extends DaggerAppCompatActivity {
         PrimaryDrawerItem applicationItem = new PrimaryDrawerItem()
                 .withIdentifier(ApplicationChooseActivity.IDENTIFIER)
                 .withName("Application")
-                .withIcon(R.drawable.icon_contacts);
+                .withIcon(R.drawable.application);
         PrimaryDrawerItem statusItem = new PrimaryDrawerItem()
                 .withIdentifier(StatusCheckActivity.IDENTIFIER)
                 .withName("Status Check")
-                .withIcon(R.drawable.icon_contacts);
+                .withIcon(R.drawable.checkstatus);
         PrimaryDrawerItem adminItem = new PrimaryDrawerItem()
                 .withIdentifier(LogInActivity.IDENTIFIER)
                 .withName("Admin log-in")
-                .withIcon(R.drawable.icon_contacts);
+                .withIcon(R.drawable.admin);
         PrimaryDrawerItem contactItem = new PrimaryDrawerItem()
                 .withIdentifier(ContactsActivity.IDENTIFIER)
                 .withName("Contacts")
