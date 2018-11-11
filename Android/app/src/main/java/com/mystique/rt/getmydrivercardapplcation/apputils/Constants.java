@@ -12,7 +12,7 @@ package com.mystique.rt.getmydrivercardapplcation.apputils;
  * @since   2018-11-12
  */
 public class Constants {
-    public static final String BASE_SERVER_URL = "http://192.168.0.100:8080/api";
+    public static final String BASE_SERVER_URL = "http://192.168.43.83:8080/api";
 
     public static final int STATUS_CHECK_CODE_LENGTH = 10;
 

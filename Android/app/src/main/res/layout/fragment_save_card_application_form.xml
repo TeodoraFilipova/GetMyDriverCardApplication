@@ -3,18 +3,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/backgroung2"
     tools:context=".views.applications.submittodatabase.step7submitcardapplicationform.SaveCardApplicationFormFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:ignore="UselessParent">
+        tools:ignore="UselessParent"
+        >
         <TextView
             android:id="@+id/text_completed"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Saving application..."/>
+            android:paddingTop="30dp"
+            android:text="Saving application..."
+            android:textColor="@color/md_red_800"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
 
         <ProgressBar
             android:id="@+id/pb_loading"

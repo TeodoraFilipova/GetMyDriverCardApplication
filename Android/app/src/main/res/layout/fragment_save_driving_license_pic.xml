@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/backgroung2"
     tools:context=".views.applications.submittodatabase.step2submitdrivinglicense.SaveDrivingLicensePicFragment">
 
     <LinearLayout
@@ -14,7 +15,10 @@
             android:id="@+id/text_completed"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Your application is being processed! Please wait."/>
+            android:text="Your application is being processed. Please wait!"
+            android:textColor="@color/md_red_800"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
 
         <ProgressBar
             android:id="@+id/pb_loading"
