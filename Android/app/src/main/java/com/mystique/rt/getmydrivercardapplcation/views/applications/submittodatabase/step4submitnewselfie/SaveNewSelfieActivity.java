@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.mystique.rt.getmydrivercardapplcation.R;
+import com.mystique.rt.getmydrivercardapplcation.views.applications.submittodatabase.step5submitoldcardpic.SaveOldCardPicActivity;
 import com.mystique.rt.getmydrivercardapplcation.views.applications.submittodatabase.step6submitdriver.SaveDriverActivity;
 
 import javax.inject.Inject;
@@ -35,7 +36,7 @@ public class SaveNewSelfieActivity extends DaggerAppCompatActivity implements Sa
 
     @Override
     public void navigateToNextActivity() {
-        Intent intent = new Intent(this, SaveDriverActivity.class);
+        Intent intent = new Intent(this, SaveOldCardPicActivity.class);
         startActivity(intent);
     }
 }
