@@ -9,3 +9,5 @@ Project purpose: The project represents a business demo application for a Driver
 The app has a part devoted to application forms and an administrative part.
 
 The User Manual provides directions for using the application.
+
+The documentation provides details on both the Spring and Android class structure. 
