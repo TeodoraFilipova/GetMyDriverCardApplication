@@ -4,6 +4,16 @@ package com.mystique.springdrivercard.models;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+/**
+ * <h1>Picture model</h1>
+ *
+ * <b>Description: </b> This is a POJO class which acts as a model. It defines the fields/properties
+ * of the Picture object. It includes relevant constructors, getters, and setters.
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
+ */
 @Entity
 @Table(name = "pictures")
 public class Picture {

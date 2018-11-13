@@ -9,6 +9,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/**
+ * <h1>UserController</h1>
+ *
+ * <b>Description: </b> This is a Rest Controller using the UserService class which
+ * defines requests to the "/api/users" URL and derived paths. Requests in this controller
+ * are associated with the User model. It includes one(1) GET request (get all).
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
+ */
 @RestController
 @RequestMapping("/api/users")
 public class UserController {

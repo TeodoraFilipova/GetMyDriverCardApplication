@@ -5,6 +5,16 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import java.util.Date;
 
+/**
+ * <h1>CardApplicationForm model</h1>
+ *
+ * <b>Description: </b> This is a POJO class which acts as a model. It defines the fields/properties
+ * of the CardApplicationForm object. It includes relevant constructors, getters, and setters.
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
+ */
 @Entity
 @Table(name = "cardapplicationforms")
 public class CardApplicationForm {

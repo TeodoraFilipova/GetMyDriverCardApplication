@@ -3,6 +3,16 @@ package com.mystique.springdrivercard.models;
 
 import javax.persistence.*;
 
+/**
+ * <h1>User model</h1>
+ *
+ * <b>Description: </b> This is a POJO class which acts as a model. It defines the fields/properties
+ * of the User object. It includes relevant constructors, getters, and setters.
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
+ */
 @Entity
 @Table(name = "users")
 public class User {
