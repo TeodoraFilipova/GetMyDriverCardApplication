@@ -7,6 +7,17 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * <h1>PictureServiceImpl class</h1>
+ *
+ * <b>Description: </b> This class implements the methods for the
+ * service layer (reflecting the business requirements of the
+ * application) of Picture.
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
+ */
 @Service
 public class PictureServiceImpl implements PictureService {
 

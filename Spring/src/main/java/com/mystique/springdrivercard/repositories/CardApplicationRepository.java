@@ -7,11 +7,21 @@ import com.mystique.springdrivercard.models.User;
 
 import java.util.List;
 
+/**
+ * <h1>CardApplicationFormRepository interface</h1>
+ *
+ * <b>Description: </b> This interface defines the methods for the
+ * repository layer (get, add, update) of CardApplicationForm,
+ * Driver, Picture and User models.
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
+ */
 public interface CardApplicationRepository {
 
     // CardApplicationForm
     CardApplicationForm addCardApplicationForm(CardApplicationForm cardApplicationForm);
-    // when adding new appform, could check if driver excists or add first the driver
 
     List<CardApplicationForm> getAllCardApplications();
 
@@ -19,7 +29,7 @@ public interface CardApplicationRepository {
 
     CardApplicationForm updateCardApplication(int id, CardApplicationForm cardApplicationForm);
 
-    // Driver: if we need driver from CardAppForm
+    // Driver
     Driver addDriver(Driver driver);
 
     Driver getDriverByID(int id);
@@ -29,7 +39,7 @@ public interface CardApplicationRepository {
     Driver updateDriver(int id, Driver driver);
 
 
-    // Picture: if we need picture from CardAppForm
+    // Picture
     Picture getPictureByID(int id);
 
     List<Picture> getAllPictures();
