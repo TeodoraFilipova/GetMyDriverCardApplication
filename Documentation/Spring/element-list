@@ -1,0 +1,8 @@
+com.mystique.springdrivercard
+com.mystique.springdrivercard.controllers
+com.mystique.springdrivercard.models
+com.mystique.springdrivercard.repositories
+com.mystique.springdrivercard.services.cardApplicationFormService
+com.mystique.springdrivercard.services.driverService
+com.mystique.springdrivercard.services.pictureService
+com.mystique.springdrivercard.services.userService
