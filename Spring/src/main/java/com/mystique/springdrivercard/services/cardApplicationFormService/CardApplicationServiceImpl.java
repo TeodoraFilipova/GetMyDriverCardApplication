@@ -7,6 +7,17 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * <h1>CardApplicationServiceImpl class</h1>
+ *
+ * <b>Description: </b> This class implements the methods for the
+ * service of CardApplicationForm (reflecting the business requirements of the
+ * application).
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
+ */
 @Service
 public class CardApplicationServiceImpl implements CardApplicationService {
 

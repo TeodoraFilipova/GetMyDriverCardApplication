@@ -13,6 +13,19 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * <h1>SqlCardApplicationFormRepository class</h1>
+ *
+ * <b>Description: </b> This class implements the methods for the
+ * repository layer (get, add, update) of CardApplicationForm Application Models.
+ * It makes http * requests using an HttpRequester, a Gson parser, and the
+ * server base url.
+ *
+ * @author  Mystique Team
+ * @version 1.0
+ * @since   2018-11-12
+ */
+
 @Repository
 public class SqlCardApplicationRepository implements CardApplicationRepository {
 
@@ -73,9 +86,6 @@ public class SqlCardApplicationRepository implements CardApplicationRepository {
                 Session session = sessionFactory.openSession();
         ) {
             session.beginTransaction();
-//            CardApplicationForm cardFormToChange = session.get(CardApplicationForm.class, id);
-//            cardFormToChange.setStatus(cardApplicationForm.getStatus());
-//            cardFormToChange.setDetails(cardApplicationForm.getDetails());
             session.update(cardApplicationForm);
             session.getTransaction().commit();
             return cardApplicationForm;
@@ -124,12 +134,6 @@ public class SqlCardApplicationRepository implements CardApplicationRepository {
                 Session session = sessionFactory.openSession();
         ) {
             session.beginTransaction();
-           // Driver driverFormToChange = session.get(Driver.class, id);
-
-            // field names should be changed in Driver, according to DB
-//            driverFormToChange.setFirstName(driver.getFirstName());
-//            driverFormToChange.setLastName(driver.getLastName());
-//            driverFormToChange.setAddress(driver.getAddress());
             session.update(driver);
             session.getTransaction().commit();
 
@@ -212,9 +216,7 @@ public class SqlCardApplicationRepository implements CardApplicationRepository {
                 Session session = sessionFactory.openSession();
         ) {
             session.beginTransaction();
-         //   Picture pictureToChange = session.get(Picture.class, id);
             session.update(picture);
-//            pictureToChange.setPicture(picture.getPicture());
             session.getTransaction().commit();
             return picture;
         } catch (Exception e) {
